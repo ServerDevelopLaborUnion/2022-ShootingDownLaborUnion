@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@ptkdev/logger": "^1.8.0",
+    "@types/flatbuffers": "^1.10.0",
+    "flatbuffers": "^2.0.6",
     "ts-node": "^10.7.0"
   }
 }

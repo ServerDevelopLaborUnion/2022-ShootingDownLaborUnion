@@ -1,5 +1,6 @@
 import * as http from 'node:http';
-import getLogger from '../Utils/logger';
+import * as router from './router';
+import getLogger from '../utils/logger';
 import { Message, request, server, connection } from 'websocket';
 import { IncomingMessage, ServerResponse } from 'node:http';
 
@@ -38,7 +39,7 @@ export default new class WebsocketServer {
                 }
                 else {
                     Logger.Debug(`Received: ${message.binaryData} from ${request.origin}`);
-                    connection.sendBytes(message.binaryData);
+                    message.binaryData
                 }
             });
             connection.on("close", (reasonCode: number, description: string) => {
