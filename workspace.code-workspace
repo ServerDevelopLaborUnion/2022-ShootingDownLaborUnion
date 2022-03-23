@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "src\\server"
+		},
+		{
+			"path": "src\\client"
+		}
+	],
+	"settings": {
+		"nuxt.isNuxtApp": false,
+		"git.ignoreLimitWarning": true
+	}
+}
