@@ -99,7 +99,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -725,32 +724,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      sprites_monsterAttack_medium_32x32_23: 279903784815648996
-      sprites_monsterAttack_medium_32x32_15: 5090998835188246705
-      sprites_monsterAttack_medium_32x32_24: -8780324928581303489
-      sprites_monsterAttack_medium_32x32_11: 2821148886842922578
-      sprites_monsterAttack_medium_32x32_9: -8842972279305113220
-      sprites_monsterAttack_medium_32x32_18: 44412304577611763
-      sprites_monsterAttack_medium_32x32_14: -960336144393778847
-      sprites_monsterAttack_medium_32x32_2: 198615488555284991
-      sprites_monsterAttack_medium_32x32_3: -6777089532002304002
-      sprites_monsterAttack_medium_32x32_21: -2737958044582426942
-      sprites_monsterAttack_medium_32x32_6: 8742514258935685314
-      sprites_monsterAttack_medium_32x32_12: 6626112111838620630
-      sprites_monsterAttack_medium_32x32_8: -4363891211753949602
-      sprites_monsterAttack_medium_32x32_17: 8280601649777852952
-      sprites_monsterAttack_medium_32x32_20: 9166305299437213385
-      sprites_monsterAttack_medium_32x32_16: -3761441778018162798
-      sprites_monsterAttack_medium_32x32_19: 7097590908901583039
-      sprites_monsterAttack_medium_32x32_10: -437809017105216139
-      sprites_monsterAttack_medium_32x32_7: 2357555688417416482
-      sprites_monsterAttack_medium_32x32_0: -7486846100739356810
-      sprites_monsterAttack_medium_32x32_4: 5618838281562226144
-      sprites_monsterAttack_medium_32x32_13: -2592188483029062430
-      sprites_monsterAttack_medium_32x32_22: 5802017951156592854
-      sprites_monsterAttack_medium_32x32_1: -3203182419932676088
-      sprites_monsterAttack_medium_32x32_5: 633894759301095765
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

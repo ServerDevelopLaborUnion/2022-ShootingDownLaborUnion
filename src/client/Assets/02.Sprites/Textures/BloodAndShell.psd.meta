@@ -51,7 +51,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -341,16 +340,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      BloodAndShell_8: 482197461135801924
-      BloodAndShell_0: 8032497815974495332
-      BloodAndShell_7: -8609966373140954059
-      BloodAndShell_5: -9145734779656284483
-      BloodAndShell_4: 630027893191822431
-      BloodAndShell_2: 1649226169111975522
-      BloodAndShell_6: -3491346687604653191
-      BloodAndShell_1: 6750120086332854479
-      BloodAndShell_3: -5905755945055689200
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1

@@ -96,7 +96,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -725,31 +724,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      _sprites_monsters_big_9: 2981245926815174082
-      _sprites_monsters_big_2: -3134890353204166767
-      _sprites_monsters_big_5: -6943890195690130451
-      _sprites_monsters_big_6: -1199749804520573516
-      _sprites_monsters_big_15: 4735010759476044737
-      _sprites_monsters_big_3: -9032992392372967023
-      _sprites_monsters_big_17: -5449689847972020195
-      _sprites_monsters_big_19: -4732100278437033992
-      _sprites_monsters_big_1: 2824999699610686360
-      _sprites_monsters_big_7: 1041103429898336348
-      _sprites_monsters_big_13: 6561014284067672558
-      _sprites_monsters_big_8: -486309668871112138
-      _sprites_monsters_big_4: -7818894644314249467
-      _sprites_monsters_big_22: 4215648831489398938
-      _sprites_monsters_big_12: 8440282959476798100
-      _sprites_monsters_big_18: -729986979598510903
-      _sprites_monsters_big_23: -4456150263817581094
-      _sprites_monsters_big_16: 6235409293017765775
-      _sprites_monsters_big_10: 1541303899142432923
-      _sprites_monsters_big_0: -6981412043874262857
-      _sprites_monsters_big_21: -2368568031021923055
-      _sprites_monsters_big_11: -290610999198447268
-      _sprites_monsters_big_14: 3352298603415609706
-      _sprites_monsters_big_20: 1285748949996702809
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

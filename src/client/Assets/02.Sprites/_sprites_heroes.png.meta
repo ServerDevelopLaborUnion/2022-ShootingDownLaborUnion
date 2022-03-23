@@ -429,7 +429,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -2066,79 +2065,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      _sprites_heroes_69: 3409191816681065986
-      _sprites_heroes_8: -1770128653110521830
-      _sprites_heroes_14: 8699866753767195459
-      _sprites_heroes_24: -7844297003682464235
-      _sprites_heroes_10: 3614835344102895061
-      _sprites_heroes_50: 4422202591126480152
-      _sprites_heroes_6: 4977439426868191306
-      _sprites_heroes_18: 7616118921551313950
-      _sprites_heroes_26: 1493510139757299417
-      _sprites_heroes_52: -2709093763015777548
-      _sprites_heroes_5: -6309932642267977614
-      _sprites_heroes_22: 7713714309153636525
-      _sprites_heroes_48: -8724239108561247953
-      _sprites_heroes_30: -4105017586612902140
-      _sprites_heroes_58: 8312977141795413246
-      _sprites_heroes_39: 4443258988423857805
-      _sprites_heroes_13: 2142030622345023591
-      _sprites_heroes_64: 985102941426132139
-      _sprites_heroes_21: -5692448523943576133
-      _sprites_heroes_16: 2348695063744993788
-      _sprites_heroes_34: 8502183243949274773
-      _sprites_heroes_44: 6062714789553543176
-      _sprites_heroes_29: 9035351479130094104
-      _sprites_heroes_9: -5309872339185856328
-      _sprites_heroes_49: 8976088567547731331
-      _sprites_heroes_61: 98123682667362544
-      _sprites_heroes_23: -5574757848109482955
-      _sprites_heroes_35: -2909200660225057457
-      _sprites_heroes_12: -6725729633189818510
-      _sprites_heroes_55: -2813713934898612601
-      _sprites_heroes_53: 8340643421899330165
-      _sprites_heroes_56: -4723088487435204151
-      _sprites_heroes_4: 2084476045944145930
-      _sprites_heroes_60: 1827940119490937354
-      _sprites_heroes_33: -3817483756313480796
-      _sprites_heroes_40: -3643867629388005748
-      _sprites_heroes_68: 3017160120036121763
-      _sprites_heroes_65: -1543584514040341714
-      _sprites_heroes_71: 6144461099409619946
-      _sprites_heroes_46: -3451915853022476166
-      _sprites_heroes_15: -3260878776702699404
-      _sprites_heroes_66: -294964743442570327
-      _sprites_heroes_20: -1554481335699986338
-      _sprites_heroes_37: 368520392874549566
-      _sprites_heroes_11: 5660049267425342817
-      _sprites_heroes_19: 1199450332996084022
-      _sprites_heroes_45: 3427834622194971515
-      _sprites_heroes_41: -764691175595483773
-      _sprites_heroes_27: -2252652819362581166
-      _sprites_heroes_28: -3297324289073312496
-      _sprites_heroes_42: 1856075876382247289
-      _sprites_heroes_43: 9060992422839872614
-      _sprites_heroes_1: 7099416267201676946
-      _sprites_heroes_47: 2358958987539826765
-      _sprites_heroes_67: -6770039969746841487
-      _sprites_heroes_70: -8081446441201632510
-      _sprites_heroes_51: -7309765789552470421
-      _sprites_heroes_36: -7152299001105452386
-      _sprites_heroes_63: 5005811440453487312
-      _sprites_heroes_0: -1200360167124240629
-      _sprites_heroes_38: 9103031812004441986
-      _sprites_heroes_17: 2234617067748929779
-      _sprites_heroes_2: 1020687299042731454
-      _sprites_heroes_3: -2147787076102708286
-      _sprites_heroes_31: -2699996576039957573
-      _sprites_heroes_7: -4178262109796241004
-      _sprites_heroes_25: -1565602658677180032
-      _sprites_heroes_57: 2628069040731298787
-      _sprites_heroes_54: 428963871427550391
-      _sprites_heroes_32: 1184802654556550813
-      _sprites_heroes_59: -5057382484909398286
-      _sprites_heroes_62: 2803902011074426444
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

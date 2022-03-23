@@ -282,7 +282,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1583,63 +1582,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      _sprites_monsters_small_14: 6398182146866689127
-      _sprites_monsters_small_4: -5513821842966248544
-      _sprites_monsters_small_17: 3419635045471425457
-      _sprites_monsters_small_31: 8869997069259439087
-      _sprites_monsters_small_11: -8211226878854048489
-      _sprites_monsters_small_2: 8329060251576548534
-      _sprites_monsters_small_6: 9089497576078090279
-      _sprites_monsters_small_16: 1829082720795865408
-      _sprites_monsters_small_22: 2568489726882495914
-      _sprites_monsters_small_30: -9132917064507222733
-      _sprites_monsters_small_15: 4299821728426164948
-      _sprites_monsters_small_50: 8834957906004635143
-      _sprites_monsters_small_26: 5124205982322767488
-      _sprites_monsters_small_0: -1834106424566606440
-      _sprites_monsters_small_52: 8830127809255245325
-      _sprites_monsters_small_29: -7427247017912261323
-      _sprites_monsters_small_36: -1088981374488588011
-      _sprites_monsters_small_1: 876880316713107312
-      _sprites_monsters_small_44: 3432901174953513207
-      _sprites_monsters_small_41: 6625133303851647346
-      _sprites_monsters_small_42: -7943023031683378669
-      _sprites_monsters_small_55: 4163627467777425938
-      _sprites_monsters_small_19: 6130266099346999182
-      _sprites_monsters_small_34: 6898881610105339670
-      _sprites_monsters_small_45: -7701062401230318372
-      _sprites_monsters_small_38: -1683216024261779644
-      _sprites_monsters_small_54: -8950561885979410878
-      _sprites_monsters_small_8: -3761250609568517193
-      _sprites_monsters_small_9: -2949670566918613553
-      _sprites_monsters_small_21: -7785819119888601468
-      _sprites_monsters_small_46: 2530112179302732158
-      _sprites_monsters_small_27: -7916977236480237383
-      _sprites_monsters_small_35: 3075484528470484705
-      _sprites_monsters_small_48: -1941594528591170370
-      _sprites_monsters_small_49: -2610531221712253
-      _sprites_monsters_small_5: 5189193489346038226
-      _sprites_monsters_small_23: -4514372214293896591
-      _sprites_monsters_small_20: 7330270354075497324
-      _sprites_monsters_small_12: -3047892014906556808
-      _sprites_monsters_small_3: -4242784380997880079
-      _sprites_monsters_small_47: -918707849367508214
-      _sprites_monsters_small_40: -7231734236842055964
-      _sprites_monsters_small_10: -2437842227407162199
-      _sprites_monsters_small_53: -4700828407062617089
-      _sprites_monsters_small_39: -2506777229197873437
-      _sprites_monsters_small_24: 7124621374147906806
-      _sprites_monsters_small_51: -5059430461403866444
-      _sprites_monsters_small_43: -8411477716859952534
-      _sprites_monsters_small_7: 2454520177103679865
-      _sprites_monsters_small_25: 2441911090722705887
-      _sprites_monsters_small_28: -7934653443114279953
-      _sprites_monsters_small_32: 3494841588081824635
-      _sprites_monsters_small_18: 1665219741080849575
-      _sprites_monsters_small_33: -4442183413843238658
-      _sprites_monsters_small_37: 7014262609008198829
-      _sprites_monsters_small_13: -3369240311388178294
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

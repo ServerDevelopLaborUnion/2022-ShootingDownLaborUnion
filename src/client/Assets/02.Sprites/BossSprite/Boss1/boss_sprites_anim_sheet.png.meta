@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -566,28 +565,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      boss_sprites_anim_sheet_18: 1740755668
-      boss_sprites_anim_sheet_4: 232836509
-      boss_sprites_anim_sheet_20: 1739639726
-      boss_sprites_anim_sheet_3: 563633416
-      boss_sprites_anim_sheet_19: 1548031340
-      boss_sprites_anim_sheet_7: -1844304223
-      boss_sprites_anim_sheet_5: -736778786
-      boss_sprites_anim_sheet_6: -131535323
-      boss_sprites_anim_sheet_14: -144153549
-      boss_sprites_anim_sheet_1: -1834906235
-      boss_sprites_anim_sheet_15: 178220821
-      boss_sprites_anim_sheet_8: -658179844
-      boss_sprites_anim_sheet_9: 1844312078
-      boss_sprites_anim_sheet_16: -604279124
-      boss_sprites_anim_sheet_2: -696430855
-      boss_sprites_anim_sheet_12: -1230711520
-      boss_sprites_anim_sheet_13: 75086908
-      boss_sprites_anim_sheet_17: -1312622498
-      boss_sprites_anim_sheet_11: -1601713461
-      boss_sprites_anim_sheet_0: 533615088
-      boss_sprites_anim_sheet_10: -1069211479
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

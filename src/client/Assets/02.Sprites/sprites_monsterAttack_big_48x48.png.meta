@@ -63,7 +63,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -437,20 +436,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      sprites_monsterAttack_big_48x48_4: 3550225133816065775
-      sprites_monsterAttack_big_48x48_6: -5090905351859860516
-      sprites_monsterAttack_big_48x48_3: -1917841816823045090
-      sprites_monsterAttack_big_48x48_9: -5322548757097206960
-      sprites_monsterAttack_big_48x48_10: 4994044353257663770
-      sprites_monsterAttack_big_48x48_1: -2088548281650978400
-      sprites_monsterAttack_big_48x48_2: 5207714483775654521
-      sprites_monsterAttack_big_48x48_5: -1763243465267853805
-      sprites_monsterAttack_big_48x48_8: 2228639376737989584
-      sprites_monsterAttack_big_48x48_7: 4605002270366313289
-      sprites_monsterAttack_big_48x48_0: 2099547325715788854
-      sprites_monsterAttack_big_48x48_11: 98366430370187732
-      sprites_monsterAttack_big_48x48_12: 2655213568397274740
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

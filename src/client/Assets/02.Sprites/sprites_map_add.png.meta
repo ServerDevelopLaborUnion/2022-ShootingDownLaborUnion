@@ -210,7 +210,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1613,69 +1612,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      sprites_map_add_2: 3900876485529001900
-      sprites_map_add_10: -1879305302583283242
-      sprites_map_add_48: -8547370395279595837
-      sprites_map_add_55: -7305276538851162162
-      sprites_map_add_22: 676175336817979916
-      sprites_map_add_60: -5415137648364132816
-      sprites_map_add_53: -7588061691154791271
-      sprites_map_add_18: 1632030298643707318
-      sprites_map_add_50: 1630599844132325026
-      sprites_map_add_33: -7689816892475271275
-      sprites_map_add_30: 4303069817442568820
-      sprites_map_add_51: -8222592310693745996
-      sprites_map_add_19: 1749981360158497388
-      sprites_map_add_24: 6764280650493169034
-      sprites_map_add_3: -6121155416715792690
-      sprites_map_add_6: -4833491519160852600
-      sprites_map_add_35: 701505936791841830
-      sprites_map_add_14: -3085238212014610321
-      sprites_map_add_61: -1937654755959125716
-      sprites_map_add_46: -904028226258122296
-      sprites_map_add_41: -8304657382147040537
-      sprites_map_add_37: -4581935395118541047
-      sprites_map_add_0: -2751285218782295693
-      sprites_map_add_5: 4081604346961816038
-      sprites_map_add_26: -5874242780076667102
-      sprites_map_add_9: 199196718733965074
-      sprites_map_add_16: -6910659449135320094
-      sprites_map_add_25: -4829417376429888929
-      sprites_map_add_54: -1626482395182982917
-      sprites_map_add_1: -3627107063122691704
-      sprites_map_add_49: 5440470035254519620
-      sprites_map_add_45: -2942823461055251275
-      sprites_map_add_13: -7080477528264690163
-      sprites_map_add_12: -3250771918965858780
-      sprites_map_add_17: -1476347184117285882
-      sprites_map_add_44: -1988434443656696148
-      sprites_map_add_28: -8588196233552091479
-      sprites_map_add_38: 6874453453273783812
-      sprites_map_add_29: 113056020754467174
-      sprites_map_add_32: -9220628222471059622
-      sprites_map_add_4: -8085887035224664225
-      sprites_map_add_36: 3146592685907624548
-      sprites_map_add_31: -4170734213822464710
-      sprites_map_add_15: -2897635051766648908
-      sprites_map_add_57: 1989754107813183628
-      sprites_map_add_21: -6979439229857668930
-      sprites_map_add_58: -5377149055390147289
-      sprites_map_add_43: -7788780589158152734
-      sprites_map_add_20: -828685292565292694
-      sprites_map_add_39: -813176060692129372
-      sprites_map_add_27: 4751718685953232462
-      sprites_map_add_56: 2801381789862416878
-      sprites_map_add_47: -7436228128482429103
-      sprites_map_add_42: 3588654606730393556
-      sprites_map_add_59: -6193118912675843382
-      sprites_map_add_52: 2581075114223897710
-      sprites_map_add_8: -6702146941005665942
-      sprites_map_add_11: -2078933644136959135
-      sprites_map_add_23: -6149811264605784958
-      sprites_map_add_7: 3416304606639149061
-      sprites_map_add_34: 8847863210572618603
-      sprites_map_add_40: 1469882887772234225
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

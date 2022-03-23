@@ -297,7 +297,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -2333,98 +2332,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      _sprites_map_84: 1201387378064054763
-      _sprites_map_56: -5077368043531961866
-      _sprites_map_27: 180985329325183580
-      _sprites_map_86: -5902467651063339197
-      _sprites_map_49: -1935663117766648446
-      _sprites_map_31: 921316902342108203
-      _sprites_map_45: -1090592437021632910
-      _sprites_map_1: 5689179024978789148
-      _sprites_map_51: 3739974161283148770
-      _sprites_map_2: -583455943482852542
-      _sprites_map_25: -199439644161746194
-      _sprites_map_80: 7877151068030306148
-      _sprites_map_71: 410720530895683083
-      _sprites_map_28: -4689148301327668534
-      _sprites_map_9: -4510805832340850959
-      _sprites_map_6: -2597198162302776380
-      _sprites_map_62: -2631557825617741286
-      _sprites_map_34: -2822490901727917267
-      _sprites_map_69: 116189540396447416
-      _sprites_map_67: -3484874613110775170
-      _sprites_map_58: 78248197782633733
-      _sprites_map_20: -8382817350222411419
-      _sprites_map_90: -1012279626063565661
-      _sprites_map_44: 2314349856743053192
-      _sprites_map_4: -5000871436975167334
-      _sprites_map_65: 9142604480068697080
-      _sprites_map_33: -4147344829907516856
-      _sprites_map_60: -8867254328226138379
-      _sprites_map_16: 3355754164919461307
-      _sprites_map_72: 931367507677807349
-      _sprites_map_68: -6109082671755924162
-      _sprites_map_47: 2931420893181472770
-      _sprites_map_50: -6087493645917338411
-      _sprites_map_76: -7812524037412032423
-      _sprites_map_42: -8896503210687654285
-      _sprites_map_26: 7358558082640735652
-      _sprites_map_63: 5491810109368231844
-      _sprites_map_48: -2100795814140181850
-      _sprites_map_46: 7800402667792206885
-      _sprites_map_57: 3865523136577758233
-      _sprites_map_77: 4957114929175219481
-      _sprites_map_64: 2870633998382647343
-      _sprites_map_87: -7411715157331503257
-      _sprites_map_81: 1930003640290482719
-      _sprites_map_23: -5642582526449250966
-      _sprites_map_5: 9056367650235560826
-      _sprites_map_11: 2846915347115209281
-      _sprites_map_19: -3088023901821488948
-      _sprites_map_32: 3883251598948411689
-      _sprites_map_13: 6181761907329571581
-      _sprites_map_40: 7881143985639749144
-      _sprites_map_70: -3246432942169712825
-      _sprites_map_85: -4390136470256713113
-      _sprites_map_15: 1118147101656797076
-      _sprites_map_73: -5575389565681982772
-      _sprites_map_39: 3756118581881008438
-      _sprites_map_59: 4403368870789542761
-      _sprites_map_83: -5621312635586626405
-      _sprites_map_38: -1236837465456268221
-      _sprites_map_24: -1881537465431657729
-      _sprites_map_41: 6792323828442274091
-      _sprites_map_74: -615103122872816343
-      _sprites_map_61: -8354886075342869360
-      _sprites_map_18: 873442057149473758
-      _sprites_map_78: -4770126493042895421
-      _sprites_map_79: 3616344353374679148
-      _sprites_map_55: 7240704254499169419
-      _sprites_map_21: -5435905835906265883
-      _sprites_map_66: -8891296811835412473
-      _sprites_map_29: 1195992048599029163
-      _sprites_map_0: 4950387820128656522
-      _sprites_map_36: 4464536274742609701
-      _sprites_map_37: 2183348277122254200
-      _sprites_map_52: -7093791932074343897
-      _sprites_map_12: 7702021525676566496
-      _sprites_map_35: -1564920518874098207
-      _sprites_map_75: 7540604529942501661
-      _sprites_map_14: 6240856579520936279
-      _sprites_map_53: -2321868682663126791
-      _sprites_map_7: 8690714160246614940
-      _sprites_map_88: 707867558183568923
-      _sprites_map_54: 2096214981042546769
-      _sprites_map_82: -8791823612676879096
-      _sprites_map_8: -6090686176828050188
-      _sprites_map_30: -5279837793274465179
-      _sprites_map_3: 5656642857834605250
-      _sprites_map_22: 6659298173076704383
-      _sprites_map_10: 6127591293058453706
-      _sprites_map_17: 7964046633643551722
-      _sprites_map_89: -6873760370808076151
-      _sprites_map_43: -1408812653097567057
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
