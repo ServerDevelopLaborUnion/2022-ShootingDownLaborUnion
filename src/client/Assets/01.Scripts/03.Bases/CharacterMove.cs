@@ -56,7 +56,7 @@ public class CharacterMove : MonoBehaviour
     private void FixedUpdate()
     {
         OnVelocityChange?.Invoke(_currentVelocity);
-        if (!_isAttacking)
+        if (!(_isAttacking||_isDying))
         {
             _rigid.velocity = _movementDirection * _currentVelocity;
         }

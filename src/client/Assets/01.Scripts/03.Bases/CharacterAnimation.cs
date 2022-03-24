@@ -10,6 +10,7 @@ public class CharacterAnimation : MonoBehaviour
 
     private int _doMove = Animator.StringToHash("DoMove");
     private int _doAttack = Animator.StringToHash("DoAttack");
+    private int _doDie = Animator.StringToHash("DoDie");
 
     private void Start()
     {
@@ -27,5 +28,11 @@ public class CharacterAnimation : MonoBehaviour
     {
         _animator.SetTrigger(_doAttack);
         _shadowAnimator.SetTrigger(_doAttack);
+    }
+
+    public void PlayDeathAnime()
+    {
+        _animator.SetTrigger(_doDie);
+        _shadowAnimator.SetTrigger(_doDie);
     }
 }
