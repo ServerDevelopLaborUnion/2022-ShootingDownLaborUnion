@@ -1,18 +1,10 @@
 import { connection } from "websocket";
-
-class User {
-    uuid: string;
-    username: string;
-    constructor() {
-        this.uuid = "";
-        this.username = "";
-    }
-}
+import { User } from "../types/User";
 
 declare module 'websocket' {
     export interface connection {
-        user: User;
+        user: User | null;
     }
 }
 
-connection.prototype.user = new User();
+connection.prototype.user = null;
