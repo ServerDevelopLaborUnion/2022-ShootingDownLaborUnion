@@ -1,8 +1,10 @@
 import * as http from 'node:http';
 import * as router from './router';
 import getLogger from '../utils/logger';
+import { v4 as genUUID } from 'uuid';
 import { Message, request, server, connection } from 'websocket';
 import { IncomingMessage, ServerResponse } from 'node:http';
+import { User } from '../types/User';
 
 type NullableWsServer = server | null;
 const Logger = getLogger('Websocket');
@@ -30,22 +32,20 @@ export default new class WebsocketServer {
         this.wsServer = new server({ httpServer: this.server });
 
         this.wsServer.on("request", (request: request) => {
-            const connection: connection = request.accept(null, request.origin);
-            Logger.Info(`Connection accepted from ${request.origin}`);
-            connection.on("message", (message: Message) => {
-                if (message.type === 'utf8') {
-                    Logger.Debug(`Received: ${message.utf8Data} from ${request.origin}`);
-                    connection.sendUTF(`You said: ${message.utf8Data}`);
-                }
-                else {
+            const socket: connection = request.accept(null, request.origin);
+            socket.user = new User(socket, genUUID());
+
+            Logger.Debug(`${socket.user.sessionId} connected`);
+            socket.on("message", (message: Message) => {
+                if (message.type === 'binary') {
                     Logger.Debug(`Received: ${message.binaryData} from ${request.origin}`);
-                    message.binaryData
+                    router.receive(message.binaryData);
                 }
             });
-            connection.on("close", (reasonCode: number, description: string) => {
-                Logger.Debug(`Closed: ${reasonCode} ${description}`);
+            socket.on("close", (reasonCode: number, description: string) => {
+                Logger.Debug(`${socket.user?.sessionId} disconnected: ${reasonCode} ${description}`);
             });
-            connection.on("error", (error: Error) => {
+            socket.on("error", (error: Error) => {
                 Logger.Error(`${error}`);
             });
         });
