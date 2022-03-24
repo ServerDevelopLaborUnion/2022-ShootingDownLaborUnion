@@ -6,6 +6,9 @@ logger.Info('App Started');
 server.listen(3000);
 
 process.on('uncaughtException', (err) => {
+    if (err.stack) {
+        logger.Error(err.stack);
+    }
     logger.Error(err.name);
     logger.Error(err.message);
 });

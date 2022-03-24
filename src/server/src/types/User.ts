@@ -1,13 +1,20 @@
 import { connection } from "websocket";
 import { Account } from './Account';
 
-export class User {
+export enum UserType {
+    User,
+    ValidUser
+}
+
+export interface User {
+    type: UserType.User;
+    socket: connection | null;
+    sessionId: string;
+}
+
+export interface ValidUser {
+    type: UserType.ValidUser;
     socket: connection;
     sessionId: string;
-    account: Account | null;
-    constructor(socket: connection, uuid: string) {
-        this.socket = socket;
-        this.sessionId = uuid;
-        this.account = null;
-    }
+    account: Account;
 }

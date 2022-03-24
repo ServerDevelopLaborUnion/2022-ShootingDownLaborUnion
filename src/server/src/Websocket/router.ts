@@ -1,14 +1,33 @@
-import * as flatbuffers from 'flatbuffers';
-import { LoginRequest } from "../flatbuf/login-request";
+import { LoginRequest } from '../protobuf/LoginRequest/LoginRequest';
+import { connection } from 'websocket';
+import { Account } from '../types/Account';
+import { UserType } from '../types/User';
 
-export function receive(buffer: Buffer) {
+export function receive(socket: connection, buffer: Buffer) {
     const type: number = buffer.readUInt32BE(0);
     const length: number = buffer.readUInt32BE(1);
-    const data = new flatbuffers.ByteBuffer(buffer.slice(5, 5 + length));
+    const data: Buffer = buffer.slice(5, 5 + length);
 
     switch (type) {
-        case LoginRequest.type:
-            return LoginRequest.getRootAsLoginRequest(data);
+        case 0:
+            LoginRequestHandler(socket, data);
+            break;
+        default:
             break;
     }
+}
+
+
+function LoginRequestHandler(socket: connection, data: Buffer) {
+    const loginRequest = LoginRequest.decode(data);
+    const account = new Account(socket.user.sessionId, loginRequest.username);
+    
+    socket.user = {
+        type: UserType.ValidUser,
+        sessionId: socket.user.sessionId,
+        socket: socket,
+        account: account
+    }
+
+    console.log(loginRequest);
 }

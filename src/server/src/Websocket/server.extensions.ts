@@ -1,10 +1,14 @@
 import { connection } from "websocket";
-import { User } from "../types/User";
+import { User, UserType, ValidUser } from '../types/User';
 
 declare module 'websocket' {
     export interface connection {
-        user: User | null;
+        user: User | ValidUser;
     }
 }
 
-connection.prototype.user = null;
+connection.prototype.user = {
+    type: UserType.User,
+    socket: null,
+    sessionId: ""
+};
