@@ -42,7 +42,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -293,13 +292,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Torch_Sheet_3: -2382458923274280011
-      Torch_Sheet_0: -528423967385596662
-      Torch_Sheet_1: 8707310400494526776
-      Torch_Sheet_5: -8388274706161570712
-      Torch_Sheet_4: 1630042851307941536
-      Torch_Sheet_2: 1622484652431274718
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

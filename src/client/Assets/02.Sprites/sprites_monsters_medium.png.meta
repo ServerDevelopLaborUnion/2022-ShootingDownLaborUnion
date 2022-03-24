@@ -342,7 +342,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -2669,113 +2668,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      sprites_monsters_medium_11: 5310375144543808725
-      sprites_monsters_medium_37: 2394041283289966806
-      sprites_monsters_medium_32: 8653511255182027976
-      sprites_monsters_medium_87: 4144973281302068222
-      sprites_monsters_medium_25: 1755173604199369093
-      sprites_monsters_medium_29: -8428162263809748472
-      sprites_monsters_medium_101: -8461254242552992038
-      sprites_monsters_medium_7: -7944865854680999224
-      sprites_monsters_medium_40: 2249984322871677362
-      sprites_monsters_medium_24: -7564330784828311288
-      sprites_monsters_medium_30: 2177765942341669110
-      sprites_monsters_medium_60: 6827952683062981884
-      sprites_monsters_medium_34: -2185072974857026871
-      sprites_monsters_medium_75: -649992046603231487
-      sprites_monsters_medium_68: -5376714866158507709
-      sprites_monsters_medium_45: -6228816154072804826
-      sprites_monsters_medium_70: -8666157171508697043
-      sprites_monsters_medium_92: 2464926637407902323
-      sprites_monsters_medium_102: 6264208087269260956
-      sprites_monsters_medium_14: 5428648492293534975
-      sprites_monsters_medium_28: 2845674611194674967
-      sprites_monsters_medium_93: -5264557548751867128
-      sprites_monsters_medium_78: -4487907086598994551
-      sprites_monsters_medium_26: 3341590412274483405
-      sprites_monsters_medium_44: -7726452360381539719
-      sprites_monsters_medium_100: 1225568551388415562
-      sprites_monsters_medium_27: 2345777439086538060
-      sprites_monsters_medium_16: -7399574047600199764
-      sprites_monsters_medium_83: 275671469467652552
-      sprites_monsters_medium_17: -8028251991358969868
-      sprites_monsters_medium_53: 5190401182597365238
-      sprites_monsters_medium_54: 2708237452919071130
-      sprites_monsters_medium_59: 1251110010077132335
-      sprites_monsters_medium_96: 7209832532080129800
-      sprites_monsters_medium_88: 67445883007950094
-      sprites_monsters_medium_61: -6016031249894494402
-      sprites_monsters_medium_72: -1272127814681552512
-      sprites_monsters_medium_73: 8543048457075417475
-      sprites_monsters_medium_71: -643492933584325474
-      sprites_monsters_medium_79: -7978936377243860387
-      sprites_monsters_medium_103: -1273887187163924142
-      sprites_monsters_medium_2: -4070856607343298714
-      sprites_monsters_medium_12: -3658831294577027316
-      sprites_monsters_medium_80: -220361449277290150
-      sprites_monsters_medium_33: 3194296577701583230
-      sprites_monsters_medium_55: -4378416551905160500
-      sprites_monsters_medium_6: -6912911833799451088
-      sprites_monsters_medium_13: -9128930989327238828
-      sprites_monsters_medium_8: -7657600290588072069
-      sprites_monsters_medium_23: -1437601995774281935
-      sprites_monsters_medium_104: 1544263205499451304
-      sprites_monsters_medium_91: 1415952476471559569
-      sprites_monsters_medium_49: 4599073835692658903
-      sprites_monsters_medium_98: 3222998752583101461
-      sprites_monsters_medium_89: -5018507855681271391
-      sprites_monsters_medium_48: 5697415005130815434
-      sprites_monsters_medium_46: -1176955344984380514
-      sprites_monsters_medium_51: 5092888512150267978
-      sprites_monsters_medium_50: 6217076835203969138
-      sprites_monsters_medium_90: 7918602654637228246
-      sprites_monsters_medium_38: -6749550198278573897
-      sprites_monsters_medium_82: -9148714983428264830
-      sprites_monsters_medium_39: -1578945873879045593
-      sprites_monsters_medium_19: -2103519754846287032
-      sprites_monsters_medium_0: 4668965341520564114
-      sprites_monsters_medium_9: 6375366298201769534
-      sprites_monsters_medium_15: 8133494731037885350
-      sprites_monsters_medium_84: 7666886383779502355
-      sprites_monsters_medium_22: 225903317270716145
-      sprites_monsters_medium_1: 9197823898232117199
-      sprites_monsters_medium_66: -8023628020002243449
-      sprites_monsters_medium_105: -5213898896191289643
-      sprites_monsters_medium_21: 472168450971464378
-      sprites_monsters_medium_99: 8938492363973551128
-      sprites_monsters_medium_3: 8254743960887625967
-      sprites_monsters_medium_41: 7869068932414723440
-      sprites_monsters_medium_77: -3215663912474242209
-      sprites_monsters_medium_95: 7524113096928710867
-      sprites_monsters_medium_4: -681484572479690545
-      sprites_monsters_medium_67: -5782012600741756053
-      sprites_monsters_medium_10: -5359263604667583411
-      sprites_monsters_medium_35: 5807922595002424615
-      sprites_monsters_medium_64: -89864729391336541
-      sprites_monsters_medium_52: 5515639019303015160
-      sprites_monsters_medium_65: 9090415116629424454
-      sprites_monsters_medium_56: -4483905393222189374
-      sprites_monsters_medium_31: -3454234647186932417
-      sprites_monsters_medium_62: -326407667957588537
-      sprites_monsters_medium_81: 3670883015319274795
-      sprites_monsters_medium_18: 7593635791171942973
-      sprites_monsters_medium_47: -5393961440081974725
-      sprites_monsters_medium_42: -5832822277898912246
-      sprites_monsters_medium_20: -4275762756212040669
-      sprites_monsters_medium_58: 1165270511122644936
-      sprites_monsters_medium_43: -5473032134709039626
-      sprites_monsters_medium_85: -375729277521494192
-      sprites_monsters_medium_94: -3506362905718537922
-      sprites_monsters_medium_97: -4610455925249804122
-      sprites_monsters_medium_57: 6015172733137240200
-      sprites_monsters_medium_86: 873222595207048256
-      sprites_monsters_medium_63: -1230386299511582306
-      sprites_monsters_medium_36: 2662765533951640754
-      sprites_monsters_medium_5: -5840601121411419365
-      sprites_monsters_medium_74: 6383482051557351634
-      sprites_monsters_medium_76: -389930623941820127
-      sprites_monsters_medium_69: 3104248019580712485
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

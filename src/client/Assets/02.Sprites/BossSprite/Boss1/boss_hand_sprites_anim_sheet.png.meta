@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -566,28 +565,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      boss_hand_sprites_anim_sheet_4: 475060932
-      boss_hand_sprites_anim_sheet_19: -1520007714
-      boss_hand_sprites_anim_sheet_20: 431796459
-      boss_hand_sprites_anim_sheet_7: -676998233
-      boss_hand_sprites_anim_sheet_8: -589494135
-      boss_hand_sprites_anim_sheet_0: -1639739093
-      boss_hand_sprites_anim_sheet_17: -1957299066
-      boss_hand_sprites_anim_sheet_12: 180056187
-      boss_hand_sprites_anim_sheet_3: -2132017857
-      boss_hand_sprites_anim_sheet_15: 1878698604
-      boss_hand_sprites_anim_sheet_16: -685861034
-      boss_hand_sprites_anim_sheet_10: 2004873750
-      boss_hand_sprites_anim_sheet_6: 1917528234
-      boss_hand_sprites_anim_sheet_1: -1378648806
-      boss_hand_sprites_anim_sheet_14: 1468921680
-      boss_hand_sprites_anim_sheet_2: 427428218
-      boss_hand_sprites_anim_sheet_18: -1861038136
-      boss_hand_sprites_anim_sheet_13: 1695591449
-      boss_hand_sprites_anim_sheet_9: 1486068984
-      boss_hand_sprites_anim_sheet_11: 207453
-      boss_hand_sprites_anim_sheet_5: -1471893450
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

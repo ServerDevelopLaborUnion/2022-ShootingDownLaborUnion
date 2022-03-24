@@ -165,7 +165,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1253,54 +1252,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      portal_anim_sheet_small_41: -4557386608952717086
-      portal_anim_sheet_small_16: 1005070571005058038
-      portal_anim_sheet_small_30: -5292381830282258163
-      portal_anim_sheet_small_12: -5744369752864589285
-      portal_anim_sheet_small_25: 5119905477386220452
-      portal_anim_sheet_small_18: 6764537432955175409
-      portal_anim_sheet_small_5: 2293889614981710166
-      portal_anim_sheet_small_15: -3572106019822285244
-      portal_anim_sheet_small_26: 88515571599649847
-      portal_anim_sheet_small_33: -8480888044024884321
-      portal_anim_sheet_small_35: 7524801995519090899
-      portal_anim_sheet_small_0: -1798256980775789826
-      portal_anim_sheet_small_37: 1906753721021534441
-      portal_anim_sheet_small_10: -6918660616661980133
-      portal_anim_sheet_small_29: 3674901073707442366
-      portal_anim_sheet_small_27: -8539643903063786789
-      portal_anim_sheet_small_43: 3632238286312836050
-      portal_anim_sheet_small_45: 5273040762176048506
-      portal_anim_sheet_small_24: 5911860124598745075
-      portal_anim_sheet_small_7: 2330531794957719998
-      portal_anim_sheet_small_6: 4804020629784652831
-      portal_anim_sheet_small_42: -2005923302188547072
-      portal_anim_sheet_small_3: 8574297196517100591
-      portal_anim_sheet_small_4: 7618378760681486123
-      portal_anim_sheet_small_22: 2605176017162436208
-      portal_anim_sheet_small_38: -6754688874217773808
-      portal_anim_sheet_small_23: -7919229189945170482
-      portal_anim_sheet_small_32: 6254121791158041728
-      portal_anim_sheet_small_8: 7764445674594439058
-      portal_anim_sheet_small_9: -1611003295003468216
-      portal_anim_sheet_small_28: 7939765533910096369
-      portal_anim_sheet_small_40: 8327479849957325947
-      portal_anim_sheet_small_2: 4651360058894220120
-      portal_anim_sheet_small_31: -4066246871324016709
-      portal_anim_sheet_small_13: -3593437076230905885
-      portal_anim_sheet_small_34: -5395501494371568779
-      portal_anim_sheet_small_14: -4287311106252381578
-      portal_anim_sheet_small_46: 6007155141525600075
-      portal_anim_sheet_small_1: -2589318891085847059
-      portal_anim_sheet_small_21: -2730407165644333913
-      portal_anim_sheet_small_20: 3481528485949822787
-      portal_anim_sheet_small_39: 6071669367339939544
-      portal_anim_sheet_small_11: -5361316292803901469
-      portal_anim_sheet_small_19: -7860396390145540541
-      portal_anim_sheet_small_17: 7592985053912645966
-      portal_anim_sheet_small_36: 6295408925691086393
-      portal_anim_sheet_small_44: 6541788363952544908
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
