@@ -10,11 +10,12 @@ public class CharacterDeath : MonoBehaviour
 
     public void CharacterDead()
     {
+        _isDying = true;
         OnCharacterDied?.Invoke();
     }
 
     public void EndDeath()
     {
-        gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
     }
 }
