@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 163760822}
   - component: {fileID: 163760820}
   - component: {fileID: 163760821}
+  - component: {fileID: 163760824}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -257,6 +258,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &163760824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163760818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c4a8d2b4004d147a56ea9e0043a209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStat:
+    _hp: 0
+    _ad: 0
+    _ap: 0
+    _def: 0
+    _speed: 0
+  OnMoveKeyInput:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAttackKeyInput:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointerPositionChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCharacterDead:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &233835127
 GameObject:
   m_ObjectHideFlags: 0
@@ -16222,6 +16253,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -19260,9 +19292,9 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.3
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 0000000027cdce3d910150eedda7a7e9
+  m_ApplyToSortingLayers: 0000000027cdce3d910150eedda7a7e941934c8b
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -19314,6 +19346,7 @@ GameObject:
   - component: {fileID: 1387271713}
   - component: {fileID: 1387271715}
   - component: {fileID: 1387271716}
+  - component: {fileID: 1387271717}
   m_Layer: 0
   m_Name: Visual Sprite
   m_TagString: Untagged
@@ -19483,6 +19516,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1387271717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387271709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c4a8d2b4004d147a56ea9e0043a209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStat:
+    _hp: 0
+    _ad: 0
+    _ap: 0
+    _def: 0
+    _speed: 0
+  OnMoveKeyInput:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAttackKeyInput:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointerPositionChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCharacterDead:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1466910613
 GameObject:
   m_ObjectHideFlags: 0
@@ -29900,7 +29963,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _acceleration: 50
   _deAcceleration: 50
-  _maxSpeed: 5
   OnVelocityChange:
     m_PersistentCalls:
       m_Calls:
@@ -29928,6 +29990,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c4a8d2b4004d147a56ea9e0043a209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerStat:
+    _hp: 5
+    _ad: 0
+    _ap: 0
+    _def: 0
+    _speed: 5
   OnMoveKeyInput:
     m_PersistentCalls:
       m_Calls:
