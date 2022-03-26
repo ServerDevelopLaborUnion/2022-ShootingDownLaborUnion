@@ -3,9 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum CharacterJob
+{
+    Base,
+    Knight,
+    Mage,
+    Witch,
+    Archer
+}
 public class CharacterBase : MonoBehaviour
 {
     [SerializeField] private CharacterStat _playerStat = new CharacterStat();
+
+    [SerializeField] private CharacterJob _currentJob;
 
     [SerializeField] private UnityEvent<Vector2> OnMoveKeyInput;
 
@@ -14,6 +24,7 @@ public class CharacterBase : MonoBehaviour
     [SerializeField] private UnityEvent<Vector2> OnPointerPositionChange;
 
     [SerializeField] private UnityEvent OnCharacterDead;
+
 
 
     public CharacterStat PlayerStat { get { return _playerStat; } }

@@ -152,7 +152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163760818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.85, z: 0}
+  m_LocalPosition: {x: 0, y: -0.91, z: 0}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 2107354247}
@@ -252,7 +252,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -276,6 +276,7 @@ MonoBehaviour:
     _ap: 0
     _def: 0
     _speed: 0
+  _currentJob: 0
   OnMoveKeyInput:
     m_PersistentCalls:
       m_Calls: []
@@ -19399,7 +19400,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -19534,6 +19535,7 @@ MonoBehaviour:
     _ap: 0
     _def: 0
     _speed: 0
+  _currentJob: 0
   OnMoveKeyInput:
     m_PersistentCalls:
       m_Calls: []
@@ -29996,6 +29998,7 @@ MonoBehaviour:
     _ap: 0
     _def: 0
     _speed: 5
+  _currentJob: 0
   OnMoveKeyInput:
     m_PersistentCalls:
       m_Calls:
