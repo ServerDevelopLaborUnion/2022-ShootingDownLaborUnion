@@ -1,10 +1,10 @@
 import * as http from 'node:http';
 import * as router from './router';
 import getLogger from '../utils/logger';
-import { v4 as genUUID } from 'uuid';
+import { v4 as getUUID } from 'uuid';
 import { Message, request, server, connection } from 'websocket';
 import { IncomingMessage, ServerResponse } from 'node:http';
-import { User } from '../types/User';
+import { User, UserType } from '../types/User';
 
 type NullableWsServer = server | null;
 const Logger = getLogger('Websocket');
@@ -33,13 +33,17 @@ export default new class WebsocketServer {
 
         this.wsServer.on("request", (request: request) => {
             const socket: connection = request.accept(null, request.origin);
-            socket.user = new User(socket, genUUID());
+            socket.user = {
+                type: UserType.User,
+                socket: socket,
+                sessionId: getUUID()
+            }
 
             Logger.Debug(`${socket.user.sessionId} connected`);
             socket.on("message", (message: Message) => {
                 if (message.type === 'binary') {
                     Logger.Debug(`Received: ${message.binaryData} from ${request.origin}`);
-                    router.receive(message.binaryData);
+                    router.receive(socket, message.binaryData);
                 }
             });
             socket.on("close", (reasonCode: number, description: string) => {

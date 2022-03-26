@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static CharacterBase; 
+using static CharacterBase;
 
 public class CharacterAttack : MonoBehaviour
 {

@@ -5,8 +5,10 @@ using DG.Tweening;
 using UnityEngine.Events;
 using static CharacterBase;
 
+[RequireComponent(typeof(CharacterBase))]
 public class CharacterMove : MonoBehaviour
 {
+    private CharacterBase _base;
     private Rigidbody2D _rigid;
 
     protected float _currentVelocity = 3;
@@ -15,12 +17,12 @@ public class CharacterMove : MonoBehaviour
 
     [SerializeField] private float _acceleration;
     [SerializeField] private float _deAcceleration;
-    [SerializeField] private float _maxSpeed;
 
     public UnityEvent<float> OnVelocityChange;
 
     private void Awake()
     {
+        _base = GetComponent<CharacterBase>();
         _rigid = GetComponent<Rigidbody2D>();
     }
 
@@ -50,7 +52,7 @@ public class CharacterMove : MonoBehaviour
         {
             _currentVelocity -= _deAcceleration * Time.deltaTime;
         }
-        return Mathf.Clamp(_currentVelocity, 0, _maxSpeed);
+        return Mathf.Clamp(_currentVelocity, 0, _base.PlayerStat.Speed);
     }
 
     private void FixedUpdate()

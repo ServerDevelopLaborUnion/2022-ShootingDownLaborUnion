@@ -1,6 +1,0 @@
-namespace login;
-
-table LoginRequest {
-  username: string;
-  password: string;
-}

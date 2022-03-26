@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using static CharacterBase;
 
-
 public class CharacterRenderer : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
