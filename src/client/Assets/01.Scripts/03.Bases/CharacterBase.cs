@@ -3,8 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum CharacterJob
+{
+    Base,
+    Knight,
+    Mage,
+    Witch,
+    Archer
+}
 public class CharacterBase : MonoBehaviour
 {
+    [SerializeField] private CharacterStat _playerStat = new CharacterStat();
+
+    [SerializeField] private CharacterJob _currentJob;
+
     [SerializeField] private UnityEvent<Vector2> OnMoveKeyInput;
 
     [SerializeField] private UnityEvent<bool> OnAttackKeyInput;
@@ -12,6 +24,10 @@ public class CharacterBase : MonoBehaviour
     [SerializeField] private UnityEvent<Vector2> OnPointerPositionChange;
 
     [SerializeField] private UnityEvent OnCharacterDead;
+
+
+
+    public CharacterStat PlayerStat { get { return _playerStat; } }
 
     public static Transform _shadowTransform;
 
@@ -26,10 +42,10 @@ public class CharacterBase : MonoBehaviour
     void Update()
     {
         OnMoveKeyInput?.Invoke(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
-        OnAttackKeyInput?.Invoke(Input.GetMouseButton(0));
+        OnAttackKeyInput?.Invoke(Input.GetMouseButtonDown(0));
 
         GetPointerInput();
-        TestDie();
+        Die();
     }
 
     private void GetPointerInput()
@@ -40,9 +56,9 @@ public class CharacterBase : MonoBehaviour
         OnPointerPositionChange?.Invoke(mouseInWorldPos);
     }
 
-    private void TestDie()
+    private void Die()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(_playerStat.HP <= 0 && !_isDying)
         {
             OnCharacterDead?.Invoke();
         }
