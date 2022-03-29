@@ -1,5 +1,5 @@
 import server from './websocket/server';
-import getLogger from './utils/logger';
+import getLogger from './util/logger';
 
 const logger = getLogger('Main');
 logger.Info('App Started');

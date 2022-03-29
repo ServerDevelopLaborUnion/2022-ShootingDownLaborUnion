@@ -1,6 +1,6 @@
 import * as http from 'node:http';
 import * as router from './router';
-import getLogger from '../utils/logger';
+import getLogger from '../util/logger';
 import { v4 as getUUID } from 'uuid';
 import { Message, request, server, connection } from 'websocket';
 import { IncomingMessage, ServerResponse } from 'node:http';
@@ -42,7 +42,6 @@ export default new class WebsocketServer {
             Logger.Debug(`${socket.user.sessionId} connected`);
             socket.on("message", (message: Message) => {
                 if (message.type === 'binary') {
-                    Logger.Debug(`Received: ${message.binaryData} from ${request.origin}`);
                     router.receive(socket, message.binaryData);
                 }
             });
