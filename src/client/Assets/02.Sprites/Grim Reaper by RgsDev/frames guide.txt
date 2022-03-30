@@ -1,0 +1,5 @@
+row 1 = idle (1 to 5)
+row 2 = fly (6 to 9)
+row 3 = taking damage 10
+row 4 = dead (11 to 18)
+row 5 = attack (19 to 25)

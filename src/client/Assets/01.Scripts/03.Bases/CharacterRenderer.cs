@@ -1,31 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static CharacterBase;
+
 
 public class CharacterRenderer : MonoBehaviour
 {
+    private CharacterBase _characterBase;
     private SpriteRenderer _spriteRenderer;
     private SpriteRenderer _shadowSpriteRenderer;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _shadowSpriteRenderer = _shadowTransform.GetComponent<SpriteRenderer>();
+        _characterBase = transform.parent.GetComponent<CharacterBase>();
+        _shadowSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     public void flipCharacter(Vector2 pointerVec)
     {
-        if (_isAttacking) return;
-        if(pointerVec.x - transform.position.x > 0)
+        if (_characterBase._isAttacking) return;
+        if (pointerVec.x - transform.position.x > 0)
         {
-            _spriteRenderer.flipX = false;
-            _shadowSpriteRenderer.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         }
-        else if(pointerVec.x - transform.position.x < 0)
+        else if (pointerVec.x - transform.position.x < 0)
         {
-            _spriteRenderer.flipX = true;
-            _shadowSpriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
 
         }
     }

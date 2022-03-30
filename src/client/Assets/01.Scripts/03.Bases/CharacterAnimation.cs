@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static CharacterBase;
+
 
 public class CharacterAnimation : MonoBehaviour
 {
+    private CharacterBase _characterBase;
     private Animator _animator;
     private Animator _shadowAnimator;
 
@@ -15,7 +16,8 @@ public class CharacterAnimation : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _shadowAnimator = _shadowTransform.GetComponent<Animator>();
+        _characterBase = transform.parent.GetComponent<CharacterBase>();
+        _shadowAnimator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     public void PlayMoveAnime(float velocity)
