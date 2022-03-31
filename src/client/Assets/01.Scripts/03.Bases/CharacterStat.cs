@@ -4,9 +4,18 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 
+
 [Serializable]
 public class CharacterStat
 {
+    public enum Stat
+    {
+        HP,
+        AD,
+        AP,
+        DEF,
+        SPEED
+    }
     [SerializeField] private int _hp = 0;
     [SerializeField] private int _ad = 0;
     [SerializeField] private int _ap = 0;
@@ -35,5 +44,29 @@ public class CharacterStat
     {
         _playerJob = job;
         OnJobChanged?.Invoke(job);
+    }
+
+    public void ChangeStat(Stat stat, int value)
+    {
+        switch (stat)
+        {
+            case Stat.HP:
+                _hp = value;
+                break;
+            case Stat.AD:
+                _ad = value;
+                break;
+            case Stat.AP:
+                _ap = value;
+                break;
+            case Stat.DEF:
+                _def = value;
+                break;
+            case Stat.SPEED:
+                _speed = value;
+                break;
+            default:
+                return;
+        }
     }
 }

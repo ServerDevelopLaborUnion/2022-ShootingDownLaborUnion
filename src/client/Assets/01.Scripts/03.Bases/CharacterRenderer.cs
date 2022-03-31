@@ -7,13 +7,11 @@ public class CharacterRenderer : MonoBehaviour
 {
     private CharacterBase _characterBase;
     private SpriteRenderer _spriteRenderer;
-    private SpriteRenderer _shadowSpriteRenderer;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _characterBase = transform.parent.GetComponent<CharacterBase>();
-        _shadowSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     public void flipCharacter(Vector2 pointerVec)
@@ -28,5 +26,11 @@ public class CharacterRenderer : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
 
         }
+    }
+
+    public void RenderDamage()
+    {
+
+        _spriteRenderer.material.SetColor("_MainTex", Color.white);
     }
 }

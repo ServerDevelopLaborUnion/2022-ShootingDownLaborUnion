@@ -10,6 +10,8 @@ public class CharacterBase : MonoBehaviour
 
     [SerializeField] private UnityEvent OnCharacterDead;
 
+    [SerializeField] private UnityEvent OnCharacterDamaged;
+
     public CharacterStat PlayerStat { get { return _playerStat; } }
 
     public bool _isAttacking = false;
@@ -17,14 +19,20 @@ public class CharacterBase : MonoBehaviour
 
     private void Update()
     {
-        Die();
     }
 
     private void Die()
     {
-        if(_playerStat.HP <= 0 && !_isDying)
+        OnCharacterDead?.Invoke();
+    }
+
+    public void GetDamaged(int value)
+    {
+        OnCharacterDamaged?.Invoke();
+        _playerStat.ChangeStat(CharacterStat.Stat.HP, _playerStat.HP - value);
+        if (_playerStat.HP <= 0 && !_isDying)
         {
-            OnCharacterDead?.Invoke();
+            Die();
         }
     }
 }
