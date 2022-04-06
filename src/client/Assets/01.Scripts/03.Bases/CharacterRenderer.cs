@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,7 +31,14 @@ public class CharacterRenderer : MonoBehaviour
 
     public void RenderDamage()
     {
+        StartCoroutine(DamageRenderCoroutine());
+    }
 
-        _spriteRenderer.material.SetColor("_MainTex", Color.white);
+    private IEnumerator DamageRenderCoroutine()
+    {
+        _spriteRenderer.material.SetColor("_MainColor", new Color(1, 1, 1, 1));
+        yield return new WaitForSeconds(0.2f);
+        _spriteRenderer.material.SetColor("_MainColor", new Color(1, 1, 1, 0));
+        _characterBase._isDamaging = false;
     }
 }

@@ -19,7 +19,7 @@ public class CharacterAttack : MonoBehaviour
     }
     public void DoAttack(bool clicked)
     {
-        if (clicked && ! _base._isAttacking || _base._isDying)
+        if (clicked && (! _base._isAttacking || ! _base._isDying))
         {
             OnAttacked?.Invoke();
             _base._isAttacking = true;
