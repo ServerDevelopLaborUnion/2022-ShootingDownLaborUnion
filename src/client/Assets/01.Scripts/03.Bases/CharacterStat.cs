@@ -12,13 +12,11 @@ public class CharacterStat
     {
         HP,
         AD,
-        AP,
         DEF,
         SPEED
     }
     [SerializeField] private int _hp = 0;
     [SerializeField] private int _ad = 0;
-    [SerializeField] private int _ap = 0;
     [SerializeField] private int _def = 0;
     [SerializeField] private int _speed = 0;
     [SerializeField] private CharacterJob.PlayerJob _playerJob = CharacterJob.PlayerJob.Base;
@@ -26,7 +24,6 @@ public class CharacterStat
 
     public int HP { get { return _hp; } }
     public int AD { get { return _ad; } }
-    public int AP { get { return _ap; } }
     public int Def { get { return _def; } }
     public int Speed { get { return _speed; } }
 
@@ -34,7 +31,6 @@ public class CharacterStat
     {
         _hp = hp;
         _ad = ad;
-        _ap = ap;
         _def = def;
         _speed = speed;
         _playerJob = job;
@@ -55,9 +51,6 @@ public class CharacterStat
                 break;
             case Stat.AD:
                 _ad = value;
-                break;
-            case Stat.AP:
-                _ap = value;
                 break;
             case Stat.DEF:
                 _def = value;
