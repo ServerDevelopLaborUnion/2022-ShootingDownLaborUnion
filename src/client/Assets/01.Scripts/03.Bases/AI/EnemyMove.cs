@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyDetect))]
-public class EnemyMove : MonoBehaviour
+public class EnemyMove : CharacterMove
 {
     private Transform target = null;
     private EnemyDetect detect = null;
@@ -16,7 +16,7 @@ public class EnemyMove : MonoBehaviour
         target = detect.Target;
     }
 
-    void Update()
+    private void Update()
     {
         if (target == null)
         {
@@ -24,13 +24,7 @@ public class EnemyMove : MonoBehaviour
         }
         else
         {
-            MoveToTarget();
+            MoveAgent(target.position);
         }
-    }
-
-    private void MoveToTarget()
-    {
-        Vector3 dir = target.position - transform.position;
-        transform.position += dir * moveSpeed * Time.deltaTime;
     }
 }

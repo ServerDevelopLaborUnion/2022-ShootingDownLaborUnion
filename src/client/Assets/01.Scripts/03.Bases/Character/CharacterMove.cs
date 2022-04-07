@@ -55,16 +55,15 @@ public class CharacterMove : MonoBehaviour
         return Mathf.Clamp(_currentVelocity, 0, _base.PlayerStat.Speed);
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         OnVelocityChange?.Invoke(_currentVelocity);
-        if (!(_base._isAttacking||_base._isDying))
+        if (!(_base._isAttacking || _base._isDying))
         {
             _rigid.velocity = _movementDirection * _currentVelocity;
         }
         else
         {
-
             StopImmediatelly();
         }
     }
