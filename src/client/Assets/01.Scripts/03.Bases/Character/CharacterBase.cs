@@ -32,8 +32,8 @@ public class CharacterBase : MonoBehaviour
     {
         if (_isDamaging) return;
         _isDamaging = true;
-        OnCharacterDamaged?.Invoke();
         _playerStat.ChangeStat(CharacterStat.Stat.HP, _playerStat.HP - value);
+        OnCharacterDamaged?.Invoke();
         if (_playerStat.HP <= 0 && !_isDying)
         {
             Die();
