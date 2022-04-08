@@ -27,7 +27,7 @@ public class CharacterAttack : MonoBehaviour
             foreach (var enemy in enemies)
             {
                 Debug.Log(enemy.name);
-                enemy.GetComponent<CharacterBase>().GetDamaged(_base.PlayerStat.AD);
+                enemy.GetComponent<CharacterDamage>().GetDamaged(_base.PlayerStat.AD, _playerCol);
             }
         }
     }

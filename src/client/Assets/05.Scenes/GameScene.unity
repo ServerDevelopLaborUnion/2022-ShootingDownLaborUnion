@@ -30291,36 +30291,6 @@ MonoBehaviour:
     OnJobChanged:
       m_PersistentCalls:
         m_Calls: []
-  OnCharacterDead:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1203297999}
-        m_TargetAssemblyTypeName: CharacterDeath, Assembly-CSharp
-        m_MethodName: CharacterDead
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnCharacterDamaged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1203298002}
-        m_TargetAssemblyTypeName: CharacterRenderer, Assembly-CSharp
-        m_MethodName: RenderDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _isAttacking: 0
   _isDying: 0
   _isDamaging: 0
@@ -31629,6 +31599,7 @@ GameObject:
   - component: {fileID: 2107354249}
   - component: {fileID: 2107354246}
   - component: {fileID: 2107354245}
+  - component: {fileID: 2107354251}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -31648,6 +31619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18a5d16a3c17b4458995aad35c39a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _knockbackPercent: 30
   _acceleration: 50
   _deAcceleration: 50
   OnVelocityChange:
@@ -31781,21 +31753,48 @@ MonoBehaviour:
     OnJobChanged:
       m_PersistentCalls:
         m_Calls: []
-  OnCharacterDead:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1387271716}
-        m_TargetAssemblyTypeName: CharacterDeath, Assembly-CSharp
-        m_MethodName: CharacterDead
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _isAttacking: 0
+  _isDying: 0
+  _isDamaging: 0
+  collider: {fileID: 1599115252}
+--- !u!61 &2107354250
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107354244}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.6}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.06}
+  m_EdgeRadius: 0
+--- !u!114 &2107354251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107354244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dddef8979d9eae45922134ff995438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   OnCharacterDamaged:
     m_PersistentCalls:
       m_Calls:
@@ -31835,35 +31834,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _isAttacking: 0
-  _isDying: 0
-  _isDamaging: 0
---- !u!61 &2107354250
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107354244}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.6}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.06}
-  m_EdgeRadius: 0
+      - m_Target: {fileID: 1387271716}
+        m_TargetAssemblyTypeName: CharacterDeath, Assembly-CSharp
+        m_MethodName: NoHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDamagedFeedBack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2107354245}
+        m_TargetAssemblyTypeName: CharacterMove, Assembly-CSharp
+        m_MethodName: Knockback
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2121275828
 GameObject:
   m_ObjectHideFlags: 0

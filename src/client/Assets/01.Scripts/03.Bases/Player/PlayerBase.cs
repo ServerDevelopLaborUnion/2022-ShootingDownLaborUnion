@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerBase : CharacterBase
 {
+    [SerializeField] private Collider2D collider;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GetDamaged(1);
+            GetComponent<CharacterDamage>().GetDamaged(1, collider);
         }
     }
 }

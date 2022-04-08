@@ -5,13 +5,11 @@ using UnityEngine.Events;
 
 public class CharacterInput : MonoBehaviour
 {
-
     [SerializeField] private UnityEvent<Vector2> OnMoveKeyInput;
 
     [SerializeField] private UnityEvent<bool> OnAttackKeyInput;
 
     [SerializeField] private UnityEvent<Vector2> OnPointerPositionChange;
-
     private void Update()
     {
         OnMoveKeyInput?.Invoke(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));

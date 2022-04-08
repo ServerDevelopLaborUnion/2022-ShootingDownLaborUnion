@@ -15,6 +15,8 @@ public class CharacterMove : MonoBehaviour
 
     protected Vector2 _movementDirection;
 
+    [SerializeField] private float _knockbackPercent;
+
     [SerializeField] private float _acceleration;
     [SerializeField] private float _deAcceleration;
 
@@ -58,7 +60,7 @@ public class CharacterMove : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         OnVelocityChange?.Invoke(_currentVelocity);
-        if (!(_base._isAttacking || _base._isDying))
+        if (!(_base._isAttacking || _base._isDying || _base._isDamaging))
         {
             _rigid.velocity = _movementDirection * _currentVelocity;
         }
@@ -72,5 +74,10 @@ public class CharacterMove : MonoBehaviour
     {
         _currentVelocity = 0;
         _rigid.velocity = Vector2.zero;
+    }
+
+    public void Knockback(Collider2D col)
+    {
+        _rigid.position -= ((Vector2)(col.transform.position - transform.position).normalized) * _knockbackPercent * 0.01f;
     }
 }

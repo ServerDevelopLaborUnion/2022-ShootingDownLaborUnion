@@ -11,6 +11,15 @@ public class CharacterDeath : MonoBehaviour
     {
         _base = transform.parent.GetComponent<CharacterBase>();
     }
+
+    public void NoHP()
+    {
+        if(_base.PlayerStat.HP <= 0 && !_base._isDying)
+        {
+            CharacterDead();
+        }
+    }
+
     public void CharacterDead()
     {
         _base._isDying = true;
