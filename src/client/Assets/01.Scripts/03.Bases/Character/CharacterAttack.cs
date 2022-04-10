@@ -24,6 +24,7 @@ public class CharacterAttack : MonoBehaviour
             OnAttacked?.Invoke();
             _base._isAttacking = true;
             Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position + new Vector3(_playerCol.bounds.size.x * transform.localScale.x, _playerCol.offset.y * 0.5f), new Vector3(_playerCol.bounds.size.x, _playerCol.bounds.size.y * 2), 0, LayerMask.GetMask("Enemy"));
+            if (enemies.Length <= 0) return;
             foreach (var enemy in enemies)
             {
                 Debug.Log(enemy.name);
