@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 플레이어를 찾아주는 클래스
+/// </summary>
 public class EnemyDetect : MonoBehaviour
 {
     private Transform _target = null;
