@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyDetect))]
-public class EnemyMove : MonoBehaviour
+public class EnemyMove : CharacterMove
 {
     private Transform _target = null;
     private EnemyDetect _detect = null;
