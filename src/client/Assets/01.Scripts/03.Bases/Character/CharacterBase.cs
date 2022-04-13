@@ -11,9 +11,6 @@ public class CharacterBase : MonoBehaviour
 
     public CharacterStat PlayerStat { get { return _playerStat; } }
 
-    public bool _isAttacking = false;
-    public bool _isDying = false;
-    public bool _isDamaging = false;
 
     private void Update()
     {

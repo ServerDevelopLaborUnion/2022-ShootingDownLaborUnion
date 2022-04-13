@@ -739,7 +739,7 @@
     },
     "m_Name": "_MainTex",
     "m_DefaultReferenceName": "Texture2D_24b9462044a246b8a005ac984418fc24",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_MainTex",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
