@@ -425,16 +425,16 @@ Canvas:
   m_GameObject: {fileID: 144587820}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
+  m_PlaneDistance: 5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -513948757
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &144587824
@@ -20398,7 +20398,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b229c45539a11d4bb7c59134e21da27, type: 2}
+  - {fileID: 2100000, guid: 87d8b90b82c194b4db9244d2fb6bfb33, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30290,13 +30290,13 @@ MonoBehaviour:
     _ad: 0
     _def: 0
     _speed: 0
-    _playerJob: 0
+    _playerJob: 5
+    _isAttacking: 0
+    _isDying: 0
+    _isDamaging: 0
     OnJobChanged:
       m_PersistentCalls:
         m_Calls: []
-  _isAttacking: 0
-  _isDying: 0
-  _isDamaging: 0
 --- !u!61 &1599115252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30428,13 +30428,13 @@ MonoBehaviour:
   OnVelocityChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1203298001}
+        m_TargetAssemblyTypeName: CharacterAnimation, Assembly-CSharp
+        m_MethodName: PlayMoveAnime
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -31861,12 +31861,12 @@ MonoBehaviour:
     _def: 0
     _speed: 3
     _playerJob: 0
+    _isAttacking: 0
+    _isDying: 0
+    _isDamaging: 0
     OnJobChanged:
       m_PersistentCalls:
         m_Calls: []
-  _isAttacking: 0
-  _isDying: 0
-  _isDamaging: 0
   collider: {fileID: 1599115252}
 --- !u!61 &2107354250
 BoxCollider2D:

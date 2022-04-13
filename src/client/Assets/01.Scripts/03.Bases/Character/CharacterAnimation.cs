@@ -21,7 +21,7 @@ public class CharacterAnimation : MonoBehaviour
 
     public void PlayMoveAnime(float velocity)
     {
-        _animator.SetBool(_doMove, velocity > 0);
+        _animator.SetBool(_doMove, velocity > 0.1f);
     }
 
     public void PlayAttackAnime()

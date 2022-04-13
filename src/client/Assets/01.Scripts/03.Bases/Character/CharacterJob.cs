@@ -10,6 +10,7 @@ public static class CharacterJob
         Knight,
         Mage,
         Witch,
-        Archer
+        Archer,
+        Enemy
     }
 }

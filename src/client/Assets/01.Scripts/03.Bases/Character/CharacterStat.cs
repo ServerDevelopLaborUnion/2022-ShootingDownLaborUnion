@@ -20,6 +20,11 @@ public class CharacterStat
     [SerializeField] private int _def = 0;
     [SerializeField] private int _speed = 0;
     [SerializeField] private CharacterJob.PlayerJob _playerJob = CharacterJob.PlayerJob.Base;
+
+    public bool _isAttacking = false;
+    public bool _isDying = false;
+    public bool _isDamaging = false;
+
     public UnityEvent<CharacterJob.PlayerJob> OnJobChanged;
 
     public int HP { get { return _hp; } }

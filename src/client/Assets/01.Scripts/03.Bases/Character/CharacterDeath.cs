@@ -14,7 +14,7 @@ public class CharacterDeath : MonoBehaviour
 
     public void NoHP()
     {
-        if(_base.PlayerStat.HP <= 0 && !_base._isDying)
+        if(_base.PlayerStat.HP <= 0 && !_base.PlayerStat._isDying)
         {
             CharacterDead();
         }
@@ -22,7 +22,7 @@ public class CharacterDeath : MonoBehaviour
 
     public void CharacterDead()
     {
-        _base._isDying = true;
+        _base.PlayerStat._isDying = true;
         OnCharacterDied?.Invoke();
     }
 
