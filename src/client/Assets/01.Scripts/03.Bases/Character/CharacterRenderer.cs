@@ -17,7 +17,7 @@ public class CharacterRenderer : MonoBehaviour
 
     public void flipCharacter(Vector2 pointerVec)
     {
-        if (_characterBase._isAttacking) return;
+        if (_characterBase.PlayerStat._isAttacking) return;
         if (pointerVec.x - transform.position.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
@@ -39,6 +39,6 @@ public class CharacterRenderer : MonoBehaviour
         _spriteRenderer.material.SetColor("_MainColor", new Color(1, 1, 1, 1));
         yield return new WaitForSeconds(0.2f);
         _spriteRenderer.material.SetColor("_MainColor", new Color(1, 1, 1, 0));
-        _characterBase._isDamaging = false;
+        _characterBase.PlayerStat._isDamaging = false;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBase : CharacterBase
 {
-    [SerializeField] private Collider2D collider;
+    [SerializeField] new private Collider2D collider;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

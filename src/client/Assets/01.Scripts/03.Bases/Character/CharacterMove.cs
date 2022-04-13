@@ -11,7 +11,7 @@ public class CharacterMove : MonoBehaviour
     private CharacterBase _base;
     private Rigidbody2D _rigid;
 
-    protected float _currentVelocity = 3;
+    protected float _currentVelocity = 0;
 
     protected Vector2 _movementDirection;
 
@@ -60,7 +60,7 @@ public class CharacterMove : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         OnVelocityChange?.Invoke(_currentVelocity);
-        if (!(_base._isAttacking || _base._isDying || _base._isDamaging))
+        if (!(_base.PlayerStat._isAttacking || _base.PlayerStat._isDying || _base.PlayerStat._isDamaging))
         {
             _rigid.velocity = _movementDirection * _currentVelocity;
         }
