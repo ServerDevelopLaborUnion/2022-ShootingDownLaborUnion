@@ -23,12 +23,16 @@ public class CharacterAnimation : MonoBehaviour
 
     public void PlayMoveAnime(float velocity)
     {
-        SetAnimationSpeed();
-        _animator.SetBool(_doMove, velocity > 0.1f);
+        if (!(_characterBase.State.CurrentState.HasFlag(CharacterState.State.Attack) || _characterBase.State.CurrentState.HasFlag(CharacterState.State.Damaged) || _characterBase.State.CurrentState.HasFlag(CharacterState.State.Died)))
+        {
+            SetAnimationSpeed();
+            _animator.SetBool(_doMove, velocity > 0.1f);
+        }
     }
 
     public void PlayAttackAnime()
     {
+
         SetAnimationSpeed();
         _animator.SetTrigger(_doAttack);
     }
@@ -41,6 +45,8 @@ public class CharacterAnimation : MonoBehaviour
 
     public void PlayDamageAnime()
     {
+        if (_characterBase.State.CurrentState.HasFlag(CharacterState.State.Damaged) || _characterBase.State.CurrentState.HasFlag(CharacterState.State.Died)) return;
+
         SetAnimationSpeed();
         _animator.SetTrigger(_doDamage);
     }

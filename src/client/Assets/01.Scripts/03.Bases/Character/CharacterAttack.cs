@@ -12,18 +12,22 @@ public class CharacterAttack : MonoBehaviour
     [HideInInspector]
     private Collider2D _playerCol;
 
+    [SerializeField] private float _atkRange;
+    private bool _isPlayer = false;
+
     private void Start()
     {
         _base = transform.parent.GetComponent<CharacterBase>();
         _playerCol = transform.parent.GetComponent<Collider2D>();
+        _isPlayer = transform.parent.CompareTag("Player");
     }
     public void DoAttack(bool clicked)
     {
-        if (clicked && !( _base.Stat._isAttacking || _base.Stat._isDying))
+        if (clicked && (!_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || !_base.State.CurrentState.HasFlag(CharacterState.State.Died)))
         {
             OnAttacked?.Invoke();
-            _base.Stat._isAttacking = true;
-            Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position + new Vector3(_playerCol.bounds.size.x * transform.localScale.x, _playerCol.offset.y * 0.5f), new Vector3(_playerCol.bounds.size.x, _playerCol.bounds.size.y * 2), 0, LayerMask.GetMask("Enemy"));
+            _base.State.CurrentState |= CharacterState.State.Attack;
+            Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position + new Vector3(_playerCol.bounds.size.x * transform.localScale.x, _playerCol.offset.y * 0.5f), new Vector3(_playerCol.bounds.size.x, _playerCol.bounds.size.y * 2), 0, LayerMask.GetMask(_isPlayer ? "Enemy" : "Player"));
             if (enemies.Length <= 0) return;
             foreach (var enemy in enemies)
             {
@@ -36,12 +40,11 @@ public class CharacterAttack : MonoBehaviour
     public void EndAttack()
     {
         if (_base == null) return;
-        _base.Stat._isAttacking = false;
+        _base.State.CurrentState &= ~CharacterState.State.Attack;
     }
 
     private void OnDrawGizmos()
     {
-
-        Gizmos.DrawWireCube(transform.position + new Vector3(_playerCol.bounds.size.x * transform.localScale.x, _playerCol.offset.y * 0.5f), new Vector3(_playerCol.bounds.size.x,_playerCol.bounds.size.y * 2));
+        Gizmos.DrawWireCube(transform.position + Vector3.right * transform.localScale.x * _atkRange * 0.5f, new Vector2(_atkRange, _playerCol.bounds.size.y));
     }
 }

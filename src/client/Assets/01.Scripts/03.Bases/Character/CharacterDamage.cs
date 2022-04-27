@@ -16,8 +16,8 @@ public class CharacterDamage : MonoBehaviour
 
     public void GetDamaged(int value, Collider2D col)
     {
-        if (_base.Stat._isDamaging || _base.Stat._isDying) return;
-        _base.Stat._isDamaging = true;
+        if (_base.State.CurrentState.HasFlag(CharacterState.State.Damaged) || _base.State.CurrentState.HasFlag(CharacterState.State.Died)) return;
+        _base.State.CurrentState |= CharacterState.State.Damaged;
         _base.Stat.ChangeStat(CharacterStat.Stat.HP, _base.Stat.HP - value);
         OnCharacterDamaged?.Invoke();
         OnDamagedFeedBack?.Invoke(col);

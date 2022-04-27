@@ -8,16 +8,19 @@ public class EnemyAI : MonoBehaviour
 {
     private StateMachine fsm;
     public UnityEvent<Vector2> OnPlayerIn;
+    public UnityEvent<bool> OnPlayerAtkRangeIn;
     public float _range = 6f;
     public float _stopRange = 1f;
     void Start()
     {
         fsm = new StateMachine();
-        fsm.AddState("Idle",new State(onLogic: (state) => OnPlayerIn?.Invoke(Vector2.zero)));
+        fsm.AddState("Idle", new State(onLogic: (state) => OnPlayerIn?.Invoke(Vector2.zero)));
         fsm.AddState("Chase", new State(onLogic: (state) => OnPlayerIn?.Invoke(GetNearestColliderInRange(_range).transform.position - transform.position)));
-        fsm.AddState("Attack",new State());
-        fsm.AddTransition("Idle", "Chase", (transition) => IsPlayerInrange(_range) && !IsPlayerInrange(_stopRange));
-        fsm.AddTransition("Chase", "Idle", (transition) => IsPlayerInrange(_stopRange) && IsPlayerInrange(_range));
+        fsm.AddState("Attack", new State(onLogic: (state) => OnPlayerAtkRangeIn?.Invoke(true)));
+        fsm.AddTransition("Idle", "Chase", (transition) => IsPlayerInRange(_range) && !IsPlayerInRange(_stopRange));
+        fsm.AddTransition("Chase", "Idle", (transition) => !IsPlayerInRange(_range));
+        fsm.AddTransition("Chase", "Attack", (transition) => IsPlayerInRange(_stopRange) && IsPlayerInRange(_range));
+        fsm.AddTransition("Attack", "Idle", (transition) => !IsPlayerInRange(_range) || !IsPlayerInRange(_stopRange));
         fsm.Init();
     }
 
@@ -26,7 +29,7 @@ public class EnemyAI : MonoBehaviour
         fsm.OnLogic();
     }
 
-    private bool IsPlayerInrange(float range)
+    private bool IsPlayerInRange(float range)
     {
         bool result = false;
         if(GetNearestColliderInRange(range) != null)

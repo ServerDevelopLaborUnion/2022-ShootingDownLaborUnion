@@ -60,7 +60,7 @@ public class CharacterMove : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         OnVelocityChange?.Invoke(_currentVelocity);
-        if (!(_base.Stat._isAttacking || _base.Stat._isDying || _base.Stat._isDamaging))
+        if (!(_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || _base.State.CurrentState.HasFlag(CharacterState.State.Damaged) || _base.State.CurrentState.HasFlag(CharacterState.State.Died)))
         {
             _rigid.velocity = _movementDirection * _currentVelocity;
         }

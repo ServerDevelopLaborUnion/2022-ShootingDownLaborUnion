@@ -14,7 +14,7 @@ public class CharacterDeath : MonoBehaviour
 
     public void NoHP()
     {
-        if(_base.Stat.HP <= 0 && !_base.Stat._isDying)
+        if(_base.Stat.HP <= 0 && !_base.State.CurrentState.HasFlag(CharacterState.State.Died))
         {
             CharacterDead();
         }
@@ -22,7 +22,7 @@ public class CharacterDeath : MonoBehaviour
 
     public void CharacterDead()
     {
-        _base.Stat._isDying = true;
+        _base.State.CurrentState |= CharacterState.State.Died;
         OnCharacterDied?.Invoke();
     }
 
