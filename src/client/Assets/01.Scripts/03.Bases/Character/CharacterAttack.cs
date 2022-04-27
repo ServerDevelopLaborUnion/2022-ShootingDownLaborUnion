@@ -19,16 +19,16 @@ public class CharacterAttack : MonoBehaviour
     }
     public void DoAttack(bool clicked)
     {
-        if (clicked && (! _base.PlayerStat._isAttacking || ! _base.PlayerStat._isDying))
+        if (clicked && !( _base.Stat._isAttacking || _base.Stat._isDying))
         {
             OnAttacked?.Invoke();
-            _base.PlayerStat._isAttacking = true;
+            _base.Stat._isAttacking = true;
             Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position + new Vector3(_playerCol.bounds.size.x * transform.localScale.x, _playerCol.offset.y * 0.5f), new Vector3(_playerCol.bounds.size.x, _playerCol.bounds.size.y * 2), 0, LayerMask.GetMask("Enemy"));
             if (enemies.Length <= 0) return;
             foreach (var enemy in enemies)
             {
                 Debug.Log(enemy.name);
-                enemy.GetComponent<CharacterDamage>().GetDamaged(_base.PlayerStat.AD, _playerCol);
+                enemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol);
             }
         }
     }
@@ -36,7 +36,7 @@ public class CharacterAttack : MonoBehaviour
     public void EndAttack()
     {
         if (_base == null) return;
-        _base.PlayerStat._isAttacking = false;
+        _base.Stat._isAttacking = false;
     }
 
     private void OnDrawGizmos()

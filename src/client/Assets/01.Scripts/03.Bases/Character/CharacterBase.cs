@@ -9,7 +9,7 @@ public class CharacterBase : MonoBehaviour
     [SerializeField] private CharacterStat _playerStat;
 
 
-    public CharacterStat PlayerStat { get { return _playerStat; } }
+    public CharacterStat Stat { get { return _playerStat; } }
 
 
     private void Update()

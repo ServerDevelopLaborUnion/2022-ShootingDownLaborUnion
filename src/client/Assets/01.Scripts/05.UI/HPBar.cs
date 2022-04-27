@@ -14,12 +14,12 @@ public class HPBar : MonoBehaviour
     private void Start()
     {
         hpBar = GetComponent<Image>();
-        Debug.Log(player.PlayerStat.HP);
+        Debug.Log(player.Stat.HP);
     }
 
     public void SetHpBar()
     {
-        Debug.Log(player.PlayerStat.HP);
-        hpBar.fillAmount = player.PlayerStat.HP / playerMaxHp;
+        Debug.Log(player.Stat.HP);
+        hpBar.fillAmount = player.Stat.HP / playerMaxHp;
     }
 }

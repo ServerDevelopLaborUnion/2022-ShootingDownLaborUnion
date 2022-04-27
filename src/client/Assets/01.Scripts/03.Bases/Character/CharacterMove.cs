@@ -54,13 +54,13 @@ public class CharacterMove : MonoBehaviour
         {
             _currentVelocity -= _deAcceleration * Time.deltaTime;
         }
-        return Mathf.Clamp(_currentVelocity, 0, _base.PlayerStat.Speed);
+        return Mathf.Clamp(_currentVelocity, 0, _base.Stat.Speed);
     }
 
     protected virtual void FixedUpdate()
     {
         OnVelocityChange?.Invoke(_currentVelocity);
-        if (!(_base.PlayerStat._isAttacking || _base.PlayerStat._isDying || _base.PlayerStat._isDamaging))
+        if (!(_base.Stat._isAttacking || _base.Stat._isDying || _base.Stat._isDamaging))
         {
             _rigid.velocity = _movementDirection * _currentVelocity;
         }

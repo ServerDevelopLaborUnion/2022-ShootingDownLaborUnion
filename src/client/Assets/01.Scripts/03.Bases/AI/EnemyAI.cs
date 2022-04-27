@@ -2,41 +2,83 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using FSM;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private FSM _thisFSM = new FSM();
-    [SerializeField] private UnityEvent<Vector2> OnMoveSignal;
-    [SerializeField] private UnityEvent OnStopSignal;
-    // Start is called before the first frame update
-    void Awake()
+    private StateMachine fsm;
+    public UnityEvent<Vector2> OnPlayerIn;
+    public float _range = 6f;
+    public float _stopRange = 1f;
+    void Start()
     {
-        _thisFSM.AddActionOnState(State.Idle, StopAgent);
-        _thisFSM.AddActionOnState(State.Chase, MoveAgent);
+        fsm = new StateMachine();
+        fsm.AddState("Idle",new State(onLogic: (state) => OnPlayerIn?.Invoke(Vector2.zero)));
+        fsm.AddState("Chase", new State(onLogic: (state) => OnPlayerIn?.Invoke(GetNearestColliderInRange(_range).transform.position - transform.position)));
+        fsm.AddState("Attack",new State());
+        fsm.AddTransition("Idle", "Chase", (transition) => IsPlayerInrange(_range) && !IsPlayerInrange(_stopRange));
+        fsm.AddTransition("Chase", "Idle", (transition) => IsPlayerInrange(_stopRange) && IsPlayerInrange(_range));
+        fsm.Init();
     }
-    private void MoveAgent()
+
+    private void Update()
     {
-        OnMoveSignal?.Invoke(
-            (Physics2D.OverlapCircle(transform.position, 5,
-            LayerMask.GetMask("Player")).transform.position - transform.position)
-            .normalized);
+        fsm.OnLogic();
     }
-    private void StopAgent()
+
+    private bool IsPlayerInrange(float range)
     {
-        
+        bool result = false;
+        if(GetNearestColliderInRange(range) != null)
+            result = Vector2.Distance(GetNearestColliderInRange(range).transform.position, transform.position) > _stopRange;
+        return result;
     }
-    // Update is called once per frame
-    void Update()
+
+    private List<Collider2D> GetCollidersInRange(float range)
     {
-        if (Physics2D.OverlapCircle(transform.position, 5, LayerMask.GetMask("Player")) != null)
+        List<Collider2D> temp = new List<Collider2D>();
+        foreach(var a in Physics2D.OverlapCircleAll(transform.position, range, LayerMask.GetMask("Player")))
         {
-            _thisFSM.ChangeState(State.Chase);
+            temp.Add(a);
+        }
+        return temp;
+    }
+
+    private Collider2D GetNearestColliderInRange(float range)
+    {
+        List<Collider2D> temp = GetCollidersInRange(range);
+        if(temp.Count > 0)
+        {
+
+        temp.Sort((a, b) =>
+        {
+            if (Vector2.Distance(a.transform.position, transform.position) > Vector2.Distance(b.transform.position, transform.position))
+
+            {
+
+                return 1;
+
+            }
+
+            else if (Vector2.Distance(a.transform.position, transform.position) < Vector2.Distance(b.transform.position, transform.position))
+
+            {
+
+                return -1;
+
+            }
+
+            else
+
+            {
+
+                return 0;
+
+            }
+        });
+        return temp[0];
         }
         else
-        {
-            _thisFSM.ChangeState(State.Idle);
-
-        }
-        _thisFSM.UpdateInvoke();
+            return null;
     }
 }

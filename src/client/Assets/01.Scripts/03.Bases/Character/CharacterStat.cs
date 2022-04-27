@@ -19,6 +19,7 @@ public class CharacterStat
     [SerializeField] private int _atk = 0;
     [SerializeField] private int _def = 0;
     [SerializeField] private int _speed = 0;
+    [SerializeField] private int _atkSpeed = 0;
     [SerializeField] private CharacterJob.PlayerJob _playerJob = CharacterJob.PlayerJob.Base;
 
     public bool _isAttacking = false;
@@ -31,13 +32,15 @@ public class CharacterStat
     public int AD { get { return _atk; } }
     public int Def { get { return _def; } }
     public int Speed { get { return _speed; } }
+    public int AtkSpeed { get { return _atkSpeed; } }
 
-    public CharacterStat(int hp, int atk, int ap, int def, int speed, CharacterJob.PlayerJob job)
+    public CharacterStat(int hp, int atk, int ap, int def, int speed, int atkSpeed, CharacterJob.PlayerJob job)
     {
         _hp = hp;
         _atk = atk;
         _def = def;
         _speed = speed;
+        _atkSpeed = atkSpeed;
         _playerJob = job;
     }
 
