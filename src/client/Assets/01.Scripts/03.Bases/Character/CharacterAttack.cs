@@ -37,6 +37,20 @@ public class CharacterAttack : MonoBehaviour
         }
     }
 
+    public void DoAttackInAnimation()
+    {
+        if ((!_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || !_base.State.CurrentState.HasFlag(CharacterState.State.Died)))
+        {
+            _base.State.CurrentState |= CharacterState.State.Attack;
+            Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position + new Vector3(_playerCol.bounds.size.x * transform.localScale.x, _playerCol.offset.y * 0.5f), new Vector3(_playerCol.bounds.size.x, _playerCol.bounds.size.y * 2), 0, LayerMask.GetMask(_isPlayer ? "Enemy" : "Player"));
+            if (enemies.Length <= 0) return;
+            foreach (var enemy in enemies)
+            {
+                Debug.Log(enemy.name);
+                enemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol);
+            }
+        }
+    }
     public void EndAttack()
     {
         if (_base == null) return;

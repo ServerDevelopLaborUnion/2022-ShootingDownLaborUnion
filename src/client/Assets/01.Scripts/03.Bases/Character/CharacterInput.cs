@@ -22,7 +22,7 @@ public class CharacterInput : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
         Vector2 mouseInWorldPos = Define.MainCam.ScreenToWorldPoint(mousePos);
-        OnPointerPositionChange?.Invoke(mouseInWorldPos);
+        OnPointerPositionChange?.Invoke(mouseInWorldPos - (Vector2)transform.position);
     }
 
 }

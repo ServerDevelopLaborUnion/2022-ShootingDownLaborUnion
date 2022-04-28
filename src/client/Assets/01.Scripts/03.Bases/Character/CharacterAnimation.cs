@@ -32,7 +32,7 @@ public class CharacterAnimation : MonoBehaviour
 
     public void PlayAttackAnime()
     {
-        if (_characterBase.State.CurrentState.HasFlag(CharacterState.State.Died)) return;
+        if (_characterBase.State.CurrentState.HasFlag(CharacterState.State.Died) || _characterBase.State.CurrentState.HasFlag(CharacterState.State.Attack)) return;
         SetAnimationSpeed();
         _animator.SetTrigger(_doAttack);
     }

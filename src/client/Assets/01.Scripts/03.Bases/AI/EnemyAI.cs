@@ -20,7 +20,9 @@ public class EnemyAI : MonoBehaviour
         fsm.AddTransition("Idle", "Chase", (transition) => IsPlayerInRange(_range) && !IsPlayerInRange(_stopRange));
         fsm.AddTransition("Chase", "Idle", (transition) => !IsPlayerInRange(_range));
         fsm.AddTransition("Chase", "Attack", (transition) => IsPlayerInRange(_stopRange) && IsPlayerInRange(_range));
+        fsm.AddTransition("Idle", "Attack", (transition) => IsPlayerInRange(_stopRange) && IsPlayerInRange(_range));
         fsm.AddTransition("Attack", "Idle", (transition) => !IsPlayerInRange(_range) || !IsPlayerInRange(_stopRange));
+        fsm.AddTransition("Attack", "Chase", (transition) => IsPlayerInRange(_range) || !IsPlayerInRange(_stopRange));
         fsm.Init();
     }
 
