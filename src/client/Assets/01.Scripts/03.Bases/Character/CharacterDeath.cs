@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class CharacterDeath : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnCharacterDied;
-    private CharacterBase _base;
+    protected CharacterBase _base;
     private void Start()
     {
         _base = transform.parent.GetComponent<CharacterBase>();
@@ -26,7 +26,7 @@ public class CharacterDeath : MonoBehaviour
         OnCharacterDied?.Invoke();
     }
 
-    public void EndDeath()
+    public virtual void EndDeath()
     {
         if (_base == null) return;
         transform.parent.gameObject.SetActive(false);

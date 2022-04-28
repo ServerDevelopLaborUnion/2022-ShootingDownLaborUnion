@@ -783,10 +783,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 233835128}
+  - component: {fileID: 233835131}
   - component: {fileID: 233835129}
   - component: {fileID: 233835130}
   m_Layer: 0
-  m_Name: Point Light 2D
+  m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -866,6 +867,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &233835131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233835127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8ead26447e77e4796b70d8a52000aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &269998023
 GameObject:
   m_ObjectHideFlags: 0
@@ -20698,7 +20711,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1387271709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac18865029422744797ba7d6aa07f7ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fa5aae46cccd69498b3daf54cc431fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnCharacterDied:
@@ -31902,7 +31915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerStat:
-    _hp: 50
+    _hp: 5
     _atk: 1
     _def: 0
     _speed: 5
