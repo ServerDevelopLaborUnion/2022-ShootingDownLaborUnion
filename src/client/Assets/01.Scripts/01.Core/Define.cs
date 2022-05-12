@@ -16,4 +16,7 @@ public static class Define
     }
 
     private static Camera _mainCam;
+
+    public static Vector2 MousePos => MainCam.ScreenToWorldPoint(Input.mousePosition);
+
 }

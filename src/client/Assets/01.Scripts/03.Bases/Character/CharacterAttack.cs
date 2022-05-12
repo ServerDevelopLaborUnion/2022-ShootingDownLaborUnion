@@ -6,35 +6,39 @@ using UnityEngine.Events;
 public class CharacterAttack : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnAttacked;
-    private CharacterBase _base;
+    protected CharacterBase _base;
 
-    [SerializeField]
-    [HideInInspector]
-    private Collider2D _playerCol;
+    protected Collider2D _playerCol;
 
-    [SerializeField] private float _atkRange;
-    private bool _isPlayer = false;
+    protected bool _isPlayer = false;
 
-    private void Start()
+    protected Transform _transform = null;
+
+    protected virtual void Start()
     {
-        _base = transform.parent.GetComponent<CharacterBase>();
-        _playerCol = transform.parent.GetComponent<Collider2D>();
-        _isPlayer = transform.parent.CompareTag("Player");
+        Transform par = transform;
+        while(true){
+            if(par.parent == null)break;
+            par = par.parent;
+        }
+        _transform = transform;
+        _base = par.GetComponent<CharacterBase>();
+        _playerCol = par.GetComponent<Collider2D>();
+        _isPlayer = par.CompareTag("Player");
     }
     public void DoAttack(bool clicked)
     {
-        if (clicked && (!_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || !_base.State.CurrentState.HasFlag(CharacterState.State.Died)))
+        if (clicked && !(_base.State.CurrentState.HasFlag(CharacterState.State.Attack) 
+            || _base.State.CurrentState.HasFlag(CharacterState.State.Died) ))
         {
             OnAttacked?.Invoke();
-            _base.State.CurrentState |= CharacterState.State.Attack;
-            Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position + new Vector3(_playerCol.bounds.size.x * transform.localScale.x, _playerCol.offset.y * 0.5f), new Vector3(_playerCol.bounds.size.x, _playerCol.bounds.size.y * 2), 0, LayerMask.GetMask(_isPlayer ? "Enemy" : "Player"));
-            if (enemies.Length <= 0) return;
-            foreach (var enemy in enemies)
-            {
-                Debug.Log(enemy.name);
-                enemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol);
-            }
+            Attack();
         }
+    }
+
+    protected virtual void Attack()
+    {
+        _base.State.CurrentState |= CharacterState.State.Attack;
     }
 
     public void DoAttackInAnimation()
@@ -42,13 +46,7 @@ public class CharacterAttack : MonoBehaviour
         if ((!_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || !_base.State.CurrentState.HasFlag(CharacterState.State.Died)))
         {
             _base.State.CurrentState |= CharacterState.State.Attack;
-            Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position + new Vector3(_playerCol.bounds.size.x * transform.localScale.x, _playerCol.offset.y * 0.5f), new Vector3(_playerCol.bounds.size.x, _playerCol.bounds.size.y * 2), 0, LayerMask.GetMask(_isPlayer ? "Enemy" : "Player"));
-            if (enemies.Length <= 0) return;
-            foreach (var enemy in enemies)
-            {
-                Debug.Log(enemy.name);
-                enemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol);
-            }
+            Attack();
         }
     }
     public void EndAttack()
@@ -57,8 +55,4 @@ public class CharacterAttack : MonoBehaviour
         _base.State.CurrentState &= ~CharacterState.State.Attack;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position + Vector3.right * transform.localScale.x * _atkRange * 0.5f, new Vector2(_atkRange, _playerCol.bounds.size.y));
-    }
 }
