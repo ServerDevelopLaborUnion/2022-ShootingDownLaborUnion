@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const handlers = {};
 
-const files = fs.readdirSync('./handler');
+const files = fs.readdirSync('./src/handler');
 
 Logger.debug('Loading handlers: ' + files.join(', '));
 

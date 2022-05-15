@@ -1,17 +1,14 @@
-const { Buffer } = require('buffer');
 const { server, connection } = require('websocket');
 const { UserType } = require('../types/User');
 const { v4 } = require('uuid');
 const http = require('node:http');
 const Logger = require('../util/logger').getLogger('Websocket');
 const router = require('./router');
+const proto = require('../util/proto');
 
 Object.defineProperty(connection.prototype, 'sendPacket', {
-    value: function (type, buffer) {
-        const packet = Buffer.alloc(2);
-        packet.writeUInt16BE(type, 0);
-        const message = Buffer.concat([packet, buffer]);
-        this.sendBytes(message);
+    value: function (buffer) {
+        this.sendBytes(buffer);
     },
     enumerable: false,
     configurable: true,
@@ -48,6 +45,10 @@ exports.WebsocketServer = new class WebsocketServer {
                 socket: socket,
                 sessionId: v4()
             }
+
+            socket.sendPacket(proto.client.encode(proto.client.Connection, {
+                SessionId: socket.user.sessionId,
+            }));
 
             Logger.debug(`${socket.user.sessionId} connected`);
             socket.on("message", (message) => {

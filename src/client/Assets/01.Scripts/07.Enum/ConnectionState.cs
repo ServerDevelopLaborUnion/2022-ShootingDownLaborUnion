@@ -3,6 +3,6 @@ public enum ConnectionState
     None,
     Connecting,
     Connected,
-    Disconnecting,
+    LoggedIn,
     Disconnected
 }

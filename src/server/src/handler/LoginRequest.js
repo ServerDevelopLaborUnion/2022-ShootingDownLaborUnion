@@ -19,8 +19,10 @@ module.exports = {
 
         const token = auth.encode(loginRequest.username, loginRequest.password);
 
-        socket.sendPacket(0, proto.client.encode(proto.client.LoginResponse.name, {
-            token: token,
+        socket.sendPacket(proto.client.encode(proto.client.LoginResponse, {
+            Success: true,
+            Username: loginRequest.username,
+            Token: token,
         }));
 
         socket.user = {

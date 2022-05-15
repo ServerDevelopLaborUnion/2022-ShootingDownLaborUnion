@@ -1,20 +1,29 @@
 syntax = "proto3";
 
-package Client;
+import "Type.proto";
 
-message Vector2 {
-    float x = 1;
-    float y = 2;
-}
+package Protobuf.Client;
 
 // id: 0
-message LoginResponse {
-    string username = 1;
-    string token = 2;
+message Connection {
+    string SessionId = 1;
 }
 
 // id: 1
-message Join {
-    string username = 1;
-    Vector2 position = 2;
+message LoginResponse {
+    bool Success = 1;
+    string Username = 2;
+    string Token = 3;
+}
+
+// id: 2
+message CreateEntity {
+    Entity Entity = 1;
+}
+
+// id: 3
+message MoveEntity {
+    int32 EntityId = 1;
+    Vector2 Position = 2;
+    Quaternion Rotation = 3;
 }

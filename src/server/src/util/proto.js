@@ -1,6 +1,7 @@
+const { Buffer } = require('buffer');
 const protobuf = require('protobufjs');
 
-const protoPath = '../proto/';
+const protoPath = './proto/';
 
 const server = protobuf.loadSync(`${protoPath}Server.proto`);
 const client = protobuf.loadSync(`${protoPath}Client.proto`);
@@ -24,20 +25,26 @@ module.exports = {
     },
     client: {
         encode: (type, message) => {
-            const buffer = client.lookupType(`Client.${type}`).encode(message).finish();
-            return buffer;
+            const packet = Buffer.alloc(2);
+            packet.writeUInt16BE(type.id, 0);
+            const buffer = client.lookupType(`Client.${type.type}`).encode(message).finish();
+            return Buffer.concat([packet, buffer]);
         },
         decode: (type, buffer) => {
-            const message = client.lookupType(`Client.${type}`).decode(buffer);
+            const message = client.lookupType(`Client.${type.type}`).decode(buffer);
             return message;
         },
         verify: (type, buffer) => {
-            const message = client.lookupType(`Client.${type}`).verify(buffer);
+            const message = client.lookupType(`Client.${type.type}`).verify(buffer);
             return message != null;
         },
-        LoginResponse: {
+        Connection: {
             id: 0,
-            name: 'LoginResponse',
+            type: 'Connection',
+        },
+        LoginResponse: {
+            id: 1,
+            tame: 'LoginResponse',
         },
     }
 }
