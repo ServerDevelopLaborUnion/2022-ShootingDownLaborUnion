@@ -14,8 +14,4 @@ public class CharacterBase : MonoBehaviour
     public CharacterState State { get { return _playerState; } set { _playerState = value; } }
 
 
-    private void Update()
-    {
-        
-    }
 }

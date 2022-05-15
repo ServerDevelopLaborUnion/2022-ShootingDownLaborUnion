@@ -1,3 +1,5 @@
+using static Define;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,20 +11,15 @@ public class CharacterInput : MonoBehaviour
 
     [SerializeField] private UnityEvent<bool> OnAttackKeyInput;
 
+    public UnityEvent<bool> GetOnAttackKeyInput => OnAttackKeyInput;
+
     [SerializeField] private UnityEvent<Vector2> OnPointerPositionChange;
-    private void Update()
+    protected virtual void Update()
     {
         OnMoveKeyInput?.Invoke(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
         OnAttackKeyInput?.Invoke(Input.GetMouseButtonDown(0));
-        GetPointerInput();
+        OnPointerPositionChange?.Invoke(MousePos - (Vector2)transform.position);
     }
 
-    private void GetPointerInput()
-    {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 0;
-        Vector2 mouseInWorldPos = Define.MainCam.ScreenToWorldPoint(mousePos);
-        OnPointerPositionChange?.Invoke(mouseInWorldPos - (Vector2)transform.position);
-    }
 
 }

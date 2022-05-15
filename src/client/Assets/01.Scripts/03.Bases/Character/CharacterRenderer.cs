@@ -14,17 +14,20 @@ public class CharacterRenderer : MonoBehaviour
         _characterBase = transform.parent.GetComponent<CharacterBase>();
     }
 
-    public void flipCharacter(Vector2 pointerVec)
+    public void FlipCharacter(Vector2 pointerVec)
     {
         if (_characterBase.State.CurrentState.HasFlag(CharacterState.State.Attack)) return;
         if (pointerVec.x > 0)
         {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), 1, 1);
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x);
+            transform.localScale = scale;
         }
         else if (pointerVec.x < 0)
         {
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), 1, 1);
-
+            Vector3 scale = transform.localScale;
+            scale.x = -Mathf.Abs(scale.x);
+            transform.localScale = scale;
         }
     }
 
