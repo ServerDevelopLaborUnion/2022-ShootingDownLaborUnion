@@ -1,0 +1,5 @@
+npx pbjs -t static-module Server.proto | npx pbts -o Server.d.ts -
+.\\protoc.exe --js_out=import_style=commonjs,binary:. Server.proto
+
+npx pbjs -t static-module Client.proto | npx pbts -o Client.d.ts -
+.\\protoc.exe --js_out=import_style=commonjs,binary:. Client.proto

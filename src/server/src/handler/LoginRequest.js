@@ -1,27 +1,33 @@
-const protobuf = require('protobufjs');
 const { Account } = require('../types/Account');
 const { UserType } = require('../types/User');
+const auth = require('../util/auth');
+const proto = require('../util/proto');
+
+const id = 0;
+const type = 'LoginRequest';
 
 module.exports = {
-    id: 0,
+    id: id,
+    type: type,
     receive: (socket, buffer) => {
-        protobuf.load('./src/server/proto/login.proto', (err, root) => {
-            if (err) {
-                console.log(err);
-                return;
-            }
+        if (!proto.server.verify(type, buffer)) return;
+        const loginRequest = proto.server.decode(type, buffer);
 
-            const LoginRequest = root.lookupType('LoginRequest');
-            const loginRequest = LoginRequest.decode(buffer);
+        const account = new Account(socket.user.sessionId, loginRequest.username);
 
-            const account = new Account(socket.user.sessionId, loginRequest.username);
+        // TODO: DB 로그인 구현
 
-            socket.user = {
-                type: UserType.ValidUser,
-                sessionId: socket.user.sessionId,
-                socket: socket,
-                account: account
-            }
-        });
+        const token = auth.encode(loginRequest.username, loginRequest.password);
+
+        socket.sendPacket(0, proto.client.encode(proto.client.LoginResponse.name, {
+            token: token,
+        }));
+
+        socket.user = {
+            type: UserType.ValidUser,
+            sessionId: socket.user.sessionId,
+            socket: socket,
+            account: account
+        }
     }
 }

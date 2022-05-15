@@ -1,19 +1,33 @@
-const http = require('node:http');
-const router = require('./router');
-const Logger = require('../util/logger').getLogger('Websocket');
-const { v4 } = require('uuid');
-const { server } = require('websocket');
+const { Buffer } = require('buffer');
+const { server, connection } = require('websocket');
 const { UserType } = require('../types/User');
+const { v4 } = require('uuid');
+const http = require('node:http');
+const Logger = require('../util/logger').getLogger('Websocket');
+const router = require('./router');
+
+Object.defineProperty(connection.prototype, 'sendPacket', {
+    value: function (type, buffer) {
+        const packet = Buffer.alloc(2);
+        packet.writeUInt16BE(type, 0);
+        const message = Buffer.concat([packet, buffer]);
+        this.sendBytes(message);
+    },
+    enumerable: false,
+    configurable: true,
+    writable: true
+});
 
 exports.WebsocketServer = new class WebsocketServer {
     port;
+    /** @type {http.Server} */
     server;
+    /** @type {server} */
     wsServer;
 
     constructor() {
         this.port = 0;
         this.wsServer = null;
-        // @ts-expect-error ts(7009)
         this.server = new http.createServer((request, response) => {
             response.end('');
         });

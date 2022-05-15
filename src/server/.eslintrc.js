@@ -9,5 +9,6 @@ module.exports = {
         "ecmaVersion": 13
     },
     "rules": {
+        "no-constant-condition": "warn",
     }
 };
