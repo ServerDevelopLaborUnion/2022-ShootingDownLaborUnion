@@ -3,7 +3,7 @@ const { UserType } = require('../types/User');
 const auth = require('../util/auth');
 const proto = require('../util/proto');
 
-const id = 1;
+const id = 0;
 const type = 'LoginRequest';
 
 module.exports = {

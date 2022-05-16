@@ -30,6 +30,21 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
             }
         }
     }
+
+    protected static void Initialize(bool dontDestroyOnLoad = false)
+    {
+        if (_instance == null)
+        {
+            _instance = FindObjectOfType<T>();
+            if (_instance == null)
+            {
+                _instance = new GameObject(typeof(T).ToString()).AddComponent<T>();
+                if (dontDestroyOnLoad)
+                    DontDestroyOnLoad(_instance);
+            }
+        }
+    }
+
     private void Start() {
         _shuttingDown = false;
     }

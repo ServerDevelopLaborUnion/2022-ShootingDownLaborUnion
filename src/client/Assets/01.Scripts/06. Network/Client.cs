@@ -61,6 +61,12 @@ namespace WebSocket
 
     public class Client : MonoSingleton<Client>
     {
+        [RuntimeInitializeOnLoadMethod]
+        static void OnSecondRuntimeMethodLoad()
+        {
+            Initialize(true);
+        }
+
         #region WebSocket Events
         /// <summary>
         /// 서버에 연결되었을 때 발생하는 이벤트
@@ -94,10 +100,13 @@ namespace WebSocket
         /// </summary>
         public static event EventHandler<MoveEntityEventArgs> OnMoveEntityMessage;
         #endregion
-
+        public static ConnectionState ConnectionState => _connectionState;
         private static ConnectionState _connectionState = ConnectionState.None;
         private static Task _clentTask = null;
         private static ClientWebSocket _clientWebSocket = null;
+        private static string _token = null;
+
+        #region WebSocket Methods
 
         public void Initialize()
         {
@@ -111,7 +120,7 @@ namespace WebSocket
             _clentTask = Task.Run(ClientTask);
         }
 
-        public void SendPacket(int type, byte[] data)
+        public static void SendPacket(int type, byte[] data)
         {
             if (_clientWebSocket == null)
                 return;
@@ -122,7 +131,7 @@ namespace WebSocket
             _clientWebSocket.SendAsync(new ArraySegment<byte>(Packet.Make((ushort)type, data)), WebSocketMessageType.Binary, true, CancellationToken.None);
         }
 
-        public void Disconnect()
+        public static void Disconnect()
         {
             if (_clientWebSocket != null)
             {
@@ -134,7 +143,7 @@ namespace WebSocket
             Debug.Log("Disconnected");
         }
 
-        public void SendMessage(byte[] buffer)
+        public static void SendMessage(byte[] buffer)
         {
             if (_clientWebSocket.State == WebSocketState.Open)
             {
@@ -166,19 +175,19 @@ namespace WebSocket
             ClearEvents();
         }
 
-        private void InitializeEvents()
+        private static void InitializeEvents()
         {
             OnLoginResponseMessage += (sender, e) =>
             {
                 if (e.Success)
                 {
                     _connectionState = ConnectionState.LoggedIn;
-                    Debug.Log("Logged in: " + e.Token);
+                    _token = e.Token;
                 }
             };
         }
 
-        private void ClearEvents()
+        private static void ClearEvents()
         {
             OnMessageReceived = null;
             OnConnected = null;
@@ -258,33 +267,65 @@ namespace WebSocket
                 var type = BitConverter.ToUInt16(typeBuffer, 0);
                 buffer = buffer.Skip(2).ToArray();
 
-                switch (type)
+                MainTask.Enqueue(() =>
                 {
-                    case 0:
-                        var connectionMessage = Protobuf.Client.Connection.Parser.ParseFrom(buffer);
-                        OnConnectionMessage?.Invoke(this, new ConnectionEventArgs(connectionMessage.SessionId));
-                        break;
-                    case 1:
-                        var loginResponseMessage = Protobuf.Client.LoginResponse.Parser.ParseFrom(buffer);
-                        OnLoginResponseMessage?.Invoke(this, new LoginResponseEventArgs(loginResponseMessage.Success, loginResponseMessage.Token));
-                        break;
-                    case 2:
-                        var createEntityMessage = Protobuf.Client.CreateEntity.Parser.ParseFrom(buffer);
-                        OnCreateEntityMessage?.Invoke(this, new CreateEntityEventArgs(
-                            new Entity(createEntityMessage.Entity.Id, createEntityMessage.Entity.Name,
-                                new Vector2(createEntityMessage.Entity.Position.X, createEntityMessage.Entity.Position.Y),
-                                new Quaternion(createEntityMessage.Entity.Rotation.X, createEntityMessage.Entity.Rotation.Y, createEntityMessage.Entity.Rotation.Z, createEntityMessage.Entity.Rotation.W))
-                        ));
-                        break;
-                    case 3:
-                        var moveEntityMessage = Protobuf.Client.MoveEntity.Parser.ParseFrom(buffer);
-                        OnMoveEntityMessage?.Invoke(this, new MoveEntityEventArgs(moveEntityMessage.EntityId,
-                            new Vector2(moveEntityMessage.Position.X, moveEntityMessage.Position.Y),
-                            new Quaternion(moveEntityMessage.Rotation.X, moveEntityMessage.Rotation.Y, moveEntityMessage.Rotation.Z, moveEntityMessage.Rotation.W)
-                        ));
-                        break;
-                }
+                    switch (type)
+                    {
+                        case 0:
+                            var connectionMessage = Protobuf.Client.Connection.Parser.ParseFrom(buffer);
+                            OnConnectionMessage?.Invoke(this, new ConnectionEventArgs(connectionMessage.SessionId));
+                            break;
+                        case 1:
+                            var loginResponseMessage = Protobuf.Client.LoginResponse.Parser.ParseFrom(buffer);
+                            OnLoginResponseMessage?.Invoke(this, new LoginResponseEventArgs(loginResponseMessage.Success, loginResponseMessage.Token));
+                            break;
+                        case 2:
+                            var createEntityMessage = Protobuf.Client.CreateEntity.Parser.ParseFrom(buffer);
+                            OnCreateEntityMessage?.Invoke(this, new CreateEntityEventArgs(
+                                new Entity(createEntityMessage.Entity.Id, createEntityMessage.Entity.Name,
+                                    new Vector2(createEntityMessage.Entity.Position.X, createEntityMessage.Entity.Position.Y),
+                                    new Quaternion(createEntityMessage.Entity.Rotation.X, createEntityMessage.Entity.Rotation.Y, createEntityMessage.Entity.Rotation.Z, createEntityMessage.Entity.Rotation.W))
+                            ));
+                            break;
+                        case 3:
+                            var moveEntityMessage = Protobuf.Client.MoveEntity.Parser.ParseFrom(buffer);
+                            OnMoveEntityMessage?.Invoke(this, new MoveEntityEventArgs(moveEntityMessage.EntityId,
+                                new Vector2(moveEntityMessage.Position.X, moveEntityMessage.Position.Y),
+                                new Quaternion(moveEntityMessage.Rotation.X, moveEntityMessage.Rotation.Y, moveEntityMessage.Rotation.Z, moveEntityMessage.Rotation.W)
+                            ));
+                            break;
+                    }
+                });
             }
         }
+        #endregion
+
+        #region Functional methods
+        public static void Login(string username, string password)
+        {
+            if (_connectionState == ConnectionState.Connected)
+            {
+                var loginRequest = new Protobuf.Server.LoginRequest();
+                loginRequest.Username = username;
+                loginRequest.Password = password;
+
+                byte[] buffer = new byte[loginRequest.CalculateSize()];
+                using (var memoryStream = new Google.Protobuf.CodedOutputStream(buffer))
+                {
+                    loginRequest.WriteTo(memoryStream);
+                }
+
+                SendPacket(0, buffer);
+            }
+            else if (_connectionState == ConnectionState.Disconnected)
+            {
+                Debug.LogWarning("You are not connected to the server.");
+            }
+            else if (_connectionState == ConnectionState.LoggedIn)
+            {
+                Debug.LogWarning("You are already logged in.");
+            }
+        }
+        #endregion
     }
 }
