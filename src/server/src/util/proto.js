@@ -44,7 +44,7 @@ module.exports = {
         },
         LoginResponse: {
             id: 1,
-            tame: 'LoginResponse',
+            type: 'LoginResponse',
         },
     }
 }

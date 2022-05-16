@@ -3,11 +3,12 @@ const { UserType } = require('../types/User');
 const { v4 } = require('uuid');
 const http = require('node:http');
 const Logger = require('../util/logger').getLogger('Websocket');
-const router = require('./router');
 const proto = require('../util/proto');
+const router = require('./router');
 
 Object.defineProperty(connection.prototype, 'sendPacket', {
     value: function (buffer) {
+        Logger.debug(`Sending: ${buffer.length} bytes to ${this.user.sessionId}`);
         this.sendBytes(buffer);
     },
     enumerable: false,

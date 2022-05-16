@@ -42,7 +42,7 @@ client.on('connect', (server) => {
 
             switch (type) {
                 case proto.client.LoginResponse.id:
-                    const parsed = proto.client.decode(proto.client.LoginResponse.name, body);
+                    const parsed = proto.client.decode(proto.client.LoginResponse, body);
                     console.log(parsed);
 
                     server.sendPacket(2, proto.server.encode('MoveRequest', {
@@ -67,10 +67,10 @@ client.on('connect', (server) => {
             return;
         }
 
-        const LoginRequest = root.lookupType('LoginRequest');
+        const LoginRequest = root.lookupType('TokenLoginRequest');
         const loginRequest = LoginRequest.create(data);
 
-        const type = 0;
+        const type = 1;
         const buffer = LoginRequest.encode(loginRequest).finish();
         const packet = Buffer.alloc(2);
         packet.writeUInt16BE(type, 0);

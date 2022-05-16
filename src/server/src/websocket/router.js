@@ -25,8 +25,8 @@ exports.receive = (socket, buffer) => {
 
     if (handlers[type] !== undefined) {
         handlers[type].receive(socket, data);
-        Logger.debug(`Received: ${handlers[type].type} (${data.length}bytes) from ${socket.remoteAddress}`);
+        Logger.debug(`Received: ${handlers[type].type} (${data.length} bytes) from ${socket.remoteAddress}`);
     } else {
-        Logger.warn(`Unknown packet type: ${type} (${data.length}bytes) from ${socket.remoteAddress}`);
+        Logger.warn(`Unknown packet type: ${type} (${data.length} bytes) from ${socket.remoteAddress}`);
     }
 }

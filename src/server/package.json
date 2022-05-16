@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "node ./src/index.js",
-    "client": "node ./src/testClient.js"
+    "server": "npx nodemon ./src/index.js",
+    "client": "npx nodemon ./src/testClient.js"
   },
   "keywords": [],
   "author": "",
