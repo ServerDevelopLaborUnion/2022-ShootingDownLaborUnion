@@ -17,7 +17,7 @@
     "google-protobuf": "^3.20.1-rc.1",
     "jsonwebtoken": "^8.5.1",
     "protobufjs": "^6.11.2",
-    "socket.io": "^4.4.1",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "websocket": "^1.0.34"
   }
 }

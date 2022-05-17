@@ -65,7 +65,7 @@ namespace WebSocket
         static void OnSecondRuntimeMethodLoad()
         {
             Initialize(true);
-        }
+        }ㅎ
 
         #region WebSocket Events
         /// <summary>
