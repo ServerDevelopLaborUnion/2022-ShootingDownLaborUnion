@@ -20,8 +20,14 @@ module.exports = {
             const message = server.lookupType(`Server.${type}`).verify(buffer);
             return message == null;
         },
-        LoginRequest: 0,
-        TokenLoginRequest: 1,
+        LoginRequest: {
+            id: 0,
+            type: 'LoginRequest',
+        },
+        TokenLoginRequest: {
+            id: 1,
+            type: 'TokenLoginRequest',
+        },
     },
     client: {
         encode: (type, message) => {

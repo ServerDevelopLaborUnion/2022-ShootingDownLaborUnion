@@ -1,23 +1,28 @@
 const jwt = require('jsonwebtoken');
-
 const secret = 'secret';
+
+function encode(data, exriresIn) {
+    return jwt.sign(data, secret, { expiresIn: exriresIn })
+}
+
+module.exports.generateToken = (account) => {
+    return encode({
+        userId: account.userId,
+        username: account.username,
+    }, '14d');
+}
 
 module.exports.login = (account) => {
     // TODO: DB 로그인 구현
-    const random = Math.random();
-    console.log(random);
-    return random > 0.5;
+    return true;
 }
 
-module.exports.encode = (username, password) => {
-    // TODO: DB 로그인 구현
-    return jwt.sign({ username: username, password: password }, secret, { expiresIn: '90d' })
-};
-
 module.exports.verify = (token) => {
-    return jwt.verify(token, secret);
-};
-
-module.exports.decode = (token) => {
-    return jwt.decode(token);
+    return jwt.verify(token, secret, (err, decoded) => {
+        if (err) {
+            return undefined;
+        } else {
+            return decoded;
+        }
+    });
 };
