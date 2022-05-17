@@ -1,5 +1,7 @@
 const { Account } = require('../types/Account');
-const { UserType } = require('../types/User');
+const { ValidUser } = require('../types/User');
+const sleep = require('../util/sleep');
+const Logger = require('../util/logger').getLogger('LoginRequest');
 const auth = require('../util/auth');
 const proto = require('../util/proto');
 
@@ -9,27 +11,33 @@ const type = 'LoginRequest';
 module.exports = {
     id: id,
     type: type,
-    receive: (socket, buffer) => {
-        if (!proto.server.verify(type, buffer)) return;
+    receive: async (socket, buffer) => {
+        await sleep(3000);
+        if (!proto.server.verify(type, buffer)) {
+            Logger.warn(`Invalid packet from ${socket.remoteAddress}`);
+            return;
+        }
         const loginRequest = proto.server.decode(type, buffer);
-
         const account = new Account(socket.user.sessionId, loginRequest.username);
 
         // TODO: DB 로그인 구현
+        if (auth.login(account)) {
+            socket.user = new ValidUser(
+                socket,
+                account.userId,
+                account
+            );
+            const token = auth.encode(loginRequest.username, loginRequest.password);
 
-        const token = auth.encode(loginRequest.username, loginRequest.password);
-
-        socket.sendPacket(proto.client.encode(proto.client.LoginResponse, {
-            Success: true,
-            Username: loginRequest.username,
-            Token: token,
-        }));
-
-        socket.user = {
-            type: UserType.ValidUser,
-            sessionId: socket.user.sessionId,
-            socket: socket,
-            account: account
+            socket.sendPacket(proto.client.encode(proto.client.LoginResponse, {
+                Success: true,
+                Username: loginRequest.username,
+                Token: token,
+            }));
+        } else {
+            socket.sendPacket(proto.client.encode(proto.client.LoginResponse, {
+                Success: false,
+            }));
         }
     }
 }

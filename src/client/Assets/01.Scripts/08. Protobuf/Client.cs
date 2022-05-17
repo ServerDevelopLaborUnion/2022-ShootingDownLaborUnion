@@ -25,17 +25,18 @@ namespace Protobuf.Client {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgxDbGllbnQucHJvdG8SD1Byb3RvYnVmLkNsaWVudBoKVHlwZS5wcm90byIf",
-            "CgpDb25uZWN0aW9uEhEKCVNlc3Npb25JZBgBIAEoCSJBCg1Mb2dpblJlc3Bv",
-            "bnNlEg8KB1N1Y2Nlc3MYASABKAgSEAoIVXNlcm5hbWUYAiABKAkSDQoFVG9r",
-            "ZW4YAyABKAkiMAoMQ3JlYXRlRW50aXR5EiAKBkVudGl0eRgBIAEoCzIQLlBy",
-            "b3RvYnVmLkVudGl0eSJrCgpNb3ZlRW50aXR5EhAKCEVudGl0eUlkGAEgASgF",
-            "EiMKCFBvc2l0aW9uGAIgASgLMhEuUHJvdG9idWYuVmVjdG9yMhImCghSb3Rh",
-            "dGlvbhgDIAEoCzIULlByb3RvYnVmLlF1YXRlcm5pb25iBnByb3RvMw=="));
+            "CgpDb25uZWN0aW9uEhEKCVNlc3Npb25JZBgBIAEoCSJiCg1Mb2dpblJlc3Bv",
+            "bnNlEg8KB1N1Y2Nlc3MYASABKAgSFQoIVXNlcm5hbWUYAiABKAlIAIgBARIS",
+            "CgVUb2tlbhgDIAEoCUgBiAEBQgsKCV9Vc2VybmFtZUIICgZfVG9rZW4iMAoM",
+            "Q3JlYXRlRW50aXR5EiAKBkVudGl0eRgBIAEoCzIQLlByb3RvYnVmLkVudGl0",
+            "eSJrCgpNb3ZlRW50aXR5EhAKCEVudGl0eUlkGAEgASgFEiMKCFBvc2l0aW9u",
+            "GAIgASgLMhEuUHJvdG9idWYuVmVjdG9yMhImCghSb3RhdGlvbhgDIAEoCzIU",
+            "LlByb3RvYnVmLlF1YXRlcm5pb25iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protobuf.TypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.Connection), global::Protobuf.Client.Connection.Parser, new[]{ "SessionId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.LoginResponse), global::Protobuf.Client.LoginResponse.Parser, new[]{ "Success", "Username", "Token" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.LoginResponse), global::Protobuf.Client.LoginResponse.Parser, new[]{ "Success", "Username", "Token" }, new[]{ "Username", "Token" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.CreateEntity), global::Protobuf.Client.CreateEntity.Parser, new[]{ "Entity" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.MoveEntity), global::Protobuf.Client.MoveEntity.Parser, new[]{ "EntityId", "Position", "Rotation" }, null, null, null, null)
           }));
@@ -299,26 +300,50 @@ namespace Protobuf.Client {
 
     /// <summary>Field number for the "Username" field.</summary>
     public const int UsernameFieldNumber = 2;
-    private string username_ = "";
+    private string username_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Username {
-      get { return username_; }
+      get { return username_ ?? ""; }
       set {
         username_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
+    /// <summary>Gets whether the "Username" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasUsername {
+      get { return username_ != null; }
+    }
+    /// <summary>Clears the value of the "Username" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearUsername() {
+      username_ = null;
+    }
 
     /// <summary>Field number for the "Token" field.</summary>
     public const int TokenFieldNumber = 3;
-    private string token_ = "";
+    private string token_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Token {
-      get { return token_; }
+      get { return token_ ?? ""; }
       set {
         token_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
+    }
+    /// <summary>Gets whether the "Token" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasToken {
+      get { return token_ != null; }
+    }
+    /// <summary>Clears the value of the "Token" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearToken() {
+      token_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -347,8 +372,8 @@ namespace Protobuf.Client {
     public override int GetHashCode() {
       int hash = 1;
       if (Success != false) hash ^= Success.GetHashCode();
-      if (Username.Length != 0) hash ^= Username.GetHashCode();
-      if (Token.Length != 0) hash ^= Token.GetHashCode();
+      if (HasUsername) hash ^= Username.GetHashCode();
+      if (HasToken) hash ^= Token.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -371,11 +396,11 @@ namespace Protobuf.Client {
         output.WriteRawTag(8);
         output.WriteBool(Success);
       }
-      if (Username.Length != 0) {
+      if (HasUsername) {
         output.WriteRawTag(18);
         output.WriteString(Username);
       }
-      if (Token.Length != 0) {
+      if (HasToken) {
         output.WriteRawTag(26);
         output.WriteString(Token);
       }
@@ -393,11 +418,11 @@ namespace Protobuf.Client {
         output.WriteRawTag(8);
         output.WriteBool(Success);
       }
-      if (Username.Length != 0) {
+      if (HasUsername) {
         output.WriteRawTag(18);
         output.WriteString(Username);
       }
-      if (Token.Length != 0) {
+      if (HasToken) {
         output.WriteRawTag(26);
         output.WriteString(Token);
       }
@@ -414,10 +439,10 @@ namespace Protobuf.Client {
       if (Success != false) {
         size += 1 + 1;
       }
-      if (Username.Length != 0) {
+      if (HasUsername) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
       }
-      if (Token.Length != 0) {
+      if (HasToken) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
       }
       if (_unknownFields != null) {
@@ -435,10 +460,10 @@ namespace Protobuf.Client {
       if (other.Success != false) {
         Success = other.Success;
       }
-      if (other.Username.Length != 0) {
+      if (other.HasUsername) {
         Username = other.Username;
       }
-      if (other.Token.Length != 0) {
+      if (other.HasToken) {
         Token = other.Token;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);

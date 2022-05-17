@@ -80,6 +80,10 @@ namespace WebSocket
         /// 서버와의 연결이 끊어졌을 때 발생하는 이벤트
         /// </summary>
         public static event Action<string> OnDisconnected;
+        /// <summary>
+        /// 연결 상태가 변경되었을 때 발생하는 이벤트
+        /// </summary>
+        public static event Action<ConnectionState> OnConnectionStateChanged;
         #endregion
 
         #region Client Events
@@ -101,7 +105,15 @@ namespace WebSocket
         public static event EventHandler<MoveEntityEventArgs> OnMoveEntityMessage;
         #endregion
         public static ConnectionState ConnectionState => _connectionState;
-        private static ConnectionState _connectionState = ConnectionState.None;
+        private static ConnectionState _connectionState { 
+            get => _connectionStateValue;
+            set 
+            {
+                _connectionStateValue = value;
+                MainTask.Enqueue(() => OnConnectionStateChanged?.Invoke(value));
+            }
+        }
+        private static ConnectionState _connectionStateValue = ConnectionState.None;
         private static Task _clentTask = null;
         private static ClientWebSocket _clientWebSocket = null;
         private static string _token = null;
@@ -120,7 +132,25 @@ namespace WebSocket
             _clentTask = Task.Run(ClientTask);
         }
 
-        public static void SendPacket(int type, byte[] data)
+        public static void  SendPacket(uint type, Google.Protobuf.IMessage message)
+        {
+            if (_connectionState == ConnectionState.Connected)
+            {
+                byte[] buffer = new byte[message.CalculateSize()];
+                using (var memoryStream = new Google.Protobuf.CodedOutputStream(buffer))
+                {
+                    message.WriteTo(memoryStream);
+                }
+
+                SendPacket(type, buffer);
+            }
+            else if (_connectionState == ConnectionState.Disconnected)
+            {
+                Debug.LogWarning("You are not connected to the server.");
+            }
+        }
+
+        public static void SendPacket(uint type, byte[] data)
         {
             if (_clientWebSocket == null)
                 return;
@@ -139,7 +169,7 @@ namespace WebSocket
                 _clientWebSocket = null;
             }
             _connectionState = ConnectionState.Disconnected;
-            OnDisconnected?.Invoke("Disconnected");
+            MainTask.Enqueue(() => OnDisconnected?.Invoke("Disconnected"));
             Debug.Log("Disconnected");
         }
 
@@ -215,7 +245,7 @@ namespace WebSocket
                 if (_clientWebSocket.State == WebSocketState.Open)
                 {
                     _connectionState = ConnectionState.Connected;
-                    OnConnected?.Invoke("Connected");
+                    MainTask.Enqueue(() => OnConnected?.Invoke("Connected"));
                     Debug.Log("Connected");
 
                     var memoryStream = new MemoryStream();
@@ -234,7 +264,7 @@ namespace WebSocket
                             memoryStream.Write(buffer.Array, 0, result.Count);
                             if (result.EndOfMessage)
                             {
-                                OnMessageReceived?.Invoke(memoryStream.ToArray(), result);
+                                MainTask.Enqueue(() => OnMessageReceived?.Invoke(memoryStream.ToArray(), result));
                                 ReceiveMessage(memoryStream.ToArray(), result);
                                 memoryStream.SetLength(0);
                             }
@@ -273,26 +303,26 @@ namespace WebSocket
                     {
                         case 0:
                             var connectionMessage = Protobuf.Client.Connection.Parser.ParseFrom(buffer);
-                            OnConnectionMessage?.Invoke(this, new ConnectionEventArgs(connectionMessage.SessionId));
+                            MainTask.Enqueue(() => OnConnectionMessage?.Invoke(this, new ConnectionEventArgs(connectionMessage.SessionId)));
                             break;
                         case 1:
                             var loginResponseMessage = Protobuf.Client.LoginResponse.Parser.ParseFrom(buffer);
-                            OnLoginResponseMessage?.Invoke(this, new LoginResponseEventArgs(loginResponseMessage.Success, loginResponseMessage.Token));
+                            MainTask.Enqueue(() => OnLoginResponseMessage?.Invoke(this, new LoginResponseEventArgs(loginResponseMessage.Success, loginResponseMessage.Token)));
                             break;
                         case 2:
                             var createEntityMessage = Protobuf.Client.CreateEntity.Parser.ParseFrom(buffer);
-                            OnCreateEntityMessage?.Invoke(this, new CreateEntityEventArgs(
+                            MainTask.Enqueue(() => OnCreateEntityMessage?.Invoke(this, new CreateEntityEventArgs(
                                 new Entity(createEntityMessage.Entity.Id, createEntityMessage.Entity.Name,
                                     new Vector2(createEntityMessage.Entity.Position.X, createEntityMessage.Entity.Position.Y),
                                     new Quaternion(createEntityMessage.Entity.Rotation.X, createEntityMessage.Entity.Rotation.Y, createEntityMessage.Entity.Rotation.Z, createEntityMessage.Entity.Rotation.W))
-                            ));
+                            )));
                             break;
                         case 3:
                             var moveEntityMessage = Protobuf.Client.MoveEntity.Parser.ParseFrom(buffer);
-                            OnMoveEntityMessage?.Invoke(this, new MoveEntityEventArgs(moveEntityMessage.EntityId,
+                            MainTask.Enqueue(() => OnMoveEntityMessage?.Invoke(this, new MoveEntityEventArgs(moveEntityMessage.EntityId,
                                 new Vector2(moveEntityMessage.Position.X, moveEntityMessage.Position.Y),
                                 new Quaternion(moveEntityMessage.Rotation.X, moveEntityMessage.Rotation.Y, moveEntityMessage.Rotation.Z, moveEntityMessage.Rotation.W)
-                            ));
+                            )));
                             break;
                     }
                 });
@@ -308,14 +338,27 @@ namespace WebSocket
                 var loginRequest = new Protobuf.Server.LoginRequest();
                 loginRequest.Username = username;
                 loginRequest.Password = password;
+                
+                SendPacket(0, loginRequest);
+            }
+            else if (_connectionState == ConnectionState.Disconnected)
+            {
+                Debug.LogWarning("You are not connected to the server.");
+            }
+            else if (_connectionState == ConnectionState.LoggedIn)
+            {
+                Debug.LogWarning("You are already logged in.");
+            }
+        }
 
-                byte[] buffer = new byte[loginRequest.CalculateSize()];
-                using (var memoryStream = new Google.Protobuf.CodedOutputStream(buffer))
-                {
-                    loginRequest.WriteTo(memoryStream);
-                }
+        public static void Login(string token)
+        {
+            if (_connectionState == ConnectionState.Connected)
+            {
+                var tokenLoginRequest = new Protobuf.Server.TokenLoginRequest();
+                tokenLoginRequest.Token = token;
 
-                SendPacket(0, buffer);
+                SendPacket(1, tokenLoginRequest);
             }
             else if (_connectionState == ConnectionState.Disconnected)
             {

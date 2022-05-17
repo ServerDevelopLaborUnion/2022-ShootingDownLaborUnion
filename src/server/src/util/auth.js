@@ -2,6 +2,13 @@ const jwt = require('jsonwebtoken');
 
 const secret = 'secret';
 
+module.exports.login = (account) => {
+    // TODO: DB 로그인 구현
+    const random = Math.random();
+    console.log(random);
+    return random > 0.5;
+}
+
 module.exports.encode = (username, password) => {
     // TODO: DB 로그인 구현
     return jwt.sign({ username: username, password: password }, secret, { expiresIn: '90d' })

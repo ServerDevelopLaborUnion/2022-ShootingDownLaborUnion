@@ -12,16 +12,50 @@ namespace TestCodes
     {
         [SerializeField] InputField _username;
         [SerializeField] InputField _password;
+        [SerializeField] Text _connectionState;
 
 
         private void Start()
         {
             Client.OnLoginResponseMessage += OnLoginResponseMessage;
+            Client.OnConnectionStateChanged += OnConnectionStateChanged;
+        }
+
+        private void OnConnectionStateChanged(ConnectionState connectionState)
+        {
+            _connectionState.text = connectionState.ToString();
+            switch (connectionState)
+            {
+                case ConnectionState.Connected:
+                    _connectionState.color = Color.green;
+                    break;
+                case ConnectionState.Connecting:
+                    _connectionState.color = Color.yellow;
+                    break;
+                case ConnectionState.Disconnected:
+                    _connectionState.color = Color.red;
+                    break;
+                case ConnectionState.LoggedIn:
+                    _connectionState.color = Color.cyan;
+                    break;
+                case ConnectionState.None:
+                    _connectionState.color = Color.gray;
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void OnLoginResponseMessage(object sender, LoginResponseEventArgs e)
         {
-            Debug.Log(e.Token);
+            if (e.Success)
+            {
+                Debug.Log("Login Success! Token: " + e.Token);
+            }
+            else
+            {
+                Debug.Log("Login Failed");
+            }
         }
 
         public void OnClickLogin()
@@ -42,17 +76,15 @@ namespace TestCodes
                 Debug.LogWarning("Already logged in");
                 yield break;
             }
-            
+            Debug.Log("Logining...");
             Client.Login(_username.text, _password.text);
             while (true)
             {
                 yield return null;
-                if (Client.ConnectionState == ConnectionState.LoggedIn)
-                {
-                    break;
-                }
+                if (Client.ConnectionState != ConnectionState.Connected) break;
             }
-            Debug.Log("Logined");
+            if (Client.ConnectionState == ConnectionState.LoggedIn)
+                Debug.Log("Logined");
         }
     }
 }
