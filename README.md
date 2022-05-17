@@ -16,7 +16,7 @@
 
 ### 기술 스택
 
-> [Google Protobuffer]([Protocol Buffers &nbsp;|&nbsp; Google Developers](https://developers.google.com/protocol-buffers)) - *npm install google-protobuf@3.20.1-rc.1*
+> [Google Protobuffer](https://developers.google.com/protocol-buffers) - *npm install google-protobuf@3.20.1-rc.1*
 
 기존의 `json` 기반의 통신은 **문자열** 기반이기 때문에 낭비되는 자원이 많다고 생각하여 그 대신 모든 데이터를 `byte array` 로 직렬화 하기 위해 사용하였다.
 
