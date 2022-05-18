@@ -27,14 +27,16 @@ public class Entity : MonoBehaviour
 
     public static void DeleteEntity(string uuid)
     {
-        foreach(var entity in NetworkManager.Instance.entityList)
+        foreach (var entity in NetworkManager.Instance.entityList)
         {
-            if(string.Compare(entity.Data.UUID, uuid) == 0)
+            if (string.Compare(entity.Data.UUID, uuid) == 0)
             {
                 NetworkManager.Instance.entityList.Remove(entity);
-                Destroy(entity);
+                Destroy(entity.gameObject);
                 break;
             }
         }
     }
+
+
 }

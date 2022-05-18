@@ -19,7 +19,6 @@ public class CharacterInput : MonoBehaviour
     {
         Transform visualTransform = transform.Find("Visual Sprite");
         OnMoveKeyInput.AddListener((dir) => GetComponent<CharacterMove>().MoveAgent(dir));
-        Debug.Log(OnMoveKeyInput.GetPersistentEventCount());
         OnAttackKeyInput.AddListener((x) => visualTransform.GetComponent<CharacterAttack>().DoAttack(x));
         OnPointerPositionChange.AddListener((dir) => visualTransform.GetComponent<CharacterRenderer>().FlipCharacter(dir));
     }

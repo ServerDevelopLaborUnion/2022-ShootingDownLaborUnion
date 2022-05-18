@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         WebSocket.Client.OnCreateEntityMessage += Client_OnCreateEntityMessage;
+        WebSocket.Client.OnRemoveEntityMessage += Client_OnRemoveEntityMessage;
+    }
+
+    private void Client_OnRemoveEntityMessage(object sender, WebSocket.RemoveEntityEventArgs e)
+    {
+        Entity.DeleteEntity(e.EntityId);
     }
 
     private void Client_OnCreateEntityMessage(object sender, WebSocket.CreateEntityEventArgs e)

@@ -63,6 +63,7 @@ public class CharacterMove : MonoBehaviour
         if (!(_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || _base.State.CurrentState.HasFlag(CharacterState.State.Damaged) || _base.State.CurrentState.HasFlag(CharacterState.State.Died)))
         {
             _rigid.velocity = _movementDirection * _currentVelocity;
+            WebSocket.Client.ApplyMoveEntity(_base);
         }
         else
         {
