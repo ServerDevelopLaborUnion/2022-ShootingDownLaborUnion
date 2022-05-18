@@ -52,5 +52,9 @@ module.exports = {
             id: 1,
             type: 'LoginResponse',
         },
+        CreateEntity: {
+            id: 2,
+            type: 'CreateEntity',
+        }
     }
 }

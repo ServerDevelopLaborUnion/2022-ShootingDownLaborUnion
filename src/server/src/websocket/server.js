@@ -29,6 +29,8 @@ exports.WebsocketServer = new class WebsocketServer {
         this.server = new http.createServer((request, response) => {
             response.end('');
         });
+
+        connection.prototype.server = this.server;
     }
 
     listen(port) {
@@ -41,6 +43,7 @@ exports.WebsocketServer = new class WebsocketServer {
 
         this.wsServer.on("request", (request) => {
             const socket = request.accept(null, request.origin);
+            console.log(this.server);
             // 서버에 접속한 사용자를 추가한다.
             socket.sessionId = v4();
             socket.user = {
@@ -53,6 +56,17 @@ exports.WebsocketServer = new class WebsocketServer {
                 SessionId: socket.sessionId,
             }));
             Logger.debug(`${socket.sessionId} connected`);
+
+            socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
+                Entity: {
+                    UUID: v4(),
+                    OwnerUUID: socket.sessionId,
+                    Name: 'Player',
+                    Position: { X: 0, Y: 0, Z: 0 },
+                    Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
+                    Data: '{"type":"Player"}',
+                }
+            }));
 
             // 클라이언트에게 메시지를 받았을 때 처리한다.
             socket.on("message", (message) => {
