@@ -27,7 +27,7 @@ namespace Protobuf.Server {
             "CgxTZXJ2ZXIucHJvdG8SD1Byb3RvYnVmLlNlcnZlchoKVHlwZS5wcm90byIy",
             "CgxMb2dpblJlcXVlc3QSEAoIVXNlcm5hbWUYASABKAkSEAoIUGFzc3dvcmQY",
             "AiABKAkiIgoRVG9rZW5Mb2dpblJlcXVlc3QSDQoFVG9rZW4YASABKAkibAoL",
-            "TW92ZVJlcXVlc3QSEAoIRW50aXR5SWQYASABKAUSIwoIUG9zaXRpb24YAiAB",
+            "TW92ZVJlcXVlc3QSEAoIRW50aXR5SWQYASABKAkSIwoIUG9zaXRpb24YAiAB",
             "KAsyES5Qcm90b2J1Zi5WZWN0b3IyEiYKCFJvdGF0aW9uGAMgASgLMhQuUHJv",
             "dG9idWYuUXVhdGVybmlvbmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -514,13 +514,13 @@ namespace Protobuf.Server {
 
     /// <summary>Field number for the "EntityId" field.</summary>
     public const int EntityIdFieldNumber = 1;
-    private int entityId_;
+    private string entityId_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int EntityId {
+    public string EntityId {
       get { return entityId_; }
       set {
-        entityId_ = value;
+        entityId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -573,7 +573,7 @@ namespace Protobuf.Server {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (EntityId != 0) hash ^= EntityId.GetHashCode();
+      if (EntityId.Length != 0) hash ^= EntityId.GetHashCode();
       if (position_ != null) hash ^= Position.GetHashCode();
       if (rotation_ != null) hash ^= Rotation.GetHashCode();
       if (_unknownFields != null) {
@@ -594,9 +594,9 @@ namespace Protobuf.Server {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (EntityId != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(EntityId);
+      if (EntityId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(EntityId);
       }
       if (position_ != null) {
         output.WriteRawTag(18);
@@ -616,9 +616,9 @@ namespace Protobuf.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (EntityId != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(EntityId);
+      if (EntityId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(EntityId);
       }
       if (position_ != null) {
         output.WriteRawTag(18);
@@ -638,8 +638,8 @@ namespace Protobuf.Server {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (EntityId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(EntityId);
+      if (EntityId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EntityId);
       }
       if (position_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
@@ -659,7 +659,7 @@ namespace Protobuf.Server {
       if (other == null) {
         return;
       }
-      if (other.EntityId != 0) {
+      if (other.EntityId.Length != 0) {
         EntityId = other.EntityId;
       }
       if (other.position_ != null) {
@@ -689,8 +689,8 @@ namespace Protobuf.Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            EntityId = input.ReadInt32();
+          case 10: {
+            EntityId = input.ReadString();
             break;
           }
           case 18: {
@@ -722,8 +722,8 @@ namespace Protobuf.Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            EntityId = input.ReadInt32();
+          case 10: {
+            EntityId = input.ReadString();
             break;
           }
           case 18: {
