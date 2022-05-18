@@ -114,13 +114,13 @@ exports.WebsocketServer = new class WebsocketServer {
                 this.connections.delete(socket.sessionId);
                 const entityCount = this.entityes.length;
                 this.entityes = this.entityes.filter(entity => {
-                    if (entity.Entity.OwnerUUID !== socket.sessionId) {
+                    if (entity.Entity.OwnerUUID == socket.sessionId) {
                         this.server.broadcastPacket(proto.client.encode(proto.client.RemoveEntity, {
                             EntityId: entity.Entity.UUID
                         }));
-                        return true;
+                        return false;
                     }
-                    return false;
+                    return true;
                 });
                 Logger.debug(`${socket.sessionId} disconnected: ${reasonCode} ${description} ${entityCount - this.entityes.length} entities removed.`);
             });
