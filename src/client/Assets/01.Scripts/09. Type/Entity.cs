@@ -15,6 +15,15 @@ public class Entity : MonoBehaviour
         
     }
 
+    public Entity(string uuid, string ownerUUID, string name, Vector2 position, Quaternion rotation, string data)
+    {
+        UUID = uuid;
+        OwnerUUID = ownerUUID;
+        Name = name;
+        Position = position;
+        Rotation = rotation;
+        Data = data;
+    }
 
     private Entity CreateEntity(EntityData data)
     {
