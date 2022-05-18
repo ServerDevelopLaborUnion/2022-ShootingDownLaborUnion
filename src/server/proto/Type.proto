@@ -15,8 +15,10 @@ message Quaternion {
 }
 
 message Entity {
-    int32 Id = 1;
-    string Name = 2;
-    Vector2 Position = 3;
-    Quaternion Rotation = 4;
+    string UUID = 1;
+    string OwnerUUID = 2;
+    string Name = 3;
+    Vector2 Position = 4;
+    Quaternion Rotation = 5;
+    string Data = 6;
 }

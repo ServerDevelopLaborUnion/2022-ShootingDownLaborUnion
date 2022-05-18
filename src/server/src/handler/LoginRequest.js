@@ -18,22 +18,22 @@ module.exports = {
             return;
         }
         const loginRequest = proto.server.decode(type, buffer);
-        const account = new Account(socket.user.sessionId, loginRequest.username);
+        const account = new Account(socket.sessionId, loginRequest.Username);
 
         // TODO: DB 로그인 구현
-        if (auth.login(account)) {
+        if (auth.login(loginRequest.Username, loginRequest.Password)) {
             socket.user = new ValidUser(
                 socket,
-                account.userId,
+                socket.sessionId,
                 account
             );
 
-            const { username, password } = loginRequest;
-            const token = auth.encode({ username, password }, '1h');
+            const token = auth.generateToken(socket.user.account.userId, socket.user.account.username);
 
             socket.sendPacket(proto.client.encode(proto.client.LoginResponse, {
                 Success: true,
-                Username: loginRequest.username,
+                UserUUID: socket.user.account.userId,
+                Username: socket.user.account.username,
                 Token: token,
             }));
         } else {

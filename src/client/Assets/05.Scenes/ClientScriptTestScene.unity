@@ -1637,6 +1637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _username: {fileID: 1540132917}
   _password: {fileID: 1596646505}
+  _connectionState: {fileID: 329267938}
 --- !u!1 &1797255276
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,19 +6,19 @@
 
 이하는 개발에 사용된 기술들에 대한 설명입니다
 
-## Javascript Websocket Server
+## Javascript WebSocket Server
 
-자바스크립트 `Websocket` 서버에 관한 설명
+`Javascript Websocket` 서버에 관한 설명
 
 ### 사용 기술 및 라이브러리
 
 > **[Google Protobuffer](https://www.npmjs.com/package/google-protobuf) - *npm install google-protobuf@3.20.1-rc.1***
 
-기존의 `json` 기반의 통신은 **문자열** 기반이기 때문에 낭비되는 자원이 많다고 생각하여 그 대신 모든 데이터를 `byte array` 로 직렬화 하기 위해 사용하였다.
+기존의 `json` 기반의 통신은 **문자열** 기반이기 때문에 낭비되는 자원이 많다고 생각하여 그 대신 모든 데이터를 `Binary` 데이터로 직렬화 하기 위해 사용하였다.
 
 하나의 스키마를 이용하여 여러가지 언어에서 사용할 수 있는 코드를 자동생성하여 쓸 수 있기 때문에 `node` 기반 서버와 `C#` 기반 클라이언트 모두가 사용하기 쉬웠다.
 
-> **[Websocket](https://github.com/theturtle32/WebSocket-Node) - *npm install websocket@1.0.34***
+> **[WebSocket](https://github.com/theturtle32/WebSocket-Node) - *npm install websocket@1.0.34***
 
 `byte`로 되어있는 `Google Protobuffer` 의 데이터를 송수신하기 위하여 기존에 사용하던 `ws` 라이브러리 대신 고급 기능들을 사용할 수 있는 `websocket` 라이브러리를 이용하여 제작하였다.
 
@@ -29,8 +29,6 @@
 줄여서 `jwt` 라고도 불리는 전자 서명이다. 서버에서 채용한 암호화 알고리즘은 `SHA-256` 이다.
 
 사용자의 **로그인 정보를 저장**하고 다음 로그인을 시도할 때 **자동로그인**이 가능하도록 만들기 위해 **사용자 정보 인증 용도**로 사용하였다.
-
-
 
 > **[UUID](https://github.com/uuidjs/uuid#readme) - *npm install uuid@8.3.2***
 
@@ -44,12 +42,22 @@
 
 **로그인 시** 데이터를 메모리에 불러오고 **연결이 끊기거나 로그아웃 될 때** 데이터를 저장하게 하는 방식으로 데이터를 관리하였다.
 
-## Unity Websocket Client
+## Unity WebSocket Client
+
+`C# WebSocket Client` 에 관한 설명
+
+### 사용 기술 및 라이브러리
 
 > **[Google Protobuffer](https://www.nuget.org/packages/Google.Protobuf/) - *Install-Package Google.Protobuf -Version 3.20.1***
 
 상술했듯이 `Javascript` 와 호환되는 데이터 직렬화를 위해 사용된 라이브러리.
 
+> **[System.Net.WebSocket](https://docs.microsoft.com/ko-kr/dotnet/api/system.net.websockets.websocket?view=net-6.0) - *System.Net.WebSockets.dll* (기본 내장 라이브러리)**
 
+위의 `websocket` 라이브러리와 같은 이유로 `Binary` 데이터를 송수신하기 위해 다른 라이브러리가 아닌 기본 제공 라이브러리를 이용하여 고급 기능을 사용하였다.
 
-> 
+## Unity Game
+
+`Unity Game` 에 관한 설명
+
+### 사용 기술 및 라이브러리

@@ -41,25 +41,32 @@ exports.WebsocketServer = new class WebsocketServer {
 
         this.wsServer.on("request", (request) => {
             const socket = request.accept(null, request.origin);
+            // 서버에 접속한 사용자를 추가한다.
+            socket.sessionId = v4();
             socket.user = {
                 type: UserType.User,
                 socket: socket,
-                sessionId: v4()
             }
 
+            // 클라이언트에게 SessionId를 전송한다.
             socket.sendPacket(proto.client.encode(proto.client.Connection, {
-                SessionId: socket.user.sessionId,
+                SessionId: socket.sessionId,
             }));
+            Logger.debug(`${socket.sessionId} connected`);
 
-            Logger.debug(`${socket.user.sessionId} connected`);
+            // 클라이언트에게 메시지를 받았을 때 처리한다.
             socket.on("message", (message) => {
                 if (message.type === 'binary') {
                     router.receive(socket, message.binaryData);
                 }
             });
+
+            // 클라이언트에게 연결이 끊겼을 때 처리한다.
             socket.on("close", (reasonCode, description) => {
                 Logger.debug(`${socket.user?.sessionId} disconnected: ${reasonCode} ${description}`);
             });
+
+            // 클라이언트에게 에러가 발생했을 때 처리한다.
             socket.on("error", (error) => {
                 Logger.error(`${error}`);
             });

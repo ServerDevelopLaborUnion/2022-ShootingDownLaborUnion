@@ -25,11 +25,15 @@ namespace WebSocket
     public class LoginResponseEventArgs : EventArgs
     {
         public bool Success { get; set; }
+        public string UserUUID { get; set; }
+        public string Username { get; set; }
         public string Token { get; set; }
 
-        public LoginResponseEventArgs(bool success, string token)
+        public LoginResponseEventArgs(bool success, string userUUID, string username, string token)
         {
             Success = success;
+            UserUUID = userUUID;
+            Username = username;
             Token = token;
         }
     }
@@ -68,42 +72,29 @@ namespace WebSocket
         }
 
         #region WebSocket Events
-        /// <summary>
-        /// ?œë²„???°ê²°?˜ì—ˆ????ë°œìƒ?˜ëŠ” ?´ë²¤??
-        /// </summary>
+        
         public static event Action<string> OnConnected;
-        /// <summary>
-        /// ë©”ì‹œì§€ ?˜ì‹  ?´ë²¤??
-        /// </summary>
+        
         public static event Action<byte[], WebSocketReceiveResult> OnMessageReceived;
-        /// <summary>
-        /// ?œë²„?€???°ê²°???Šì–´ì¡Œì„ ??ë°œìƒ?˜ëŠ” ?´ë²¤??
-        /// </summary>
+        
         public static event Action<string> OnDisconnected;
-        /// <summary>
-        /// ?°ê²° ?íƒœê°€ ë³€ê²½ë˜?ˆì„ ??ë°œìƒ?˜ëŠ” ?´ë²¤??
-        /// </summary>
+        
         public static event Action<ConnectionState> OnConnectionStateChanged;
         #endregion
 
         #region Client Events
-        /// <summary>
-        /// ?œë²„?€ ?°ê²°?˜ì—ˆ????ë°œìƒ?˜ëŠ” ?´ë²¤??
-        /// </summary>
+        
         public static event EventHandler<ConnectionEventArgs> OnConnectionMessage;
-        /// <summary>
-        /// ë¡œê·¸???”ì²­???œë²„?ì„œ ë°˜í™˜?˜ëŠ” ?‘ë‹µ??ë°›ì•˜????ë°œìƒ?˜ëŠ” ?´ë²¤??
-        /// </summary>
+        
         public static event EventHandler<LoginResponseEventArgs> OnLoginResponseMessage;
-        /// <summary>
-        /// ?œë²„?ì„œ ?”í‹°???ì„±??ë°œìƒ?˜ëŠ” ?´ë²¤??
-        /// </summary>
+        
         public static event EventHandler<CreateEntityEventArgs> OnCreateEntityMessage;
-        /// <summary>
-        /// ?œë²„?ì„œ ?”í‹°???´ë™??ë°œìƒ?˜ëŠ” ?´ë²¤??
-        /// </summary>
+        
         public static event EventHandler<MoveEntityEventArgs> OnMoveEntityMessage;
         #endregion
+        
+        public static Account Account { get; private set; }
+
         public static ConnectionState ConnectionState => _connectionState;
         private static ConnectionState _connectionState { 
             get => _connectionStateValue;
@@ -116,7 +107,6 @@ namespace WebSocket
         private static ConnectionState _connectionStateValue = ConnectionState.None;
         private static Task _clentTask = null;
         private static ClientWebSocket _clientWebSocket = null;
-        private static string _token = null;
 
         #region WebSocket Methods
 
@@ -212,7 +202,10 @@ namespace WebSocket
                 if (e.Success)
                 {
                     _connectionState = ConnectionState.LoggedIn;
-                    _token = e.Token;
+                    Account = new Account(e.UserUUID, e.Username, e.Token);
+                    Debug.Log($"Logged in as {e.Username}");
+                    Debug.Log($"User UUID: {e.UserUUID}");
+                    Debug.Log($"Token: {e.Token}");
                 }
             };
         }
@@ -303,11 +296,18 @@ namespace WebSocket
                     {
                         case 0:
                             var connectionMessage = Protobuf.Client.Connection.Parser.ParseFrom(buffer);
-                            MainTask.Enqueue(() => OnConnectionMessage?.Invoke(this, new ConnectionEventArgs(connectionMessage.SessionId)));
+                            MainTask.Enqueue(() => OnConnectionMessage?.Invoke(this, new ConnectionEventArgs(
+                                connectionMessage.SessionId
+                            )));
                             break;
                         case 1:
                             var loginResponseMessage = Protobuf.Client.LoginResponse.Parser.ParseFrom(buffer);
-                            MainTask.Enqueue(() => OnLoginResponseMessage?.Invoke(this, new LoginResponseEventArgs(loginResponseMessage.Success, loginResponseMessage.Token)));
+                            MainTask.Enqueue(() => OnLoginResponseMessage?.Invoke(this, new LoginResponseEventArgs(
+                                loginResponseMessage.Success,
+                                loginResponseMessage.UserUUID,
+                                loginResponseMessage.Username,
+                                loginResponseMessage.Token
+                            )));
                             break;
                         case 2:
                             var createEntityMessage = Protobuf.Client.CreateEntity.Parser.ParseFrom(buffer);

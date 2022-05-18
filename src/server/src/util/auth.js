@@ -5,14 +5,14 @@ function encode(data, exriresIn) {
     return jwt.sign(data, secret, { expiresIn: exriresIn })
 }
 
-module.exports.generateToken = (account) => {
+module.exports.generateToken = (userId, username) => {
     return encode({
-        userId: account.userId,
-        username: account.username,
+        userId: userId,
+        username: username,
     }, '14d');
 }
 
-module.exports.login = (account) => {
+module.exports.login = (username, password) => {
     // TODO: DB 로그인 구현
     return true;
 }

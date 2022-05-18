@@ -12,8 +12,9 @@ message Connection {
 // id: 1
 message LoginResponse {
     bool Success = 1;
-    optional string Username = 2;
-    optional string Token = 3;
+    optional string UserUUID = 2;
+    optional string Username = 3;
+    optional string Token = 4;
 }
 
 // id: 2
