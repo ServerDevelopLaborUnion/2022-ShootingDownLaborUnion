@@ -57,11 +57,21 @@ exports.WebsocketServer = new class WebsocketServer {
             }));
             Logger.debug(`${socket.sessionId} connected`);
 
-            for (let i = 0; i < 10; i++) {
+            socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
+                Entity: {
+                    UUID: v4(),
+                    OwnerUUID: socket.sessionId,
+                    Name: 'Player',
+                    Position: { X: 0, Y: 0, Z: 0 },
+                    Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
+                    Data: '{"type":"0"}',
+                }
+            }));
+            for (let i = 1; i < 10; i++) {
                 socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
                     Entity: {
                         UUID: v4(),
-                        OwnerUUID: socket.sessionId,
+                        OwnerUUID: v4(),
                         Name: 'Player',
                         Position: { X: 0, Y: i, Z: 0 },
                         Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
