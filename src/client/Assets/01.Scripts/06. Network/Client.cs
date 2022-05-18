@@ -50,11 +50,11 @@ namespace WebSocket
 
     public class MoveEntityEventArgs : EventArgs
     {
-        public int EntityId { get; set; }
+        public string EntityId { get; set; }
         public Vector2 Position { get; set; }
         public Quaternion Rotation { get; set; }
 
-        public MoveEntityEventArgs(int entityId, Vector2 position, Quaternion rotation)
+        public MoveEntityEventArgs(string entityId, Vector2 position, Quaternion rotation)
         {
             EntityId = entityId;
             Position = position;
@@ -312,14 +312,15 @@ namespace WebSocket
                         case 2:
                             var createEntityMessage = Protobuf.Client.CreateEntity.Parser.ParseFrom(buffer);
                             MainTask.Enqueue(() => OnCreateEntityMessage?.Invoke(this, new CreateEntityEventArgs(
-                                new Entity(createEntityMessage.Entity.Id, createEntityMessage.Entity.Name,
+                                new Entity(createEntityMessage.Entity.UUID, createEntityMessage.Entity.Name,
                                     new Vector2(createEntityMessage.Entity.Position.X, createEntityMessage.Entity.Position.Y),
                                     new Quaternion(createEntityMessage.Entity.Rotation.X, createEntityMessage.Entity.Rotation.Y, createEntityMessage.Entity.Rotation.Z, createEntityMessage.Entity.Rotation.W))
                             )));
                             break;
                         case 3:
                             var moveEntityMessage = Protobuf.Client.MoveEntity.Parser.ParseFrom(buffer);
-                            MainTask.Enqueue(() => OnMoveEntityMessage?.Invoke(this, new MoveEntityEventArgs(moveEntityMessage.EntityId,
+                            MainTask.Enqueue(() => OnMoveEntityMessage?.Invoke(this, new MoveEntityEventArgs(
+                                moveEntityMessage.EntityId,
                                 new Vector2(moveEntityMessage.Position.X, moveEntityMessage.Position.Y),
                                 new Quaternion(moveEntityMessage.Rotation.X, moveEntityMessage.Rotation.Y, moveEntityMessage.Rotation.Z, moveEntityMessage.Rotation.W)
                             )));

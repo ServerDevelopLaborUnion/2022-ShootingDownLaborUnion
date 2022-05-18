@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class CharacterBase : MonoBehaviour
+public class CharacterBase : Entity
 {
     [SerializeField] private CharacterStat _playerStat;
     [SerializeField] private CharacterState _playerState;

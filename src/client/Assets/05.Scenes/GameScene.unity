@@ -20555,7 +20555,6 @@ GameObject:
   - component: {fileID: 1387271714}
   - component: {fileID: 1387271713}
   - component: {fileID: 1387271717}
-  - component: {fileID: 1387271715}
   - component: {fileID: 1387271716}
   m_Layer: 0
   m_Name: Visual Sprite
@@ -20673,33 +20672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be9aa53e79f62c47ae89266a12c0358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1387271715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387271709}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5916e0f0ef1ace348a322f95dd2fe91a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnAttacked:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1387271713}
-        m_TargetAssemblyTypeName: CharacterAnimation, Assembly-CSharp
-        m_MethodName: PlayAttackAnime
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1387271716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31863,7 +31835,7 @@ MonoBehaviour:
   OnAttackKeyInput:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1387271715}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CharacterAttack, Assembly-CSharp
         m_MethodName: DoAttack
         m_Mode: 0
