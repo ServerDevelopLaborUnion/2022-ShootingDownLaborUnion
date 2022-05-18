@@ -5,6 +5,7 @@ const http = require('node:http');
 const Logger = require('../util/logger').getLogger('Websocket');
 const proto = require('../util/proto');
 const router = require('./router');
+const { Entity } = require('../types/Entity');
 
 Object.defineProperty(connection.prototype, 'sendPacket', {
     value: function (buffer) {
@@ -24,6 +25,8 @@ exports.WebsocketServer = new class WebsocketServer {
     wsServer;
     /** @type {Map<string, connection>} */
     connections = new Map();
+    /** @type {Array<Entity>} */
+    entityes = new Array();
 
     constructor() {
         this.port = 0;
@@ -63,32 +66,36 @@ exports.WebsocketServer = new class WebsocketServer {
                 SessionId: socket.sessionId,
             }));
 
-            this.connections.set(socket.sessionId, socket);
-
             Logger.debug(`${socket.sessionId} connected`);
 
-            socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
-                Entity: {
-                    UUID: v4(),
-                    OwnerUUID: socket.sessionId,
-                    Name: 'Player',
-                    Position: { X: 0, Y: 0, Z: 0 },
-                    Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
-                    Data: '{"type":"0"}',
-                }
-            }));
-            for (let i = 1; i < 10; i++) {
-                socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
-                    Entity: {
-                        UUID: v4(),
-                        OwnerUUID: v4(),
-                        Name: 'OtherPlayer',
-                        Position: { X: 0, Y: i, Z: 0 },
-                        Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
-                        Data: '{"type":"0"}',
-                    }
-                }));
-            }
+            const newEntity = new Entity(
+                v4(),
+                socket.sessionId,
+                { X: 0, Y: 0 },
+                { X: 0, Y: 0, Z: 0, W: 0 },
+                '{"type":"0"}'
+            );
+
+            socket.server.broadcastPacket(proto.client.encode(proto.client.CreateEntity, newEntity));
+
+            this.entityes.forEach(entity => {
+                socket.sendPacket(proto.client.encode(proto.client.CreateEntity, entity));
+            });
+
+            this.entityes.push(newEntity);
+
+            // for (let i = 1; i < 10; i++) {
+            //     socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
+            //         Entity: {
+            //             UUID: v4(),
+            //             OwnerUUID: v4(),
+            //             Name: 'OtherPlayer',
+            //             Position: { X: 0, Y: i, Z: 0 },
+            //             Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
+            //             Data: '{"type":"0"}',
+            //         }
+            //     }));
+            // }
 
             // 클라이언트에게 메시지를 받았을 때 처리한다.
             socket.on("message", (message) => {
@@ -99,6 +106,8 @@ exports.WebsocketServer = new class WebsocketServer {
 
             // 클라이언트에게 연결이 끊겼을 때 처리한다.
             socket.on("close", (reasonCode, description) => {
+                this.connections.delete(socket.sessionId);
+                this.entityes = this.entityes.filter(entity => entity.OwnerUUID !== socket.sessionId);
                 Logger.debug(`${socket.user?.sessionId} disconnected: ${reasonCode} ${description}`);
             });
 
