@@ -375,6 +375,31 @@ namespace WebSocket
                 Debug.LogWarning("You are already logged in.");
             }
         }
+
+        public static void SyncMoveEntity(Entity entity)
+        {
+            if (_connectionState == ConnectionState.Connected)
+            {
+                var moveEntityRequest = new Protobuf.Server.MoveRequest();
+                moveEntityRequest.EntityId = entity.Data.;
+                moveEntityRequest.Position.X = entity.Position.x;
+                moveEntityRequest.Position.Y = entity.Position.y;
+                moveEntityRequest.Rotation.X = entity.Rotation.x;
+                moveEntityRequest.Rotation.Y = entity.Rotation.y;
+                moveEntityRequest.Rotation.Z = entity.Rotation.z;
+                moveEntityRequest.Rotation.W = entity.Rotation.w;
+
+                SendPacket(3, moveEntityRequest);
+            }
+            else if (_connectionState == ConnectionState.Disconnected)
+            {
+                Debug.LogWarning("You are not connected to the server.");
+            }
+            else if (_connectionState == ConnectionState.LoggedIn)
+            {
+                Debug.LogWarning("You are already logged in.");
+            }
+        }
         #endregion
     }
 }
