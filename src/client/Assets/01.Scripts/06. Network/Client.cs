@@ -382,12 +382,6 @@ namespace WebSocket
             {
                 var moveEntityRequest = new Protobuf.Server.MoveRequest();
                 moveEntityRequest.EntityId = entity.Data.;
-                moveEntityRequest.Position.X = entity.Position.x;
-                moveEntityRequest.Position.Y = entity.Position.y;
-                moveEntityRequest.Rotation.X = entity.Rotation.x;
-                moveEntityRequest.Rotation.Y = entity.Rotation.y;
-                moveEntityRequest.Rotation.Z = entity.Rotation.z;
-                moveEntityRequest.Rotation.W = entity.Rotation.w;
 
                 SendPacket(3, moveEntityRequest);
             }
