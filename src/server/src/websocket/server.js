@@ -5,11 +5,10 @@ const http = require('node:http');
 const Logger = require('../util/logger').getLogger('Websocket');
 const proto = require('../util/proto');
 const router = require('./router');
-const { Entity } = require('../types/Entity');
 
 Object.defineProperty(connection.prototype, 'sendPacket', {
     value: function (buffer) {
-        Logger.debug(`Sending: ${buffer.length} bytes to ${this.user.sessionId}`);
+        Logger.debug(`Sending: ${buffer.length} bytes to ${this.sessionId}`);
         this.sendBytes(buffer);
     },
     enumerable: false,
@@ -38,6 +37,7 @@ exports.WebsocketServer = new class WebsocketServer {
         connection.prototype.server = this.server;
         this.server.connections = this.connections;
         this.server.broadcastPacket = function (buffer) {
+            Logger.debug(`Broadcasting: ${buffer.length} bytes`);
             this.connections.forEach(connection => {
                 connection.sendPacket(buffer);
             });
@@ -55,11 +55,14 @@ exports.WebsocketServer = new class WebsocketServer {
         this.wsServer.on("request", (request) => {
             const socket = request.accept(null, request.origin);
             // 서버에 접속한 사용자를 추가한다.
+
             socket.sessionId = v4();
             socket.user = {
                 type: UserType.User,
                 socket: socket,
             }
+
+            this.connections.set(socket.sessionId, socket);
 
             // 클라이언트에게 SessionId를 전송한다.
             socket.sendPacket(proto.client.encode(proto.client.Connection, {
@@ -68,13 +71,15 @@ exports.WebsocketServer = new class WebsocketServer {
 
             Logger.debug(`${socket.sessionId} connected`);
 
-            const newEntity = new Entity(
-                v4(),
-                socket.sessionId,
-                { X: 0, Y: 0 },
-                { X: 0, Y: 0, Z: 0, W: 0 },
-                '{"type":"0"}'
-            );
+            const newEntity = {
+                Entity: {
+                    UUID: v4(),
+                    OwnerUUID: socket.sessionId,
+                    Position: { X: 0, Y: 0 },
+                    Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
+                    Data: `{"type":"0"}`
+                }
+            };
 
             socket.server.broadcastPacket(proto.client.encode(proto.client.CreateEntity, newEntity));
 
