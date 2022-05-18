@@ -112,8 +112,11 @@ exports.WebsocketServer = new class WebsocketServer {
             // 클라이언트에게 연결이 끊겼을 때 처리한다.
             socket.on("close", (reasonCode, description) => {
                 this.connections.delete(socket.sessionId);
-                this.entityes = this.entityes.filter(entity => entity.OwnerUUID !== socket.sessionId);
-                Logger.debug(`${socket.user?.sessionId} disconnected: ${reasonCode} ${description}`);
+                const entityCount = this.entityes.length;
+                this.entityes = this.entityes.filter(entity => {
+                    return entity.Entity.OwnerUUID !== socket.sessionId;
+                });
+                Logger.debug(`${socket.sessionId} disconnected: ${reasonCode} ${description} ${entityCount - this.entityes.length} entities removed.`);
             });
 
             // 클라이언트에게 에러가 발생했을 때 처리한다.
