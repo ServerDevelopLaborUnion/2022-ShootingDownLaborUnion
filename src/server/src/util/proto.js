@@ -55,6 +55,14 @@ module.exports = {
         CreateEntity: {
             id: 2,
             type: 'CreateEntity',
-        }
+        },
+        MoveEntity: {
+            id: 3,
+            type: 'MoveEntity',
+        },
+        RemoveEntity: {
+            id: 4,
+            type: 'RemoveEntity',
+        },
     }
 }

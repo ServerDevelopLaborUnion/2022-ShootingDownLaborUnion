@@ -28,3 +28,8 @@ message MoveEntity {
     Vector2 Position = 2;
     Quaternion Rotation = 3;
 }
+
+// id: 4
+message RemoveEntity {
+    string EntityId = 1;
+}

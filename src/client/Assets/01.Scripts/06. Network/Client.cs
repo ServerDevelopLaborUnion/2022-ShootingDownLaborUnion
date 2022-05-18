@@ -63,6 +63,16 @@ namespace WebSocket
             Rotation = rotation;
         }
     }
+
+    public class RemoveEntityEventArgs : EventArgs
+    {
+        public string EntityId { get; set; }
+
+        public RemoveEntityEventArgs(string entityId)
+        {
+            EntityId = entityId;
+        }
+    }
     #endregion
 
     public class Client : MonoSingleton<Client>
@@ -93,6 +103,7 @@ namespace WebSocket
         public static event EventHandler<CreateEntityEventArgs> OnCreateEntityMessage;
         
         public static event EventHandler<MoveEntityEventArgs> OnMoveEntityMessage;
+        public static event EventHandler<RemoveEntityEventArgs> OnRemoveEntityMessage;
         #endregion
         
         public static Account Account { get; private set; }
@@ -342,6 +353,12 @@ namespace WebSocket
                                 moveEntityMessage.EntityId,
                                 new Vector2(moveEntityMessage.Position.X, moveEntityMessage.Position.Y),
                                 new Quaternion(moveEntityMessage.Rotation.X, moveEntityMessage.Rotation.Y, moveEntityMessage.Rotation.Z, moveEntityMessage.Rotation.W)
+                            )));
+                            break;
+                        case 4:
+                            var removeEntityMessage = Protobuf.Client.RemoveEntity.Parser.ParseFrom(buffer);
+                            MainTask.Enqueue(() => OnRemoveEntityMessage?.Invoke(this, new RemoveEntityEventArgs(
+                                removeEntityMessage.EntityId
                             )));
                             break;
                     }
