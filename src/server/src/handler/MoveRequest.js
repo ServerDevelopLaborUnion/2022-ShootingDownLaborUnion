@@ -1,8 +1,8 @@
 const Logger = require('../util/logger').getLogger('MoveRequest');
 const proto = require('../util/proto');
 
-const id = 0;
-const type = 'LoginRequest';
+const id = 3;
+const type = 'MoveRequest';
 
 module.exports = {
     id: id,
