@@ -72,7 +72,7 @@ exports.WebsocketServer = new class WebsocketServer {
                     Entity: {
                         UUID: v4(),
                         OwnerUUID: v4(),
-                        Name: 'Player',
+                        Name: 'OtherPlayer',
                         Position: { X: 0, Y: i, Z: 0 },
                         Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
                         Data: '{"type":"0"}',
