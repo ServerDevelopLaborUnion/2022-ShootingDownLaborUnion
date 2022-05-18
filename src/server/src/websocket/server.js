@@ -22,6 +22,8 @@ exports.WebsocketServer = new class WebsocketServer {
     server;
     /** @type {server} */
     wsServer;
+    /** @type {Map<string, connection>} */
+    connections = new Map();
 
     constructor() {
         this.port = 0;
@@ -31,6 +33,12 @@ exports.WebsocketServer = new class WebsocketServer {
         });
 
         connection.prototype.server = this.server;
+        this.server.connections = this.connections;
+        this.server.broadcastPacket = function (buffer) {
+            this.connections.forEach(connection => {
+                connection.sendPacket(buffer);
+            });
+        }
     }
 
     listen(port) {
@@ -43,7 +51,6 @@ exports.WebsocketServer = new class WebsocketServer {
 
         this.wsServer.on("request", (request) => {
             const socket = request.accept(null, request.origin);
-            console.log(this.server);
             // 서버에 접속한 사용자를 추가한다.
             socket.sessionId = v4();
             socket.user = {
@@ -55,6 +62,9 @@ exports.WebsocketServer = new class WebsocketServer {
             socket.sendPacket(proto.client.encode(proto.client.Connection, {
                 SessionId: socket.sessionId,
             }));
+
+            this.connections.set(socket.sessionId, socket);
+
             Logger.debug(`${socket.sessionId} connected`);
 
             socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {

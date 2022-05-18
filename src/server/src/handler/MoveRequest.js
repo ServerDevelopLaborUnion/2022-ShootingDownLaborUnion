@@ -14,6 +14,12 @@ module.exports = {
         }
 
         const moveRequest = proto.server.decode(type, buffer);
+        socket.server.broadcastPacket(proto.client.encode(proto.client.MoveEntity, {
+            EntityId: moveRequest.EntityId,
+            Position: moveRequest.Position,
+            Rotation: moveRequest.Rotation,
+        }));
+
         socket.server.connections;
     }
 }

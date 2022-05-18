@@ -389,22 +389,20 @@ namespace WebSocket
             }
         }
 
-        public static void SyncMoveEntity(Entity entity)
+        public static void ApplyMoveEntity(Entity entity)
         {
             if (_connectionState == ConnectionState.Connected)
             {
                 var moveEntityRequest = new Protobuf.Server.MoveRequest();
-                moveEntityRequest.EntityId = entity.Data.;
+                moveEntityRequest.EntityId = entity.Data.UUID;
+                moveEntityRequest.Position = entity.Data.Position.ToProtobuf();
+                moveEntityRequest.Rotation = entity.Data.Rotation.ToProtobuf();
 
                 SendPacket(3, moveEntityRequest);
             }
             else if (_connectionState == ConnectionState.Disconnected)
             {
                 Debug.LogWarning("You are not connected to the server.");
-            }
-            else if (_connectionState == ConnectionState.LoggedIn)
-            {
-                Debug.LogWarning("You are already logged in.");
             }
         }
         #endregion
