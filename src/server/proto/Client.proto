@@ -24,7 +24,7 @@ message CreateEntity {
 
 // id: 3
 message MoveEntity {
-    int32 EntityId = 1;
+    string EntityId = 1;
     Vector2 Position = 2;
     Quaternion Rotation = 3;
 }
