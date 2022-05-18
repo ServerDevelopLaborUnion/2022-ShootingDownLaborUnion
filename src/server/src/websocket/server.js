@@ -57,16 +57,18 @@ exports.WebsocketServer = new class WebsocketServer {
             }));
             Logger.debug(`${socket.sessionId} connected`);
 
-            socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
-                Entity: {
-                    UUID: v4(),
-                    OwnerUUID: socket.sessionId,
-                    Name: 'Player',
-                    Position: { X: 0, Y: 0, Z: 0 },
-                    Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
-                    Data: '{"type":"0"}',
-                }
-            }));
+            for (let i = 0; i < 10; i++) {
+                socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
+                    Entity: {
+                        UUID: v4(),
+                        OwnerUUID: socket.sessionId,
+                        Name: 'Player',
+                        Position: { X: 0, Y: i, Z: 0 },
+                        Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
+                        Data: '{"type":"0"}',
+                    }
+                }));
+            }
 
             // 클라이언트에게 메시지를 받았을 때 처리한다.
             socket.on("message", (message) => {
