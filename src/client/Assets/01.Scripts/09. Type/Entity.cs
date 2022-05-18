@@ -3,36 +3,17 @@ using UnityEngine;
 [System.Serializable]
 public class Entity : MonoBehaviour
 {
-    public string UUID { get; set; }
-    public string OwnerUUID { get; set; }
-    public string Name { get; set; }
-    public Vector2 Position { get; set; }
-    public Quaternion Rotation { get; set; }
+    public GameObject EntityObject { get; set; }
     public string Data { get; set; }
 
-    public Entity()
+
+    public static Entity CreateEntity(EntityData data)
     {
-        
-    }
-
-    public Entity(string uuid, string ownerUUID, string name, Vector2 position, Quaternion rotation, string data)
-    {
-        UUID = uuid;
-        OwnerUUID = ownerUUID;
-        Name = name;
-        Position = position;
-        Rotation = rotation;
-        Data = data;
-    }
-
-    private Entity CreateEntity(EntityData data)
-    {
-
-        GameObject newGameObjct = Instantiate(data.prefab, );
-
-
-
-
+        Entity temp = new Entity();
+        GameObject prefab = Resources.Load("Prefab/" + data.Type.ToString()) as GameObject;
+        temp.EntityObject = Instantiate(prefab, data.Position, data.Rotation);
+        if (data.entityStat != null)
+            temp.EntityObject.GetComponent<CharacterBase>().InitStat(data.entityStat);
         return temp;
     }
 }

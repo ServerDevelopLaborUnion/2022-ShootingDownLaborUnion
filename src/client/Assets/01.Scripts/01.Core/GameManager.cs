@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     private void Client_OnCreateEntityMessage(object sender, WebSocket.CreateEntityEventArgs e)
     {
-        
+        Entity.CreateEntity(e.Data);
     }
 
     // Update is called once per frame

@@ -9,9 +9,11 @@ public class CharacterBase : Entity
     [SerializeField] private CharacterStat _playerStat;
     [SerializeField] private CharacterState _playerState;
 
-
     public CharacterStat Stat => _playerStat;
     public CharacterState State { get { return _playerState; } set { _playerState = value; } }
 
-
+    public void InitStat(CharacterStat stat)
+    {
+        _playerStat = stat;
+    }
 }

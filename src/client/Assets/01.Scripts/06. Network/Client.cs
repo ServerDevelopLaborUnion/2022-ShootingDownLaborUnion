@@ -40,11 +40,11 @@ namespace WebSocket
 
     public class CreateEntityEventArgs : EventArgs
     {
-        public Entity Entity { get; set; }
+        public EntityData Data { get; set; }
 
-        public CreateEntityEventArgs(Entity entity)
+        public CreateEntityEventArgs(EntityData data)
         {
-            Entity = entity;
+            Data = data;
         }
     }
 
@@ -312,9 +312,14 @@ namespace WebSocket
                         case 2:
                             var createEntityMessage = Protobuf.Client.CreateEntity.Parser.ParseFrom(buffer);
                             MainTask.Enqueue(() => OnCreateEntityMessage?.Invoke(this, new CreateEntityEventArgs(
-                                new Entity(createEntityMessage.Entity.UUID, createEntityMessage.Entity.Name,
+                                new EntityData
+                                (
+                                    createEntityMessage.Entity.UUID,
+                                    createEntityMessage.Entity.OwnerUUID,
+                                    createEntityMessage.Entity.Name,
                                     new Vector2(createEntityMessage.Entity.Position.X, createEntityMessage.Entity.Position.Y),
-                                    new Quaternion(createEntityMessage.Entity.Rotation.X, createEntityMessage.Entity.Rotation.Y, createEntityMessage.Entity.Rotation.Z, createEntityMessage.Entity.Rotation.W))
+                                    new Quaternion(createEntityMessage.Entity.Rotation.X, createEntityMessage.Entity.Rotation.Y, createEntityMessage.Entity.Rotation.Z, createEntityMessage.Entity.Rotation.W)
+                                )
                             )));
                             break;
                         case 3:
