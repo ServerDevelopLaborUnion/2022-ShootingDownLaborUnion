@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 693142078744925207}
   - component: {fileID: 693142078744925205}
   - component: {fileID: 693142078744925206}
-  - component: {fileID: 693142078744925209}
   - component: {fileID: 693142078744925210}
   - component: {fileID: 693142078744925204}
   m_Layer: 7
@@ -332,6 +331,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3111b9ce437434995d26b859a65d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Data>k__BackingField:
+    UUID: 8d70df85-55b0-4df6-a4df-891835f4455c
+    OwnerUUID: 80eaebf1-cafc-447c-9f96-25ef5b5b12b5
+    Name: Player
+    Position: {x: 0, y: 9}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    Type: 0
+    entityStat:
+      _hp: 0
+      _atk: 0
+      _def: 0
+      _speed: 0
+      _atkSpeed: 0
+      _playerJob: 0
+      OnJobChanged:
+        m_PersistentCalls:
+          m_Calls: []
   _playerStat:
     _hp: 5
     _atk: 1
@@ -345,75 +361,6 @@ MonoBehaviour:
   _playerState:
     _state: 0
   collider: {fileID: 0}
---- !u!114 &693142078744925209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693142078744925211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f37d7b419abb34cb8f8ecbdb528eec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnMoveKeyInput:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 693142078744925210}
-        m_TargetAssemblyTypeName: CharacterMove, Assembly-CSharp
-        m_MethodName: MoveAgent
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnAttackKeyInput:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CharacterAttack, Assembly-CSharp
-        m_MethodName: DoAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
-      - m_Target: {fileID: 693142079330332346}
-        m_TargetAssemblyTypeName: CharacterAttack, Assembly-CSharp
-        m_MethodName: DoAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnPointerPositionChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 693142079330332349}
-        m_TargetAssemblyTypeName: CharacterRenderer, Assembly-CSharp
-        m_MethodName: FlipCharacter
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &693142078744925210
 MonoBehaviour:
   m_ObjectHideFlags: 0

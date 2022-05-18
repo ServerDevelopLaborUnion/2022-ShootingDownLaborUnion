@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Linq;
@@ -96,6 +97,7 @@ namespace WebSocket
         public static Account Account { get; private set; }
 
         public static ConnectionState ConnectionState => _connectionState;
+        public static string SessionID { get; private set; }
         private static ConnectionState _connectionState { 
             get => _connectionStateValue;
             set 
@@ -122,7 +124,7 @@ namespace WebSocket
             _clentTask = Task.Run(ClientTask);
         }
 
-        public static void  SendPacket(uint type, Google.Protobuf.IMessage message)
+        public static void SendPacket(uint type, Google.Protobuf.IMessage message)
         {
             if (_connectionState == ConnectionState.Connected)
             {
@@ -171,6 +173,11 @@ namespace WebSocket
             }
         }
 
+        public static bool CheckIsOwnedEntity(Entity entity)
+        {
+            return string.Compare(SessionID, entity.Data.OwnerUUID) == 0;
+        }
+
         private void Awake()
         {
             DontDestroyOnLoad(this);
@@ -197,6 +204,10 @@ namespace WebSocket
 
         private static void InitializeEvents()
         {
+            OnConnectionMessage += (sender, e) =>
+            {
+                SessionID = e.SessionId;
+            };
             OnLoginResponseMessage += (sender, e) =>
             {
                 if (e.Success)
@@ -311,6 +322,7 @@ namespace WebSocket
                             break;
                         case 2:
                             var createEntityMessage = Protobuf.Client.CreateEntity.Parser.ParseFrom(buffer);
+                            int entityType = JObject.Parse(createEntityMessage.Entity.Data)["type"].Value<int>();
                             MainTask.Enqueue(() => OnCreateEntityMessage?.Invoke(this, new CreateEntityEventArgs(
                                 new EntityData
                                 (
@@ -318,7 +330,8 @@ namespace WebSocket
                                     createEntityMessage.Entity.OwnerUUID,
                                     createEntityMessage.Entity.Name,
                                     new Vector2(createEntityMessage.Entity.Position.X, createEntityMessage.Entity.Position.Y),
-                                    new Quaternion(createEntityMessage.Entity.Rotation.X, createEntityMessage.Entity.Rotation.Y, createEntityMessage.Entity.Rotation.Z, createEntityMessage.Entity.Rotation.W)
+                                    new Quaternion(createEntityMessage.Entity.Rotation.X, createEntityMessage.Entity.Rotation.Y, createEntityMessage.Entity.Rotation.Z, createEntityMessage.Entity.Rotation.W),
+                                    (EntityType)entityType
                                 )
                             )));
                             break;
