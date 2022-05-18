@@ -65,42 +65,42 @@ namespace WebSocket
         static void OnSecondRuntimeMethodLoad()
         {
             Initialize(true);
-        }ㅎ
+        }
 
         #region WebSocket Events
         /// <summary>
-        /// 서버에 연결되었을 때 발생하는 이벤트
+        /// ?�버???�결?�었????발생?�는 ?�벤??
         /// </summary>
         public static event Action<string> OnConnected;
         /// <summary>
-        /// 메시지 수신 이벤트
+        /// 메시지 ?�신 ?�벤??
         /// </summary>
         public static event Action<byte[], WebSocketReceiveResult> OnMessageReceived;
         /// <summary>
-        /// 서버와의 연결이 끊어졌을 때 발생하는 이벤트
+        /// ?�버?�???�결???�어졌을 ??발생?�는 ?�벤??
         /// </summary>
         public static event Action<string> OnDisconnected;
         /// <summary>
-        /// 연결 상태가 변경되었을 때 발생하는 이벤트
+        /// ?�결 ?�태가 변경되?�을 ??발생?�는 ?�벤??
         /// </summary>
         public static event Action<ConnectionState> OnConnectionStateChanged;
         #endregion
 
         #region Client Events
         /// <summary>
-        /// 서버와 연결되었을 때 발생하는 이벤트
+        /// ?�버?� ?�결?�었????발생?�는 ?�벤??
         /// </summary>
         public static event EventHandler<ConnectionEventArgs> OnConnectionMessage;
         /// <summary>
-        /// 로그인 요청시 서버에서 반환되는 응답을 받았을 때 발생하는 이벤트
+        /// 로그???�청???�버?�서 반환?�는 ?�답??받았????발생?�는 ?�벤??
         /// </summary>
         public static event EventHandler<LoginResponseEventArgs> OnLoginResponseMessage;
         /// <summary>
-        /// 서버에서 엔티티 생성시 발생하는 이벤트
+        /// ?�버?�서 ?�티???�성??발생?�는 ?�벤??
         /// </summary>
         public static event EventHandler<CreateEntityEventArgs> OnCreateEntityMessage;
         /// <summary>
-        /// 서버에서 엔티티 이동시 발생하는 이벤트
+        /// ?�버?�서 ?�티???�동??발생?�는 ?�벤??
         /// </summary>
         public static event EventHandler<MoveEntityEventArgs> OnMoveEntityMessage;
         #endregion
