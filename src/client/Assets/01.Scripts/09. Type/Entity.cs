@@ -24,4 +24,17 @@ public class Entity : MonoBehaviour
             temp.EntityObject.GetComponent<CharacterBase>().InitStat(data.entityStat);
         return temp;
     }
+
+    public static void DeleteEntity(string uuid)
+    {
+        foreach(var entity in NetworkManager.Instance.entityList)
+        {
+            if(string.Compare(entity.Data.UUID, uuid) == 0)
+            {
+                NetworkManager.Instance.entityList.Remove(entity);
+                Destroy(entity);
+                break;
+            }
+        }
+    }
 }

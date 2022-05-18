@@ -1,8 +1,12 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NetworkManager : MonoSingleton<NetworkManager>
 {
+
+    public List<Entity> entityList = new List<Entity>();
+
     #region Client Event Arguments
     public class ConnectionEventArgs : EventArgs
     {

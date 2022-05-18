@@ -7,13 +7,13 @@ using UnityEngine.Events;
 
 public class CharacterInput : MonoBehaviour
 {
-    [SerializeField] private UnityEvent<Vector2> OnMoveKeyInput;
+    private UnityEvent<Vector2> OnMoveKeyInput = new UnityEvent<Vector2>();
 
-    [SerializeField] private UnityEvent<bool> OnAttackKeyInput;
+    private UnityEvent<bool> OnAttackKeyInput = new UnityEvent<bool>();
 
     public UnityEvent<bool> GetOnAttackKeyInput => OnAttackKeyInput;
 
-    [SerializeField] private UnityEvent<Vector2> OnPointerPositionChange;
+    private UnityEvent<Vector2> OnPointerPositionChange = new UnityEvent<Vector2>();
 
     public void InitEvent()
     {

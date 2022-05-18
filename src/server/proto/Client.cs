@@ -85,7 +85,6 @@ namespace Protobuf.Client {
     public Vector2 Clone() {
       return new Vector2(this);
     }
-
     /// <summary>Field number for the "x" field.</summary>
     public const int XFieldNumber = 1;
     private float x_;
