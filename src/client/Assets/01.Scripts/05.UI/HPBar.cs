@@ -11,11 +11,11 @@ public class HPBar : MonoBehaviour
     private Image hpBar = null;
     private const float playerMaxHp = 5f;
 
-    private void Start()
-    {
-        hpBar = GetComponent<Image>();
-        Debug.Log(player.Stat.HP);
-    }
+    //private void Start()
+    //{
+    //    hpBar = GetComponent<Image>();
+    //    Debug.Log(player.Stat.HP);
+    //}
 
     public void SetHpBar()
     {
