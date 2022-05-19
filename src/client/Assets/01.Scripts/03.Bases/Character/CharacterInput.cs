@@ -38,7 +38,7 @@ public class CharacterInput : MonoBehaviour
         if(tempPosition != (Vector2)transform.position)
         {
             tempPosition = transform.position;
-            WebSocket.Client.ApplyMoveEntity(playerEntity); 
+            WebSocket.Client.ApplyEntityMove(playerEntity);
         }
     }
 }
