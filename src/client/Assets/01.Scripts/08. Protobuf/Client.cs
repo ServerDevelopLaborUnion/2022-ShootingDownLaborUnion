@@ -28,20 +28,22 @@ namespace Protobuf.Client {
             "CgpDb25uZWN0aW9uEhEKCVNlc3Npb25JZBgBIAEoCSKGAQoNTG9naW5SZXNw",
             "b25zZRIPCgdTdWNjZXNzGAEgASgIEhUKCFVzZXJVVUlEGAIgASgJSACIAQES",
             "FQoIVXNlcm5hbWUYAyABKAlIAYgBARISCgVUb2tlbhgEIAEoCUgCiAEBQgsK",
-            "CV9Vc2VyVVVJREILCglfVXNlcm5hbWVCCAoGX1Rva2VuIjAKDENyZWF0ZUVu",
-            "dGl0eRIgCgZFbnRpdHkYASABKAsyEC5Qcm90b2J1Zi5FbnRpdHkiawoKTW92",
-            "ZUVudGl0eRIQCghFbnRpdHlJZBgBIAEoCRIjCghQb3NpdGlvbhgCIAEoCzIR",
-            "LlByb3RvYnVmLlZlY3RvcjISJgoIUm90YXRpb24YAyABKAsyFC5Qcm90b2J1",
-            "Zi5RdWF0ZXJuaW9uIiAKDFJlbW92ZUVudGl0eRIQCghFbnRpdHlJZBgBIAEo",
-            "CWIGcHJvdG8z"));
+            "CV9Vc2VyVVVJREILCglfVXNlcm5hbWVCCAoGX1Rva2VuIjAKDEVudGl0eUNy",
+            "ZWF0ZRIgCgZFbnRpdHkYASABKAsyEC5Qcm90b2J1Zi5FbnRpdHkibQoKRW50",
+            "aXR5TW92ZRISCgpFbnRpdHlVVUlEGAEgASgJEiMKCFBvc2l0aW9uGAIgASgL",
+            "MhEuUHJvdG9idWYuVmVjdG9yMhImCghSb3RhdGlvbhgDIAEoCzIULlByb3Rv",
+            "YnVmLlF1YXRlcm5pb24iIgoMRW50aXR5UmVtb3ZlEhIKCkVudGl0eVVVSUQY",
+            "ASABKAkiNgoMRW50aXR5VXBkYXRlEhIKCkVudGl0eVVVSUQYASABKAkSEgoK",
+            "RW50aXR5RGF0YRgCIAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protobuf.TypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.Connection), global::Protobuf.Client.Connection.Parser, new[]{ "SessionId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.LoginResponse), global::Protobuf.Client.LoginResponse.Parser, new[]{ "Success", "UserUUID", "Username", "Token" }, new[]{ "UserUUID", "Username", "Token" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.CreateEntity), global::Protobuf.Client.CreateEntity.Parser, new[]{ "Entity" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.MoveEntity), global::Protobuf.Client.MoveEntity.Parser, new[]{ "EntityId", "Position", "Rotation" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.RemoveEntity), global::Protobuf.Client.RemoveEntity.Parser, new[]{ "EntityId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityCreate), global::Protobuf.Client.EntityCreate.Parser, new[]{ "Entity" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityMove), global::Protobuf.Client.EntityMove.Parser, new[]{ "EntityUUID", "Position", "Rotation" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityRemove), global::Protobuf.Client.EntityRemove.Parser, new[]{ "EntityUUID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityUpdate), global::Protobuf.Client.EntityUpdate.Parser, new[]{ "EntityUUID", "EntityData" }, null, null, null, null)
           }));
     }
     #endregion
@@ -582,16 +584,16 @@ namespace Protobuf.Client {
   /// <summary>
   /// id: 2
   /// </summary>
-  public sealed partial class CreateEntity : pb::IMessage<CreateEntity>
+  public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<CreateEntity> _parser = new pb::MessageParser<CreateEntity>(() => new CreateEntity());
+    private static readonly pb::MessageParser<EntityCreate> _parser = new pb::MessageParser<EntityCreate>(() => new EntityCreate());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CreateEntity> Parser { get { return _parser; } }
+    public static pb::MessageParser<EntityCreate> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -607,7 +609,7 @@ namespace Protobuf.Client {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CreateEntity() {
+    public EntityCreate() {
       OnConstruction();
     }
 
@@ -615,15 +617,15 @@ namespace Protobuf.Client {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CreateEntity(CreateEntity other) : this() {
+    public EntityCreate(EntityCreate other) : this() {
       entity_ = other.entity_ != null ? other.entity_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CreateEntity Clone() {
-      return new CreateEntity(this);
+    public EntityCreate Clone() {
+      return new EntityCreate(this);
     }
 
     /// <summary>Field number for the "Entity" field.</summary>
@@ -641,12 +643,12 @@ namespace Protobuf.Client {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as CreateEntity);
+      return Equals(other as EntityCreate);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CreateEntity other) {
+    public bool Equals(EntityCreate other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -719,7 +721,7 @@ namespace Protobuf.Client {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CreateEntity other) {
+    public void MergeFrom(EntityCreate other) {
       if (other == null) {
         return;
       }
@@ -783,16 +785,16 @@ namespace Protobuf.Client {
   /// <summary>
   /// id: 3
   /// </summary>
-  public sealed partial class MoveEntity : pb::IMessage<MoveEntity>
+  public sealed partial class EntityMove : pb::IMessage<EntityMove>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<MoveEntity> _parser = new pb::MessageParser<MoveEntity>(() => new MoveEntity());
+    private static readonly pb::MessageParser<EntityMove> _parser = new pb::MessageParser<EntityMove>(() => new EntityMove());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<MoveEntity> Parser { get { return _parser; } }
+    public static pb::MessageParser<EntityMove> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -808,7 +810,7 @@ namespace Protobuf.Client {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public MoveEntity() {
+    public EntityMove() {
       OnConstruction();
     }
 
@@ -816,8 +818,8 @@ namespace Protobuf.Client {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public MoveEntity(MoveEntity other) : this() {
-      entityId_ = other.entityId_;
+    public EntityMove(EntityMove other) : this() {
+      entityUUID_ = other.entityUUID_;
       position_ = other.position_ != null ? other.position_.Clone() : null;
       rotation_ = other.rotation_ != null ? other.rotation_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -825,19 +827,19 @@ namespace Protobuf.Client {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public MoveEntity Clone() {
-      return new MoveEntity(this);
+    public EntityMove Clone() {
+      return new EntityMove(this);
     }
 
-    /// <summary>Field number for the "EntityId" field.</summary>
-    public const int EntityIdFieldNumber = 1;
-    private string entityId_ = "";
+    /// <summary>Field number for the "EntityUUID" field.</summary>
+    public const int EntityUUIDFieldNumber = 1;
+    private string entityUUID_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string EntityId {
-      get { return entityId_; }
+    public string EntityUUID {
+      get { return entityUUID_; }
       set {
-        entityId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        entityUUID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -868,19 +870,19 @@ namespace Protobuf.Client {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as MoveEntity);
+      return Equals(other as EntityMove);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(MoveEntity other) {
+    public bool Equals(EntityMove other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (EntityId != other.EntityId) return false;
+      if (EntityUUID != other.EntityUUID) return false;
       if (!object.Equals(Position, other.Position)) return false;
       if (!object.Equals(Rotation, other.Rotation)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -890,7 +892,7 @@ namespace Protobuf.Client {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (EntityId.Length != 0) hash ^= EntityId.GetHashCode();
+      if (EntityUUID.Length != 0) hash ^= EntityUUID.GetHashCode();
       if (position_ != null) hash ^= Position.GetHashCode();
       if (rotation_ != null) hash ^= Rotation.GetHashCode();
       if (_unknownFields != null) {
@@ -911,9 +913,9 @@ namespace Protobuf.Client {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (EntityId.Length != 0) {
+      if (EntityUUID.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(EntityId);
+        output.WriteString(EntityUUID);
       }
       if (position_ != null) {
         output.WriteRawTag(18);
@@ -933,9 +935,9 @@ namespace Protobuf.Client {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (EntityId.Length != 0) {
+      if (EntityUUID.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(EntityId);
+        output.WriteString(EntityUUID);
       }
       if (position_ != null) {
         output.WriteRawTag(18);
@@ -955,8 +957,8 @@ namespace Protobuf.Client {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (EntityId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(EntityId);
+      if (EntityUUID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EntityUUID);
       }
       if (position_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
@@ -972,12 +974,12 @@ namespace Protobuf.Client {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(MoveEntity other) {
+    public void MergeFrom(EntityMove other) {
       if (other == null) {
         return;
       }
-      if (other.EntityId.Length != 0) {
-        EntityId = other.EntityId;
+      if (other.EntityUUID.Length != 0) {
+        EntityUUID = other.EntityUUID;
       }
       if (other.position_ != null) {
         if (position_ == null) {
@@ -1007,7 +1009,7 @@ namespace Protobuf.Client {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            EntityId = input.ReadString();
+            EntityUUID = input.ReadString();
             break;
           }
           case 18: {
@@ -1040,7 +1042,7 @@ namespace Protobuf.Client {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            EntityId = input.ReadString();
+            EntityUUID = input.ReadString();
             break;
           }
           case 18: {
@@ -1067,16 +1069,16 @@ namespace Protobuf.Client {
   /// <summary>
   /// id: 4
   /// </summary>
-  public sealed partial class RemoveEntity : pb::IMessage<RemoveEntity>
+  public sealed partial class EntityRemove : pb::IMessage<EntityRemove>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<RemoveEntity> _parser = new pb::MessageParser<RemoveEntity>(() => new RemoveEntity());
+    private static readonly pb::MessageParser<EntityRemove> _parser = new pb::MessageParser<EntityRemove>(() => new EntityRemove());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<RemoveEntity> Parser { get { return _parser; } }
+    public static pb::MessageParser<EntityRemove> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1092,7 +1094,7 @@ namespace Protobuf.Client {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public RemoveEntity() {
+    public EntityRemove() {
       OnConstruction();
     }
 
@@ -1100,45 +1102,45 @@ namespace Protobuf.Client {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public RemoveEntity(RemoveEntity other) : this() {
-      entityId_ = other.entityId_;
+    public EntityRemove(EntityRemove other) : this() {
+      entityUUID_ = other.entityUUID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public RemoveEntity Clone() {
-      return new RemoveEntity(this);
+    public EntityRemove Clone() {
+      return new EntityRemove(this);
     }
 
-    /// <summary>Field number for the "EntityId" field.</summary>
-    public const int EntityIdFieldNumber = 1;
-    private string entityId_ = "";
+    /// <summary>Field number for the "EntityUUID" field.</summary>
+    public const int EntityUUIDFieldNumber = 1;
+    private string entityUUID_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string EntityId {
-      get { return entityId_; }
+    public string EntityUUID {
+      get { return entityUUID_; }
       set {
-        entityId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        entityUUID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as RemoveEntity);
+      return Equals(other as EntityRemove);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(RemoveEntity other) {
+    public bool Equals(EntityRemove other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (EntityId != other.EntityId) return false;
+      if (EntityUUID != other.EntityUUID) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1146,7 +1148,7 @@ namespace Protobuf.Client {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (EntityId.Length != 0) hash ^= EntityId.GetHashCode();
+      if (EntityUUID.Length != 0) hash ^= EntityUUID.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1165,9 +1167,9 @@ namespace Protobuf.Client {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (EntityId.Length != 0) {
+      if (EntityUUID.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(EntityId);
+        output.WriteString(EntityUUID);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1179,9 +1181,9 @@ namespace Protobuf.Client {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (EntityId.Length != 0) {
+      if (EntityUUID.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(EntityId);
+        output.WriteString(EntityUUID);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1193,8 +1195,8 @@ namespace Protobuf.Client {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (EntityId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(EntityId);
+      if (EntityUUID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EntityUUID);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1204,12 +1206,12 @@ namespace Protobuf.Client {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(RemoveEntity other) {
+    public void MergeFrom(EntityRemove other) {
       if (other == null) {
         return;
       }
-      if (other.EntityId.Length != 0) {
-        EntityId = other.EntityId;
+      if (other.EntityUUID.Length != 0) {
+        EntityUUID = other.EntityUUID;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1227,7 +1229,7 @@ namespace Protobuf.Client {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            EntityId = input.ReadString();
+            EntityUUID = input.ReadString();
             break;
           }
         }
@@ -1246,7 +1248,236 @@ namespace Protobuf.Client {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            EntityId = input.ReadString();
+            EntityUUID = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// id: 5
+  /// </summary>
+  public sealed partial class EntityUpdate : pb::IMessage<EntityUpdate>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<EntityUpdate> _parser = new pb::MessageParser<EntityUpdate>(() => new EntityUpdate());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<EntityUpdate> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protobuf.Client.ClientReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EntityUpdate() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EntityUpdate(EntityUpdate other) : this() {
+      entityUUID_ = other.entityUUID_;
+      entityData_ = other.entityData_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EntityUpdate Clone() {
+      return new EntityUpdate(this);
+    }
+
+    /// <summary>Field number for the "EntityUUID" field.</summary>
+    public const int EntityUUIDFieldNumber = 1;
+    private string entityUUID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EntityUUID {
+      get { return entityUUID_; }
+      set {
+        entityUUID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "EntityData" field.</summary>
+    public const int EntityDataFieldNumber = 2;
+    private string entityData_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EntityData {
+      get { return entityData_; }
+      set {
+        entityData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as EntityUpdate);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(EntityUpdate other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (EntityUUID != other.EntityUUID) return false;
+      if (EntityData != other.EntityData) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (EntityUUID.Length != 0) hash ^= EntityUUID.GetHashCode();
+      if (EntityData.Length != 0) hash ^= EntityData.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (EntityUUID.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(EntityUUID);
+      }
+      if (EntityData.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(EntityData);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (EntityUUID.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(EntityUUID);
+      }
+      if (EntityData.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(EntityData);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (EntityUUID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EntityUUID);
+      }
+      if (EntityData.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EntityData);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(EntityUpdate other) {
+      if (other == null) {
+        return;
+      }
+      if (other.EntityUUID.Length != 0) {
+        EntityUUID = other.EntityUUID;
+      }
+      if (other.EntityData.Length != 0) {
+        EntityData = other.EntityData;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            EntityUUID = input.ReadString();
+            break;
+          }
+          case 18: {
+            EntityData = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            EntityUUID = input.ReadString();
+            break;
+          }
+          case 18: {
+            EntityData = input.ReadString();
             break;
           }
         }

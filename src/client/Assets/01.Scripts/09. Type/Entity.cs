@@ -8,7 +8,7 @@ public class Entity : MonoBehaviour
     public EntityData Data { get; private set; }
 
 
-    public static Entity CreateEntity(EntityData data)
+    public static Entity EntityCreate(EntityData data)
     {
         GameObject prefab = Resources.Load("Prefab/" + data.Type.ToString()) as GameObject;
         var newObject = Instantiate(prefab, data.Position, data.Rotation);

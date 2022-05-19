@@ -9,25 +9,25 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        WebSocket.Client.OnCreateEntityMessage += Client_OnCreateEntityMessage;
-        WebSocket.Client.OnRemoveEntityMessage += Client_OnRemoveEntityMessage;
-        WebSocket.Client.OnMoveEntityMessage += Client_OnMoveEntityMessage;
+        WebSocket.Client.OnEntityCreateMessage += Client_OnEntityCreateMessage;
+        WebSocket.Client.OnReentityMoveMessage += Client_OnReentityMoveMessage;
+        WebSocket.Client.OnEntityMoveMessage += Client_OnEntityMoveMessage;
     }
 
-    private void Client_OnMoveEntityMessage(object sender, WebSocket.MoveEntityEventArgs e)
+    private void Client_OnEntityMoveMessage(object sender, WebSocket.EntityMoveEventArgs e)
     {
-        Entity temp = NetworkManager.Instance.entityList.Find((x) => x.Data.UUID == e.EntityId);
+        Entity temp = NetworkManager.Instance.entityList.Find((x) => x.Data.UUID == e.EntityUUID);
         temp.transform.SetPositionAndRotation(e.Position, e.Rotation);
     }
 
-    private void Client_OnRemoveEntityMessage(object sender, WebSocket.RemoveEntityEventArgs e)
+    private void Client_OnReentityMoveMessage(object sender, WebSocket.EntityRemoveEventArgs e)
     {
-        Entity.DeleteEntity(e.EntityId);
+        Entity.DeleteEntity(e.EntityUUID);
     }
 
-    private void Client_OnCreateEntityMessage(object sender, WebSocket.CreateEntityEventArgs e)
+    private void Client_OnEntityCreateMessage(object sender, WebSocket.EntityCreateEventArgs e)
     {
-        NetworkManager.Instance.entityList.Add(Entity.CreateEntity(e.Data));
+        NetworkManager.Instance.entityList.Add(Entity.EntityCreate(e.Data));
     }
 
     // Update is called once per frame

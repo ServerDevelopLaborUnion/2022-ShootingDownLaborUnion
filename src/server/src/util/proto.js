@@ -52,17 +52,21 @@ module.exports = {
             id: 1,
             type: 'LoginResponse',
         },
-        CreateEntity: {
+        EntityCreate: {
             id: 2,
-            type: 'CreateEntity',
+            type: 'EntityCreate',
         },
-        MoveEntity: {
+        EntityMove: {
             id: 3,
-            type: 'MoveEntity',
+            type: 'EntityMove',
         },
-        RemoveEntity: {
+        EntityRemove: {
             id: 4,
-            type: 'RemoveEntity',
+            type: 'EntityRemove',
         },
+        EntityUpdate: {
+            id: 5,
+            type: 'EntityUpdate',
+        }
     }
 }

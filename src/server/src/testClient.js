@@ -45,7 +45,7 @@ client.on('connect', (server) => {
                     const parsed = proto.client.decode(proto.client.LoginResponse, body);
                     console.log(parsed);
 
-                    server.sendPacket(2, proto.server.encode('MoveRequest', {
+                    server.sendPacket(2, proto.server.encode('EntityMoveRequest', {
                         position: {
                             x: 0,
                             y: 0,
