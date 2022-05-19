@@ -28,6 +28,4 @@ public class CharacterInput : MonoBehaviour
         OnAttackKeyInput?.Invoke(Input.GetMouseButtonDown(0));
         OnPointerPositionChange?.Invoke(MousePos - (Vector2)transform.position);
     }
-
-
 }

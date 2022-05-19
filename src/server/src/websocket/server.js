@@ -24,8 +24,8 @@ exports.WebsocketServer = new class WebsocketServer {
     wsServer;
     /** @type {Map<string, connection>} */
     connections = new Map();
-    /** @type {Array<Entity>} */
-    entityes = new Array();
+    /** @type {Map<string, Entity>} */
+    entityes = new Map();
 
     constructor() {
         this.port = 0;
@@ -36,6 +36,7 @@ exports.WebsocketServer = new class WebsocketServer {
 
         connection.prototype.server = this.server;
         this.server.connections = this.connections;
+        this.server.entityes = this.entityes;
         this.server.broadcastPacket = function (buffer, socket = null) {
             Logger.debug(`Broadcasting: ${buffer.length} bytes`);
             if (socket) {
@@ -77,7 +78,7 @@ exports.WebsocketServer = new class WebsocketServer {
                 SessionId: socket.sessionId,
             }));
 
-            Logger.debug(`${socket.sessionId} connected`);
+            Logger.info(`${socket.sessionId} connected`);
 
             const newEntity = {
                 Entity: {
@@ -95,20 +96,7 @@ exports.WebsocketServer = new class WebsocketServer {
                 socket.sendPacket(proto.client.encode(proto.client.CreateEntity, entity));
             });
 
-            this.entityes.push(newEntity);
-
-            // for (let i = 1; i < 10; i++) {
-            //     socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
-            //         Entity: {
-            //             UUID: v4(),
-            //             OwnerUUID: v4(),
-            //             Name: 'OtherPlayer',
-            //             Position: { X: 0, Y: i, Z: 0 },
-            //             Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
-            //             Data: '{"type":"0"}',
-            //         }
-            //     }));
-            // }
+            this.entityes.set(newEntity.Entity.UUID, newEntity.Entity);
 
             // 클라이언트에게 메시지를 받았을 때 처리한다.
             socket.on("message", async (message) => {
@@ -120,17 +108,13 @@ exports.WebsocketServer = new class WebsocketServer {
             // 클라이언트에게 연결이 끊겼을 때 처리한다.
             socket.on("close", async (reasonCode, description) => {
                 this.connections.delete(socket.sessionId);
-                const entityCount = this.entityes.length;
-                this.entityes = this.entityes.filter(entity => {
-                    if (entity.Entity.OwnerUUID == socket.sessionId) {
-                        this.server.broadcastPacket(proto.client.encode(proto.client.RemoveEntity, {
-                            EntityId: entity.Entity.UUID
-                        }), socket);
-                        return false;
+                const entityCount = this.entityes.size;
+                this.entityes.forEach(entity => {
+                    if (entity.OwnerUUID === socket.sessionId) {
+                        this.entityes.delete(entity.UUID);
                     }
-                    return true;
                 });
-                Logger.debug(`${socket.sessionId} disconnected: ${reasonCode} ${description} ${entityCount - this.entityes.length} entities removed.`);
+                Logger.info(`${socket.sessionId} disconnected: ${reasonCode} ${description} ${entityCount - this.entityes.size} entities removed.`);
             });
 
             // 클라이언트에게 에러가 발생했을 때 처리한다.
