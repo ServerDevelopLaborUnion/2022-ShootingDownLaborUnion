@@ -15,6 +15,7 @@ module.exports = {
 
         const moveRequest = proto.server.decode(type, buffer);
         if (socket.sessionId == socket.server.entityes.get(moveRequest.EntityId).OwnerUUID) {
+            socket.server.entityes.get(moveRequest.EntityId).Position = moveRequest.Position;
             socket.server.broadcastPacket(proto.client.encode(proto.client.MoveEntity, {
                 EntityId: moveRequest.EntityId,
                 Position: moveRequest.Position,
