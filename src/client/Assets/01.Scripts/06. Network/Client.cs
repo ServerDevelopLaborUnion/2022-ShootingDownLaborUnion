@@ -40,37 +40,37 @@ namespace WebSocket
         }
     }
 
-    public class CreateEntityEventArgs : EventArgs
+    public class EntityCreateEventArgs : EventArgs
     {
         public EntityData Data { get; set; }
 
-        public CreateEntityEventArgs(EntityData data)
+        public EntityCreateEventArgs(EntityData data)
         {
             Data = data;
         }
     }
 
-    public class MoveEntityEventArgs : EventArgs
+    public class EntityMoveEventArgs : EventArgs
     {
-        public string EntityId { get; set; }
+        public string EntityUUID { get; set; }
         public Vector2 Position { get; set; }
         public Quaternion Rotation { get; set; }
 
-        public MoveEntityEventArgs(string entityId, Vector2 position, Quaternion rotation)
+        public EntityMoveEventArgs(string entityId, Vector2 position, Quaternion rotation)
         {
-            EntityId = entityId;
+            EntityUUID = entityId;
             Position = position;
             Rotation = rotation;
         }
     }
 
-    public class RemoveEntityEventArgs : EventArgs
+    public class EntityRemoveEventArgs : EventArgs
     {
-        public string EntityId { get; set; }
+        public string EntityUUID { get; set; }
 
-        public RemoveEntityEventArgs(string entityId)
+        public EntityRemoveEventArgs(string entityId)
         {
-            EntityId = entityId;
+            EntityUUID = entityId;
         }
     }
     #endregion
@@ -100,10 +100,10 @@ namespace WebSocket
         
         public static event EventHandler<LoginResponseEventArgs> OnLoginResponseMessage;
         
-        public static event EventHandler<CreateEntityEventArgs> OnCreateEntityMessage;
+        public static event EventHandler<EntityCreateEventArgs> OnEntityCreateMessage;
         
-        public static event EventHandler<MoveEntityEventArgs> OnMoveEntityMessage;
-        public static event EventHandler<RemoveEntityEventArgs> OnRemoveEntityMessage;
+        public static event EventHandler<EntityMoveEventArgs> OnEntityMoveMessage;
+        public static event EventHandler<EntityRemoveEventArgs> OnReentityMoveMessage;
         #endregion
         
         public static Account Account { get; private set; }
@@ -241,8 +241,8 @@ namespace WebSocket
 
             OnConnectionMessage = null;
             OnLoginResponseMessage = null;
-            OnCreateEntityMessage = null;
-            OnMoveEntityMessage = null;
+            OnEntityCreateMessage = null;
+            OnEntityMoveMessage = null;
 
             InitializeEvents();
         }
@@ -332,33 +332,33 @@ namespace WebSocket
                             )));
                             break;
                         case 2:
-                            var createEntityMessage = Protobuf.Client.CreateEntity.Parser.ParseFrom(buffer);
-                            int entityType = JObject.Parse(createEntityMessage.Entity.Data)["type"].Value<int>();
-                            MainTask.Enqueue(() => OnCreateEntityMessage?.Invoke(this, new CreateEntityEventArgs(
+                            var entityCreateMessage = Protobuf.Client.EntityCreate.Parser.ParseFrom(buffer);
+                            int entityType = JObject.Parse(entityCreateMessage.Entity.Data)["type"].Value<int>();
+                            MainTask.Enqueue(() => OnEntityCreateMessage?.Invoke(this, new EntityCreateEventArgs(
                                 new EntityData
                                 (
-                                    createEntityMessage.Entity.UUID,
-                                    createEntityMessage.Entity.OwnerUUID,
-                                    createEntityMessage.Entity.Name,
-                                    new Vector2(createEntityMessage.Entity.Position.X, createEntityMessage.Entity.Position.Y),
-                                    new Quaternion(createEntityMessage.Entity.Rotation.X, createEntityMessage.Entity.Rotation.Y, createEntityMessage.Entity.Rotation.Z, createEntityMessage.Entity.Rotation.W),
+                                    entityCreateMessage.Entity.UUID,
+                                    entityCreateMessage.Entity.OwnerUUID,
+                                    entityCreateMessage.Entity.Name,
+                                    new Vector2(entityCreateMessage.Entity.Position.X, entityCreateMessage.Entity.Position.Y),
+                                    new Quaternion(entityCreateMessage.Entity.Rotation.X, entityCreateMessage.Entity.Rotation.Y, entityCreateMessage.Entity.Rotation.Z, entityCreateMessage.Entity.Rotation.W),
                                     (EntityType)entityType
                                 )
                             )));
                             break;
                         case 3:
-                            var moveEntityMessage = Protobuf.Client.MoveEntity.Parser.ParseFrom(buffer);
-                            //Debug.Log($"Entity {moveEntityMessage.EntityId} moved to {moveEntityMessage.Position.X}, {moveEntityMessage.Position.Y}");
-                            MainTask.Enqueue(() => OnMoveEntityMessage?.Invoke(this, new MoveEntityEventArgs(
-                                moveEntityMessage.EntityId,
-                                new Vector2(moveEntityMessage.Position.X, moveEntityMessage.Position.Y),
-                                new Quaternion(moveEntityMessage.Rotation.X, moveEntityMessage.Rotation.Y, moveEntityMessage.Rotation.Z, moveEntityMessage.Rotation.W)
+                            var entityMoveMessage = Protobuf.Client.EntityMove.Parser.ParseFrom(buffer);
+                            //Debug.Log($"Entity {entityMoveMessage.EntityUUID} moved to {entityMoveMessage.Position.X}, {entityMoveMessage.Position.Y}");
+                            MainTask.Enqueue(() => OnEntityMoveMessage?.Invoke(this, new EntityMoveEventArgs(
+                                entityMoveMessage.EntityUUID,
+                                new Vector2(entityMoveMessage.Position.X, entityMoveMessage.Position.Y),
+                                new Quaternion(entityMoveMessage.Rotation.X, entityMoveMessage.Rotation.Y, entityMoveMessage.Rotation.Z, entityMoveMessage.Rotation.W)
                             )));
                             break;
                         case 4:
-                            var removeEntityMessage = Protobuf.Client.RemoveEntity.Parser.ParseFrom(buffer);
-                            MainTask.Enqueue(() => OnRemoveEntityMessage?.Invoke(this, new RemoveEntityEventArgs(
-                                removeEntityMessage.EntityId
+                            var entityRemoveMessage = Protobuf.Client.EntityRemove.Parser.ParseFrom(buffer);
+                            MainTask.Enqueue(() => OnReentityMoveMessage?.Invoke(this, new EntityRemoveEventArgs(
+                                entityRemoveMessage.EntityUUID
                             )));
                             break;
                     }
@@ -407,17 +407,17 @@ namespace WebSocket
             }
         }
 
-        public static void ApplyMoveEntity(Entity entity)
+        public static void ApplyEntityMove(Entity entity)
         {
             if (_connectionState == ConnectionState.Connected)
             {
-                var moveEntityRequest = new Protobuf.Server.MoveRequest();
-                moveEntityRequest.EntityId = entity.Data.UUID;
+                var moveEntityRequest = new Protobuf.Server.EntityMoveRequest();
+                moveEntityRequest.EntityUUID = entity.Data.UUID;
                 moveEntityRequest.Position = entity.Data.Position.ToProtobuf();
                 moveEntityRequest.Rotation = entity.Data.Rotation.ToProtobuf();
 
 
-                SendPacket(3, moveEntityRequest);
+                SendPacket(2, moveEntityRequest);
             }
             else if (_connectionState == ConnectionState.Disconnected)
             {

@@ -18,18 +18,24 @@ message LoginResponse {
 }
 
 // id: 2
-message CreateEntity {
+message EntityCreate {
     Entity Entity = 1;
 }
 
 // id: 3
-message MoveEntity {
-    string EntityId = 1;
+message EntityMove {
+    string EntityUUID = 1;
     Vector2 Position = 2;
     Quaternion Rotation = 3;
 }
 
 // id: 4
-message RemoveEntity {
-    string EntityId = 1;
+message EntityRemove {
+    string EntityUUID = 1;
+}
+
+// id: 5
+message EntityUpdate {
+    string EntityUUID = 1;
+    string EntityData = 2;
 }

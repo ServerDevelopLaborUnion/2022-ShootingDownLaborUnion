@@ -90,10 +90,10 @@ exports.WebsocketServer = new class WebsocketServer {
                 }
             };
 
-            socket.server.broadcastPacket(proto.client.encode(proto.client.CreateEntity, newEntity));
+            socket.server.broadcastPacket(proto.client.encode(proto.client.EntityCreate, newEntity));
 
             this.entityes.forEach(entity => {
-                socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
+                socket.sendPacket(proto.client.encode(proto.client.EntityCreate, {
                     Entity: entity
                 }));
             });
@@ -101,19 +101,22 @@ exports.WebsocketServer = new class WebsocketServer {
             this.entityes.set(newEntity.Entity.UUID, newEntity.Entity);
 
             // 클라이언트에게 메시지를 받았을 때 처리한다.
-            socket.on("message", async (message) => {
+            socket.on("message", (message) => {
                 if (message.type === 'binary') {
                     router.receive(socket, message.binaryData);
                 }
             });
 
             // 클라이언트에게 연결이 끊겼을 때 처리한다.
-            socket.on("close", async (reasonCode, description) => {
+            socket.on("close", (reasonCode, description) => {
                 this.connections.delete(socket.sessionId);
                 const entityCount = this.entityes.size;
                 this.entityes.forEach(entity => {
                     if (entity.OwnerUUID === socket.sessionId) {
                         this.entityes.delete(entity.UUID);
+                        this.server.broadcastPacket(proto.client.encode(proto.client.EntityRemove, {
+                            UUID: entity.UUID
+                        }));
                     }
                 });
                 Logger.info(`${socket.sessionId} disconnected: ${reasonCode} ${description} ${entityCount - this.entityes.size} entities removed.`);

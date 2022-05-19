@@ -30,25 +30,25 @@ public class NetworkManager : MonoSingleton<NetworkManager>
         }
     }
 
-    public class CreateEntityEventArgs : EventArgs
+    public class EntityCreateEventArgs : EventArgs
     {
         public Entity Entity { get; set; }
 
-        public CreateEntityEventArgs(Entity entity)
+        public EntityCreateEventArgs(Entity entity)
         {
             Entity = entity;
         }
     }
 
-    public class MoveEntityEventArgs : EventArgs
+    public class EntityMoveEventArgs : EventArgs
     {
-        public int EntityId { get; set; }
+        public int EntityUUID { get; set; }
         public Vector2 Position { get; set; }
         public Quaternion Rotation { get; set; }
 
-        public MoveEntityEventArgs(int entityId, Vector2 position, Quaternion rotation)
+        public EntityMoveEventArgs(int entityId, Vector2 position, Quaternion rotation)
         {
-            EntityId = entityId;
+            EntityUUID = entityId;
             Position = position;
             Rotation = rotation;
         }

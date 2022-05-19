@@ -16,8 +16,14 @@ message TokenLoginRequest {
 }
 
 // id: 2
-message MoveRequest {
-    string EntityId = 1;
+message EntityMoveRequest {
+    string EntityUUID = 1;
     Vector2 Position = 2;
     Quaternion Rotation = 3;
+}
+
+// id: 3
+message EntityUpdateRequest {
+    string EntityUUID = 1;
+    string EntityData = 2;
 }

@@ -35,7 +35,7 @@ namespace Protobuf.Server {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.Vector2), global::Protobuf.Server.Vector2.Parser, new[]{ "X", "Y" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.LoginRequest), global::Protobuf.Server.LoginRequest.Parser, new[]{ "Username", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.TokenLoginRequest), global::Protobuf.Server.TokenLoginRequest.Parser, new[]{ "Token" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.MoveRequest), global::Protobuf.Server.MoveRequest.Parser, new[]{ "Position" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.EntityMoveRequest), global::Protobuf.Server.EntityMoveRequest.Parser, new[]{ "Position" }, null, null, null, null)
           }));
     }
     #endregion
@@ -692,16 +692,16 @@ namespace Protobuf.Server {
   /// <summary>
   /// id: 2
   /// </summary>
-  public sealed partial class MoveRequest : pb::IMessage<MoveRequest>
+  public sealed partial class EntityMoveRequest : pb::IMessage<EntityMoveRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<MoveRequest> _parser = new pb::MessageParser<MoveRequest>(() => new MoveRequest());
+    private static readonly pb::MessageParser<EntityMoveRequest> _parser = new pb::MessageParser<EntityMoveRequest>(() => new EntityMoveRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<MoveRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<EntityMoveRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -717,7 +717,7 @@ namespace Protobuf.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public MoveRequest() {
+    public EntityMoveRequest() {
       OnConstruction();
     }
 
@@ -725,15 +725,15 @@ namespace Protobuf.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public MoveRequest(MoveRequest other) : this() {
+    public EntityMoveRequest(EntityMoveRequest other) : this() {
       position_ = other.position_ != null ? other.position_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public MoveRequest Clone() {
-      return new MoveRequest(this);
+    public EntityMoveRequest Clone() {
+      return new EntityMoveRequest(this);
     }
 
     /// <summary>Field number for the "position" field.</summary>
@@ -751,12 +751,12 @@ namespace Protobuf.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as MoveRequest);
+      return Equals(other as EntityMoveRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(MoveRequest other) {
+    public bool Equals(EntityMoveRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -829,7 +829,7 @@ namespace Protobuf.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(MoveRequest other) {
+    public void MergeFrom(EntityMoveRequest other) {
       if (other == null) {
         return;
       }
