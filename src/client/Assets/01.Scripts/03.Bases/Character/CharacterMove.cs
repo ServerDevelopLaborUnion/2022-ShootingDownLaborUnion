@@ -12,6 +12,7 @@ public class CharacterMove : MonoBehaviour
     private Rigidbody2D _rigid;
 
     protected float _currentVelocity = 0;
+    public float CurrentVelocity { get => _currentVelocity; }
 
     protected Vector2 _movementDirection;
 

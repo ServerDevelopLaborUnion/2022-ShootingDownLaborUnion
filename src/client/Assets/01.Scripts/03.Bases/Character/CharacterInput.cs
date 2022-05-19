@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class CharacterInput : MonoBehaviour
 {
+    private CharacterBase _base = null;
     private UnityEvent<Vector2> OnMoveKeyInput = new UnityEvent<Vector2>();
 
     private UnityEvent<bool> OnAttackKeyInput = new UnityEvent<bool>();
@@ -20,6 +21,7 @@ public class CharacterInput : MonoBehaviour
 
     public void InitEvent()
     {
+        _base = GetComponent<CharacterBase>();
         playerEntity = GetComponent<Entity>();
         Transform visualTransform = transform.Find("Visual Sprite");
         OnMoveKeyInput.AddListener((dir) => GetComponent<CharacterMove>().MoveAgent(dir));
@@ -39,6 +41,7 @@ public class CharacterInput : MonoBehaviour
         {
             tempPosition = transform.position;
             WebSocket.Client.ApplyEntityMove(playerEntity);
+            WebSocket.Client.ApplyEntityEvent(_base, "DoMove");
         }
     }
 }

@@ -1,26 +1,47 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class CharacterEvent : MonoBehaviour
 {
+    private CharacterBase _base = null;
     public UnityEvent DoAttack = new UnityEvent();
+    public UnityEvent DoMove = new UnityEvent();
     public UnityEvent DoFlipLeft = new UnityEvent();
     public UnityEvent DoFlipRight = new UnityEvent();
 
     private void Awake()
     {
-        DoAttack.AddListener(() => GetComponent<CharacterAttack>().DoAttack(true));
-        DoFlipLeft.AddListener(() => GetComponent<CharacterRenderer>().FlipCharacter(Vector2.left));
-        DoFlipRight.AddListener(() => GetComponent<CharacterRenderer>().FlipCharacter(Vector2.right));
+        _base = GetComponent<CharacterBase>();
+        Transform visualTransform = transform.Find("Visual Sprite");
+        CharacterAttack characterAttack = visualTransform.GetComponent<CharacterAttack>();
+        CharacterRenderer characterRenderer = visualTransform.GetComponent<CharacterRenderer>();
+        CharacterAnimation characterAnimation = visualTransform.GetComponent<CharacterAnimation>();
+        CharacterMove characterMove = GetComponent<CharacterMove>();
+        DoAttack.AddListener(() => characterAttack.DoAttack(true));
+        DoMove.AddListener(() => characterAnimation.PlayMoveAnime(1));
+        DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(Vector2.left));
+        DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));
     }
     public void InvokeEvent(string eventName)
     {
-        Type type = this.GetType();
-        var action = type.GetProperty(eventName).GetValue(this, null);
-        if (action != null)
-            action.GetType().GetMethod(eventName).Invoke(action, null);
+        switch (eventName)
+        {
+            case "DoMove":
+                DoMove?.Invoke();
+                break;
+            case "DoAttack":
+                DoAttack.Invoke();
+                break;
+            case "DoFlipLeft":
+                DoFlipLeft?.Invoke();
+                break;
+            case "DoFlipRight":
+                DoFlipRight?.Invoke();
+                break ;
+        }
     }
 }

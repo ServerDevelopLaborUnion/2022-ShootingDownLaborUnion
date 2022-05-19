@@ -17,6 +17,7 @@ public class Entity : MonoBehaviour
         Entity temp = newObject.GetComponent<Entity>();
         temp.Data = data;
         temp.Data.parantEntity = temp;
+        temp.EntityObject = newObject;
         newObject.transform.SetPositionAndRotation(temp.Data.Position, temp.Data.Rotation);
         if (WebSocket.Client.CheckIsOwnedEntity(temp))
         {
