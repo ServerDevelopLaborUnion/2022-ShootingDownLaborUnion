@@ -55,7 +55,7 @@ class Log {
     }
 }
 
-const Logger = new Log(Level.INFO);
+const Logger = new Log(Level.DEBUG);
 
 exports.getLogger = (prefix) => {
     return {

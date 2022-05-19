@@ -93,7 +93,9 @@ exports.WebsocketServer = new class WebsocketServer {
             socket.server.broadcastPacket(proto.client.encode(proto.client.CreateEntity, newEntity));
 
             this.entityes.forEach(entity => {
-                socket.sendPacket(proto.client.encode(proto.client.CreateEntity, entity));
+                socket.sendPacket(proto.client.encode(proto.client.CreateEntity, {
+                    Entity: entity
+                }));
             });
 
             this.entityes.set(newEntity.Entity.UUID, newEntity.Entity);
