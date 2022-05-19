@@ -14,6 +14,7 @@ module.exports.generateToken = (userId, username) => {
 
 module.exports.login = (username, password) => {
     // TODO: DB 로그인 구현
+    console.log(username, password);
     return true;
 }
 
