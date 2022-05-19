@@ -16,6 +16,7 @@ public class CharacterInput : MonoBehaviour
     private UnityEvent<Vector2> OnPointerPositionChange = new UnityEvent<Vector2>();
 
     private Entity playerEntity = null;
+    private Vector2 tempPosition = Vector2.zero;
 
     public void InitEvent()
     {
@@ -34,8 +35,9 @@ public class CharacterInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0)
+        if(tempPosition != (Vector2)transform.position)
         {
+            tempPosition = transform.position;
             WebSocket.Client.ApplyMoveEntity(playerEntity);
             Debug.Log(playerEntity.Data.Position);
         }
