@@ -51,7 +51,7 @@ public class EntityData
     private Quaternion rotation;
 
     [NonSerialized]
-    Entity parantEntity = null;
+    public Entity parantEntity = null;
 
     public EntityData(string uuid, string ownerUUID, string name, Vector2 position, Quaternion rotation, EntityType type, Entity entity = null)
     {

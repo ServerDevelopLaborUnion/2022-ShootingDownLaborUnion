@@ -15,6 +15,7 @@ public class Entity : MonoBehaviour
         newObject.name = data.Name;
         Entity temp = newObject.GetComponent<Entity>();
         temp.Data = data;
+        temp.Data.parantEntity = temp;
         if (WebSocket.Client.CheckIsOwnedEntity(temp))
         {
             newObject.AddComponent<CharacterInput>().InitEvent();

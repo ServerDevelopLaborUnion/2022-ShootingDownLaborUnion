@@ -348,7 +348,7 @@ namespace WebSocket
                             break;
                         case 3:
                             var moveEntityMessage = Protobuf.Client.MoveEntity.Parser.ParseFrom(buffer);
-                            Debug.Log($"Entity {moveEntityMessage.EntityId} moved to {moveEntityMessage.Position.X}, {moveEntityMessage.Position.Y}");
+                            //Debug.Log($"Entity {moveEntityMessage.EntityId} moved to {moveEntityMessage.Position.X}, {moveEntityMessage.Position.Y}");
                             MainTask.Enqueue(() => OnMoveEntityMessage?.Invoke(this, new MoveEntityEventArgs(
                                 moveEntityMessage.EntityId,
                                 new Vector2(moveEntityMessage.Position.X, moveEntityMessage.Position.Y),
@@ -415,6 +415,7 @@ namespace WebSocket
                 moveEntityRequest.EntityId = entity.Data.UUID;
                 moveEntityRequest.Position = entity.Data.Position.ToProtobuf();
                 moveEntityRequest.Rotation = entity.Data.Rotation.ToProtobuf();
+
 
                 SendPacket(3, moveEntityRequest);
             }

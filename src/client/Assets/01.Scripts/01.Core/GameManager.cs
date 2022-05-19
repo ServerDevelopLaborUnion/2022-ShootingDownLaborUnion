@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviour
     {
         WebSocket.Client.OnCreateEntityMessage += Client_OnCreateEntityMessage;
         WebSocket.Client.OnRemoveEntityMessage += Client_OnRemoveEntityMessage;
+        WebSocket.Client.OnMoveEntityMessage += Client_OnMoveEntityMessage;
+    }
+
+    private void Client_OnMoveEntityMessage(object sender, WebSocket.MoveEntityEventArgs e)
+    {
+        Entity temp = NetworkManager.Instance.entityList.Find((x) => x.Data.UUID == e.EntityId);
+        temp.transform.SetPositionAndRotation(e.Position, e.Rotation);
     }
 
     private void Client_OnRemoveEntityMessage(object sender, WebSocket.RemoveEntityEventArgs e)

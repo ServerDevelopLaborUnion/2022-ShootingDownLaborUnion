@@ -15,8 +15,11 @@ public class CharacterInput : MonoBehaviour
 
     private UnityEvent<Vector2> OnPointerPositionChange = new UnityEvent<Vector2>();
 
+    private Entity playerEntity = null;
+
     public void InitEvent()
     {
+        playerEntity = GetComponent<Entity>();
         Transform visualTransform = transform.Find("Visual Sprite");
         OnMoveKeyInput.AddListener((dir) => GetComponent<CharacterMove>().MoveAgent(dir));
         OnAttackKeyInput.AddListener((x) => visualTransform.GetComponent<CharacterAttack>().DoAttack(x));
@@ -29,5 +32,12 @@ public class CharacterInput : MonoBehaviour
         OnPointerPositionChange?.Invoke(MousePos - (Vector2)transform.position);
     }
 
-
+    private void FixedUpdate()
+    {
+        if(Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Vertical") > 0)
+        {
+            WebSocket.Client.ApplyMoveEntity(playerEntity);
+            Debug.Log(playerEntity.Data.Position);
+        }
+    }
 }
