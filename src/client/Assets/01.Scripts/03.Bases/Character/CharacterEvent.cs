@@ -19,8 +19,8 @@ public class CharacterEvent : MonoBehaviour
     public void InvokeEvent(string eventName)
     {
         Type type = this.GetType();
-        var method = type.GetMethod(eventName);
-        if (method != null)
-            method.Invoke(this, null);
+        var action = type.GetProperty(eventName).GetValue(this, null);
+        if (action != null)
+            action.GetType().GetMethod(eventName).Invoke(action, null);
     }
 }
