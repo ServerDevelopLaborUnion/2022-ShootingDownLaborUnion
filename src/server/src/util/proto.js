@@ -67,6 +67,10 @@ module.exports = {
         EntityUpdate: {
             id: 5,
             type: 'EntityUpdate',
+        },
+        EntityEvent: {
+            id: 6,
+            type: 'EntityEvent',
         }
     }
 }

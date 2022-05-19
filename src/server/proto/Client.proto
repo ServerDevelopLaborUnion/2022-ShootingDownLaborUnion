@@ -39,3 +39,9 @@ message EntityUpdate {
     string EntityUUID = 1;
     string EntityData = 2;
 }
+
+// id: 6
+message EntityEvent {
+    string EntityUUID = 1;
+    string EventName = 2;
+}

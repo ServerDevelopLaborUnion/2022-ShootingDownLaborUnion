@@ -27,3 +27,9 @@ message EntityUpdateRequest {
     string EntityUUID = 1;
     string EntityData = 2;
 }
+
+// id: 4
+message EntityEventRequest {
+    string EntityUUID = 1;
+    string EventName = 2;
+}
