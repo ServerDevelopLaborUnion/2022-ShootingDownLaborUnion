@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System;
+using WebSocket;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class GameManager : MonoBehaviour
         WebSocket.Client.OnEntityCreateMessage += Client_OnEntityCreateMessage;
         WebSocket.Client.OnEntityReMoveMessage += Client_OnEntityReMoveMessage;
         WebSocket.Client.OnEntityMoveMessage += Client_OnEntityMoveMessage;
+        WebSocket.Client.OnEntityEventMessage += Client_OnEntityEventMessage;
+    }
+
+    private void Client_OnEntityEventMessage(object sender, EntityEventArgs e)
+    {
+        Entity.InvokeEvent(e.EntityUUID, e.EventName);
         //TODO Attack -> CharacterAttack.Attack()
         //TODO Flip -> CharacterRenderer.Flip()
     }

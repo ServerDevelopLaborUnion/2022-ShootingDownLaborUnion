@@ -56,14 +56,18 @@
 
 위의 `websocket` 라이브러리와 같은 이유로 `Binary` 데이터를 송수신하기 위해 다른 라이브러리가 아닌 기본 제공 라이브러리를 이용하여 고급 기능을 사용하였다.
 
+> **[UnityEngine.RuntimeInitializeOnLoadMethodAttribute](https://docs.unity3d.com/ScriptReference/RuntimeInitializeOnLoadMethodAttribute.html) - *유니티 기본***
+
+이 속성을 사용하면 **어떤 씬**에서든지 **게임이 시작될 시** 함수가 실행되기 때문에 `Message Queue` 를 비우며 계속 실행을 해주어야 하기 때문에 게임 시작 시 `DontDestroyOnLoad` 로 만들어 게임 시작과 동시에 계속 작동되도록 하였다.
+
 ## Unity Game
 
 `Unity Game` 에 관한 설명
 
 ### 사용 기술 및 라이브러리
 
-> Singleton - 디자인 패턴
+> **[Singleton ]()- *디자인 패턴***
 
-[ 설명 ]
 
-> 
+
+> **[UnityHFSM](https://github.com/Inspiaaa/UnityHFSM) - *UnityPakage로 추가***

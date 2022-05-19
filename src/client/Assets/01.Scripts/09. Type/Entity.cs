@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [System.Serializable]
@@ -25,6 +26,18 @@ public class Entity : MonoBehaviour
         if (data.entityStat != null)
             temp.EntityObject.GetComponent<CharacterBase>().InitStat(data.entityStat);
         return temp;
+    }
+
+    public static void InvokeEvent(string uuid, string eventName)
+    {
+        foreach (var entity in NetworkManager.Instance.entityList)
+        {
+            if (string.Compare(entity.Data.UUID, uuid) == 0)
+            {
+                entity.EntityObject.GetComponent<CharacterEvent>().InvokeEvent(eventName);
+                break;
+            }
+        }
     }
 
     public static void DeleteEntity(string uuid)
