@@ -18,7 +18,7 @@ module.exports = {
             EntityId: moveRequest.EntityId,
             Position: moveRequest.Position,
             Rotation: moveRequest.Rotation,
-        }));
+        }), socket);
 
         socket.server.connections;
     }

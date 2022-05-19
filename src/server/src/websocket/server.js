@@ -36,11 +36,19 @@ exports.WebsocketServer = new class WebsocketServer {
 
         connection.prototype.server = this.server;
         this.server.connections = this.connections;
-        this.server.broadcastPacket = function (buffer) {
+        this.server.broadcastPacket = function (buffer, socket = null) {
             Logger.debug(`Broadcasting: ${buffer.length} bytes`);
-            this.connections.forEach(connection => {
-                connection.sendPacket(buffer);
-            });
+            if (socket) {
+                socket.server.connections.forEach(connection => {
+                    if (connection != socket) {
+                        connection.sendPacket(buffer);
+                    }
+                });
+            } else {
+                this.connections.forEach(connection => {
+                    connection.sendPacket(buffer);
+                });
+            }
         }
     }
 
@@ -52,7 +60,7 @@ exports.WebsocketServer = new class WebsocketServer {
 
         this.wsServer = new server({ httpServer: this.server });
 
-        this.wsServer.on("request", (request) => {
+        this.wsServer.on("request", async (request) => {
             const socket = request.accept(null, request.origin);
             // 서버에 접속한 사용자를 추가한다.
 
@@ -103,21 +111,21 @@ exports.WebsocketServer = new class WebsocketServer {
             // }
 
             // 클라이언트에게 메시지를 받았을 때 처리한다.
-            socket.on("message", (message) => {
+            socket.on("message", async (message) => {
                 if (message.type === 'binary') {
                     router.receive(socket, message.binaryData);
                 }
             });
 
             // 클라이언트에게 연결이 끊겼을 때 처리한다.
-            socket.on("close", (reasonCode, description) => {
+            socket.on("close", async (reasonCode, description) => {
                 this.connections.delete(socket.sessionId);
                 const entityCount = this.entityes.length;
                 this.entityes = this.entityes.filter(entity => {
                     if (entity.Entity.OwnerUUID == socket.sessionId) {
                         this.server.broadcastPacket(proto.client.encode(proto.client.RemoveEntity, {
                             EntityId: entity.Entity.UUID
-                        }));
+                        }), socket);
                         return false;
                     }
                     return true;

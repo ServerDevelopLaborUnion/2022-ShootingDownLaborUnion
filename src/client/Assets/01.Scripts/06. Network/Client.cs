@@ -162,7 +162,7 @@ namespace WebSocket
             if (_clientWebSocket.State != WebSocketState.Open)
                 return;
 
-            _clientWebSocket.SendAsync(new ArraySegment<byte>(Packet.Make((ushort)type, data)), WebSocketMessageType.Binary, true, CancellationToken.None);
+            _clientWebSocket.SendAsync(new ArraySegment<byte>(Packet.Make((ushort)type, data)), WebSocketMessageType.Binary, true, CancellationToken.None).Wait();
         }
 
         public static void Disconnect()
@@ -291,7 +291,7 @@ namespace WebSocket
             catch (Exception ex)
             {
                 _connectionState = ConnectionState.Disconnected;
-                Debug.LogWarning(ex.Message);
+                Debug.LogWarning(ex.Message + "\n" + ex.StackTrace);
             }
 
             Disconnect();
@@ -306,7 +306,6 @@ namespace WebSocket
             }
             else
             {
-                Debug.Log("Received binary data. Length: " + result.Count);
                 var typeBuffer = new byte[2];
                 Array.Copy(buffer, 0, typeBuffer, 0, 2);
                 Array.Reverse(typeBuffer);
@@ -349,6 +348,7 @@ namespace WebSocket
                             break;
                         case 3:
                             var moveEntityMessage = Protobuf.Client.MoveEntity.Parser.ParseFrom(buffer);
+                            Debug.Log($"Entity {moveEntityMessage.EntityId} moved to {moveEntityMessage.Position.X}, {moveEntityMessage.Position.Y}");
                             MainTask.Enqueue(() => OnMoveEntityMessage?.Invoke(this, new MoveEntityEventArgs(
                                 moveEntityMessage.EntityId,
                                 new Vector2(moveEntityMessage.Position.X, moveEntityMessage.Position.Y),
