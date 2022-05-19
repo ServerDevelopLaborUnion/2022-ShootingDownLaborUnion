@@ -445,6 +445,22 @@ namespace WebSocket
                 Debug.LogWarning("You are not connected to the server.");
             }
         }
+
+        public static void ApplyEntityEvent(Entity entity, string eventName)
+        {
+            if (_connectionState == ConnectionState.Connected)
+            {
+                var entityEventRequest = new Protobuf.Server.EntityEventRequest();
+                entityEventRequest.EntityUUID = entity.Data.UUID;
+                entityEventRequest.EventName = eventName;
+
+                SendPacket(4, entityEventRequest);
+            }
+            else if (_connectionState == ConnectionState.Disconnected)
+            {
+                Debug.LogWarning("You are not connected to the server.");
+            }
+        }
         #endregion
     }
 }
