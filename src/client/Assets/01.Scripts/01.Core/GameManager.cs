@@ -19,8 +19,9 @@ public class GameManager : MonoBehaviour
     private void Client_OnEntityEventMessage(object sender, EntityEventArgs e)
     {
         Entity.InvokeEvent(e.EntityUUID, e.EventName);
-        //TODO Attack -> CharacterAttack.Attack()
-        //TODO Flip -> CharacterRenderer.Flip()
+        //TODO DoAttack -> CharacterEvent.InvokeEvent(DoAttack)
+        //TODO DoFlipLeft -> CharacterEvent.InvokeEvent(DoFlipLeft)
+        //TODO DoFlipRight -> CharacterEvent.InvokeEvent(DoFlipRight)
     }
 
     private void Client_OnEntityMoveMessage(object sender, WebSocket.EntityMoveEventArgs e)
