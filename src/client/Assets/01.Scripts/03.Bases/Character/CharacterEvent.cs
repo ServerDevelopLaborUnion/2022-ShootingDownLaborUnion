@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,9 @@ public class CharacterEvent : MonoBehaviour
     }
     public void InvokeEvent(string eventName)
     {
-
+        Type type = this.GetType();
+        var method = type.GetMethod(eventName);
+        if (method != null)
+            method.Invoke(this, null);
     }
 }

@@ -17,10 +17,9 @@ module.exports = {
         const entity = socket.server.entityes.get(EntityUpdateRequest.EntityUUID);
         if (entity !== undefined) {
             if (socket.sessionId == entity.OwnerUUID) {
-                entity.Data = EntityUpdateRequest.Data;
                 socket.server.broadcastPacket(proto.client.encode(proto.client.EntityUpdate, {
                     EntityUUID: EntityUpdateRequest.EntityUUID,
-                    Data: EntityUpdateRequest.Data,
+                    EventName: EntityUpdateRequest.EventName,
                 }), socket);
             }
         }

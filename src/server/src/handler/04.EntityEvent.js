@@ -1,7 +1,7 @@
 const Logger = require('../util/logger').getLogger('EntityEventRequest');
 const proto = require('../util/proto');
 
-const id = 3;
+const id = 4;
 const type = 'EntityEventRequest';
 
 module.exports = {
