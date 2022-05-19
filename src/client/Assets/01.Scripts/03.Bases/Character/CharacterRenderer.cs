@@ -20,15 +20,28 @@ public class CharacterRenderer : MonoBehaviour
         if (pointerVec.x > 0)
         {
             Vector3 scale = transform.localScale;
+            if(scale.x < 0)
+            {
+                WebSocket.Client.ApplyEntityEvent(_characterBase, "Flip");
+            }
             scale.x = Mathf.Abs(scale.x);
             transform.localScale = scale;
         }
         else if (pointerVec.x < 0)
         {
             Vector3 scale = transform.localScale;
+            if (scale.x > 0)
+            {
+                WebSocket.Client.ApplyEntityEvent(_characterBase, "Flip");
+            }
             scale.x = -Mathf.Abs(scale.x);
             transform.localScale = scale;
         }
+    }
+
+    public void Flip()
+    {
+        transform.localScale = new Vector3(transform.localScale.x > 0 ? -1 : 1, 1, 1);
     }
 
     public void RenderDamage()

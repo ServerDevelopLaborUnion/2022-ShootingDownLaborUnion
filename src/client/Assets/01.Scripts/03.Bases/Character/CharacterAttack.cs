@@ -39,13 +39,13 @@ public class CharacterAttack : MonoBehaviour
     protected virtual void Attack()
     {
         _base.State.CurrentState |= CharacterState.State.Attack;
+        WebSocket.Client.ApplyEntityEvent(_base, "Attack");
     }
 
     public void DoAttackInAnimation()
     {
         if ((!_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || !_base.State.CurrentState.HasFlag(CharacterState.State.Died)))
         {
-            _base.State.CurrentState |= CharacterState.State.Attack;
             Attack();
         }
     }

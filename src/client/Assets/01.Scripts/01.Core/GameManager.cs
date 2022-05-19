@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
         WebSocket.Client.OnEntityCreateMessage += Client_OnEntityCreateMessage;
         WebSocket.Client.OnEntityReMoveMessage += Client_OnEntityReMoveMessage;
         WebSocket.Client.OnEntityMoveMessage += Client_OnEntityMoveMessage;
+        //TODO Attack -> CharacterAttack.Attack()
+        //TODO Flip -> CharacterRenderer.Flip()
     }
 
     private void Client_OnEntityMoveMessage(object sender, WebSocket.EntityMoveEventArgs e)
