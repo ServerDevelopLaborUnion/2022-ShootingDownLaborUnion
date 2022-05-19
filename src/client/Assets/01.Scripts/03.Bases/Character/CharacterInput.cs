@@ -34,7 +34,7 @@ public class CharacterInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Vertical") > 0)
+        if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0)
         {
             WebSocket.Client.ApplyMoveEntity(playerEntity);
             Debug.Log(playerEntity.Data.Position);
