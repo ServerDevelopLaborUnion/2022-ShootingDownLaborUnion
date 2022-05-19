@@ -64,6 +64,18 @@ namespace WebSocket
         }
     }
 
+    public class EntityEventArgs : EventArgs
+    {
+        public string EntityUUID { get; set; }
+        public string EventName { get; set; }
+
+        public EntityEventArgs(string entityId, string eventName)
+        {
+            EntityUUID = entityId;
+            EventName = eventName;
+        }
+    }
+
     public class EntityRemoveEventArgs : EventArgs
     {
         public string EntityUUID { get; set; }
@@ -103,7 +115,8 @@ namespace WebSocket
         public static event EventHandler<EntityCreateEventArgs> OnEntityCreateMessage;
 
         public static event EventHandler<EntityMoveEventArgs> OnEntityMoveMessage;
-        public static event EventHandler<EntityRemoveEventArgs> OnReentityMoveMessage;
+        public static event EventHandler<EntityRemoveEventArgs> OnEntityReMoveMessage;
+        public static event EventHandler<EntityEventArgs> OnEntityEventMessage;
         #endregion
 
         public static Account Account { get; private set; }
@@ -358,8 +371,15 @@ namespace WebSocket
                             break;
                         case 4:
                             var entityRemoveMessage = Protobuf.Client.EntityRemove.Parser.ParseFrom(buffer);
-                            MainTask.Enqueue(() => OnReentityMoveMessage?.Invoke(this, new EntityRemoveEventArgs(
+                            MainTask.Enqueue(() => OnEntityReMoveMessage?.Invoke(this, new EntityRemoveEventArgs(
                                 entityRemoveMessage.EntityUUID
+                            )));
+                            break;
+                        case 5:
+                            var entityEventMessage = Protobuf.Client.EntityEvent.Parser.ParseFrom(buffer);
+                            MainTask.Enqueue(() => OnEntityEventMessage?.Invoke(this, new EntityEventArgs(
+                                entityEventMessage.EntityUUID,
+                                entityEventMessage.EventName
                             )));
                             break;
                     }

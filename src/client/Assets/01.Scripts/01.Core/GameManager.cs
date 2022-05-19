@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         WebSocket.Client.OnEntityCreateMessage += Client_OnEntityCreateMessage;
-        WebSocket.Client.OnReentityMoveMessage += Client_OnReentityMoveMessage;
+        WebSocket.Client.OnEntityReMoveMessage += Client_OnEntityReMoveMessage;
         WebSocket.Client.OnEntityMoveMessage += Client_OnEntityMoveMessage;
     }
 
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         temp.transform.SetPositionAndRotation(e.Position, e.Rotation);
     }
 
-    private void Client_OnReentityMoveMessage(object sender, WebSocket.EntityRemoveEventArgs e)
+    private void Client_OnEntityReMoveMessage(object sender, WebSocket.EntityRemoveEventArgs e)
     {
         Entity.DeleteEntity(e.EntityUUID);
         Debug.Log($"{e.EntityUUID} Has Removed");
