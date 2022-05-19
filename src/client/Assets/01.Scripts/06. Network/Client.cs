@@ -84,35 +84,36 @@ namespace WebSocket
         }
 
         #region WebSocket Events
-        
+
         public static event Action<string> OnConnected;
-        
+
         public static event Action<byte[], WebSocketReceiveResult> OnMessageReceived;
-        
+
         public static event Action<string> OnDisconnected;
-        
+
         public static event Action<ConnectionState> OnConnectionStateChanged;
         #endregion
 
         #region Client Events
-        
+
         public static event EventHandler<ConnectionEventArgs> OnConnectionMessage;
-        
+
         public static event EventHandler<LoginResponseEventArgs> OnLoginResponseMessage;
-        
+
         public static event EventHandler<EntityCreateEventArgs> OnEntityCreateMessage;
-        
+
         public static event EventHandler<EntityMoveEventArgs> OnEntityMoveMessage;
         public static event EventHandler<EntityRemoveEventArgs> OnReentityMoveMessage;
         #endregion
-        
+
         public static Account Account { get; private set; }
 
         public static ConnectionState ConnectionState => _connectionState;
         public static string SessionID { get; private set; }
-        private static ConnectionState _connectionState { 
+        private static ConnectionState _connectionState
+        {
             get => _connectionStateValue;
-            set 
+            set
             {
                 _connectionStateValue = value;
                 MainTask.Enqueue(() => OnConnectionStateChanged?.Invoke(value));
@@ -375,7 +376,7 @@ namespace WebSocket
                 var loginRequest = new Protobuf.Server.LoginRequest();
                 loginRequest.Username = username;
                 loginRequest.Password = password;
-                
+
                 SendPacket(0, loginRequest);
             }
             else if (_connectionState == ConnectionState.Disconnected)

@@ -113,10 +113,10 @@ exports.WebsocketServer = new class WebsocketServer {
                 const entityCount = this.entityes.size;
                 this.entityes.forEach(entity => {
                     if (entity.OwnerUUID === socket.sessionId) {
-                        this.entityes.delete(entity.UUID);
                         this.server.broadcastPacket(proto.client.encode(proto.client.EntityRemove, {
                             EntityUUID: entity.UUID
                         }));
+                        this.entityes.delete(entity.UUID);
                     }
                 });
                 Logger.info(`${socket.sessionId} disconnected: ${reasonCode} ${description} ${entityCount - this.entityes.size} entities removed.`);

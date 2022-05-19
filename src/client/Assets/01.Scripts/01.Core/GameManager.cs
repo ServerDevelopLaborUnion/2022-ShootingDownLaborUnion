@@ -23,11 +23,13 @@ public class GameManager : MonoBehaviour
     private void Client_OnReentityMoveMessage(object sender, WebSocket.EntityRemoveEventArgs e)
     {
         Entity.DeleteEntity(e.EntityUUID);
+        Debug.Log($"{e.EntityUUID} Has Removed");
     }
 
     private void Client_OnEntityCreateMessage(object sender, WebSocket.EntityCreateEventArgs e)
     {
         NetworkManager.Instance.entityList.Add(Entity.EntityCreate(e.Data));
+        Debug.Log($"{e.Data.UUID} Has Created");
     }
 
     // Update is called once per frame

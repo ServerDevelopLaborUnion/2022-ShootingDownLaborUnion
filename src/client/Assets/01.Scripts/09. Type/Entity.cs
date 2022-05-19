@@ -34,6 +34,7 @@ public class Entity : MonoBehaviour
             if (string.Compare(entity.Data.UUID, uuid) == 0)
             {
                 NetworkManager.Instance.entityList.Remove(entity);
+                Debug.Log($"{entity.Data.UUID} deleted");
                 Destroy(entity.gameObject);
                 break;
             }
