@@ -375,12 +375,16 @@ namespace WebSocket
                                 entityRemoveMessage.EntityUUID
                             )));
                             break;
-                        case 5:
+                        case 6:
                             var entityEventMessage = Protobuf.Client.EntityEvent.Parser.ParseFrom(buffer);
+                            Debug.Log($"Entity {entityEventMessage.EntityUUID} triggered event {entityEventMessage.EventName}");
                             MainTask.Enqueue(() => OnEntityEventMessage?.Invoke(this, new EntityEventArgs(
                                 entityEventMessage.EntityUUID,
                                 entityEventMessage.EventName
                             )));
+                            break;
+                        default:
+                            Debug.LogWarning($"Unknown message type {type}");
                             break;
                     }
                 });
