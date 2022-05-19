@@ -115,7 +115,7 @@ exports.WebsocketServer = new class WebsocketServer {
                     if (entity.OwnerUUID === socket.sessionId) {
                         this.entityes.delete(entity.UUID);
                         this.server.broadcastPacket(proto.client.encode(proto.client.EntityRemove, {
-                            UUID: entity.UUID
+                            EntityUUID: entity.UUID
                         }));
                     }
                 });
