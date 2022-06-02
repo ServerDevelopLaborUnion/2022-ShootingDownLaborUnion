@@ -11,17 +11,14 @@ public class CharacterMove : MonoBehaviour
     private CharacterBase _base;
     private Rigidbody2D _rigid;
 
-    protected float _currentVelocity = 0;
-    public float CurrentVelocity { get => _currentVelocity; }
-
     protected Vector2 _movementDirection;
 
     [SerializeField] private float _knockbackPercent;
 
-    [SerializeField] private float _acceleration;
-    [SerializeField] private float _deAcceleration;
 
-    public UnityEvent<float> OnVelocityChange;
+    public UnityEvent<bool> OnVelocityChange;
+
+    private Vector3 _goal = Vector3.zero;
 
     private void Awake()
     {
@@ -29,52 +26,29 @@ public class CharacterMove : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
     }
 
-    public void MoveAgent(Vector2 movementInput)
+    private void Update()
     {
-        if (movementInput.sqrMagnitude > 0)
+        if (_base.State.CurrentState.HasFlag(CharacterState.State.Died)) return;
+        if(Vector3.Distance(_goal, transform.position) > 0.1f)
         {
-            if (Vector2.Dot(movementInput, _movementDirection) < 0)
-            {
-                _currentVelocity = 0;
-            }
-
-            _movementDirection = movementInput.normalized;
-
-        }
-
-        _currentVelocity = CalculateSpeed(movementInput);
-    }
-
-    private float CalculateSpeed(Vector2 movementInput)
-    {
-        if (movementInput.sqrMagnitude > 0)
-        {
-            _currentVelocity += _acceleration * Time.deltaTime;
-        }
-        else
-        {
-            _currentVelocity -= _deAcceleration * Time.deltaTime;
-        }
-        return Mathf.Clamp(_currentVelocity, 0, _base.Stat.Speed);
-    }
-
-    protected virtual void FixedUpdate()
-    {
-        OnVelocityChange?.Invoke(_currentVelocity);
-        if (!(_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || _base.State.CurrentState.HasFlag(CharacterState.State.Damaged) || _base.State.CurrentState.HasFlag(CharacterState.State.Died)))
-        {
-            _rigid.velocity = _movementDirection * _currentVelocity;
+            transform.position = Vector3.Lerp(transform.position, _goal, Time.deltaTime * _base.Stat.Speed /     Vector3.Distance(_goal, transform.position));
+            OnVelocityChange?.Invoke(true);
         }
         else
         {
             StopImmediatelly();
+            OnVelocityChange?.Invoke(false);
         }
+    }
+
+    public void MoveAgent(Vector3 goal)
+    {
+        _goal = goal;
     }
 
     public void StopImmediatelly()
     {
-        _currentVelocity = 0;
-        _rigid.velocity = Vector2.zero;
+        _goal = transform.position;
     }
 
     public void Knockback(Collider2D col)

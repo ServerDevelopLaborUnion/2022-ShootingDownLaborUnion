@@ -21,12 +21,12 @@ public class CharacterAnimation : MonoBehaviour
         _characterBase = transform.parent.GetComponent<CharacterBase>();
     }
 
-    public void PlayMoveAnime(float velocity)
+    public void PlayMoveAnime(bool isMove)
     {
         if (!(_characterBase.State.CurrentState.HasFlag(CharacterState.State.Attack) || _characterBase.State.CurrentState.HasFlag(CharacterState.State.Damaged) || _characterBase.State.CurrentState.HasFlag(CharacterState.State.Died)))
         {
             SetAnimationSpeed();
-            _animator.SetBool(_doMove, velocity > 0.1f);
+            _animator.SetBool(_doMove, isMove);
         }
     }
 

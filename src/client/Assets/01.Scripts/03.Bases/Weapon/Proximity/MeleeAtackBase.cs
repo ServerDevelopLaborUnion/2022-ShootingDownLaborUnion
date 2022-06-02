@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProximityBase : CharacterAttack
+public class MeleeAtackBase : CharacterAttack
 {
 
     [SerializeField] private float _atkRange = 5;

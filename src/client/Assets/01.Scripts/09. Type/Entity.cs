@@ -56,4 +56,9 @@ public class Entity : MonoBehaviour
     }
 
 
+    public void SetEntityPositionAndRotation(Vector3 pos, Quaternion rot)
+    {
+        transform.SetPositionAndRotation(pos, rot);
+    }
+
 }
