@@ -30,6 +30,7 @@ public class EntityData
             position = value;
         }
     }
+    public Vector2 TargetPosition = Vector2.zero;
     public Quaternion Rotation
     {
         get
