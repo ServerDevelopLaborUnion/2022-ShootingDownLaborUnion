@@ -24,14 +24,17 @@ public class CharacterInput : MonoBehaviour
         _base = GetComponent<CharacterBase>();
         playerEntity = GetComponent<Entity>();
         Transform visualTransform = transform.Find("Visual Sprite");
-        OnMoveKeyInput.AddListener((dir) => GetComponent<CharacterMove>().MoveAgent(dir));
+        OnMoveKeyInput.AddListener((goal) => GetComponent<CharacterMove>().MoveAgent(goal));
         OnAttackKeyInput.AddListener((x) => visualTransform.GetComponent<CharacterAttack>().DoAttack(x));
         OnPointerPositionChange.AddListener((dir) => visualTransform.GetComponent<CharacterRenderer>().FlipCharacter(dir));
     }
     protected virtual void Update()
     {
-        OnMoveKeyInput?.Invoke(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
         OnAttackKeyInput?.Invoke(Input.GetMouseButtonDown(0));
+        if (Input.GetMouseButtonDown(1))
+        {
+            OnMoveKeyInput?.Invoke(MousePos);
+        }
         OnPointerPositionChange?.Invoke(MousePos - (Vector2)transform.position);
     }
 

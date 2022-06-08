@@ -14,8 +14,9 @@ public class CharacterRenderer : MonoBehaviour
         _characterBase = transform.parent.GetComponent<CharacterBase>();
     }
 
-    public void FlipCharacter(Vector2 pointerVec)
+    public void FlipCharacter(Vector3 pointerVec)
     {
+        pointerVec = pointerVec - transform.position;
         if (_characterBase.State.CurrentState.HasFlag(CharacterState.State.Attack)) return;
         if (pointerVec.x > 0)
         {

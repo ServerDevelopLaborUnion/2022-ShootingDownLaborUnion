@@ -352,7 +352,7 @@ MonoBehaviour:
     _atk: 1
     _def: 0
     _speed: 5
-    _atkSpeed: 10
+    _atkSpeed: 3
     _playerJob: 1
     OnJobChanged:
       m_PersistentCalls:
@@ -372,8 +372,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackPercent: 30
-  _acceleration: 50
-  _deAcceleration: 50
   OnVelocityChange:
     m_PersistentCalls:
       m_Calls:
@@ -480,6 +478,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  DoMove:
     m_PersistentCalls:
       m_Calls: []
   DoFlipLeft:
@@ -637,6 +638,18 @@ MonoBehaviour:
       - m_Target: {fileID: 693142079330332350}
         m_TargetAssemblyTypeName: CharacterAnimation, Assembly-CSharp
         m_MethodName: PlayAttackAnime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 693142078744925210}
+        m_TargetAssemblyTypeName: CharacterMove, Assembly-CSharp
+        m_MethodName: StopImmediatelly
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

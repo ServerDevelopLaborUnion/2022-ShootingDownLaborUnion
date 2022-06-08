@@ -7,15 +7,16 @@ using FSM;
 public class EnemyAI : MonoBehaviour
 {
     private StateMachine fsm;
-    public UnityEvent<Vector2> OnPlayerIn;
+    public UnityEvent<Vector3> OnPlayerIn;
+    public UnityEvent DoStop;
     public UnityEvent<bool> OnPlayerAtkRangeIn;
     public float _range = 6f;
     public float _stopRange = 1f;
     void Start()
     {
         fsm = new StateMachine();
-        fsm.AddState("Idle", new State(onLogic: (state) => OnPlayerIn?.Invoke(Vector2.zero)));
-        fsm.AddState("Chase", new State(onLogic: (state) => OnPlayerIn?.Invoke(GetNearestColliderInRange(_range).transform.position - transform.position)));
+        fsm.AddState("Idle", new State(onLogic: (state) => {DoStop?.Invoke(); }));
+        fsm.AddState("Chase", new State(onLogic: (state) => OnPlayerIn?.Invoke(GetNearestColliderInRange(_range).transform.position)));
         fsm.AddState("Attack", new State(onLogic: (state) => OnPlayerAtkRangeIn?.Invoke(true)));
         fsm.AddTransition("Idle", "Chase", (transition) => IsPlayerInRange(_range) && !IsPlayerInRange(_stopRange));
         fsm.AddTransition("Chase", "Idle", (transition) => !IsPlayerInRange(_range));
