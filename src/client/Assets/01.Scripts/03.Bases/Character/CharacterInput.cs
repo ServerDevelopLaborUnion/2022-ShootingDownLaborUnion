@@ -1,4 +1,4 @@
-using static Define;
+﻿using static Define;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +19,8 @@ public class CharacterInput : MonoBehaviour
     private Entity playerEntity = null;
     private Vector2 tempPosition = Vector2.zero;
 
+
+    private float _delay = 0;
     public void InitEvent()
     {
         _base = GetComponent<CharacterBase>();
@@ -31,11 +33,17 @@ public class CharacterInput : MonoBehaviour
     protected virtual void Update()
     {
         OnAttackKeyInput?.Invoke(Input.GetMouseButtonDown(0));
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             OnMoveKeyInput?.Invoke(MousePos);
+            _delay += Time.deltaTime;
+            if (_delay > 0.2f)
+            {
+                WebSocket.Client.ApplyEntityMove(playerEntity);
+                _delay = 0;
+            }
         }
-        OnPointerPositionChange?.Invoke(MousePos - (Vector2)transform.position);
+        OnPointerPositionChange?.Invoke((Vector2)transform.position - MousePos);
     }
 
     private void FixedUpdate()
@@ -43,7 +51,6 @@ public class CharacterInput : MonoBehaviour
         if(tempPosition != (Vector2)transform.position)
         {
             tempPosition = transform.position;
-            WebSocket.Client.ApplyEntityMove(playerEntity);
         }
     }
 }

@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     private void Client_OnEntityMoveMessage(object sender, WebSocket.EntityMoveEventArgs e)
     {
         Entity temp = NetworkManager.Instance.entityList.Find((x) => x.Data.UUID == e.EntityUUID);
-        temp.SetEntityPositionAndRotation(e.Position, e.Rotation);
+        temp.GetComponent<CharacterMove>().MoveAgent(e.Position);
     }
 
     private void Client_OnEntityReMoveMessage(object sender, WebSocket.EntityRemoveEventArgs e)

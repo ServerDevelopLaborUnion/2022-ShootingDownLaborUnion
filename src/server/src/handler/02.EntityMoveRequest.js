@@ -23,7 +23,7 @@ export default {
                 socket.server.broadcastPacket(proto.client.encode(proto.client.EntityMove, {
                     EntityUUID: EntityMoveRequest.EntityUUID,
                     Position: EntityMoveRequest.Position,
-                    TargetPosition: EntityMoveRequest.TargetPosition,
+                    Rotation: EntityMoveRequest.Rotation,
                 }), socket);
             }
         }

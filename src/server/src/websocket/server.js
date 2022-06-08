@@ -85,6 +85,7 @@ export const WebsocketServer = new class WebsocketServer {
                     UUID: v4(),
                     OwnerUUID: socket.sessionId,
                     Position: { X: 0, Y: 0 },
+                    TargetPosition: { X: 0, Y: 0 },
                     Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
                     Data: `{"type":"0"}`
                 }

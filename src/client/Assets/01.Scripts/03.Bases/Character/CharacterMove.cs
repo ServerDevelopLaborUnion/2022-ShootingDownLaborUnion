@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 using static CharacterBase;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(CharacterBase))]
 public class CharacterMove : MonoBehaviour
@@ -18,20 +19,25 @@ public class CharacterMove : MonoBehaviour
 
     public UnityEvent<bool> OnVelocityChange;
 
-    private Vector3 _goal = Vector3.zero;
+    private NavMeshAgent agent;
 
     private void Awake()
     {
+        agent = GetComponent<NavMeshAgent>();
         _base = GetComponent<CharacterBase>();
         _rigid = GetComponent<Rigidbody2D>();
+
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.speed = _base.Stat.Speed;
     }
 
     private void Update()
     {
         if (_base.State.CurrentState.HasFlag(CharacterState.State.Died)) return;
-        if(Vector3.Distance(_goal, transform.position) > 0.1f)
+        if(Vector3.Distance(_base.Data.TargetPosition, transform.position) > 0.1f)
         {
-            transform.position = Vector3.Lerp(transform.position, _goal, Time.deltaTime * _base.Stat.Speed /     Vector3.Distance(_goal, transform.position));
+            //transform.position = Vector3.Lerp(transform.position, _base.Data.TargetPosition, Time.deltaTime * _base.Stat.Speed /     Vector3.Distance(_base.Data.TargetPosition, transform.position));
             OnVelocityChange?.Invoke(true);
         }
         else
@@ -43,12 +49,15 @@ public class CharacterMove : MonoBehaviour
 
     public void MoveAgent(Vector3 goal)
     {
-        _goal = goal;
+        _base.Data.TargetPosition = goal;
+        
+        agent.SetDestination(_base.Data.TargetPosition);
     }
 
     public void StopImmediatelly()
     {
-        _goal = transform.position;
+        _base.Data.TargetPosition = transform.position;
+        agent.SetDestination(_base.Data.TargetPosition);
     }
 
     public void Knockback(Collider2D col)

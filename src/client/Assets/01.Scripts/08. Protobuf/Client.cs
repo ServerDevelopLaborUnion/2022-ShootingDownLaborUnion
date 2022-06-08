@@ -29,19 +29,20 @@ namespace Protobuf.Client {
             "b25zZRIPCgdTdWNjZXNzGAEgASgIEhUKCFVzZXJVVUlEGAIgASgJSACIAQES",
             "FQoIVXNlcm5hbWUYAyABKAlIAYgBARISCgVUb2tlbhgEIAEoCUgCiAEBQgsK",
             "CV9Vc2VyVVVJREILCglfVXNlcm5hbWVCCAoGX1Rva2VuIjAKDEVudGl0eUNy",
-            "ZWF0ZRIgCgZFbnRpdHkYASABKAsyEC5Qcm90b2J1Zi5FbnRpdHkiRQoKRW50",
+            "ZWF0ZRIgCgZFbnRpdHkYASABKAsyEC5Qcm90b2J1Zi5FbnRpdHkibQoKRW50",
             "aXR5TW92ZRISCgpFbnRpdHlVVUlEGAEgASgJEiMKCFBvc2l0aW9uGAIgASgL",
-            "MhEuUHJvdG9idWYuVmVjdG9yMiIiCgxFbnRpdHlSZW1vdmUSEgoKRW50aXR5",
-            "VVVJRBgBIAEoCSI2CgxFbnRpdHlVcGRhdGUSEgoKRW50aXR5VVVJRBgBIAEo",
-            "CRISCgpFbnRpdHlEYXRhGAIgASgJIjQKC0VudGl0eUV2ZW50EhIKCkVudGl0",
-            "eVVVSUQYASABKAkSEQoJRXZlbnROYW1lGAIgASgJYgZwcm90bzM="));
+            "MhEuUHJvdG9idWYuVmVjdG9yMhImCghSb3RhdGlvbhgDIAEoCzIULlByb3Rv",
+            "YnVmLlF1YXRlcm5pb24iIgoMRW50aXR5UmVtb3ZlEhIKCkVudGl0eVVVSUQY",
+            "ASABKAkiNgoMRW50aXR5VXBkYXRlEhIKCkVudGl0eVVVSUQYASABKAkSEgoK",
+            "RW50aXR5RGF0YRgCIAEoCSI0CgtFbnRpdHlFdmVudBISCgpFbnRpdHlVVUlE",
+            "GAEgASgJEhEKCUV2ZW50TmFtZRgCIAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protobuf.TypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.Connection), global::Protobuf.Client.Connection.Parser, new[]{ "SessionId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.LoginResponse), global::Protobuf.Client.LoginResponse.Parser, new[]{ "Success", "UserUUID", "Username", "Token" }, new[]{ "UserUUID", "Username", "Token" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityCreate), global::Protobuf.Client.EntityCreate.Parser, new[]{ "Entity" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityMove), global::Protobuf.Client.EntityMove.Parser, new[]{ "EntityUUID", "Position" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityMove), global::Protobuf.Client.EntityMove.Parser, new[]{ "EntityUUID", "Position", "Rotation" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityRemove), global::Protobuf.Client.EntityRemove.Parser, new[]{ "EntityUUID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityUpdate), global::Protobuf.Client.EntityUpdate.Parser, new[]{ "EntityUUID", "EntityData" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityEvent), global::Protobuf.Client.EntityEvent.Parser, new[]{ "EntityUUID", "EventName" }, null, null, null, null)
@@ -822,6 +823,7 @@ namespace Protobuf.Client {
     public EntityMove(EntityMove other) : this() {
       entityUUID_ = other.entityUUID_;
       position_ = other.position_ != null ? other.position_.Clone() : null;
+      rotation_ = other.rotation_ != null ? other.rotation_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -855,6 +857,18 @@ namespace Protobuf.Client {
       }
     }
 
+    /// <summary>Field number for the "Rotation" field.</summary>
+    public const int RotationFieldNumber = 3;
+    private global::Protobuf.Quaternion rotation_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Protobuf.Quaternion Rotation {
+      get { return rotation_; }
+      set {
+        rotation_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -872,6 +886,7 @@ namespace Protobuf.Client {
       }
       if (EntityUUID != other.EntityUUID) return false;
       if (!object.Equals(Position, other.Position)) return false;
+      if (!object.Equals(Rotation, other.Rotation)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -881,6 +896,7 @@ namespace Protobuf.Client {
       int hash = 1;
       if (EntityUUID.Length != 0) hash ^= EntityUUID.GetHashCode();
       if (position_ != null) hash ^= Position.GetHashCode();
+      if (rotation_ != null) hash ^= Rotation.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -907,6 +923,10 @@ namespace Protobuf.Client {
         output.WriteRawTag(18);
         output.WriteMessage(Position);
       }
+      if (rotation_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Rotation);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -925,6 +945,10 @@ namespace Protobuf.Client {
         output.WriteRawTag(18);
         output.WriteMessage(Position);
       }
+      if (rotation_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Rotation);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -940,6 +964,9 @@ namespace Protobuf.Client {
       }
       if (position_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
+      }
+      if (rotation_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rotation);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -961,6 +988,12 @@ namespace Protobuf.Client {
           Position = new global::Protobuf.Vector2();
         }
         Position.MergeFrom(other.Position);
+      }
+      if (other.rotation_ != null) {
+        if (rotation_ == null) {
+          Rotation = new global::Protobuf.Quaternion();
+        }
+        Rotation.MergeFrom(other.Rotation);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -988,6 +1021,13 @@ namespace Protobuf.Client {
             input.ReadMessage(Position);
             break;
           }
+          case 26: {
+            if (rotation_ == null) {
+              Rotation = new global::Protobuf.Quaternion();
+            }
+            input.ReadMessage(Rotation);
+            break;
+          }
         }
       }
     #endif
@@ -1012,6 +1052,13 @@ namespace Protobuf.Client {
               Position = new global::Protobuf.Vector2();
             }
             input.ReadMessage(Position);
+            break;
+          }
+          case 26: {
+            if (rotation_ == null) {
+              Rotation = new global::Protobuf.Quaternion();
+            }
+            input.ReadMessage(Rotation);
             break;
           }
         }
