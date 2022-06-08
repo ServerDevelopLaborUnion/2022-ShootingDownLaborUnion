@@ -19,7 +19,7 @@ message TokenLoginRequest {
 message EntityMoveRequest {
     string EntityUUID = 1;
     Vector2 Position = 2;
-    Vector2 TargetPosition = 3;
+    Quaternion Rotation = 3;
 }
 
 // id: 3

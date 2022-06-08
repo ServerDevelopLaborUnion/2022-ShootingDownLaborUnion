@@ -26,18 +26,19 @@ namespace Protobuf.Server {
           string.Concat(
             "CgxTZXJ2ZXIucHJvdG8SD1Byb3RvYnVmLlNlcnZlchoKVHlwZS5wcm90byIy",
             "CgxMb2dpblJlcXVlc3QSEAoIVXNlcm5hbWUYASABKAkSEAoIUGFzc3dvcmQY",
-            "AiABKAkiIgoRVG9rZW5Mb2dpblJlcXVlc3QSDQoFVG9rZW4YASABKAkiTAoR",
+            "AiABKAkiIgoRVG9rZW5Mb2dpblJlcXVlc3QSDQoFVG9rZW4YASABKAkidAoR",
             "RW50aXR5TW92ZVJlcXVlc3QSEgoKRW50aXR5VVVJRBgBIAEoCRIjCghQb3Np",
-            "dGlvbhgCIAEoCzIRLlByb3RvYnVmLlZlY3RvcjIiPQoTRW50aXR5VXBkYXRl",
-            "UmVxdWVzdBISCgpFbnRpdHlVVUlEGAEgASgJEhIKCkVudGl0eURhdGEYAiAB",
-            "KAkiOwoSRW50aXR5RXZlbnRSZXF1ZXN0EhIKCkVudGl0eVVVSUQYASABKAkS",
-            "EQoJRXZlbnROYW1lGAIgASgJYgZwcm90bzM="));
+            "dGlvbhgCIAEoCzIRLlByb3RvYnVmLlZlY3RvcjISJgoIUm90YXRpb24YAyAB",
+            "KAsyFC5Qcm90b2J1Zi5RdWF0ZXJuaW9uIj0KE0VudGl0eVVwZGF0ZVJlcXVl",
+            "c3QSEgoKRW50aXR5VVVJRBgBIAEoCRISCgpFbnRpdHlEYXRhGAIgASgJIjsK",
+            "EkVudGl0eUV2ZW50UmVxdWVzdBISCgpFbnRpdHlVVUlEGAEgASgJEhEKCUV2",
+            "ZW50TmFtZRgCIAEoCWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protobuf.TypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.LoginRequest), global::Protobuf.Server.LoginRequest.Parser, new[]{ "Username", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.TokenLoginRequest), global::Protobuf.Server.TokenLoginRequest.Parser, new[]{ "Token" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.EntityMoveRequest), global::Protobuf.Server.EntityMoveRequest.Parser, new[]{ "EntityUUID", "Position" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.EntityMoveRequest), global::Protobuf.Server.EntityMoveRequest.Parser, new[]{ "EntityUUID", "Position", "Rotation" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.EntityUpdateRequest), global::Protobuf.Server.EntityUpdateRequest.Parser, new[]{ "EntityUUID", "EntityData" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.EntityEventRequest), global::Protobuf.Server.EntityEventRequest.Parser, new[]{ "EntityUUID", "EventName" }, null, null, null, null)
           }));
@@ -506,6 +507,7 @@ namespace Protobuf.Server {
     public EntityMoveRequest(EntityMoveRequest other) : this() {
       entityUUID_ = other.entityUUID_;
       position_ = other.position_ != null ? other.position_.Clone() : null;
+      rotation_ = other.rotation_ != null ? other.rotation_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -539,6 +541,18 @@ namespace Protobuf.Server {
       }
     }
 
+    /// <summary>Field number for the "Rotation" field.</summary>
+    public const int RotationFieldNumber = 3;
+    private global::Protobuf.Quaternion rotation_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Protobuf.Quaternion Rotation {
+      get { return rotation_; }
+      set {
+        rotation_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -556,6 +570,7 @@ namespace Protobuf.Server {
       }
       if (EntityUUID != other.EntityUUID) return false;
       if (!object.Equals(Position, other.Position)) return false;
+      if (!object.Equals(Rotation, other.Rotation)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -565,6 +580,7 @@ namespace Protobuf.Server {
       int hash = 1;
       if (EntityUUID.Length != 0) hash ^= EntityUUID.GetHashCode();
       if (position_ != null) hash ^= Position.GetHashCode();
+      if (rotation_ != null) hash ^= Rotation.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -591,6 +607,10 @@ namespace Protobuf.Server {
         output.WriteRawTag(18);
         output.WriteMessage(Position);
       }
+      if (rotation_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Rotation);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -609,6 +629,10 @@ namespace Protobuf.Server {
         output.WriteRawTag(18);
         output.WriteMessage(Position);
       }
+      if (rotation_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Rotation);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -624,6 +648,9 @@ namespace Protobuf.Server {
       }
       if (position_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
+      }
+      if (rotation_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rotation);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -645,6 +672,12 @@ namespace Protobuf.Server {
           Position = new global::Protobuf.Vector2();
         }
         Position.MergeFrom(other.Position);
+      }
+      if (other.rotation_ != null) {
+        if (rotation_ == null) {
+          Rotation = new global::Protobuf.Quaternion();
+        }
+        Rotation.MergeFrom(other.Rotation);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -672,6 +705,13 @@ namespace Protobuf.Server {
             input.ReadMessage(Position);
             break;
           }
+          case 26: {
+            if (rotation_ == null) {
+              Rotation = new global::Protobuf.Quaternion();
+            }
+            input.ReadMessage(Rotation);
+            break;
+          }
         }
       }
     #endif
@@ -696,6 +736,13 @@ namespace Protobuf.Server {
               Position = new global::Protobuf.Vector2();
             }
             input.ReadMessage(Position);
+            break;
+          }
+          case 26: {
+            if (rotation_ == null) {
+              Rotation = new global::Protobuf.Quaternion();
+            }
+            input.ReadMessage(Rotation);
             break;
           }
         }
