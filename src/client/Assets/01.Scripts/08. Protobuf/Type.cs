@@ -26,16 +26,17 @@ namespace Protobuf {
           string.Concat(
             "CgpUeXBlLnByb3RvEghQcm90b2J1ZiIfCgdWZWN0b3IyEgkKAVgYASABKAIS",
             "CQoBWRgCIAEoAiI4CgpRdWF0ZXJuaW9uEgkKAVgYASABKAISCQoBWRgCIAEo",
-            "AhIJCgFaGAMgASgCEgkKAVcYBCABKAIikgEKBkVudGl0eRIMCgRVVUlEGAEg",
+            "AhIJCgFaGAMgASgCEgkKAVcYBCABKAIivQEKBkVudGl0eRIMCgRVVUlEGAEg",
             "ASgJEhEKCU93bmVyVVVJRBgCIAEoCRIMCgROYW1lGAMgASgJEiMKCFBvc2l0",
-            "aW9uGAQgASgLMhEuUHJvdG9idWYuVmVjdG9yMhImCghSb3RhdGlvbhgFIAEo",
-            "CzIULlByb3RvYnVmLlF1YXRlcm5pb24SDAoERGF0YRgGIAEoCWIGcHJvdG8z"));
+            "aW9uGAQgASgLMhEuUHJvdG9idWYuVmVjdG9yMhIpCg5UYXJnZXRQb3NpdGlv",
+            "bhgFIAEoCzIRLlByb3RvYnVmLlZlY3RvcjISJgoIUm90YXRpb24YBiABKAsy",
+            "FC5Qcm90b2J1Zi5RdWF0ZXJuaW9uEgwKBERhdGEYByABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Vector2), global::Protobuf.Vector2.Parser, new[]{ "X", "Y" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Quaternion), global::Protobuf.Quaternion.Parser, new[]{ "X", "Y", "Z", "W" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Entity), global::Protobuf.Entity.Parser, new[]{ "UUID", "OwnerUUID", "Name", "Position", "Rotation", "Data" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Entity), global::Protobuf.Entity.Parser, new[]{ "UUID", "OwnerUUID", "Name", "Position", "TargetPosition", "Rotation", "Data" }, null, null, null, null)
           }));
     }
     #endregion
@@ -606,6 +607,7 @@ namespace Protobuf {
       ownerUUID_ = other.ownerUUID_;
       name_ = other.name_;
       position_ = other.position_ != null ? other.position_.Clone() : null;
+      targetPosition_ = other.targetPosition_ != null ? other.targetPosition_.Clone() : null;
       rotation_ = other.rotation_ != null ? other.rotation_.Clone() : null;
       data_ = other.data_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -665,8 +667,20 @@ namespace Protobuf {
       }
     }
 
+    /// <summary>Field number for the "TargetPosition" field.</summary>
+    public const int TargetPositionFieldNumber = 5;
+    private global::Protobuf.Vector2 targetPosition_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Protobuf.Vector2 TargetPosition {
+      get { return targetPosition_; }
+      set {
+        targetPosition_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Rotation" field.</summary>
-    public const int RotationFieldNumber = 5;
+    public const int RotationFieldNumber = 6;
     private global::Protobuf.Quaternion rotation_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -678,7 +692,7 @@ namespace Protobuf {
     }
 
     /// <summary>Field number for the "Data" field.</summary>
-    public const int DataFieldNumber = 6;
+    public const int DataFieldNumber = 7;
     private string data_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -708,6 +722,7 @@ namespace Protobuf {
       if (OwnerUUID != other.OwnerUUID) return false;
       if (Name != other.Name) return false;
       if (!object.Equals(Position, other.Position)) return false;
+      if (!object.Equals(TargetPosition, other.TargetPosition)) return false;
       if (!object.Equals(Rotation, other.Rotation)) return false;
       if (Data != other.Data) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -721,6 +736,7 @@ namespace Protobuf {
       if (OwnerUUID.Length != 0) hash ^= OwnerUUID.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (position_ != null) hash ^= Position.GetHashCode();
+      if (targetPosition_ != null) hash ^= TargetPosition.GetHashCode();
       if (rotation_ != null) hash ^= Rotation.GetHashCode();
       if (Data.Length != 0) hash ^= Data.GetHashCode();
       if (_unknownFields != null) {
@@ -757,12 +773,16 @@ namespace Protobuf {
         output.WriteRawTag(34);
         output.WriteMessage(Position);
       }
-      if (rotation_ != null) {
+      if (targetPosition_ != null) {
         output.WriteRawTag(42);
+        output.WriteMessage(TargetPosition);
+      }
+      if (rotation_ != null) {
+        output.WriteRawTag(50);
         output.WriteMessage(Rotation);
       }
       if (Data.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(58);
         output.WriteString(Data);
       }
       if (_unknownFields != null) {
@@ -791,12 +811,16 @@ namespace Protobuf {
         output.WriteRawTag(34);
         output.WriteMessage(Position);
       }
-      if (rotation_ != null) {
+      if (targetPosition_ != null) {
         output.WriteRawTag(42);
+        output.WriteMessage(TargetPosition);
+      }
+      if (rotation_ != null) {
+        output.WriteRawTag(50);
         output.WriteMessage(Rotation);
       }
       if (Data.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(58);
         output.WriteString(Data);
       }
       if (_unknownFields != null) {
@@ -820,6 +844,9 @@ namespace Protobuf {
       }
       if (position_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
+      }
+      if (targetPosition_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TargetPosition);
       }
       if (rotation_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rotation);
@@ -853,6 +880,12 @@ namespace Protobuf {
           Position = new global::Protobuf.Vector2();
         }
         Position.MergeFrom(other.Position);
+      }
+      if (other.targetPosition_ != null) {
+        if (targetPosition_ == null) {
+          TargetPosition = new global::Protobuf.Vector2();
+        }
+        TargetPosition.MergeFrom(other.TargetPosition);
       }
       if (other.rotation_ != null) {
         if (rotation_ == null) {
@@ -898,13 +931,20 @@ namespace Protobuf {
             break;
           }
           case 42: {
+            if (targetPosition_ == null) {
+              TargetPosition = new global::Protobuf.Vector2();
+            }
+            input.ReadMessage(TargetPosition);
+            break;
+          }
+          case 50: {
             if (rotation_ == null) {
               Rotation = new global::Protobuf.Quaternion();
             }
             input.ReadMessage(Rotation);
             break;
           }
-          case 50: {
+          case 58: {
             Data = input.ReadString();
             break;
           }
@@ -943,13 +983,20 @@ namespace Protobuf {
             break;
           }
           case 42: {
+            if (targetPosition_ == null) {
+              TargetPosition = new global::Protobuf.Vector2();
+            }
+            input.ReadMessage(TargetPosition);
+            break;
+          }
+          case 50: {
             if (rotation_ == null) {
               Rotation = new global::Protobuf.Quaternion();
             }
             input.ReadMessage(Rotation);
             break;
           }
-          case 50: {
+          case 58: {
             Data = input.ReadString();
             break;
           }

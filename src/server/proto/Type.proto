@@ -19,6 +19,7 @@ message Entity {
     string OwnerUUID = 2;
     string Name = 3;
     Vector2 Position = 4;
-    Quaternion Rotation = 5;
-    string Data = 6;
+    Vector2 TargetPosition = 5;
+    Quaternion Rotation = 6;
+    string Data = 7;
 }
