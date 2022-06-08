@@ -1,9 +1,8 @@
-const { WebsocketServer } = require('./websocket/server');
-const logger = require('./util/logger').getLogger('Main');
+import { WebsocketServer } from './websocket/server.js';
+import * as Logger from './util/logger.js';
+const logger = Logger.getLogger('Main');
 
 const server = WebsocketServer;
-
-
 
 logger.info('App Started');
 server.listen(3000);

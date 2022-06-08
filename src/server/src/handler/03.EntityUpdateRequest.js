@@ -1,15 +1,17 @@
-const Logger = require('../util/logger').getLogger('EntityUpdateRequest');
-const proto = require('../util/proto');
+import * as Logger from '../util/logger.js';
+import proto from '../util/proto.js';
+
+const logger = Logger.getLogger('EntityUpdateRequest');
 
 const id = 3;
 const type = 'EntityUpdateRequest';
 
-module.exports = {
+export default {
     id: id,
     type: type,
     receive: async (socket, buffer) => {
         if (!proto.server.verify(type, buffer)) {
-            Logger.warn(`Invalid packet from ${socket.sessionId}`);
+            logger.warn(`Invalid packet from ${socket.sessionId}`);
             return;
         }
 

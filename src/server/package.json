@@ -19,5 +19,6 @@
     "protobufjs": "^6.11.2",
     "uuid": "^8.3.2",
     "websocket": "^1.0.34"
-  }
+  },
+  "type": "module"
 }
