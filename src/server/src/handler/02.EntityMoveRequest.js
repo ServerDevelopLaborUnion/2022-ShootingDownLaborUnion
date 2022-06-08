@@ -21,7 +21,7 @@ module.exports = {
                 socket.server.broadcastPacket(proto.client.encode(proto.client.EntityMove, {
                     EntityUUID: EntityMoveRequest.EntityUUID,
                     Position: EntityMoveRequest.Position,
-                    Rotation: EntityMoveRequest.Rotation,
+                    TargetPosition: EntityMoveRequest.TargetPosition,
                 }), socket);
             }
         }
