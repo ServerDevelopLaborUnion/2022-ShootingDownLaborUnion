@@ -34,3 +34,8 @@ message EntityEventRequest {
     string EntityUUID = 1;
     string EventName = 2;
 }
+
+// id: 5
+message EntityCreateRequest {
+    Entity Entity = 1;
+}
