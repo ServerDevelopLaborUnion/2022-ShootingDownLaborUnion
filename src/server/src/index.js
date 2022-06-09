@@ -1,13 +1,15 @@
-import { WebsocketServer } from './websocket/server.js';
+import WebsocketServer from './websocket/server.js';
 import * as Logger from './util/logger.js';
+import process from 'process';
+import { Storage } from './storage.js';
+
 const logger = Logger.getLogger('Main');
 
-const server = WebsocketServer;
+Storage.server = new WebsocketServer();
 
 logger.info('App Started');
-server.listen(3000);
+Storage.server.listen(3000);
 
-// eslint-disable-next-line no-undef
 process.on('uncaughtException', (err) => {
     if (err.stack) {
         logger.error(err.stack);

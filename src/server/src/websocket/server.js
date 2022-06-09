@@ -4,7 +4,6 @@ const { server, connection } = websocket;
 import { v4 } from 'uuid';
 import http from 'node:http';
 
-import { Storage } from '../storage.js';
 import { UserType } from'../types/User.js';
 import * as Logger from'../util/logger.js';
 import * as router from'./router.js';
@@ -22,12 +21,27 @@ Object.defineProperty(connection.prototype, 'sendPacket', {
     writable: true
 });
 
-export const WebsocketServer = new class WebsocketServer {
+export default class WebsocketServer {
+    /** @type {number} */
     port;
+
     /** @type {http.Server} */
     server;
+
     /** @type {server} */
     wsServer;
+
+    /** @type {Map<string, connection>} */
+    clients = new Map();
+
+    /** @type {Map<string, Room>} */
+    rooms = new Map();
+
+    /** @type {Map<string, ValidUser>} */
+    users = new Map();
+
+    /** @type {WebsocketServer} */
+    websocket = null;
 
     constructor() {
         this.port = 0;
@@ -40,13 +54,13 @@ export const WebsocketServer = new class WebsocketServer {
         this.server.broadcastPacket = function (buffer, socket = null) {
             logger.debug(`Broadcasting: ${buffer.length} bytes`);
             if (socket) {
-                Storage.server.clients.forEach(client => {
+                this.clients.forEach(client => {
                     if (client != socket) {
                         client.sendPacket(buffer);
                     }
                 });
             } else {
-                Storage.server.clients.forEach(client => {
+                this.clients.forEach(client => {
                     client.sendPacket(buffer);
                 });
             }
@@ -71,35 +85,9 @@ export const WebsocketServer = new class WebsocketServer {
                 socket: socket,
             }
             
-            Storage.server.clients.set(socket.sessionId, socket);
-
-            // 클라이언트에게 SessionId를 전송한다.
-            socket.sendPacket(proto.client.encode(proto.client.Connection, {
-                SessionId: socket.sessionId,
-            }));
+            this.clients.set(socket.sessionId, socket);
 
             logger.info(`${socket.sessionId} connected`);
-
-            const newEntity = {
-                Entity: {
-                    UUID: v4(),
-                    OwnerUUID: socket.sessionId,
-                    Position: { X: 0, Y: 0 },
-                    TargetPosition: { X: 0, Y: 0 },
-                    Rotation: { X: 0, Y: 0, Z: 0, W: 0 },
-                    Data: `{"type":"0"}`
-                }
-            };
-
-            socket.server.broadcastPacket(proto.client.encode(proto.client.EntityCreate, newEntity));
-
-            this.entityes.forEach(entity => {
-                socket.sendPacket(proto.client.encode(proto.client.EntityCreate, {
-                    Entity: entity
-                }));
-            });
-
-            this.entityes.set(newEntity.Entity.UUID, newEntity.Entity);
 
             // 클라이언트에게 메시지를 받았을 때 처리한다.
             socket.on("message", (message) => {
@@ -110,7 +98,7 @@ export const WebsocketServer = new class WebsocketServer {
 
             // 클라이언트에게 연결이 끊겼을 때 처리한다.
             socket.on("close", (reasonCode, description) => {
-                this.connections.delete(socket.sessionId);
+                this.clients.delete(socket.sessionId);
                 logger.info(`${socket.sessionId} disconnected: ${reasonCode} ${description}`);
             });
 
@@ -118,6 +106,11 @@ export const WebsocketServer = new class WebsocketServer {
             socket.on("error", (error) => {
                 logger.error(`${error}`);
             });
+
+            // 클라이언트에게 SessionId를 전송한다.
+            socket.sendPacket(proto.client.encode(proto.client.Connection, {
+                SessionId: socket.sessionId,
+            }));
         });
     }
 }

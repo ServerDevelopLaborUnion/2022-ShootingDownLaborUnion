@@ -1,19 +1,13 @@
 /* eslint no-unused-vars: "off" */
 import websocket from "websocket";
-const { server, connection } = websocket;
+const { connection } = websocket;
+
+import WebsocketServer from "./Websocket/server.js";
 
 import { ValidUser } from "./types/User.js";
 import { Room } from "./types/Room.js";
 
 export const Storage = {
-    server: {
-        /** @type {Map<string, connection>} */
-        clients: {},
-
-        /** @type {Map<string, Room>} */
-        rooms: {},
-
-        /** @type {Map<string, ValidUser>} */
-        users: {},
-    }
+    /** @type {WebsocketServer} */
+    server: null
 };
