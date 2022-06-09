@@ -26,7 +26,8 @@ message EntityCreate {
 message EntityMove {
     string EntityUUID = 1;
     Vector2 Position = 2;
-    Quaternion Rotation = 3;
+    Vector2 TargetPosition = 3;
+    Quaternion Rotation = 4;
 }
 
 // id: 4
