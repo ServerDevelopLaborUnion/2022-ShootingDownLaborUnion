@@ -30,10 +30,14 @@ public class CharacterInput : MonoBehaviour
         OnAttackKeyInput.AddListener((x) => visualTransform.GetComponent<CharacterAttack>().DoAttack(x));
         OnPointerPositionChange.AddListener((dir) => visualTransform.GetComponent<CharacterRenderer>().FlipCharacter(dir));
     }
-    protected virtual void Update()
+    protected virtual void LateUpdate()
     {
-        OnAttackKeyInput?.Invoke(Input.GetMouseButtonDown(0));
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
+        {
+            OnMoveKeyInput?.Invoke(MousePos);
+            WebSocket.Client.ApplyEntityMove(playerEntity);
+        }
+        else if (Input.GetMouseButton(1))
         {
             OnMoveKeyInput?.Invoke(MousePos);
             _delay += Time.deltaTime;
@@ -43,14 +47,7 @@ public class CharacterInput : MonoBehaviour
                 _delay = 0;
             }
         }
+        OnAttackKeyInput?.Invoke(Input.GetMouseButtonDown(0));
         OnPointerPositionChange?.Invoke((Vector2)transform.position - MousePos);
-    }
-
-    private void FixedUpdate()
-    {
-        if(tempPosition != (Vector2)transform.position)
-        {
-            tempPosition = transform.position;
-        }
     }
 }

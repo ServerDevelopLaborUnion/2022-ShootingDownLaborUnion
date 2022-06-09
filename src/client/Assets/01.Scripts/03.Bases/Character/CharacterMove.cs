@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -34,8 +34,12 @@ public class CharacterMove : MonoBehaviour
 
     private void Update()
     {
-        if (_base.State.CurrentState.HasFlag(CharacterState.State.Died)) return;
-        if(Vector3.Distance(_base.Data.TargetPosition, transform.position) > 0.1f)
+        if (_base.State.CurrentState.HasFlag(CharacterState.State.Died))
+        {
+            StopImmediatelly();
+            return;
+        }
+        if (Vector3.Distance(_base.Data.TargetPosition, transform.position) >= 0.1f)
         {
             //transform.position = Vector3.Lerp(transform.position, _base.Data.TargetPosition, Time.deltaTime * _base.Stat.Speed /     Vector3.Distance(_base.Data.TargetPosition, transform.position));
             OnVelocityChange?.Invoke(true);
@@ -43,12 +47,15 @@ public class CharacterMove : MonoBehaviour
         else
         {
             StopImmediatelly();
-            OnVelocityChange?.Invoke(false);
         }
     }
-
     public void MoveAgent(Vector3 goal)
     {
+        if (_base.State.CurrentState.HasFlag(CharacterState.State.Attack))
+        {
+            return;
+        }
+        agent.isStopped = false;
         _base.Data.TargetPosition = goal;
         
         agent.SetDestination(_base.Data.TargetPosition);
@@ -56,8 +63,9 @@ public class CharacterMove : MonoBehaviour
 
     public void StopImmediatelly()
     {
+        agent.isStopped = true;
         _base.Data.TargetPosition = transform.position;
-        agent.SetDestination(_base.Data.TargetPosition);
+        OnVelocityChange?.Invoke(false);
     }
 
     public void Knockback(Collider2D col)

@@ -1,4 +1,4 @@
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -438,7 +438,7 @@ namespace WebSocket
             {
                 var moveEntityRequest = new Protobuf.Server.EntityMoveRequest();
                 moveEntityRequest.EntityUUID = entity.Data.UUID;
-                moveEntityRequest.Position = entity.Data.Position.ToProtobuf();
+                moveEntityRequest.Position = entity.Data.TargetPosition.ToProtobuf();
                 moveEntityRequest.Rotation = entity.Data.Rotation.ToProtobuf();
 
 
