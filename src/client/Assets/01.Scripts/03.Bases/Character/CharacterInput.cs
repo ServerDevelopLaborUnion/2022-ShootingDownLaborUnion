@@ -39,10 +39,10 @@ public class CharacterInput : MonoBehaviour
         }
         else if (Input.GetMouseButton(1))
         {
-            OnMoveKeyInput?.Invoke(MousePos);
             _delay += Time.deltaTime;
             if (_delay > 0.2f)
             {
+                OnMoveKeyInput?.Invoke(MousePos);
                 WebSocket.Client.ApplyEntityMove(playerEntity);
                 _delay = 0;
             }
