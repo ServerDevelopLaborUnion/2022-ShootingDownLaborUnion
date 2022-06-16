@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,7 @@ public class NetworkManager : MonoSingleton<NetworkManager>
 {
 
     public List<Entity> entityList = new List<Entity>();
+    public List<Entity> playerList = new List<Entity>();
 
     [RuntimeInitializeOnLoadMethod]
     static void OnSecondRuntimeMethodLoad()
