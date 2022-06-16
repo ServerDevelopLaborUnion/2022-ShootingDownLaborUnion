@@ -22,7 +22,6 @@ export default {
         const loginRequest = proto.server.decode(type, buffer);
         const account = new Account(socket.sessionId, loginRequest.Username);
 
-        // TODO: DB 로그인 구현
         if (auth.login(loginRequest.Username, loginRequest.Password)) {
             socket.user = new ValidUser(
                 socket,

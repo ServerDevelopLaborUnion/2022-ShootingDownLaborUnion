@@ -5,6 +5,7 @@ import { v4 } from 'uuid';
 import http from 'node:http';
 
 import { UserType } from'../types/User.js';
+import { Room } from '../types/Room.js';
 import * as Logger from'../util/logger.js';
 import * as router from'./router.js';
 import proto from'../util/proto.js';
@@ -77,8 +78,8 @@ export default class WebsocketServer {
 
         this.wsServer.on("request", async (request) => {
             const socket = request.accept(null, request.origin);
-            // 서버에 접속한 사용자를 추가한다.
 
+            // 서버에 접속한 사용자를 추가한다.
             socket.sessionId = v4();
             socket.user = {
                 type: UserType.User,

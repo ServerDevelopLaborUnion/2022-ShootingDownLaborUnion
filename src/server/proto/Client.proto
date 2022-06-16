@@ -45,4 +45,20 @@ message EntityUpdate {
 message EntityEvent {
     string EntityUUID = 1;
     string EventName = 2;
+    string EventData = 3;
 }
+
+// id: 7
+message RoomCreateResponse {
+    bool Success = 1;
+    optional string RoomUUID = 2;
+    optional string RoomName = 3;
+}
+
+// id: 8
+message RoomJoinResponse {
+    bool Success = 1;
+    optional string RoomUUID = 2;
+    optional string RoomName = 3;
+}
+
