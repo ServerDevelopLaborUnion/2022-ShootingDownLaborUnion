@@ -368,6 +368,13 @@ MonoBehaviour:
   Enemey: {fileID: 4610916560795007066, guid: 449fa7352d04f3f43bdcfad9d7f22560, type: 3}
   spawnDelay: 0
   radius: 7
+  phases:
+  - maxEnemy: 36
+    spawnType: 0
+  - maxEnemy: 0
+    spawnType: 0
+  - maxEnemy: 0
+    spawnType: 0
 --- !u!4 &1206466082
 Transform:
   m_ObjectHideFlags: 0
