@@ -469,6 +469,30 @@ namespace WebSocket
                 Debug.LogWarning("You are not connected to the server.");
             }
         }
+        public static void CreateEntityEvent(Entity entity)
+        {
+            if (_connectionState == ConnectionState.Connected)
+            {
+                var createEntityRequest = new Protobuf.Server.EntityCreateRequest();
+
+                createEntityRequest.Entity = new Protobuf.Entity();
+                createEntityRequest.Entity.UUID = entity.Data.UUID;
+                createEntityRequest.Entity.OwnerUUID = entity.Data.OwnerUUID;
+                createEntityRequest.Entity.Name = entity.Data.Name;
+                createEntityRequest.Entity.Position = entity.Data.Position.ToProtobuf();
+                createEntityRequest.Entity.Rotation = entity.Data.Rotation.ToProtobuf();
+                createEntityRequest.Entity.Data = JObject.FromObject(new
+                {
+                    type = (int)entity.Data.Type
+                }).ToString();
+
+                SendPacket(5, createEntityRequest);
+            }
+            else if (_connectionState == ConnectionState.Disconnected)
+            {
+                Debug.LogWarning("You are not connected to the server.");
+            }
+        }
         #endregion
     }
 }
