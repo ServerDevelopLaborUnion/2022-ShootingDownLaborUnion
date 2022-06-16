@@ -20,11 +20,8 @@ export default {
         if (entity !== undefined) {
             if (socket.sessionId == entity.OwnerUUID) {
                 entity.Position = EntityMoveRequest.Position;
-                socket.server.broadcastPacket(proto.client.encode(proto.client.EntityMove, {
-                    EntityUUID: EntityMoveRequest.EntityUUID,
-                    Position: EntityMoveRequest.Position,
-                    Rotation: EntityMoveRequest.Rotation,
-                }), socket);
+                console.log(EntityMoveRequest);
+                socket.server.broadcastPacket(proto.client.encode(proto.client.EntityMove, EntityMoveRequest), socket);
             }
         }
     }

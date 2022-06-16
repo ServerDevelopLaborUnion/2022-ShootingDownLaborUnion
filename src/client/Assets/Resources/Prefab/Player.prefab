@@ -337,6 +337,7 @@ MonoBehaviour:
     UUID: 8d70df85-55b0-4df6-a4df-891835f4455c
     OwnerUUID: 80eaebf1-cafc-447c-9f96-25ef5b5b12b5
     Name: Player
+    TargetPosition: {x: 0, y: 0}
     Type: 0
     entityStat:
       _hp: 0
