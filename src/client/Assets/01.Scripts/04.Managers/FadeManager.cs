@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-
 public enum FADECHILDS
 {
     FADEOBJECT,
@@ -23,6 +22,7 @@ public class FadeManager : MonoSingleton<FadeManager>
     private void Start()
     {
         _topBar = FadeParent.GetChild((int)FADECHILDS.TOPBAR).GetComponent<RectTransform>();
+
         _bottomBar = FadeParent.GetChild((int)FADECHILDS.BOTTOMBAR).GetComponent<RectTransform>();
 
         _hideBarY = Mathf.Abs(_topBar.anchoredPosition.y);
@@ -33,13 +33,13 @@ public class FadeManager : MonoSingleton<FadeManager>
     {
         if (isShow)
         {
-            _topBar.DOAnchorPosY(_hideBarY, 1f);
-            _bottomBar.DOAnchorPosY(-_hideBarY, 1f);
+            _topBar.DOAnchorPosY(-_hideBarY, 1f);
+            _bottomBar.DOAnchorPosY(_hideBarY, 1f);
         }
         else
         {
-            _topBar.DOAnchorPosY(-_hideBarY, 1f);
-            _bottomBar.DOAnchorPosY(_hideBarY, 1f);
+            _topBar.DOAnchorPosY(_hideBarY, 1f);
+            _bottomBar.DOAnchorPosY(-_hideBarY, 1f);
         }
     }
 }

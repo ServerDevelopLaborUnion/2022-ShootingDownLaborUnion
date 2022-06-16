@@ -8,7 +8,7 @@ using DG.Tweening;
 public class RedPortalEffect : BaseDungeonEnter
 {
     [SerializeField]
-    private Transform _playerTransform;
+    private SpriteRenderer _player;
 
     [SerializeField]
     private Transform _playerEndPos;
@@ -19,10 +19,18 @@ public class RedPortalEffect : BaseDungeonEnter
 
     [SerializeField]
     private float _scaleDuration = 0.5f;
+    [SerializeField]
+    private float _fadeDuration = 1f;
 
     public override void EnterDirecting()
     {
+        StartCoroutine(EnteringDirect());
+    }
 
+    public override float GetAmountDuration()
+    {
+        _amountDuration = _scaleDuration*2 + _fadeDuration + _playerMoveDuration;
+        return _amountDuration;
     }
 
     private IEnumerator EnteringDirect()
@@ -30,9 +38,13 @@ public class RedPortalEffect : BaseDungeonEnter
         transform.DOScale(Vector3.one, _scaleDuration);
         yield return WaitForSeconds(_scaleDuration);
 
-        _playerTransform.DOMove(_playerEndPos.position, _playerMoveDuration);
+        _player.DOFade(1f, _fadeDuration);
+        yield return WaitForSeconds(_fadeDuration);
+
+        _player.transform.DOMove(_playerEndPos.position, _playerMoveDuration);
         yield return WaitForSeconds(_playerMoveDuration);
         
+        //TODO: SetActive를 꺼줘야할 듯
         transform.DOScale(Vector3.zero, _scaleDuration);
 
     }
