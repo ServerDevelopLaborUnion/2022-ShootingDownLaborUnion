@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,8 +10,8 @@ public class GunCharacterInput : CharacterInput
 
     public UnityEvent<bool> GetOnMouseKeyEvent => OnMouseKeyEvent;
 
-    protected override void Update() {
-        base.Update();
+    protected override void LateUpdate() {
+        base.LateUpdate();
         OnMouseKeyEvent?.Invoke(Input.GetMouseButton(0));
     }
 }

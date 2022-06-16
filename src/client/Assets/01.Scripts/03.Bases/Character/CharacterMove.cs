@@ -1,9 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 using static CharacterBase;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(CharacterBase))]
 public class CharacterMove : MonoBehaviour
@@ -18,37 +19,53 @@ public class CharacterMove : MonoBehaviour
 
     public UnityEvent<bool> OnVelocityChange;
 
-    private Vector3 _goal = Vector3.zero;
+    private NavMeshAgent agent;
 
     private void Awake()
     {
+        agent = GetComponent<NavMeshAgent>();
         _base = GetComponent<CharacterBase>();
         _rigid = GetComponent<Rigidbody2D>();
+
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.speed = _base.Stat.Speed;
     }
 
     private void Update()
     {
-        if (_base.State.CurrentState.HasFlag(CharacterState.State.Died)) return;
-        if(Vector3.Distance(_goal, transform.position) > 0.1f)
+        if (_base.State.CurrentState.HasFlag(CharacterState.State.Died))
         {
-            transform.position = Vector3.Lerp(transform.position, _goal, Time.deltaTime * _base.Stat.Speed /     Vector3.Distance(_goal, transform.position));
+            StopImmediatelly();
+            return;
+        }
+        if (Vector3.Distance(_base.Data.TargetPosition, transform.position) >= 0.1f)
+        {
+            //transform.position = Vector3.Lerp(transform.position, _base.Data.TargetPosition, Time.deltaTime * _base.Stat.Speed /     Vector3.Distance(_base.Data.TargetPosition, transform.position));
             OnVelocityChange?.Invoke(true);
         }
         else
         {
             StopImmediatelly();
-            OnVelocityChange?.Invoke(false);
         }
     }
-
     public void MoveAgent(Vector3 goal)
     {
-        _goal = goal;
+        if (_base.State.CurrentState.HasFlag(CharacterState.State.Attack))
+        {
+            return;
+        }
+        agent.isStopped = false;
+        _base.Data.TargetPosition = goal;
+        
+        agent.SetDestination(_base.Data.TargetPosition);
     }
 
     public void StopImmediatelly()
     {
-        _goal = transform.position;
+        agent.isStopped = true;
+        _base.Data.TargetPosition = transform.position;
+        OnVelocityChange?.Invoke(false);
     }
 
     public void Knockback(Collider2D col)

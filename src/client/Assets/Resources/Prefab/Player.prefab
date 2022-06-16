@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 693142078744925210}
   - component: {fileID: 693142078744925204}
   - component: {fileID: 7705367537281043746}
+  - component: {fileID: -591259635780490325}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -336,6 +337,7 @@ MonoBehaviour:
     UUID: 8d70df85-55b0-4df6-a4df-891835f4455c
     OwnerUUID: 80eaebf1-cafc-447c-9f96-25ef5b5b12b5
     Name: Player
+    TargetPosition: {x: 0, y: 0}
     Type: 0
     entityStat:
       _hp: 0
@@ -489,6 +491,28 @@ MonoBehaviour:
   DoFlipRight:
     m_PersistentCalls:
       m_Calls: []
+--- !u!195 &-591259635780490325
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693142078744925211}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 1000
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &693142079330332290
 GameObject:
   m_ObjectHideFlags: 0

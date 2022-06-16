@@ -1,4 +1,4 @@
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -54,12 +54,14 @@ namespace WebSocket
     {
         public string EntityUUID { get; set; }
         public Vector2 Position { get; set; }
+        public Vector2 TargetPosition { get; set; }
         public Quaternion Rotation { get; set; }
 
-        public EntityMoveEventArgs(string entityId, Vector2 position, Quaternion rotation)
+        public EntityMoveEventArgs(string entityId, Vector2 position, Vector2 targetPos, Quaternion rotation)
         {
             EntityUUID = entityId;
             Position = position;
+            TargetPosition = targetPos;
             Rotation = rotation;
         }
     }
@@ -366,6 +368,7 @@ namespace WebSocket
                             MainTask.Enqueue(() => OnEntityMoveMessage?.Invoke(this, new EntityMoveEventArgs(
                                 entityMoveMessage.EntityUUID,
                                 new Vector2(entityMoveMessage.Position.X, entityMoveMessage.Position.Y),
+                                new Vector2(entityMoveMessage.TargetPosition.X, entityMoveMessage.TargetPosition.Y),
                                 new Quaternion(entityMoveMessage.Rotation.X, entityMoveMessage.Rotation.Y, entityMoveMessage.Rotation.Z, entityMoveMessage.Rotation.W)
                             )));
                             break;
@@ -439,6 +442,7 @@ namespace WebSocket
                 var moveEntityRequest = new Protobuf.Server.EntityMoveRequest();
                 moveEntityRequest.EntityUUID = entity.Data.UUID;
                 moveEntityRequest.Position = entity.Data.Position.ToProtobuf();
+                moveEntityRequest.TargetPosition = entity.Data.TargetPosition.ToProtobuf();
                 moveEntityRequest.Rotation = entity.Data.Rotation.ToProtobuf();
 
 

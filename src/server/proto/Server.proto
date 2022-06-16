@@ -19,7 +19,8 @@ message TokenLoginRequest {
 message EntityMoveRequest {
     string EntityUUID = 1;
     Vector2 Position = 2;
-    Quaternion Rotation = 3;
+    Vector2 TargetPosition = 3;
+    Quaternion Rotation = 4;
 }
 
 // id: 3
@@ -32,4 +33,9 @@ message EntityUpdateRequest {
 message EntityEventRequest {
     string EntityUUID = 1;
     string EventName = 2;
+}
+
+// id: 5
+message EntityCreateRequest {
+    Entity Entity = 1;
 }

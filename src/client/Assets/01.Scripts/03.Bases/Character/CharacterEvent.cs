@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -23,8 +23,8 @@ public class CharacterEvent : MonoBehaviour
         CharacterMove characterMove = GetComponent<CharacterMove>();
         DoAttack.AddListener(() => characterAttack.DoAttack(true));
         DoMove.AddListener(() => characterAnimation.PlayMoveAnime(true));
-        DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(Vector2.left));
-        DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));
+        DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));
+        DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.left));
     }
     public void InvokeEvent(string eventName)
     {

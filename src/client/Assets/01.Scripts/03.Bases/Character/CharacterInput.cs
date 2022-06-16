@@ -1,4 +1,4 @@
-using static Define;
+﻿using static Define;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +19,8 @@ public class CharacterInput : MonoBehaviour
     private Entity playerEntity = null;
     private Vector2 tempPosition = Vector2.zero;
 
+
+    private float _delay = 0;
     public void InitEvent()
     {
         _base = GetComponent<CharacterBase>();
@@ -28,22 +30,24 @@ public class CharacterInput : MonoBehaviour
         OnAttackKeyInput.AddListener((x) => visualTransform.GetComponent<CharacterAttack>().DoAttack(x));
         OnPointerPositionChange.AddListener((dir) => visualTransform.GetComponent<CharacterRenderer>().FlipCharacter(dir));
     }
-    protected virtual void Update()
+    protected virtual void LateUpdate()
     {
-        OnAttackKeyInput?.Invoke(Input.GetMouseButtonDown(0));
         if (Input.GetMouseButtonDown(1))
         {
             OnMoveKeyInput?.Invoke(MousePos);
-        }
-        OnPointerPositionChange?.Invoke(MousePos - (Vector2)transform.position);
-    }
-
-    private void FixedUpdate()
-    {
-        if(tempPosition != (Vector2)transform.position)
-        {
-            tempPosition = transform.position;
             WebSocket.Client.ApplyEntityMove(playerEntity);
         }
+        else if (Input.GetMouseButton(1))
+        {
+            _delay += Time.deltaTime;
+            if (_delay > 0.2f)
+            {
+                OnMoveKeyInput?.Invoke(MousePos);
+                WebSocket.Client.ApplyEntityMove(playerEntity);
+                _delay = 0;
+            }
+        }
+        OnAttackKeyInput?.Invoke(Input.GetMouseButtonDown(0));
+        OnPointerPositionChange?.Invoke((Vector2)transform.position - MousePos);
     }
 }

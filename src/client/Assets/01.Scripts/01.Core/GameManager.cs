@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
     private void Client_OnEntityMoveMessage(object sender, WebSocket.EntityMoveEventArgs e)
     {
         Entity temp = NetworkManager.Instance.entityList.Find((x) => x.Data.UUID == e.EntityUUID);
-        temp.SetEntityPositionAndRotation(e.Position, e.Rotation);
+        temp.transform.position = e.Position;
+        temp.GetComponent<CharacterMove>().MoveAgent(e.TargetPosition);
     }
 
     private void Client_OnEntityReMoveMessage(object sender, WebSocket.EntityRemoveEventArgs e)
@@ -38,8 +39,21 @@ public class GameManager : MonoBehaviour
 
     private void Client_OnEntityCreateMessage(object sender, WebSocket.EntityCreateEventArgs e)
     {
-        NetworkManager.Instance.entityList.Add(Entity.EntityCreate(e.Data));
+        Entity temp = Entity.EntityCreate(e.Data);
+        if (e.Data.Type == EntityType.Player)
+            NetworkManager.Instance.playerList.Add(temp);
+        NetworkManager.Instance.entityList.Add(temp);
         Debug.Log($"{e.Data.UUID} Has Created");
+        StartCoroutine(SetHostClient(e.Data));
+    }
+
+    private IEnumerator SetHostClient(EntityData e)
+    {
+        yield return new WaitForSeconds(1f);
+        if(NetworkManager.Instance.playerList.Count == 1)
+        {
+            e.parantEntity.GetComponent<PlayerBase>().RoomHost = true;
+        }
     }
 
     // Update is called once per frame
