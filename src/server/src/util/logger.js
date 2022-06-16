@@ -57,7 +57,7 @@ class Log {
 
 const Logger = new Log(Level.DEBUG);
 
-exports.getLogger = (prefix) => {
+export function getLogger(prefix) {
     return {
         debug(msg) {
             Logger.Debug(`[${prefix}]`, `${msg}`);

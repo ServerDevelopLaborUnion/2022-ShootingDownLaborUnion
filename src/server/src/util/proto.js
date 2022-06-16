@@ -1,12 +1,12 @@
-const { Buffer } = require('buffer');
-const protobuf = require('protobufjs');
+import { Buffer } from 'buffer';
+import protobuf from 'protobufjs';
 
 const protoPath = './proto/';
 
 const server = protobuf.loadSync(`${protoPath}Server.proto`);
 const client = protobuf.loadSync(`${protoPath}Client.proto`);
 
-module.exports = {
+export default {
     server: {
         encode: (type, message) => {
             const buffer = server.lookupType(`Server.${type}`).encode(message).finish();

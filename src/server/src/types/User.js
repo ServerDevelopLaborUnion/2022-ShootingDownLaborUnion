@@ -1,9 +1,9 @@
-exports.UserType = {
+export const UserType = {
     User: 0,
     ValidUser: 1
 }
 
-exports.User = class User {
+export class User {
     type;
     socket;
     constructor(socket) {
@@ -12,10 +12,9 @@ exports.User = class User {
     }
 }
 
-exports.ValidUser = class ValidUser {
+export class ValidUser {
     type;
     socket;
-    sessionId;
     account;
     constructor(socket, account) {
         this.type = exports.UserType.ValidUser;

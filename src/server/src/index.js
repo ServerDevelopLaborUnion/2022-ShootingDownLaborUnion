@@ -1,17 +1,14 @@
-import { WebsocketServer } from './websocket/server';
-import { Logger } from './util/logger';
+import WebsocketServer from './websocket/server.js';
+import * as Logger from './util/logger.js';
+import process from 'process';
+import { Storage } from './storage.js';
 
-const logger = Logger.getLogger('index');
+const logger = Logger.getLogger('Main');
 
-const { WebsocketServer } = require('./websocket/server');
-const logger = require('./util/logger').getLogger('Main');
-
-const server = WebsocketServer;
-
-
+Storage.server = new WebsocketServer();
 
 logger.info('App Started');
-server.listen(3000);
+Storage.server.listen(3000);
 
 process.on('uncaughtException', (err) => {
     if (err.stack) {

@@ -1,26 +1,27 @@
-const { Account } = require('../types/Account');
-const { ValidUser } = require('../types/User');
-const sleep = require('../util/sleep');
-const Logger = require('../util/logger').getLogger('LoginRequest');
-const auth = require('../util/auth');
-const proto = require('../util/proto');
+import { Account } from '../types/Account.js';
+import { ValidUser } from '../types/User.js';
+import * as sleep from '../util/sleep.js';
+import * as Logger from '../util/logger.js';
+import * as auth from '../util/auth.js';
+import proto from '../util/proto.js';
+
+const logger = Logger.getLogger('LoginRequest');
 
 const id = 0;
 const type = 'LoginRequest';
 
-module.exports = {
+export default {
     id: id,
     type: type,
     receive: async (socket, buffer) => {
         await sleep(3000);
         if (!proto.server.verify(type, buffer)) {
-            Logger.warn(`Invalid packet from ${socket.remoteAddress}`);
+            logger.warn(`Invalid packet from ${socket.remoteAddress}`);
             return;
         }
         const loginRequest = proto.server.decode(type, buffer);
         const account = new Account(socket.sessionId, loginRequest.Username);
 
-        // TODO: DB 로그인 구현
         if (auth.login(loginRequest.Username, loginRequest.Password)) {
             socket.user = new ValidUser(
                 socket,
