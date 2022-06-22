@@ -1,5 +1,5 @@
-import * as Logger from '../util/logger.js';
-import proto from '../util/proto.js';
+import * as Logger from '../util/logger';
+import proto from '../util/proto';
 
 const logger = Logger.getLogger('EntityUpdateRequest');
 

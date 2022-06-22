@@ -1,4 +1,4 @@
-import * as Logger from '../util/logger.js';
+import * as Logger from '../util/logger';
 import * as fs from 'fs';
 
 const logger = Logger.getLogger('Router');
@@ -10,7 +10,7 @@ const files = fs.readdirSync('./src/handler');
 logger.debug('Loading handlers: ' + files.join(', '));
 
 for (const file of files) {
-    if (file.endsWith('.js')) {
+    if (file.endsWith('')) {
         import(`../handler/${file}`).then(handler => {
             handlers[handler.id] = handler;
         });

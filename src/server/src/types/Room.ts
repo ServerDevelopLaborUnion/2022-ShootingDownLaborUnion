@@ -1,6 +1,6 @@
 /* eslint no-unused-vars: "off" */
 import { v4 } from "uuid";
-import { ValidUser } from "./User.js";
+import { ValidUser } from "./User";
 
 export class Room {
     constructor(name, password) {
@@ -9,7 +9,7 @@ export class Room {
         /** @type {string} */
         this.name = name;
         /** @type {string | null} */
-        this.password = null;
+        this.password = password;
         /** @type {Map<string, ValidUser>} */
         this.users = new Map();
     }
