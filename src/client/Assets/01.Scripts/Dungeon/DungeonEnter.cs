@@ -32,10 +32,12 @@ public class DungeonEnter : MonoBehaviour
             pos.z = -10f;
             MainCam.transform.DOMove(pos, 1f);
             yield return WaitForSeconds(1.2f);
-            _directingObjs[i].gameObject.SetActive(true);
+            _directTransform[i].gameObject.SetActive(true);
             _directingObjs[i].EnterDirecting();
             yield return WaitForSeconds(_directingObjs[i].GetAmountDuration() + 0.5f);
         }
+
+        FadeManager.Instance.ShowBar(false);
 
         MainCam.transform.DOMove(new Vector3(0f, 0f, -10f), 1f);
         MainCam.DOOrthoSize(10f, 1f);

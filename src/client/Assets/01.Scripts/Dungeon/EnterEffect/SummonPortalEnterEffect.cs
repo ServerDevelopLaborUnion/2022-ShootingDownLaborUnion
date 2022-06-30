@@ -18,7 +18,7 @@ public class SummonPortalEnterEffect : BaseDungeonEnter
 
     private Animator _animator = null;
 
-    private void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
@@ -31,7 +31,10 @@ public class SummonPortalEnterEffect : BaseDungeonEnter
     public override void EnterDirecting()
     {
         _animator.Play(SUMMONPORTAL);
+
     }
+
+
 
     public override float GetAmountDuration()
     {
