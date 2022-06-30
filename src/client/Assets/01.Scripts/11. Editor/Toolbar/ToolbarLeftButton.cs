@@ -28,11 +28,41 @@ public class ToolbarLeftButton
 
         Color color = GUI.color;
         GUILayout.Space(10);
-        GUI.color = Color.green;
+        Color color2 = GUI.color;
+        switch (WebSocket.Client.ConnectionState)
+        {
+        case ConnectionState.Connected:
+            color2 = Color.green;
+            break;
+        case ConnectionState.Disconnected:
+            color2 = Color.red;
+            break;
+        case ConnectionState.Connecting:
+            color2 = Color.yellow;
+            break;
+        case ConnectionState.None:
+            color2 = Color.gray;
+            break;
+        }
+        GUI.color = color2;
         GUILayout.Label("●", labelStyle, GUILayout.Height(20), GUILayout.Width(15));
         GUI.color = color;
-        GUILayout.Label("Connected: ", labelStyle, GUILayout.Height(20), GUILayout.Width(70));
-        GUILayout.Label(WebSocket.Client.SessionID, boldLabelStyle, GUILayout.Height(20), GUILayout.Width(300));
-        GUILayout.Button("Disconnect", EditorStyles.toolbarButton);
+        string label = "";
+        switch (WebSocket.Client.ConnectionState)
+        {
+        case ConnectionState.Connected:
+            label = $"Connected : {WebSocket.Client.SessionID}";
+            break;
+        case ConnectionState.Disconnected:
+            label = "Disconnected";
+            break;
+        case ConnectionState.Connecting:
+            label = "Connecting";
+            break;
+        case ConnectionState.None:
+            label = "Waiting for start";
+            break;
+        }
+        GUILayout.Label(label, labelStyle, GUILayout.Height(20));
     }
 }

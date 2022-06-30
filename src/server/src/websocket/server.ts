@@ -14,46 +14,30 @@ const logger = Logger.getLogger('Websocket');
 
 export default class WebsocketServer {
     port: number;
-    server: http.Server;
-    wsServer: server;
+    server: http.Server | null;
+    wsServer: server | null;
     clients: Map<string, Client> = new Map();
     rooms: Map<string, Room> = new Map();
 
     constructor() {
-        this.port = 0;
+        this.port = 3000;
+        this.server = null;
+        this.wsServer = null;
+        // this.wsServer = new server({ httpServer: this.server });
+    }
+
+    listen(port: number) {
+        this.port = port;
         this.server = http.createServer(function (request, response) {
             console.log((new Date()) + ' Received request for ' + request.url);
             response.writeHead(404);
             response.end();
         });
-        this.wsServer = new server({ httpServer: this.server });
-    }
-
-    broadcastPacket (buffer: Buffer, socket: Client | null = null) {
-        logger.debug(`Broadcasting: ${buffer.length} bytes`);
-        if (socket) {
-            this.clients.forEach(client => {
-                if (client != socket) {
-                    client.socket.sendBytes(buffer);
-                }
-            });
-        } else {
-            this.clients.forEach(client => {
-                client.socket.sendBytes(buffer);
-            });
-        }
-    }
-
-    listen(port: number) {
-        this.port = port;
-        this.server.listen(this.port, () => {
-            logger.info(`Server is listening on ${this.port}`);
-        });
 
         this.wsServer = new server({
             httpServer: this.server,
             closeTimeout: 5000,
-            autoAcceptConnections: true
+            autoAcceptConnections: false,
         });
 
         this.wsServer.on("connect", (connection: connection) => {
@@ -66,7 +50,7 @@ export default class WebsocketServer {
         this.wsServer.on("request", async (request) => {
             const socket = request.accept(null, request.origin);
             const client = new Client(socket);
-            
+
             this.clients.set(client.sessionId, client);
 
             logger.info(`${client.sessionId} connected`);
@@ -85,14 +69,33 @@ export default class WebsocketServer {
             });
 
             // 클라이언트에게 에러가 발생했을 때 처리한다.
-            socket.on("error", (error) => {
-                logger.error(`${error}`);
-            });
+            // socket.on("error", (error) => {
+            //     logger.error(`${error}`);
+            // });
 
             // 클라이언트에게 SessionId를 전송한다.
             client.sendPacket(proto.client.encode(proto.client.Connection, {
                 SessionId: client.sessionId,
             }));
         });
+
+        this.server.listen(this.port, () => {
+            logger.info(`Server is listening on ${this.port}`);
+        });
+    }
+
+    broadcastPacket (buffer: Buffer, socket: Client | null = null) {
+        logger.debug(`Broadcasting: ${buffer.length} bytes`);
+        if (socket) {
+            this.clients.forEach(client => {
+                if (client != socket) {
+                    client.socket.sendBytes(buffer);
+                }
+            });
+        } else {
+            this.clients.forEach(client => {
+                client.socket.sendBytes(buffer);
+            });
+        }
     }
 }

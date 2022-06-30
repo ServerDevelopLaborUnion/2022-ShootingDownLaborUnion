@@ -72,7 +72,6 @@ namespace UnityToolbarExtender
 								flexDirection = FlexDirection.RowReverse,
 							}
 						};
-                        RootVisualElement = parent;
 
 						var container = new IMGUIContainer();
 						container.style.flexGrow = 1;
@@ -87,7 +86,7 @@ namespace UnityToolbarExtender
 					}
 #else
 #if UNITY_2020_1_OR_NEWER
-					var windowBackend = m_windowBackend.GetValue(m_currentToolbar);
+                    var windowBackend = m_windowBackend.GetValue(m_currentToolbar);
 
 					// Get it's visual tree
 					var visualTree = (VisualElement) m_viewVisualTree.GetValue(windowBackend, null);
@@ -104,6 +103,8 @@ namespace UnityToolbarExtender
 					handler -= OnGUI;
 					handler += OnGUI;
 					m_imguiContainerOnGui.SetValue(container, handler);
+
+                    RootVisualElement = container;
 #endif
                 }
             }

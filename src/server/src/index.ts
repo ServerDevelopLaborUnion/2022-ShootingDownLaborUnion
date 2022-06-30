@@ -1,6 +1,7 @@
 import * as Logger from './util/logger';
 import { storage } from './storage';
 import process from 'process';
+import WebsocketServer from './websocket/server';
 
 const logger = Logger.getLogger('Main');
 
