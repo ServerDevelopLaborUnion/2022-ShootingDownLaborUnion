@@ -69,9 +69,9 @@ export default class WebsocketServer {
             });
 
             // 클라이언트에게 에러가 발생했을 때 처리한다.
-            // socket.on("error", (error) => {
-            //     logger.error(`${error}`);
-            // });
+            socket.on("error", (error) => {
+                logger.error(`${error}`);
+            });
 
             // 클라이언트에게 SessionId를 전송한다.
             client.sendPacket(proto.client.encode(proto.client.Connection, {

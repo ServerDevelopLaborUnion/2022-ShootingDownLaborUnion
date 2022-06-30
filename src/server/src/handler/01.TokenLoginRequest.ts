@@ -27,7 +27,7 @@ export default {
                 logger.warn(`Invalid token from ${client.socket.remoteAddress}`);
                 return;
             }
-            const account = storage.database.accounts.get(decoded.id);
+            const account:any = null;
             if (account === undefined) {
                 logger.warn(`Invalid token from ${client.socket.remoteAddress}`);
                 return;
