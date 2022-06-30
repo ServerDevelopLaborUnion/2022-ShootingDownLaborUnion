@@ -12,9 +12,9 @@ public enum SpawnType
 [Serializable]
 public class PhaseData
 {
-    public int maxEnemy;
+    public float maxEnemy;
     public SpawnType spawnType;
-    public PhaseData(int maxEnemy, SpawnType spawnType)
+    public PhaseData(float maxEnemy, SpawnType spawnType)
     {
         this.maxEnemy = maxEnemy;
         this.spawnType = spawnType;

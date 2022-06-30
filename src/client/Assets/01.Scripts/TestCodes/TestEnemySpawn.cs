@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class TestEnemySpawn : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject TargetPlayer;
-    [SerializeField]
-    private GameObject Enemey;
-    [SerializeField]
-    private float spawnDelay = 3f;
-    [SerializeField]
-    private float radius = 7f;
-    [SerializeField]
-    private List<PhaseData> phases = new List<PhaseData>();
+    [SerializeField] private GameObject TargetPlayer;
+    [SerializeField] private GameObject Enemey;
+    [SerializeField] private float spawnDelay = 3f;
+    [SerializeField] private float radius = 7f;
+    [SerializeField] private List<PhaseData> phases = new List<PhaseData>();
 
     private void Start()
     {
@@ -63,17 +58,33 @@ public class TestEnemySpawn : MonoBehaviour
                 EntityData entityData = new EntityData("uuid", "owner", "name", enemyPos, Quaternion.Euler(0f, 0f, 0f), EntityType.Enemy);
                 Entity.EntityCreate(entityData);
                 yield return new WaitForSeconds(spawnDelay);
+                
             }
         }
     }
 
     private IEnumerator WidthSpawn(PhaseData phaseData)
     {
+        for(int i = 0; i < phaseData.maxEnemy; i++)
+        {
+            float x = -8f + 16f / (phaseData.maxEnemy - 1) * i;
+            float y = TargetPlayer.transform.position.y -2f;
+            Vector2 enemyPos = new Vector2(x, y);
+            // TODO : uuid, owner설정
+            EntityData entityData = new EntityData("uuid", "owner", "name", enemyPos, Quaternion.Euler(0f, 0f, 0f), EntityType.Enemy);
+            Entity.EntityCreate(entityData);
+
+            enemyPos = new Vector2(enemyPos.x, enemyPos.y * -1);
+            entityData = new EntityData("uuid", "owner", "name", enemyPos, Quaternion.Euler(0f, 0f, 0f), EntityType.Enemy);
+            Entity.EntityCreate(entityData);
+        }
         yield return null;
     }
 
     private IEnumerator LengthSpawn(PhaseData phaseData)
     {
+        
+
         yield return null;
     }
 }

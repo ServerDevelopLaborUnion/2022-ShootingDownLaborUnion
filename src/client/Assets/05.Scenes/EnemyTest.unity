@@ -369,8 +369,8 @@ MonoBehaviour:
   spawnDelay: 0
   radius: 7
   phases:
-  - maxEnemy: 36
-    spawnType: 0
+  - maxEnemy: 100
+    spawnType: 1
   - maxEnemy: 0
     spawnType: 0
   - maxEnemy: 0
