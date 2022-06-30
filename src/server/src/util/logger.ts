@@ -8,46 +8,46 @@ const Level = {
 
 class Log {
     level;
-    constructor(level) {
+    constructor(level: number) {
         this.level = level;
     }
 
-    logWrite(msg) {
+    logWrite(msg: string) {
         msg = `${new Date().toISOString().replace('T', ' ').replace('Z', '')} ${msg}`;
         console.log("\x1b[0m", msg.trim());
         // eslint-disable-next-line no-control-regex
         msg = msg.replace(/\x1b\[\d+m/g, '');
     }
 
-    Debug(prefix, msg) {
+    Debug(prefix: string, msg: string) {
         if (this.level <= Level.DEBUG) {
             msg = `\x1b[32m[DEBUG]: ${prefix}\x1b[0m ${msg}`;
             this.logWrite(msg);
         }
     }
 
-    Info(prefix, msg) {
+    Info(prefix: string, msg: string) {
         if (this.level <= Level.INFO) {
             msg = `\x1b[34m[INFO]: ${prefix}\x1b[0m ${msg}`;
             this.logWrite(msg);
         }
     }
 
-    Warn(prefix, msg) {
+    Warn(prefix: string, msg: string) {
         if (this.level <= Level.WARN) {
             msg = `\x1b[33m[WARN]: ${prefix}\x1b[0m ${msg}`;
             this.logWrite(msg);
         }
     }
 
-    Error(prefix, msg) {
+    Error(prefix: string, msg: string) {
         if (this.level <= Level.ERROR) {
             msg = `\x1b[31m[ERROR]: ${prefix}\x1b[0m ${msg}`;
             this.logWrite(msg);
         }
     }
 
-    Fatal(prefix, msg) {
+    Fatal(prefix: string, msg: string) {
         if (this.level <= Level.FATAL) {
             msg = `[FATAL]: ${prefix}\x1b[0m ${msg}`;
             this.logWrite(msg);
@@ -57,21 +57,21 @@ class Log {
 
 const Logger = new Log(Level.DEBUG);
 
-exports.getLogger = (prefix) => {
+export function getLogger(prefix: string) {
     return {
-        debug(msg) {
+        debug(msg: string) {
             Logger.Debug(`[${prefix}]`, `${msg}`);
         },
-        info(msg) {
+        info(msg: string) {
             Logger.Info(`[${prefix}]`, `${msg}`);
         },
-        warn(msg) {
+        warn(msg: string) {
             Logger.Warn(`[${prefix}]`, `${msg}`);
         },
-        error(msg) {
+        error(msg: string) {
             Logger.Error(`[${prefix}]`, `${msg}`);
         },
-        fatal(msg) {
+        fatal(msg: any) {
             Logger.Fatal(`[${prefix}]`, `${msg}`);
         }
     }
