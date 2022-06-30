@@ -1,5 +1,7 @@
+import { Client } from '../types/Client';
 import * as Logger from '../util/logger';
 import proto from '../util/proto';
+import { storage } from '../storage';
 
 const logger = Logger.getLogger('EntityUpdateRequest');
 
@@ -9,20 +11,20 @@ const type = 'EntityUpdateRequest';
 export default {
     id: id,
     type: type,
-    receive: async (socket, buffer) => {
+    receive: async (client: Client, buffer: Buffer) => {
         if (!proto.server.verify(type, buffer)) {
-            logger.warn(`Invalid packet from ${socket.sessionId}`);
+            logger.warn(`Invalid packet from ${client.sessionId}`);
             return;
         }
 
-        const EntityUpdateRequest = proto.server.decode(type, buffer);
-        const entity = socket.server.entityes.get(EntityUpdateRequest.EntityUUID);
+        const EntityUpdateRequest: any = proto.server.decode(type, buffer);
+        const entity = storage.server.rooms.get("testRoom")?.entitys.get(EntityUpdateRequest.EntityUUID);
         if (entity !== undefined) {
-            if (socket.sessionId == entity.OwnerUUID) {
-                socket.server.broadcastPacket(proto.client.encode(proto.client.EntityUpdate, {
+            if (client.sessionId == entity.OwnerUUID) {
+                storage.server.broadcastPacket(proto.client.encode(proto.client.EntityUpdate, {
                     EntityUUID: EntityUpdateRequest.EntityUUID,
                     EventName: EntityUpdateRequest.EventName,
-                }), socket);
+                }), client);
             }
         }
     }

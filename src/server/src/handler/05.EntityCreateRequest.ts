@@ -1,3 +1,6 @@
+import { storage } from "../storage";
+import { Client } from "../types/Client";
+
 const Logger = require('../util/logger').getLogger('EntityCreateRequest');
 const proto = require('../util/proto');
 
@@ -7,22 +10,22 @@ const type = 'EntityCreateRequest';
 module.exports = {
     id: id,
     type: type,
-    receive: async (socket, buffer) => {
+    receive: async (client: Client, buffer: Buffer) => {
         if (!proto.server.verify(type, buffer)) {
-            Logger.warn(`Invalid packet from ${socket.sessionId}`);
+            Logger.warn(`Invalid packet from ${client.sessionId}`);
             return;
         }
 
         const EntityCreateRequest = proto.server.decode(type, buffer);
-        const entity = socket.server.entityes.get(EntityCreateRequest.EntityUUID);
+        const entity = storage.server.rooms.get("testRoom")?.entitys.get(EntityCreateRequest.EntityUUID);
         if (entity !== undefined) {
-            if (socket.sessionId == entity.OwnerUUID) {
+            if (client.sessionId == entity.OwnerUUID) {
                 entity.Position = EntityCreateRequest.Position;
-                socket.server.broadcastPacket(proto.client.encode(proto.client.EntityMove, {
+                storage.server.broadcastPacket(proto.client.encode(proto.client.EntityMove, {
                     EntityUUID: EntityCreateRequest.EntityUUID,
                     Position: EntityCreateRequest.Position,
                     Rotation: EntityCreateRequest.Rotation,
-                }), socket);
+                }), client);
             }
         }
     }

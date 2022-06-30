@@ -1,14 +1,14 @@
-exports.Entity = class Entity {
-    /**
-     * 
-     * @param {string} UUID 
-     * @param {string} OwnerUUID 
-     * @param {string} Name 
-     * @param {*} Position 
-     * @param {*} Rotation 
-     * @param {string} Data 
-     */
-    constructor(uuid, ownerId, name, position, rotation, data) {
+import { Quaternion } from "./Quaternion";
+import { Vector2 } from "./Vector2";
+
+export class Entity {
+    UUID: string;
+    OwnerUUID: string;
+    Name: string;
+    Position: Vector2;
+    Rotation: Quaternion;
+    Data: string;
+    constructor(uuid: string, ownerId: string, name: string, position: Vector2, rotation: Quaternion, data: string) {
         this.UUID = uuid;
         this.OwnerUUID = ownerId;
         this.Name = name;

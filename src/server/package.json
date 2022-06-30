@@ -13,17 +13,15 @@
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/uuid": "^8.3.4",
-    "@types/websocket": "^1.0.5",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
     "eslint": "^8.17.0"
   },
   "dependencies": {
-    "google-protobuf": "^3.20.1-rc.1",
+    "@types/websocket": "^1.0.5",
     "jsonwebtoken": "^8.5.1",
     "protobufjs": "^6.11.2",
     "uuid": "^8.3.2",
     "websocket": "^1.0.34"
-  },
-  "type": "module"
+  }
 }

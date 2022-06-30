@@ -1,17 +1,21 @@
 /* eslint no-unused-vars: "off" */
 import { v4 } from "uuid";
-import { ValidUser } from "./User";
+import { User } from "./User";
+import { Entity } from './Entity';
 
 export class Room {
-    constructor(name, password) {
-        /** @type {string} */
+    id: string;
+    name: string;
+    password: string | null;
+    users: Map<string, User>;
+    entitys: Map<string, Entity>;
+
+    constructor(name: string, password: string | null) {
         this.id = v4();
-        /** @type {string} */
         this.name = name;
-        /** @type {string | null} */
         this.password = password;
-        /** @type {Map<string, ValidUser>} */
         this.users = new Map();
+        this.entitys = new Map();
     }
 
     GetPlayerCount() {

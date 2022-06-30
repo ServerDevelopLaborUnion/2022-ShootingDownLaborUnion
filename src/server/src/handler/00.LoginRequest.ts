@@ -4,22 +4,22 @@ import { sleep } from '../util/sleep';
 import * as Logger from '../util/logger';
 import * as auth from '../util/auth';
 import proto from '../util/proto';
-import { Handler } from '../types/Handler';
+import { IHandler } from '../types/IHandler';
 import { connection } from 'websocket';
 import { Client } from '../types/Client';
 
 const logger = Logger.getLogger('LoginRequest');
 
-class LoginRequest implements Handler {
+class LoginRequest implements IHandler {
     id = 0;
     type = 'LoginRequest';
     async receive(client: Client, buffer: Buffer) {
         await sleep(3000);
-        if (!proto.server.verify(type, buffer)) {
+        if (!proto.server.verify(this.type, buffer)) {
             logger.warn(`Invalid packet from ${client.socket.remoteAddress}`);
             return;
         }
-        const loginRequest: any = proto.server.decode(type, buffer);
+        const loginRequest: any = proto.server.decode(this.type, buffer);
         const account = new Account(client.sessionId, loginRequest.Username);
 
         if (auth.login(loginRequest.Username, loginRequest.Password)) {

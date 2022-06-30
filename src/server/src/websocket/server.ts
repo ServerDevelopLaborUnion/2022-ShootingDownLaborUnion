@@ -21,7 +21,11 @@ export default class WebsocketServer {
 
     constructor() {
         this.port = 0;
-        this.server = http.createServer((req, res) => res.end(''));
+        this.server = http.createServer(function (request, response) {
+            console.log((new Date()) + ' Received request for ' + request.url);
+            response.writeHead(404);
+            response.end();
+        });
         this.wsServer = new server({ httpServer: this.server });
     }
 
@@ -46,7 +50,18 @@ export default class WebsocketServer {
             logger.info(`Server is listening on ${this.port}`);
         });
 
-        this.wsServer = new server({ httpServer: this.server });
+        this.wsServer = new server({
+            httpServer: this.server,
+            closeTimeout: 5000,
+            autoAcceptConnections: true
+        });
+
+        this.wsServer.on("connect", (connection: connection) => {
+            logger.info(`Client connected: ${connection.remoteAddress}`);
+            connection.on("message", (message) => {
+                logger.debug(`Received: ${message} bytes`);
+            });
+        });
 
         this.wsServer.on("request", async (request) => {
             const socket = request.accept(null, request.origin);
@@ -59,7 +74,7 @@ export default class WebsocketServer {
             // 클라이언트에게 메시지를 받았을 때 처리한다.
             socket.on("message", (message) => {
                 if (message.type === 'binary') {
-                    router.receive(socket, message.binaryData);
+                    router.receive(client, message.binaryData);
                 }
             });
 

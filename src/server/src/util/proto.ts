@@ -1,22 +1,27 @@
 import { Buffer } from 'buffer';
-import protobuf from 'protobufjs';
+import protobuf, { Message } from 'protobufjs';
 
 const protoPath = './proto/';
 
 const server = protobuf.loadSync(`${protoPath}Server.proto`);
 const client = protobuf.loadSync(`${protoPath}Client.proto`);
 
+interface IProto {
+    id: number;
+    type: string;
+}
+
 export default {
     server: {
-        encode: (type, message) => {
+        encode: (type: string, message: any) => {
             const buffer = server.lookupType(`Server.${type}`).encode(message).finish();
             return buffer;
         },
-        decode: (type, buffer) => {
+        decode: (type: string, buffer: Buffer) => {
             const message = server.lookupType(`Server.${type}`).decode(buffer);
             return message;
         },
-        verify: (type, buffer) => {
+        verify: (type: string, buffer: Buffer) => {
             const message = server.lookupType(`Server.${type}`).verify(buffer);
             return message == null;
         },
@@ -30,17 +35,17 @@ export default {
         },
     },
     client: {
-        encode: (type, message) => {
+        encode: (type: IProto, message: any) => {
             const packet = Buffer.alloc(2);
             packet.writeUInt16BE(type.id, 0);
             const buffer = client.lookupType(`Client.${type.type}`).encode(message).finish();
             return Buffer.concat([packet, buffer]);
         },
-        decode: (type, buffer) => {
+        decode: (type: IProto, buffer: Buffer) => {
             const message = client.lookupType(`Client.${type.type}`).decode(buffer);
             return message;
         },
-        verify: (type, buffer) => {
+        verify: (type: IProto, buffer: Buffer) => {
             const message = client.lookupType(`Client.${type.type}`).verify(buffer);
             return message != null;
         },
