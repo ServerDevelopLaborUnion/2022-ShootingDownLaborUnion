@@ -44,12 +44,14 @@ public class GameManager : MonoBehaviour
             NetworkManager.Instance.playerList.Add(temp);
         NetworkManager.Instance.entityList.Add(temp);
         Debug.Log($"{e.Data.UUID} Has Created");
+        temp.EntityObject.transform.SetPositionAndRotation(e.Data.Position, e.Data.Rotation);
         StartCoroutine(SetHostClient(e.Data));
     }
 
     private IEnumerator SetHostClient(EntityData e)
     {
         yield return new WaitForSeconds(1f);
+        if(e.Type == EntityType.Player)
         if(NetworkManager.Instance.playerList.Count == 1)
         {
             e.parantEntity.GetComponent<PlayerBase>().RoomHost = true;

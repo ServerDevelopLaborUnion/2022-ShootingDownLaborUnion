@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 4610916560795007070}
   - component: {fileID: 4610916560795007069}
   - component: {fileID: 4610916560795007068}
+  - component: {fileID: 5194644795837492698}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -231,6 +232,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  DoStop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4610916560795007068}
+        m_TargetAssemblyTypeName: CharacterMove, Assembly-CSharp
+        m_MethodName: StopImmediatelly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnPlayerAtkRangeIn:
     m_PersistentCalls:
       m_Calls:
@@ -247,7 +263,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _range: 6
-  _stopRange: 1
+  _stopRange: 1.5
 --- !u!114 &4610916560795007064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +276,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b70cbfcf789a74abd996e5a762a982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Data>k__BackingField:
+    UUID: 
+    OwnerUUID: 
+    Name: 
+    TargetPosition: {x: 0, y: 0}
+    Type: 0
+    entityStat:
+      _hp: 0
+      _atk: 0
+      _def: 0
+      _speed: 0
+      _atkSpeed: 0
+      _playerJob: 0
+      OnJobChanged:
+        m_PersistentCalls:
+          m_Calls: []
   _playerStat:
     _hp: 5
     _atk: 2
@@ -386,8 +418,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackPercent: 30
-  _acceleration: 50
-  _deAcceleration: 50
   OnVelocityChange:
     m_PersistentCalls:
       m_Calls:
@@ -403,6 +433,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!195 &5194644795837492698
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4610916560795007066}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &4610916560940214624
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +615,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _atkRange: 1
+  _atkRange: 1.3
 --- !u!114 &4610916560940214628
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ import * as Logger from'../util/logger';
 import * as router from'./router';
 import proto from'../util/proto';
 import { Client } from '../types/Client';
+import { Entity } from '../types/Entity';
+import { Vector2 } from '../types/Vector2';
+import { Quaternion } from '../types/Quaternion';
 
 const logger = Logger.getLogger('Websocket');
 
@@ -76,6 +79,13 @@ export default class WebsocketServer {
             // 클라이언트에게 SessionId를 전송한다.
             client.sendPacket(proto.client.encode(proto.client.Connection, {
                 SessionId: client.sessionId,
+            }));
+
+            client.sendPacket(proto.client.encode(proto.client.EntityCreate, {
+                Entity: new Entity(v4(), client.sessionId, "머ㅜ이망할승현아", new Vector2(0, 0), new Quaternion(0, 0, 0, 0), '{"type": 0}')
+            }));
+            client.sendPacket(proto.client.encode(proto.client.EntityCreate, {
+                Entity: new Entity(v4(), client.sessionId, "머ㅜ이망할원석아", new Vector2(3, 0), new Quaternion(0, 0, 0, 0), '{"type": 1}')
             }));
         });
 

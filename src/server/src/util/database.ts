@@ -15,7 +15,7 @@ export default class DatabaseManager
         this.connection = null;
         this.pool.getConnection().then(connection => {
             this.connection = connection;
-        });
+        }); 
     }
 
     Read(table:string, attribute:string) {

@@ -16,21 +16,22 @@ public class CharacterRenderer : MonoBehaviour
 
     public void FlipCharacter(Vector3 pointerVec)
     {
+        pointerVec -= transform.position;
         if (_characterBase.State.CurrentState.HasFlag(CharacterState.State.Attack)) return;
-        if (pointerVec.x < 0)
+        if (pointerVec.x > 0)
         {
             Vector3 scale = transform.localScale;
-            if(scale.x < 0)
+            if(scale.x > 0)
             {
                 WebSocket.Client.ApplyEntityEvent(_characterBase, "DoFlipRight");
             }
             scale.x = Mathf.Abs(scale.x);
             transform.localScale = scale;
         }
-        else if (pointerVec.x > 0)
+        else if (pointerVec.x < 0)
         {
             Vector3 scale = transform.localScale;
-            if (scale.x > 0)
+            if (scale.x < 0)
             {
                 WebSocket.Client.ApplyEntityEvent(_characterBase, "DoFlipLeft");
             }
