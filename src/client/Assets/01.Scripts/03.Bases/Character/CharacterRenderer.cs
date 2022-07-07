@@ -21,7 +21,7 @@ public class CharacterRenderer : MonoBehaviour
         if (pointerVec.x > 0)
         {
             Vector3 scale = transform.localScale;
-            if(scale.x > 0)
+            if(scale.x < 0)
             {
                 WebSocket.Client.ApplyEntityEvent(_characterBase, "DoFlipRight");
             }
@@ -31,7 +31,7 @@ public class CharacterRenderer : MonoBehaviour
         else if (pointerVec.x < 0)
         {
             Vector3 scale = transform.localScale;
-            if (scale.x < 0)
+            if (scale.x > 0)
             {
                 WebSocket.Client.ApplyEntityEvent(_characterBase, "DoFlipLeft");
             }
