@@ -20,12 +20,14 @@ export class Entity {
 
     getSpawnPacket(): Buffer {
         return proto.client.encode(proto.client.EntityCreate, {
-            UUID: this.UUID,
-            OwnerUUID: this.OwnerUUID,
-            Name: this.Name,
-            Position: this.Position,
-            Rotation: this.Rotation,
-            Data: this.Data
+            Entity: {
+                UUID: this.UUID,
+                OwnerUUID: this.OwnerUUID,
+                Name: this.Name,
+                Position: this.Position,
+                Rotation: this.Rotation,
+                Data: this.Data
+            }
         });
     }
 }
