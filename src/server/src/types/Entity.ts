@@ -1,3 +1,4 @@
+import proto from "../util/proto";
 import { Quaternion } from "./Quaternion";
 import { Vector2 } from "./Vector2";
 
@@ -15,5 +16,16 @@ export class Entity {
         this.Position = position;
         this.Rotation = rotation;
         this.Data = data;
+    }
+
+    getSpawnPacket(): Buffer {
+        return proto.client.encode(proto.client.EntityCreate, {
+            UUID: this.UUID,
+            OwnerUUID: this.OwnerUUID,
+            Name: this.Name,
+            Position: this.Position,
+            Rotation: this.Rotation,
+            Data: this.Data
+        });
     }
 }
