@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 플레이어를 찾아주는 클래스
+/// ?뚮젅?댁뼱瑜?李얠븘二쇰뒗 ?대옒??
 /// </summary>
 public class EnemyDetect : MonoBehaviour
 {

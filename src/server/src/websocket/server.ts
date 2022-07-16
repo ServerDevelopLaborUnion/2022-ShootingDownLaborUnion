@@ -9,6 +9,10 @@ import * as Logger from'../util/logger';
 import * as router from'./router';
 import proto from'../util/proto';
 import { Client } from '../types/Client';
+import { Entity } from '../types/Entity';
+import { Vector2 } from '../types/Vector2';
+import { Quaternion } from '../types/Quaternion';
+import { storage } from '../storage';
 
 const logger = Logger.getLogger('Websocket');
 
@@ -24,6 +28,8 @@ export default class WebsocketServer {
         this.server = null;
         this.wsServer = null;
         // this.wsServer = new server({ httpServer: this.server });
+        console.log(storage);
+        this.rooms.set('test', new Room('test', null));
     }
 
     listen(port: number) {
@@ -69,14 +75,22 @@ export default class WebsocketServer {
             });
 
             // 클라이언트에게 에러가 발생했을 때 처리한다.
-            // socket.on("error", (error) => {
-            //     logger.error(`${error}`);
-            // });
+            socket.on("error", (error) => {
+                logger.error(`${error}`);
+            });
 
             // 클라이언트에게 SessionId를 전송한다.
             client.sendPacket(proto.client.encode(proto.client.Connection, {
                 SessionId: client.sessionId,
             }));
+
+            this.rooms.get('test')?.addClient(client);
+
+            const playerEntity = new Entity(v4(), client.sessionId, "머ㅜ이망할승현아", new Vector2(0, 0), new Quaternion(0, 0, 0, 0), '{"type": 0}');
+            const enemyEntity = new Entity(v4(), client.sessionId, "머ㅜ이망할원석아", new Vector2(3, 0), new Quaternion(0, 0, 0, 0), '{"type": 1}');
+
+            this.rooms.get('test')?.addEntity(playerEntity);
+            this.rooms.get('test')?.addEntity(enemyEntity);
         });
 
         this.server.listen(this.port, () => {

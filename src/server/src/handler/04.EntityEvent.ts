@@ -18,7 +18,9 @@ export default {
         }
 
         const EntityEventRequest: any = proto.server.decode(type, buffer);
-        const entity = storage.server.rooms.get("testRoom")?.entitys.get(EntityEventRequest.EntityUUID);
+        console.log(EntityEventRequest.EventName);
+        
+        const entity = storage.server.rooms.get("test")?.entities.get(EntityEventRequest.EntityUUID);
         if (entity !== undefined) {
             if (client.sessionId == entity.OwnerUUID) {
                 storage.server.broadcastPacket(proto.client.encode(proto.client.EntityEvent, {

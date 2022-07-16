@@ -18,7 +18,7 @@ export default {
         }
 
         const EntityMoveRequest: any = proto.server.decode(type, buffer);
-        const entity = storage.server.rooms.get("testRoom")?.entitys.get(EntityMoveRequest.EntityUUID);
+        const entity = storage.server.rooms.get("test")?.entities.get(EntityMoveRequest.EntityUUID);
         if (entity !== undefined) {
             if (client.sessionId == entity.OwnerUUID) {
                 entity.Position = EntityMoveRequest.Position;

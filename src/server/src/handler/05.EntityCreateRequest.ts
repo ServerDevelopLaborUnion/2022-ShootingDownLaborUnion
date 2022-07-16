@@ -17,7 +17,7 @@ module.exports = {
         }
 
         const EntityCreateRequest = proto.server.decode(type, buffer);
-        const entity = storage.server.rooms.get("testRoom")?.entitys.get(EntityCreateRequest.EntityUUID);
+        const entity = storage.server.rooms.get("testRoom")?.entities.get(EntityCreateRequest.EntityUUID);
         if (entity !== undefined) {
             if (client.sessionId == entity.OwnerUUID) {
                 entity.Position = EntityCreateRequest.Position;
