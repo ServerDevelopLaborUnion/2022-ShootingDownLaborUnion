@@ -22,7 +22,6 @@ export default {
         if (entity !== undefined) {
             if (client.sessionId == entity.OwnerUUID) {
                 entity.Position = EntityMoveRequest.Position;
-                console.log(EntityMoveRequest);
                 storage.server.broadcastPacket(proto.client.encode(proto.client.EntityMove, EntityMoveRequest), client);
             }
         }

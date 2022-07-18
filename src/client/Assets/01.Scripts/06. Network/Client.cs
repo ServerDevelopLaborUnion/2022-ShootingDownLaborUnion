@@ -284,7 +284,8 @@ namespace WebSocket
                 _connectionState = ConnectionState.Connecting;
                 _clientWebSocket = new ClientWebSocket();
 
-                var uri = new Uri("ws://172.31.2.199:3000/");
+                // var uri = new Uri("ws://172.31.2.199:3000/");
+                var uri = new Uri("ws://localhost:3000/");
                 await _clientWebSocket.ConnectAsync(uri, CancellationToken.None);
 
                 if (_clientWebSocket.State == WebSocketState.Open)
