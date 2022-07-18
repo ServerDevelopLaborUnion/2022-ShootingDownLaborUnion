@@ -24,9 +24,9 @@ namespace Protobuf {
     static TypeReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgpUeXBlLnByb3RvEghQcm90b2J1ZiIfCgdWZWN0b3IyEgkKAVgYASABKAIS",
-            "CQoBWRgCIAEoAiI4CgpRdWF0ZXJuaW9uEgkKAVgYASABKAISCQoBWRgCIAEo",
-            "AhIJCgFaGAMgASgCEgkKAVcYBCABKAIivQEKBkVudGl0eRIMCgRVVUlEGAEg",
+            "CgpUeXBlLnByb3RvEghQcm90b2J1ZiIfCgdWZWN0b3IyEgkKAXgYASABKAIS",
+            "CQoBeRgCIAEoAiI4CgpRdWF0ZXJuaW9uEgkKAXgYASABKAISCQoBeRgCIAEo",
+            "AhIJCgF6GAMgASgCEgkKAXcYBCABKAIivQEKBkVudGl0eRIMCgRVVUlEGAEg",
             "ASgJEhEKCU93bmVyVVVJRBgCIAEoCRIMCgROYW1lGAMgASgJEiMKCFBvc2l0",
             "aW9uGAQgASgLMhEuUHJvdG9idWYuVmVjdG9yMhIpCg5UYXJnZXRQb3NpdGlv",
             "bhgFIAEoCzIRLlByb3RvYnVmLlZlY3RvcjISJgoIUm90YXRpb24YBiABKAsy",
@@ -88,7 +88,7 @@ namespace Protobuf {
       return new Vector2(this);
     }
 
-    /// <summary>Field number for the "X" field.</summary>
+    /// <summary>Field number for the "x" field.</summary>
     public const int XFieldNumber = 1;
     private float x_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -100,7 +100,7 @@ namespace Protobuf {
       }
     }
 
-    /// <summary>Field number for the "Y" field.</summary>
+    /// <summary>Field number for the "y" field.</summary>
     public const int YFieldNumber = 2;
     private float y_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -316,7 +316,7 @@ namespace Protobuf {
       return new Quaternion(this);
     }
 
-    /// <summary>Field number for the "X" field.</summary>
+    /// <summary>Field number for the "x" field.</summary>
     public const int XFieldNumber = 1;
     private float x_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -328,7 +328,7 @@ namespace Protobuf {
       }
     }
 
-    /// <summary>Field number for the "Y" field.</summary>
+    /// <summary>Field number for the "y" field.</summary>
     public const int YFieldNumber = 2;
     private float y_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -340,7 +340,7 @@ namespace Protobuf {
       }
     }
 
-    /// <summary>Field number for the "Z" field.</summary>
+    /// <summary>Field number for the "z" field.</summary>
     public const int ZFieldNumber = 3;
     private float z_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -352,7 +352,7 @@ namespace Protobuf {
       }
     }
 
-    /// <summary>Field number for the "W" field.</summary>
+    /// <summary>Field number for the "w" field.</summary>
     public const int WFieldNumber = 4;
     private float w_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
