@@ -14,9 +14,23 @@ public class RoomNode : MonoBehaviour
     [SerializeField]
     private Image isPrivate = null;
 
+    private Button _roomEnterButton = null;
+
     public void SetInfo(string roomName, int maxPersonnel, int currentPersonnel, bool isPrivate)
     {
+        _roomEnterButton = GetComponent<Button>();
         this.roomName.text = roomName;
         this.personnel.text = $"{currentPersonnel.ToString()}/{maxPersonnel.ToString()}";
+        _roomEnterButton.onClick.AddListener(() =>
+        {
+            if (isPrivate)
+            {
+
+            }
+            else
+            {
+                LobbyManager.Instance.JoinRoom(roomName);
+            }
+        });
     }
 }
