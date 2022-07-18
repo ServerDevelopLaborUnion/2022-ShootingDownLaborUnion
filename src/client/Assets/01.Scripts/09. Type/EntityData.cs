@@ -63,5 +63,6 @@ public class EntityData
         Rotation = rotation;
         Type = type;
         parantEntity = entity;
+        TargetPosition = position;
     }
 }

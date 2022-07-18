@@ -42,6 +42,8 @@ public class CharacterMove : MonoBehaviour
         if (Vector3.Distance(_base.Data.TargetPosition, transform.position) >= 0.1f)
         {
             //transform.position = Vector3.Lerp(transform.position, _base.Data.TargetPosition, Time.deltaTime * _base.Stat.Speed /     Vector3.Distance(_base.Data.TargetPosition, transform.position));
+            Debug.Log(_base.Data.TargetPosition);
+            Debug.Log(transform.position);
             OnVelocityChange?.Invoke(true);
         }
         else

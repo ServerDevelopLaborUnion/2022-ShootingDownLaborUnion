@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,6 +14,7 @@ public class CharacterAttack : MonoBehaviour
 
     protected Transform _transform = null;
 
+    private GameObject _rangeObject = null;
     protected virtual void Start()
     {
         Transform par = transform;
@@ -25,6 +26,12 @@ public class CharacterAttack : MonoBehaviour
         _base = par.GetComponent<CharacterBase>();
         _playerCol = par.GetComponent<Collider2D>();
         _isPlayer = par.CompareTag("Player");
+        _rangeObject = transform.Find("Range").gameObject;
+        _rangeObject.SetActive(false);
+    }
+    public void ToggleRange()
+    {
+        _rangeObject.SetActive(_rangeObject.activeInHierarchy);
     }
     public void DoAttack(bool clicked)
     {

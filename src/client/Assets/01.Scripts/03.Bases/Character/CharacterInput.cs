@@ -14,21 +14,32 @@ public class CharacterInput : MonoBehaviour
 
     public UnityEvent<bool> GetOnAttackKeyInput => OnAttackKeyInput;
 
-    private UnityEvent<Vector2> OnPointerPositionChange = new UnityEvent<Vector2>();
-
     private Entity playerEntity = null;
     private Vector2 tempPosition = Vector2.zero;
 
+    private CharacterMove _move = null;
+    private CharacterRenderer _renderer = null;
 
     private float _delay = 0;
+
+
+    private void Awake()
+    {
+        _move = GetComponent<CharacterMove>();
+        _renderer = transform.GetChild(0).GetComponent<CharacterRenderer>();
+    }
+
     public void InitEvent()
     {
         _base = GetComponent<CharacterBase>();
         playerEntity = GetComponent<Entity>();
         Transform visualTransform = transform.Find("Visual Sprite");
-        OnMoveKeyInput.AddListener((goal) => GetComponent<CharacterMove>().MoveAgent(goal));
+        OnMoveKeyInput.AddListener((goal) =>
+        {
+            _move.MoveAgent(goal);
+            _renderer.FlipCharacter(goal);
+        });
         OnAttackKeyInput.AddListener((x) => visualTransform.GetComponent<CharacterAttack>().DoAttack(x));
-        OnPointerPositionChange.AddListener((dir) => visualTransform.GetComponent<CharacterRenderer>().FlipCharacter(dir));
     }
     protected virtual void LateUpdate()
     {
@@ -47,7 +58,9 @@ public class CharacterInput : MonoBehaviour
                 _delay = 0;
             }
         }
-        OnAttackKeyInput?.Invoke(Input.GetMouseButtonDown(0));
-        OnPointerPositionChange?.Invoke(MousePos);
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            OnAttackKeyInput?.Invoke(true);
+        }
     }
 }
