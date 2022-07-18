@@ -135,7 +135,7 @@ namespace WebSocket
             }
         }
 
-        public static RoomInfo RoomList { get; internal set; }
+        public static List<RoomInfo> RoomList { get; internal set; }
 
         private static ConnectionState _connectionStateValue = ConnectionState.None;
         private static Task _clentTask = null;
@@ -454,22 +454,22 @@ namespace WebSocket
 
         public static void ApplyEntityMove(Entity entity)
         {
-            if(Storage.CurrentUser.UUID == entity.Data.OwnerUUID)
-            if (_connectionState == ConnectionState.Connected)
-            {
-                var moveEntityRequest = new Protobuf.Server.EntityMoveRequest();
-                moveEntityRequest.EntityUUID = entity.Data.UUID;
-                moveEntityRequest.Position = entity.Data.Position.ToProtobuf();
-                moveEntityRequest.TargetPosition = entity.Data.TargetPosition.ToProtobuf();
-                moveEntityRequest.Rotation = entity.Data.Rotation.ToProtobuf();
+            if (Storage.CurrentUser.UUID == entity.Data.OwnerUUID)
+                if (_connectionState == ConnectionState.Connected)
+                {
+                    var moveEntityRequest = new Protobuf.Server.EntityMoveRequest();
+                    moveEntityRequest.EntityUUID = entity.Data.UUID;
+                    moveEntityRequest.Position = entity.Data.Position.ToProtobuf();
+                    moveEntityRequest.TargetPosition = entity.Data.TargetPosition.ToProtobuf();
+                    moveEntityRequest.Rotation = entity.Data.Rotation.ToProtobuf();
 
 
-                SendPacket(2, moveEntityRequest);
-            }
-            else if (_connectionState == ConnectionState.Disconnected)
-            {
-                Debug.LogWarning("You are not connected to the server.");
-            }
+                    SendPacket(2, moveEntityRequest);
+                }
+                else if (_connectionState == ConnectionState.Disconnected)
+                {
+                    Debug.LogWarning("You are not connected to the server.");
+                }
         }
 
         public static void ApplyEntityEvent(Entity entity, string eventName)
@@ -514,7 +514,7 @@ namespace WebSocket
 
         public static void CreateRoom(string name, string password)
         {
-            // TODO: 방 생성 패킷 전송
+            // TODO: 방 생성 패킷 전송 + password가 없다면 공개방 있다면 비공개방
             throw new NotImplementedException();
         }
 

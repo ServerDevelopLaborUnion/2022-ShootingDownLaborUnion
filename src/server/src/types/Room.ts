@@ -32,14 +32,29 @@ export class Room {
     }
 
     addClient(client: Client) {
+        client.room = this;
         this.clients.push(client);
         this.entities.forEach(entity => {
             client.sendPacket(entity.getSpawnPacket());
         });
     }
 
+    removeClient(client: Client) {
+        this.clients.splice(this.clients.indexOf(client), 1);
+        this.entities.forEach(entity => {
+            if (entity.OwnerUUID === client.sessionId) {
+                this.removeEntity(entity);
+            }
+        });
+    }
+
     addEntity(entity: Entity) {
         this.entities.set(entity.UUID, entity);
         this.broadcast(entity.getSpawnPacket());
+    }
+
+    removeEntity(entity: Entity) {
+        this.entities.delete(entity.UUID);
+        this.broadcast(entity.getDespawnPacket());
     }
 }

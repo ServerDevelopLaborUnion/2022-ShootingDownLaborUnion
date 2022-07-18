@@ -1,10 +1,11 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LobbyManager : MonoSingleton<LobbyManager>
 {
-    private RoomInfo _roomList => WebSocket.Client.RoomList;
+    private List<RoomInfo> _roomList => WebSocket.Client.RoomList;
 
     /// <summary>
     /// 방을 생성할 때 사용되는 함수입니다.
@@ -30,9 +31,10 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     /// 지금 존재하는 방들의 정보를 요청할 때 사용되는 함수입니다.
     /// </summary>
     /// <returns></returns>
-    public RoomInfo[] GetRoomList()
+    public void GetRoomList()
     {
-        return WebSocket.Client.GetRoomList();
+        // TODO : WebSocket.Client.GetRoomList()에서 값을 받았(을때 OnRoomListUpdate를 호출하도록 하기
+        OnRoomListUpdated(WebSocket.Client.GetRoomList().ToList());
     }
 
     /// <summary>
@@ -51,6 +53,7 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     public void OnRoomListUpdated(List<RoomInfo> roomList)
     {
         // UI에 방 정보를 업데이트
+        RoomListManager.Instance.SetRoomList(roomList);
     }
 
     /// <summary>

@@ -1,27 +1,94 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
-public class TestEnemySpawn : MonoBehaviour
+public class PhaseManager : MonoBehaviour
 {
     [SerializeField] private GameObject TargetPlayer;
     [SerializeField] private GameObject Enemey;
+    [SerializeField] protected Text phaseTxt;
     [SerializeField] private float spawnDelay = 3f;
     [SerializeField] private float radius = 7f;
     [SerializeField] private List<PhaseData> phases = new List<PhaseData>();
 
+    private List<EntityData> mapEntityDatas = new List<EntityData>();
+    private int curPhase = 1;
+    private float[,] spawnPoint = new float[4,2];
+
     private void Start()
     {
-        StartCoroutine(Spawn());
+        spawnPoint[0, 0] = 10f;
+        spawnPoint[0, 1] = 10f;
+        
+        spawnPoint[1, 0] = -10f;
+        spawnPoint[1, 1] = 10f;
+
+        spawnPoint[2, 0] = -10f;
+        spawnPoint[2, 1] = -10f;
+
+        spawnPoint[3, 0] = 10f;
+        spawnPoint[3, 1] = -10f;
+
+        //StartCoroutine(Spawn());
     }
 
     private void SetPhase()
     {
-        PhaseData phase = new PhaseData(40, SpawnType.circle);
+        PhaseData phase = new PhaseData(40);
         phases.Add(phase);
     }
 
-    private IEnumerator Spawn()
+    private IEnumerator SpawnEnemy(PhaseData data)
+    {
+        int enemyCnt = 0;
+        while(true)
+        {
+            if (enemyCnt >= data.maxEnemy) break;
+            enemyCnt++;
+            float x = spawnPoint[enemyCnt % 4, 0];
+            float y = spawnPoint[enemyCnt % 4, 1];
+            Vector2 enemyPos = new Vector2(x, y);
+            // TODO : uuid, owner설정
+            EntityData entityData = new EntityData("uuid", "owner", "name", enemyPos, Quaternion.Euler(0f, 0f, 0f), EntityType.Enemy);
+            Entity.EntityCreate(entityData);
+            mapEntityDatas.Add(entityData);
+            yield return new WaitForSeconds(spawnDelay);
+        }
+        CheckPhase();
+
+    }
+
+    private IEnumerator CheckPhase()
+    {
+        while(true)
+        {
+            if (mapEntityDatas.Count == 0)
+            {
+                if (curPhase == 3)
+                    Debug.Log(0);
+                    //TODO : ending
+                else
+                    ChangeFadeOut();
+
+                break;
+            }
+        }
+        yield return null;
+    }
+
+    private void ChangeFadeOut()
+    {
+        phaseTxt.text = string.Format($"Phase {curPhase}");
+        phaseTxt.gameObject.SetActive(true);
+        phaseTxt.material.DOFade(0, 1f).OnComplete(() =>
+        {
+            phaseTxt.gameObject.SetActive(false);
+        });
+    }
+
+    /*private IEnumerator Spawn()
     {
         for(int i =0; i<phases.Count; i++)
         {
@@ -96,8 +163,7 @@ public class TestEnemySpawn : MonoBehaviour
             entityData = new EntityData("uuid", "owner", "name", enemyPos, Quaternion.Euler(0f, 0f, 0f), EntityType.Enemy);
             Entity.EntityCreate(entityData);
 
-
         }
         yield return null;
-    }
+    }*/
 }
