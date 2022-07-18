@@ -18,7 +18,7 @@ export default {
         }
 
         const EntityUpdateRequest: any = proto.server.decode(type, buffer);
-        const entity = storage.server.rooms.get("testRoom")?.entitys.get(EntityUpdateRequest.EntityUUID);
+        const entity = storage.server.rooms.get("testRoom")?.entities.get(EntityUpdateRequest.EntityUUID);
         if (entity !== undefined) {
             if (client.sessionId == entity.OwnerUUID) {
                 storage.server.broadcastPacket(proto.client.encode(proto.client.EntityUpdate, {

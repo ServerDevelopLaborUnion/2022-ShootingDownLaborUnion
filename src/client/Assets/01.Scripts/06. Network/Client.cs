@@ -134,6 +134,9 @@ namespace WebSocket
                 MainTask.Enqueue(() => OnConnectionStateChanged?.Invoke(value));
             }
         }
+
+        public static RoomInfo RoomList { get; internal set; }
+
         private static ConnectionState _connectionStateValue = ConnectionState.None;
         private static Task _clentTask = null;
         private static ClientWebSocket _clientWebSocket = null;
@@ -154,6 +157,7 @@ namespace WebSocket
 
         public static void SendPacket(uint type, Google.Protobuf.IMessage message)
         {
+            Debug.Log(type);
             if (_connectionState == ConnectionState.Connected)
             {
                 byte[] buffer = new byte[message.CalculateSize()];
@@ -351,6 +355,7 @@ namespace WebSocket
                             break;
                         case 2:
                             var entityCreateMessage = Protobuf.Client.EntityCreate.Parser.ParseFrom(buffer);
+                            Debug.Log(entityCreateMessage.Entity.Data);
                             int entityType = JObject.Parse(entityCreateMessage.Entity.Data)["type"].Value<int>();
                             MainTask.Enqueue(() => OnEntityCreateMessage?.Invoke(this, new EntityCreateEventArgs(
                                 new EntityData
@@ -494,6 +499,30 @@ namespace WebSocket
             {
                 Debug.LogWarning("You are not connected to the server.");
             }
+        }
+
+        public static void CreateRoom(string name, string password)
+        {
+            // TODO: 방 생성 패킷 전송
+            throw new NotImplementedException();
+        }
+
+        public static Room JoinRoom(string name, string password)
+        {
+            // TODO: 방 입장 패킷 전송
+            throw new NotImplementedException();
+        }
+
+        public static RoomInfo[] GetRoomList()
+        {
+            // TODO: 방 목록 불러오기
+            throw new NotImplementedException();
+        }
+
+        public static void LeaveRoom()
+        {
+            // TODO: 방 나가기 패킷 전송
+            throw new NotImplementedException();
         }
         #endregion
     }

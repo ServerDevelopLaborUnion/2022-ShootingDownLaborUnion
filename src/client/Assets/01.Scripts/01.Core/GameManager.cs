@@ -50,9 +50,12 @@ public class GameManager : MonoBehaviour
     private IEnumerator SetHostClient(EntityData e)
     {
         yield return new WaitForSeconds(1f);
-        if(NetworkManager.Instance.playerList.Count == 1)
+        if(e.Type == EntityType.Player)
         {
-            e.parantEntity.GetComponent<PlayerBase>().RoomHost = true;
+            if (NetworkManager.Instance.playerList.Count == 1)
+            {
+                e.parantEntity.GetComponent<PlayerBase>().RoomHost = true;
+            }
         }
     }
 

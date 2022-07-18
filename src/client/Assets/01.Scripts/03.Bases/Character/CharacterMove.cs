@@ -70,6 +70,6 @@ public class CharacterMove : MonoBehaviour
 
     public void Knockback(Collider2D col)
     {
-        _rigid.position -= ((Vector2)(col.transform.position - transform.position).normalized) * _knockbackPercent * 0.01f;
+        _rigid.position -= ((Vector2)(col.transform.position - transform.position).normalized) * _knockbackPercent * 0.02f;
     }
 }

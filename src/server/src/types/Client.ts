@@ -2,6 +2,7 @@ import { connection } from "websocket";
 import { v4 } from 'uuid';
 import { User } from "./User";
 import * as Logger from '../util/logger';
+import { Room } from "./Room";
 
 const logger = Logger.getLogger('Client');
 
@@ -9,6 +10,7 @@ export class Client {
     socket: connection;
     sessionId: string;
     user: User;
+    room: Room | null;
     constructor(socket: connection) {
         this.socket = socket;
         this.sessionId = v4();
@@ -16,6 +18,7 @@ export class Client {
             type: "notValid",
             client: this 
         };
+        this.room = null;
     }
 
     sendPacket(buffer: Buffer) {

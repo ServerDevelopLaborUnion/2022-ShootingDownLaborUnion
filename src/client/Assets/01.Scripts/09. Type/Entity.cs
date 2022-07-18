@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 [System.Serializable]
@@ -19,6 +19,7 @@ public class Entity : MonoBehaviour
         temp.Data.parantEntity = temp;
         temp.EntityObject = newObject;
         newObject.transform.SetPositionAndRotation(temp.Data.Position, temp.Data.Rotation);
+        if(data.Type == EntityType.Player)
         if (WebSocket.Client.CheckIsOwnedEntity(temp))
         {
             newObject.AddComponent<CharacterInput>().InitEvent();

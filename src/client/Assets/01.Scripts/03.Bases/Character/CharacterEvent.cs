@@ -23,8 +23,8 @@ public class CharacterEvent : MonoBehaviour
         CharacterMove characterMove = GetComponent<CharacterMove>();
         DoAttack.AddListener(() => characterAttack.DoAttack(true));
         DoMove.AddListener(() => characterAnimation.PlayMoveAnime(true));
-        DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));
-        DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.left));
+        DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(Vector2.left));
+        DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));
     }
     public void InvokeEvent(string eventName)
     {

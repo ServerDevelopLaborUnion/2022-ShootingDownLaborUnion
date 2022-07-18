@@ -39,11 +39,15 @@ class LoginRequest implements IHandler {
                     Token: token,
                 }));
             } else {
-                
+                client.sendPacket(proto.client.encode(proto.client.LoginResponse, {
+                    Success: false,
+                    Message: "You are already logged in.",
+                }));
             }
         } else {
             client.sendPacket(proto.client.encode(proto.client.LoginResponse, {
                 Success: false,
+                Message: "You are already logged in.",
             }));
         }
     }
