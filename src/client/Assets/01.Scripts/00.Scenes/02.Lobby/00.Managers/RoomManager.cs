@@ -7,16 +7,6 @@ public class RoomManager : MonoBehaviour
     private RoomInfo _roomList => WebSocket.Client.RoomList;
 
     /// <summary>
-    /// 서버에서 방 리스트가 업데이트 되면 실행되는 함수입니다.
-    /// ex) 추가, 삭제
-    /// </summary>
-    /// <param name="roomList"></param>
-    public void OnRoomListUpdated(List<RoomInfo> roomList)
-    {
-        // UI에 방 정보를 업데이트
-    }
-
-    /// <summary>
     /// 방을 생성할 때 사용되는 함수입니다.
     /// </summary>
     /// <param name="name"></param>
@@ -51,5 +41,24 @@ public class RoomManager : MonoBehaviour
     public void LeaveRoom()
     {
         WebSocket.Client.LeaveRoom();
+    }
+
+    /// <summary>
+    /// 서버에서 방 리스트가 업데이트 되면 실행되는 함수입니다.
+    /// ex) 추가, 삭제
+    /// </summary>
+    /// <param name="roomList"></param>
+    public void OnRoomListUpdated(List<RoomInfo> roomList)
+    {
+        // UI에 방 정보를 업데이트
+    }
+
+    /// <summary>
+    /// 방에 입장했을 때 실행되는 함수입니다.
+    /// </summary>
+    /// <param name="room"></param>
+    public void OnJoinedRoom(Room room) // 성빈
+    {
+        // RoomScene으로 전환
     }
 }
