@@ -535,6 +535,18 @@ namespace WebSocket
             // TODO: 방 나가기 패킷 전송
             throw new NotImplementedException();
         }
+
+        public static void SetReady(bool isReady){
+
+            // TODO: 레디 패킷 전송
+            throw new NotImplementedException();
+        }
+
+        public static void SetWeapon(int weapon){
+
+            // TODO: 무기 변경 패킷 전송
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }
