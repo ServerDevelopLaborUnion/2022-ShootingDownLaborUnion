@@ -32,6 +32,7 @@ export class Room {
     }
 
     addClient(client: Client) {
+        client.room = this;
         this.clients.push(client);
         this.entities.forEach(entity => {
             client.sendPacket(entity.getSpawnPacket());
