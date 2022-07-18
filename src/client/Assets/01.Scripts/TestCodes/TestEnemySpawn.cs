@@ -38,7 +38,7 @@ public class TestEnemySpawn : MonoBehaviour
                     break;
             }
 
-            yield return new WaitForSeconds(1000f);
+            yield return new WaitForSeconds(10f);
         }
     }
     
@@ -47,7 +47,7 @@ public class TestEnemySpawn : MonoBehaviour
         int enemyCnt = 0;
         while(true)
         {
-            for (float angle = 0; angle < 360; angle += 10)
+            for (float angle = 0; angle < 360; angle += 360f / phaseData.maxEnemy)
             {
                 if (enemyCnt >= phaseData.maxEnemy) yield break;
                 enemyCnt++;
@@ -65,9 +65,9 @@ public class TestEnemySpawn : MonoBehaviour
 
     private IEnumerator WidthSpawn(PhaseData phaseData)
     {
-        for(int i = 0; i < phaseData.maxEnemy; i++)
+        for(int i = 0; i < phaseData.maxEnemy / 2; i++)
         {
-            float x = -8f + 16f / (phaseData.maxEnemy - 1) * i;
+            float x = -8f + 16f / (phaseData.maxEnemy - 1) * i * 2;
             float y = TargetPlayer.transform.position.y -2f;
             Vector2 enemyPos = new Vector2(x, y);
             // TODO : uuid, owner설정
@@ -83,8 +83,21 @@ public class TestEnemySpawn : MonoBehaviour
 
     private IEnumerator LengthSpawn(PhaseData phaseData)
     {
-        
+        for (int i = 0; i < phaseData.maxEnemy / 2; i++)
+        {
+            float x = TargetPlayer.transform.position.x - 2f;
+            float y = -5f + 12f / (phaseData.maxEnemy - 1) * i * 2;
+            Vector2 enemyPos = new Vector2(x, y);
+            // TODO : uuid, owner설정
+            EntityData entityData = new EntityData("uuid", "owner", "name", enemyPos, Quaternion.Euler(0f, 0f, 0f), EntityType.Enemy);
+            Entity.EntityCreate(entityData);
 
+            enemyPos = new Vector2(enemyPos.x * -1, enemyPos.y);
+            entityData = new EntityData("uuid", "owner", "name", enemyPos, Quaternion.Euler(0f, 0f, 0f), EntityType.Enemy);
+            Entity.EntityCreate(entityData);
+
+
+        }
         yield return null;
     }
 }
