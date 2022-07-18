@@ -264,6 +264,7 @@ MonoBehaviour:
         m_CallState: 2
   _range: 6
   _stopRange: 1.5
+  _base: {fileID: 4610916560795007064}
 --- !u!114 &4610916560795007064
 MonoBehaviour:
   m_ObjectHideFlags: 0

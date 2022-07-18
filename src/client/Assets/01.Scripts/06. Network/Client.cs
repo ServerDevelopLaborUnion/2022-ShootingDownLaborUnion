@@ -368,6 +368,7 @@ namespace WebSocket
                                     (EntityType)entityType
                                 )
                             )));
+                            Debug.Log(entityCreateMessage.Entity.Position);
                             break;
                         case 3:
                             var entityMoveMessage = Protobuf.Client.EntityMove.Parser.ParseFrom(buffer);
@@ -444,6 +445,7 @@ namespace WebSocket
 
         public static void ApplyEntityMove(Entity entity)
         {
+            if(Storage.CurrentUser.UUID == entity.Data.OwnerUUID)
             if (_connectionState == ConnectionState.Connected)
             {
                 var moveEntityRequest = new Protobuf.Server.EntityMoveRequest();
