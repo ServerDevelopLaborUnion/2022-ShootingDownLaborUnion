@@ -30,4 +30,10 @@ export class Entity {
             }
         });
     }
+
+    getDespawnPacket(): Buffer {
+        return proto.client.encode(proto.client.EntityRemove, {
+            EntityUUID: this.UUID
+        });
+    }
 }

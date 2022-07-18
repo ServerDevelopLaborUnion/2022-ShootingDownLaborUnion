@@ -3,7 +3,6 @@ import { server, connection } from 'websocket';
 import { v4 } from 'uuid';
 import http from 'node:http';
 
-import { UserType } from'../types/User';
 import { Room } from '../types/Room';
 import * as Logger from'../util/logger';
 import * as router from'./router';
@@ -71,6 +70,9 @@ export default class WebsocketServer {
             // 클라이언트에게 연결이 끊겼을 때 처리한다.
             socket.on("close", (reasonCode, description) => {
                 this.clients.delete(client.sessionId);
+                if (client.room !== null) {
+                    client.room.removeClient(client);
+                }
                 logger.info(`${client.sessionId} disconnected: ${reasonCode} ${description}`);
             });
 
