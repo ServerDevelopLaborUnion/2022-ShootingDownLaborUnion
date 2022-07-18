@@ -25,28 +25,36 @@ namespace Protobuf.Client {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgxDbGllbnQucHJvdG8SD1Byb3RvYnVmLkNsaWVudBoKVHlwZS5wcm90byIf",
-            "CgpDb25uZWN0aW9uEhEKCVNlc3Npb25JZBgBIAEoCSKGAQoNTG9naW5SZXNw",
-            "b25zZRIPCgdTdWNjZXNzGAEgASgIEhUKCFVzZXJVVUlEGAIgASgJSACIAQES",
-            "FQoIVXNlcm5hbWUYAyABKAlIAYgBARISCgVUb2tlbhgEIAEoCUgCiAEBQgsK",
-            "CV9Vc2VyVVVJREILCglfVXNlcm5hbWVCCAoGX1Rva2VuIjAKDEVudGl0eUNy",
-            "ZWF0ZRIgCgZFbnRpdHkYASABKAsyEC5Qcm90b2J1Zi5FbnRpdHkimAEKCkVu",
-            "dGl0eU1vdmUSEgoKRW50aXR5VVVJRBgBIAEoCRIjCghQb3NpdGlvbhgCIAEo",
-            "CzIRLlByb3RvYnVmLlZlY3RvcjISKQoOVGFyZ2V0UG9zaXRpb24YAyABKAsy",
-            "ES5Qcm90b2J1Zi5WZWN0b3IyEiYKCFJvdGF0aW9uGAQgASgLMhQuUHJvdG9i",
-            "dWYuUXVhdGVybmlvbiIiCgxFbnRpdHlSZW1vdmUSEgoKRW50aXR5VVVJRBgB",
-            "IAEoCSI2CgxFbnRpdHlVcGRhdGUSEgoKRW50aXR5VVVJRBgBIAEoCRISCgpF",
-            "bnRpdHlEYXRhGAIgASgJIjQKC0VudGl0eUV2ZW50EhIKCkVudGl0eVVVSUQY",
-            "ASABKAkSEQoJRXZlbnROYW1lGAIgASgJYgZwcm90bzM="));
+            "CgpDb25uZWN0aW9uEhEKCVNlc3Npb25JZBgBIAEoCSKoAQoNTG9naW5SZXNw",
+            "b25zZRIPCgdTdWNjZXNzGAEgASgIEhQKB01lc3NhZ2UYAiABKAlIAIgBARIV",
+            "CghVc2VyVVVJRBgDIAEoCUgBiAEBEhUKCFVzZXJuYW1lGAQgASgJSAKIAQES",
+            "EgoFVG9rZW4YBSABKAlIA4gBAUIKCghfTWVzc2FnZUILCglfVXNlclVVSURC",
+            "CwoJX1VzZXJuYW1lQggKBl9Ub2tlbiIwCgxFbnRpdHlDcmVhdGUSIAoGRW50",
+            "aXR5GAEgASgLMhAuUHJvdG9idWYuRW50aXR5IpgBCgpFbnRpdHlNb3ZlEhIK",
+            "CkVudGl0eVVVSUQYASABKAkSIwoIUG9zaXRpb24YAiABKAsyES5Qcm90b2J1",
+            "Zi5WZWN0b3IyEikKDlRhcmdldFBvc2l0aW9uGAMgASgLMhEuUHJvdG9idWYu",
+            "VmVjdG9yMhImCghSb3RhdGlvbhgEIAEoCzIULlByb3RvYnVmLlF1YXRlcm5p",
+            "b24iIgoMRW50aXR5UmVtb3ZlEhIKCkVudGl0eVVVSUQYASABKAkiNgoMRW50",
+            "aXR5VXBkYXRlEhIKCkVudGl0eVVVSUQYASABKAkSEgoKRW50aXR5RGF0YRgC",
+            "IAEoCSJHCgtFbnRpdHlFdmVudBISCgpFbnRpdHlVVUlEGAEgASgJEhEKCUV2",
+            "ZW50TmFtZRgCIAEoCRIRCglFdmVudERhdGEYAyABKAkibQoSUm9vbUNyZWF0",
+            "ZVJlc3BvbnNlEg8KB1N1Y2Nlc3MYASABKAgSFQoIUm9vbVVVSUQYAiABKAlI",
+            "AIgBARIVCghSb29tTmFtZRgDIAEoCUgBiAEBQgsKCV9Sb29tVVVJREILCglf",
+            "Um9vbU5hbWUiawoQUm9vbUpvaW5SZXNwb25zZRIPCgdTdWNjZXNzGAEgASgI",
+            "EhUKCFJvb21VVUlEGAIgASgJSACIAQESFQoIUm9vbU5hbWUYAyABKAlIAYgB",
+            "AUILCglfUm9vbVVVSURCCwoJX1Jvb21OYW1lYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protobuf.TypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.Connection), global::Protobuf.Client.Connection.Parser, new[]{ "SessionId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.LoginResponse), global::Protobuf.Client.LoginResponse.Parser, new[]{ "Success", "UserUUID", "Username", "Token" }, new[]{ "UserUUID", "Username", "Token" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.LoginResponse), global::Protobuf.Client.LoginResponse.Parser, new[]{ "Success", "Message", "UserUUID", "Username", "Token" }, new[]{ "Message", "UserUUID", "Username", "Token" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityCreate), global::Protobuf.Client.EntityCreate.Parser, new[]{ "Entity" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityMove), global::Protobuf.Client.EntityMove.Parser, new[]{ "EntityUUID", "Position", "TargetPosition", "Rotation" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityRemove), global::Protobuf.Client.EntityRemove.Parser, new[]{ "EntityUUID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityUpdate), global::Protobuf.Client.EntityUpdate.Parser, new[]{ "EntityUUID", "EntityData" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityEvent), global::Protobuf.Client.EntityEvent.Parser, new[]{ "EntityUUID", "EventName" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.EntityEvent), global::Protobuf.Client.EntityEvent.Parser, new[]{ "EntityUUID", "EventName", "EventData" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.RoomCreateResponse), global::Protobuf.Client.RoomCreateResponse.Parser, new[]{ "Success", "RoomUUID", "RoomName" }, new[]{ "RoomUUID", "RoomName" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Client.RoomJoinResponse), global::Protobuf.Client.RoomJoinResponse.Parser, new[]{ "Success", "RoomUUID", "RoomName" }, new[]{ "RoomUUID", "RoomName" }, null, null, null)
           }));
     }
     #endregion
@@ -283,6 +291,7 @@ namespace Protobuf.Client {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public LoginResponse(LoginResponse other) : this() {
       success_ = other.success_;
+      message_ = other.message_;
       userUUID_ = other.userUUID_;
       username_ = other.username_;
       token_ = other.token_;
@@ -307,8 +316,32 @@ namespace Protobuf.Client {
       }
     }
 
+    /// <summary>Field number for the "Message" field.</summary>
+    public const int MessageFieldNumber = 2;
+    private string message_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Message {
+      get { return message_ ?? ""; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "Message" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMessage {
+      get { return message_ != null; }
+    }
+    /// <summary>Clears the value of the "Message" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMessage() {
+      message_ = null;
+    }
+
     /// <summary>Field number for the "UserUUID" field.</summary>
-    public const int UserUUIDFieldNumber = 2;
+    public const int UserUUIDFieldNumber = 3;
     private string userUUID_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -332,7 +365,7 @@ namespace Protobuf.Client {
     }
 
     /// <summary>Field number for the "Username" field.</summary>
-    public const int UsernameFieldNumber = 3;
+    public const int UsernameFieldNumber = 4;
     private string username_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -356,7 +389,7 @@ namespace Protobuf.Client {
     }
 
     /// <summary>Field number for the "Token" field.</summary>
-    public const int TokenFieldNumber = 4;
+    public const int TokenFieldNumber = 5;
     private string token_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -395,6 +428,7 @@ namespace Protobuf.Client {
         return true;
       }
       if (Success != other.Success) return false;
+      if (Message != other.Message) return false;
       if (UserUUID != other.UserUUID) return false;
       if (Username != other.Username) return false;
       if (Token != other.Token) return false;
@@ -406,6 +440,7 @@ namespace Protobuf.Client {
     public override int GetHashCode() {
       int hash = 1;
       if (Success != false) hash ^= Success.GetHashCode();
+      if (HasMessage) hash ^= Message.GetHashCode();
       if (HasUserUUID) hash ^= UserUUID.GetHashCode();
       if (HasUsername) hash ^= Username.GetHashCode();
       if (HasToken) hash ^= Token.GetHashCode();
@@ -431,16 +466,20 @@ namespace Protobuf.Client {
         output.WriteRawTag(8);
         output.WriteBool(Success);
       }
-      if (HasUserUUID) {
+      if (HasMessage) {
         output.WriteRawTag(18);
+        output.WriteString(Message);
+      }
+      if (HasUserUUID) {
+        output.WriteRawTag(26);
         output.WriteString(UserUUID);
       }
       if (HasUsername) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Username);
       }
       if (HasToken) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(Token);
       }
       if (_unknownFields != null) {
@@ -457,16 +496,20 @@ namespace Protobuf.Client {
         output.WriteRawTag(8);
         output.WriteBool(Success);
       }
-      if (HasUserUUID) {
+      if (HasMessage) {
         output.WriteRawTag(18);
+        output.WriteString(Message);
+      }
+      if (HasUserUUID) {
+        output.WriteRawTag(26);
         output.WriteString(UserUUID);
       }
       if (HasUsername) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Username);
       }
       if (HasToken) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(Token);
       }
       if (_unknownFields != null) {
@@ -481,6 +524,9 @@ namespace Protobuf.Client {
       int size = 0;
       if (Success != false) {
         size += 1 + 1;
+      }
+      if (HasMessage) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
       }
       if (HasUserUUID) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(UserUUID);
@@ -505,6 +551,9 @@ namespace Protobuf.Client {
       }
       if (other.Success != false) {
         Success = other.Success;
+      }
+      if (other.HasMessage) {
+        Message = other.Message;
       }
       if (other.HasUserUUID) {
         UserUUID = other.UserUUID;
@@ -535,14 +584,18 @@ namespace Protobuf.Client {
             break;
           }
           case 18: {
-            UserUUID = input.ReadString();
+            Message = input.ReadString();
             break;
           }
           case 26: {
-            Username = input.ReadString();
+            UserUUID = input.ReadString();
             break;
           }
           case 34: {
+            Username = input.ReadString();
+            break;
+          }
+          case 42: {
             Token = input.ReadString();
             break;
           }
@@ -566,14 +619,18 @@ namespace Protobuf.Client {
             break;
           }
           case 18: {
-            UserUUID = input.ReadString();
+            Message = input.ReadString();
             break;
           }
           case 26: {
-            Username = input.ReadString();
+            UserUUID = input.ReadString();
             break;
           }
           case 34: {
+            Username = input.ReadString();
+            break;
+          }
+          case 42: {
             Token = input.ReadString();
             break;
           }
@@ -1575,6 +1632,7 @@ namespace Protobuf.Client {
     public EntityEvent(EntityEvent other) : this() {
       entityUUID_ = other.entityUUID_;
       eventName_ = other.eventName_;
+      eventData_ = other.eventData_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1608,6 +1666,18 @@ namespace Protobuf.Client {
       }
     }
 
+    /// <summary>Field number for the "EventData" field.</summary>
+    public const int EventDataFieldNumber = 3;
+    private string eventData_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EventData {
+      get { return eventData_; }
+      set {
+        eventData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1625,6 +1695,7 @@ namespace Protobuf.Client {
       }
       if (EntityUUID != other.EntityUUID) return false;
       if (EventName != other.EventName) return false;
+      if (EventData != other.EventData) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1634,6 +1705,7 @@ namespace Protobuf.Client {
       int hash = 1;
       if (EntityUUID.Length != 0) hash ^= EntityUUID.GetHashCode();
       if (EventName.Length != 0) hash ^= EventName.GetHashCode();
+      if (EventData.Length != 0) hash ^= EventData.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1660,6 +1732,10 @@ namespace Protobuf.Client {
         output.WriteRawTag(18);
         output.WriteString(EventName);
       }
+      if (EventData.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(EventData);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1678,6 +1754,10 @@ namespace Protobuf.Client {
         output.WriteRawTag(18);
         output.WriteString(EventName);
       }
+      if (EventData.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(EventData);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1693,6 +1773,9 @@ namespace Protobuf.Client {
       }
       if (EventName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(EventName);
+      }
+      if (EventData.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EventData);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1711,6 +1794,9 @@ namespace Protobuf.Client {
       }
       if (other.EventName.Length != 0) {
         EventName = other.EventName;
+      }
+      if (other.EventData.Length != 0) {
+        EventData = other.EventData;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1735,6 +1821,10 @@ namespace Protobuf.Client {
             EventName = input.ReadString();
             break;
           }
+          case 26: {
+            EventData = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -1756,6 +1846,590 @@ namespace Protobuf.Client {
           }
           case 18: {
             EventName = input.ReadString();
+            break;
+          }
+          case 26: {
+            EventData = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// id: 7
+  /// </summary>
+  public sealed partial class RoomCreateResponse : pb::IMessage<RoomCreateResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<RoomCreateResponse> _parser = new pb::MessageParser<RoomCreateResponse>(() => new RoomCreateResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<RoomCreateResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protobuf.Client.ClientReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RoomCreateResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RoomCreateResponse(RoomCreateResponse other) : this() {
+      success_ = other.success_;
+      roomUUID_ = other.roomUUID_;
+      roomName_ = other.roomName_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RoomCreateResponse Clone() {
+      return new RoomCreateResponse(this);
+    }
+
+    /// <summary>Field number for the "Success" field.</summary>
+    public const int SuccessFieldNumber = 1;
+    private bool success_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Success {
+      get { return success_; }
+      set {
+        success_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RoomUUID" field.</summary>
+    public const int RoomUUIDFieldNumber = 2;
+    private string roomUUID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomUUID {
+      get { return roomUUID_ ?? ""; }
+      set {
+        roomUUID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "RoomUUID" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRoomUUID {
+      get { return roomUUID_ != null; }
+    }
+    /// <summary>Clears the value of the "RoomUUID" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRoomUUID() {
+      roomUUID_ = null;
+    }
+
+    /// <summary>Field number for the "RoomName" field.</summary>
+    public const int RoomNameFieldNumber = 3;
+    private string roomName_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomName {
+      get { return roomName_ ?? ""; }
+      set {
+        roomName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "RoomName" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRoomName {
+      get { return roomName_ != null; }
+    }
+    /// <summary>Clears the value of the "RoomName" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRoomName() {
+      roomName_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as RoomCreateResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(RoomCreateResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Success != other.Success) return false;
+      if (RoomUUID != other.RoomUUID) return false;
+      if (RoomName != other.RoomName) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Success != false) hash ^= Success.GetHashCode();
+      if (HasRoomUUID) hash ^= RoomUUID.GetHashCode();
+      if (HasRoomName) hash ^= RoomName.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (HasRoomUUID) {
+        output.WriteRawTag(18);
+        output.WriteString(RoomUUID);
+      }
+      if (HasRoomName) {
+        output.WriteRawTag(26);
+        output.WriteString(RoomName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (HasRoomUUID) {
+        output.WriteRawTag(18);
+        output.WriteString(RoomUUID);
+      }
+      if (HasRoomName) {
+        output.WriteRawTag(26);
+        output.WriteString(RoomName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Success != false) {
+        size += 1 + 1;
+      }
+      if (HasRoomUUID) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomUUID);
+      }
+      if (HasRoomName) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomName);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(RoomCreateResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Success != false) {
+        Success = other.Success;
+      }
+      if (other.HasRoomUUID) {
+        RoomUUID = other.RoomUUID;
+      }
+      if (other.HasRoomName) {
+        RoomName = other.RoomName;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 18: {
+            RoomUUID = input.ReadString();
+            break;
+          }
+          case 26: {
+            RoomName = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 18: {
+            RoomUUID = input.ReadString();
+            break;
+          }
+          case 26: {
+            RoomName = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// id: 8
+  /// </summary>
+  public sealed partial class RoomJoinResponse : pb::IMessage<RoomJoinResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<RoomJoinResponse> _parser = new pb::MessageParser<RoomJoinResponse>(() => new RoomJoinResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<RoomJoinResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protobuf.Client.ClientReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RoomJoinResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RoomJoinResponse(RoomJoinResponse other) : this() {
+      success_ = other.success_;
+      roomUUID_ = other.roomUUID_;
+      roomName_ = other.roomName_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RoomJoinResponse Clone() {
+      return new RoomJoinResponse(this);
+    }
+
+    /// <summary>Field number for the "Success" field.</summary>
+    public const int SuccessFieldNumber = 1;
+    private bool success_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Success {
+      get { return success_; }
+      set {
+        success_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RoomUUID" field.</summary>
+    public const int RoomUUIDFieldNumber = 2;
+    private string roomUUID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomUUID {
+      get { return roomUUID_ ?? ""; }
+      set {
+        roomUUID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "RoomUUID" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRoomUUID {
+      get { return roomUUID_ != null; }
+    }
+    /// <summary>Clears the value of the "RoomUUID" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRoomUUID() {
+      roomUUID_ = null;
+    }
+
+    /// <summary>Field number for the "RoomName" field.</summary>
+    public const int RoomNameFieldNumber = 3;
+    private string roomName_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomName {
+      get { return roomName_ ?? ""; }
+      set {
+        roomName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "RoomName" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRoomName {
+      get { return roomName_ != null; }
+    }
+    /// <summary>Clears the value of the "RoomName" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRoomName() {
+      roomName_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as RoomJoinResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(RoomJoinResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Success != other.Success) return false;
+      if (RoomUUID != other.RoomUUID) return false;
+      if (RoomName != other.RoomName) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Success != false) hash ^= Success.GetHashCode();
+      if (HasRoomUUID) hash ^= RoomUUID.GetHashCode();
+      if (HasRoomName) hash ^= RoomName.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (HasRoomUUID) {
+        output.WriteRawTag(18);
+        output.WriteString(RoomUUID);
+      }
+      if (HasRoomName) {
+        output.WriteRawTag(26);
+        output.WriteString(RoomName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (HasRoomUUID) {
+        output.WriteRawTag(18);
+        output.WriteString(RoomUUID);
+      }
+      if (HasRoomName) {
+        output.WriteRawTag(26);
+        output.WriteString(RoomName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Success != false) {
+        size += 1 + 1;
+      }
+      if (HasRoomUUID) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomUUID);
+      }
+      if (HasRoomName) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomName);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(RoomJoinResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Success != false) {
+        Success = other.Success;
+      }
+      if (other.HasRoomUUID) {
+        RoomUUID = other.RoomUUID;
+      }
+      if (other.HasRoomName) {
+        RoomName = other.RoomName;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 18: {
+            RoomUUID = input.ReadString();
+            break;
+          }
+          case 26: {
+            RoomName = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 18: {
+            RoomUUID = input.ReadString();
+            break;
+          }
+          case 26: {
+            RoomName = input.ReadString();
             break;
           }
         }

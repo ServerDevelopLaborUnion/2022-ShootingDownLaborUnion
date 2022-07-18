@@ -33,9 +33,32 @@ message EntityUpdateRequest {
 message EntityEventRequest {
     string EntityUUID = 1;
     string EventName = 2;
+    string EventData = 3;
 }
 
 // id: 5
 message EntityCreateRequest {
     Entity Entity = 1;
+}
+
+// id: 6
+message RoomCreateRequest {
+    string Name = 1;
+    string Password = 2;
+}
+
+// id: 7
+message RoomJoinRequest {
+    string RoomUUID = 1;
+    string Password = 2;
+}
+
+// id: 8
+message RoomLeaveRequest {
+    
+}
+
+// id: 9
+message RoomListRequest {
+    
 }

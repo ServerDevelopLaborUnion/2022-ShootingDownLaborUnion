@@ -134,6 +134,9 @@ namespace WebSocket
                 MainTask.Enqueue(() => OnConnectionStateChanged?.Invoke(value));
             }
         }
+
+        public static RoomInfo RoomList { get; internal set; }
+
         private static ConnectionState _connectionStateValue = ConnectionState.None;
         private static Task _clentTask = null;
         private static ClientWebSocket _clientWebSocket = null;
@@ -154,6 +157,7 @@ namespace WebSocket
 
         public static void SendPacket(uint type, Google.Protobuf.IMessage message)
         {
+            Debug.Log(type);
             if (_connectionState == ConnectionState.Connected)
             {
                 byte[] buffer = new byte[message.CalculateSize()];
@@ -188,9 +192,10 @@ namespace WebSocket
                 _clientWebSocket.Dispose();
                 _clientWebSocket = null;
             }
+            SessionID = "";
             _connectionState = ConnectionState.Disconnected;
             MainTask.Enqueue(() => OnDisconnected?.Invoke("Disconnected"));
-            Debug.Log("Disconnected");
+            ToolbarControl.UpdateUI();
         }
 
         public static void SendMessage(byte[] buffer)
@@ -220,6 +225,12 @@ namespace WebSocket
                 Initialize();
         }
 
+        private void OnDestroy()
+        {
+            Client.Disconnect();
+            Debug.LogWarning($"Client Destroyed");
+        }
+
         private void OnApplicationQuit()
         {
             Disconnect();
@@ -235,6 +246,9 @@ namespace WebSocket
             OnConnectionMessage += (sender, e) =>
             {
                 SessionID = e.SessionId;
+                ToolbarControl.UpdateUI();
+
+                Storage.CurrentUser = new User(e.SessionId, "TestUser");
             };
             OnLoginResponseMessage += (sender, e) =>
             {
@@ -268,9 +282,9 @@ namespace WebSocket
             try
             {
                 _connectionState = ConnectionState.Connecting;
-                Debug.Log("Connecting...");
                 _clientWebSocket = new ClientWebSocket();
 
+                // var uri = new Uri("ws://172.31.2.199:3000/");
                 var uri = new Uri("ws://localhost:3000/");
                 await _clientWebSocket.ConnectAsync(uri, CancellationToken.None);
 
@@ -278,7 +292,7 @@ namespace WebSocket
                 {
                     _connectionState = ConnectionState.Connected;
                     MainTask.Enqueue(() => OnConnected?.Invoke("Connected"));
-                    Debug.Log("Connected");
+                    ToolbarControl.UpdateUI();
 
                     var memoryStream = new MemoryStream();
 
@@ -346,9 +360,11 @@ namespace WebSocket
                                 loginResponseMessage.Username,
                                 loginResponseMessage.Token
                             )));
+                            ToolbarControl.UpdateUI();
                             break;
                         case 2:
                             var entityCreateMessage = Protobuf.Client.EntityCreate.Parser.ParseFrom(buffer);
+                            Debug.Log(entityCreateMessage.Entity.Data);
                             int entityType = JObject.Parse(entityCreateMessage.Entity.Data)["type"].Value<int>();
                             MainTask.Enqueue(() => OnEntityCreateMessage?.Invoke(this, new EntityCreateEventArgs(
                                 new EntityData
@@ -361,6 +377,7 @@ namespace WebSocket
                                     (EntityType)entityType
                                 )
                             )));
+                            Debug.Log(entityCreateMessage.Entity.Position);
                             break;
                         case 3:
                             var entityMoveMessage = Protobuf.Client.EntityMove.Parser.ParseFrom(buffer);
@@ -437,6 +454,7 @@ namespace WebSocket
 
         public static void ApplyEntityMove(Entity entity)
         {
+            if(Storage.CurrentUser.UUID == entity.Data.OwnerUUID)
             if (_connectionState == ConnectionState.Connected)
             {
                 var moveEntityRequest = new Protobuf.Server.EntityMoveRequest();
@@ -468,6 +486,54 @@ namespace WebSocket
             {
                 Debug.LogWarning("You are not connected to the server.");
             }
+        }
+        public static void CreateEntityEvent(Entity entity)
+        {
+            if (_connectionState == ConnectionState.Connected)
+            {
+                var createEntityRequest = new Protobuf.Server.EntityCreateRequest();
+
+                createEntityRequest.Entity = new Protobuf.Entity();
+                createEntityRequest.Entity.UUID = entity.Data.UUID;
+                createEntityRequest.Entity.OwnerUUID = entity.Data.OwnerUUID;
+                createEntityRequest.Entity.Name = entity.Data.Name;
+                createEntityRequest.Entity.Position = entity.Data.Position.ToProtobuf();
+                createEntityRequest.Entity.Rotation = entity.Data.Rotation.ToProtobuf();
+                createEntityRequest.Entity.Data = JObject.FromObject(new
+                {
+                    type = (int)entity.Data.Type
+                }).ToString();
+
+                SendPacket(5, createEntityRequest);
+            }
+            else if (_connectionState == ConnectionState.Disconnected)
+            {
+                Debug.LogWarning("You are not connected to the server.");
+            }
+        }
+
+        public static void CreateRoom(string name, string password)
+        {
+            // TODO: 방 생성 패킷 전송
+            throw new NotImplementedException();
+        }
+
+        public static Room JoinRoom(string name, string password)
+        {
+            // TODO: 방 입장 패킷 전송
+            throw new NotImplementedException();
+        }
+
+        public static RoomInfo[] GetRoomList()
+        {
+            // TODO: 방 목록 불러오기
+            throw new NotImplementedException();
+        }
+
+        public static void LeaveRoom()
+        {
+            // TODO: 방 나가기 패킷 전송
+            throw new NotImplementedException();
         }
         #endregion
     }
