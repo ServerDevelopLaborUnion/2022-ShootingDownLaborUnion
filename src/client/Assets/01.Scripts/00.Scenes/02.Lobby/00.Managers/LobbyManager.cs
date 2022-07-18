@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LobbyManager : MonoBehaviour
+public class LobbyManager : MonoSingleton<LobbyManager>
 {
     private RoomInfo _roomList => WebSocket.Client.RoomList;
 
