@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomManager : MonoBehaviour
+public class LobbyManager : MonoBehaviour
 {
     private RoomInfo _roomList => WebSocket.Client.RoomList;
 
@@ -57,8 +57,9 @@ public class RoomManager : MonoBehaviour
     /// 방에 입장했을 때 실행되는 함수입니다.
     /// </summary>
     /// <param name="room"></param>
-    public void OnJoinedRoom(Room room) // 성빈
+    public void OnJoinedRoom(Room room)
     {
-        // RoomScene으로 전환
+        Storage.CurrentRoom = room;
+        SceneLoader.Load(SceneType.Room);
     }
 }
