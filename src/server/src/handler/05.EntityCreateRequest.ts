@@ -1,8 +1,9 @@
 import { storage } from "../storage";
 import { Client } from "../types/Client";
+import { getLogger } from "../util/logger";
+import proto from "../util/proto";
 
-const Logger = require('../util/logger').getLogger('EntityCreateRequest');
-const proto = require('../util/proto');
+const Logger = getLogger('EntityCreateRequest');
 
 const id = 5;
 const type = 'EntityCreateRequest';
@@ -16,7 +17,7 @@ module.exports = {
             return;
         }
 
-        const EntityCreateRequest = proto.server.decode(type, buffer);
+        const EntityCreateRequest: any = proto.server.decode(type, buffer);
         const entity = storage.server.rooms.get("testRoom")?.entities.get(EntityCreateRequest.EntityUUID);
         if (entity !== undefined) {
             if (client.sessionId == entity.OwnerUUID) {

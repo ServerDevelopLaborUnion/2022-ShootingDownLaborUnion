@@ -33,11 +33,13 @@ export class Room {
 
     addClient(client: Client) {
         this.clients.push(client);
+        this.entities.forEach(entity => {
+            client.sendPacket(entity.getSpawnPacket());
+        });
     }
 
     addEntity(entity: Entity) {
         this.entities.set(entity.UUID, entity);
-
         this.broadcast(entity.getSpawnPacket());
     }
 }
