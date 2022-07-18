@@ -1,4 +1,5 @@
 using static Yields;
+using static Define;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +13,17 @@ public class ElectricEffect : BaseDungeonEnter
 
     [SerializeField]
     private SpriteRenderer _player;
+
+    [Header("카메라")]
+    [SerializeField]
+    private float _camDuration = 2f;
+    [SerializeField]
+    private float _camStrength = 0.1f;
+    [SerializeField]
+    private float _camRandomness = 90f;
+
+    [SerializeField]
+    private int _camVibrato = 30;
 
     private Animator _animator;
 
@@ -27,6 +39,7 @@ public class ElectricEffect : BaseDungeonEnter
         _animator = GetComponent<Animator>();
     }
 
+
     protected void EventSpawnPlayer()
     {
         _player.DOFade(1f, 1f);
@@ -34,12 +47,13 @@ public class ElectricEffect : BaseDungeonEnter
 
     public override void EnterDirecting()
     {
+        MainCam.DOShakePosition(_camDuration, _camStrength, _camVibrato, _camRandomness);
         _animator.Play(ANIMATIONHASH);
-        Debug.Log("엥/");
         StartCoroutine(ActiveFalse());
     }
 
-        private IEnumerator ActiveFalse(){
+    private IEnumerator ActiveFalse()
+    {
         yield return WaitForSeconds(_animationClip.length);
         gameObject.SetActive(false);
     }

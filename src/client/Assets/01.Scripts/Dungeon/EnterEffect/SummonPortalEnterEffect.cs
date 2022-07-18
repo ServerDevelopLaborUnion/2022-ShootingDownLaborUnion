@@ -1,3 +1,5 @@
+using static Yields;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,13 +16,30 @@ public class SummonPortalEnterEffect : BaseDungeonEnter
     [SerializeField]
     private float _fadeDuration = 1.5f;
 
-    private int SUMMONPORTAL = Animator.StringToHash("SummonPortal");
+
+
+    [Space]
+    [SerializeField]
+    private float _camExitDuration = 2f;
+    [SerializeField]
+    private float _camExitStrength = 0.1f;
+    [SerializeField]
+    private float _camExitRandomness = 90f;
+
+    [SerializeField]
+    private int _camExitVibrato = 30;
+
+    private int SUMMONPORTAL = Animator.StringToHash("SummonPortal 2");
 
     private Animator _animator = null;
+
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.DOFade(0f, 0f);
     }
 
     protected void EventSpawnPlayer()
@@ -28,10 +47,31 @@ public class SummonPortalEnterEffect : BaseDungeonEnter
         _player.DOFade(1f, _fadeDuration);
     }
 
+
+    // bool isCan;
+    // float timer = 0f;
+    // private void Update()
+    // {
+    //     if (isCan)
+    //     {
+    //         timer += Time.deltaTime;
+    //     }
+    // }
+
+    // protected void EventTimer()
+    // {
+    //     isCan = true;
+    // }
+
+    // protected void DebugTimer()
+    // {
+    //     Debug.Log(timer);
+    // }
+
     public override void EnterDirecting()
     {
+        _spriteRenderer.DOFade(1f, 0f);
         _animator.Play(SUMMONPORTAL);
-
     }
 
 

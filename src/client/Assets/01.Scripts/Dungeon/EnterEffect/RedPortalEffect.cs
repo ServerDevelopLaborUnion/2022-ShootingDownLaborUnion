@@ -22,6 +22,18 @@ public class RedPortalEffect : BaseDungeonEnter
     [SerializeField]
     private float _fadeDuration = 1f;
 
+
+    // [Header("카메라")]
+    // [SerializeField]
+    // private float _camDuration = 1f;
+    // [SerializeField]
+    // private float _camStrength = 3f;
+    // [SerializeField]
+    // private float _camRandomness = 90f;
+
+    // [SerializeField]
+    // private int _camVibrato = 10;
+
     public override void EnterDirecting()
     {
         StartCoroutine(EnteringDirect());
@@ -29,12 +41,15 @@ public class RedPortalEffect : BaseDungeonEnter
 
     public override float GetAmountDuration()
     {
-        _amountDuration = _scaleDuration*2 + _fadeDuration + _playerMoveDuration;
+        _amountDuration = _scaleDuration + _fadeDuration + _playerMoveDuration + _scaleDuration;
         return _amountDuration;
     }
 
     private IEnumerator EnteringDirect()
     {
+        // MainCam.DOShakePosition(_camDuration, _camStrength, _camVibrato, _camRandomness);
+        // yield return WaitForSeconds(_camDuration + 0.5f);
+
         transform.DOScale(Vector3.one, _scaleDuration);
         yield return WaitForSeconds(_scaleDuration);
 
@@ -44,8 +59,8 @@ public class RedPortalEffect : BaseDungeonEnter
         _player.transform.DOMove(_playerEndPos.position, _playerMoveDuration);
         yield return WaitForSeconds(_playerMoveDuration);
         
-        //TODO: SetActive를 꺼줘야할 듯
         transform.DOScale(Vector3.zero, _scaleDuration);
-
     }
+
+
 }
