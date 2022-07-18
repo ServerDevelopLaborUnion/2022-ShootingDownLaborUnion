@@ -5,18 +5,32 @@ using UnityEngine.UI;
 
 public class RoomNode : MonoBehaviour
 {
+    [SerializeField]
     private Text roomName = null;
+
+    [SerializeField]
     private Text personnel = null;
 
-    void Start()
-    {
-        roomName = GetComponent<Text>();
-        personnel = GetComponent<Text>();
-    }
+    [SerializeField]
+    private Image isPrivate = null;
 
-    public void SetInfo(string roomName, int maxPersonnel, int currentPersonnel)
+    private Button _roomEnterButton = null;
+
+    public void SetInfo(string roomName, int maxPersonnel, int currentPersonnel, bool isPrivate)
     {
+        _roomEnterButton = GetComponent<Button>();
         this.roomName.text = roomName;
         this.personnel.text = $"{currentPersonnel.ToString()}/{maxPersonnel.ToString()}";
+        _roomEnterButton.onClick.AddListener(() =>
+        {
+            if (isPrivate)
+            {
+
+            }
+            else
+            {
+                LobbyManager.Instance.JoinRoom(roomName);
+            }
+        });
     }
 }
