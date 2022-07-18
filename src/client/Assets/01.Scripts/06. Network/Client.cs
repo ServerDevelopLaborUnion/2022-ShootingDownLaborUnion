@@ -514,7 +514,7 @@ namespace WebSocket
 
         public static void CreateRoom(string name, string password)
         {
-            // TODO: 방 생성 패킷 전송
+            // TODO: 방 생성 패킷 전송 + password가 없다면 공개방 있다면 비공개방
             throw new NotImplementedException();
         }
 
