@@ -13,10 +13,10 @@ public enum SpawnType
 public class PhaseData
 {
     public float maxEnemy;
-    public SpawnType spawnType;
-    public PhaseData(float maxEnemy, SpawnType spawnType)
+    //public SpawnType spawnType;
+    public PhaseData(float maxEnemy)
     {
         this.maxEnemy = maxEnemy;
-        this.spawnType = spawnType;
+        //this.spawnType = spawnType;
     }
 }
