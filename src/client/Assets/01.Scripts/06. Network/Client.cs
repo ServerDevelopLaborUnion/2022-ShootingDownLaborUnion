@@ -241,6 +241,8 @@ namespace WebSocket
             {
                 SessionID = e.SessionId;
                 ToolbarControl.UpdateUI();
+
+                Storage.CurrentUser = new User(e.SessionId, "TestUser");
             };
             OnLoginResponseMessage += (sender, e) =>
             {
