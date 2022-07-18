@@ -5,7 +5,7 @@ public class RoomInfo
     public int PlayerCount { get; private set; }
     public const int MaxPlayers = 4;
 
-    public new string ToString()
+    public override string ToString()
     {
         return string.Format("{0} ({1}/{2})", Name, PlayerCount, MaxPlayers);
     }
