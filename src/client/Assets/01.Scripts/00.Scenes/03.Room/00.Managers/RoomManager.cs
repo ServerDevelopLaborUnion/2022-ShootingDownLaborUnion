@@ -47,7 +47,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     }
 
-    public void OnChangeRole(User user){
+    public void OnSelectRole(User user){
         // TODO: 대충 직업 UI 바꾸기
     }
 
