@@ -10,9 +10,9 @@ public class CharacterInput : MonoBehaviour
     private CharacterBase _base = null;
     private UnityEvent<Vector2> OnMoveKeyInput = new UnityEvent<Vector2>();
 
-    private UnityEvent<bool> OnAttackKeyInput = new UnityEvent<bool>();
+    private UnityEvent OnAttackKeyInput = new UnityEvent();
 
-    public UnityEvent<bool> GetOnAttackKeyInput => OnAttackKeyInput;
+    public UnityEvent GetOnAttackKeyInput => OnAttackKeyInput;
 
     private Entity playerEntity = null;
     private Vector2 tempPosition = Vector2.zero;
@@ -39,7 +39,7 @@ public class CharacterInput : MonoBehaviour
             _move.MoveAgent(goal);
             _renderer.FlipCharacter(goal);
         });
-        OnAttackKeyInput.AddListener((x) => visualTransform.GetComponent<CharacterAttack>().DoAttack(x));
+        OnAttackKeyInput.AddListener(() => visualTransform.GetComponent<PlayerAttack>().DoAttack());
     }
     protected virtual void LateUpdate()
     {
@@ -60,7 +60,7 @@ public class CharacterInput : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            OnAttackKeyInput?.Invoke(true);
+            OnAttackKeyInput?.Invoke();
         }
     }
 }

@@ -21,7 +21,7 @@ public class CharacterEvent : MonoBehaviour
         CharacterRenderer characterRenderer = visualTransform.GetComponent<CharacterRenderer>();
         CharacterAnimation characterAnimation = visualTransform.GetComponent<CharacterAnimation>();
         CharacterMove characterMove = GetComponent<CharacterMove>();
-        DoAttack.AddListener(() => characterAttack.DoAttack(true));
+        DoAttack.AddListener(() => characterAttack.DoAttack());
         DoMove.AddListener(() => characterAnimation.PlayMoveAnime(true));
         DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(Vector2.left));
         DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));

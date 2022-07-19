@@ -6,12 +6,13 @@ using UnityEngine.Events;
 public class GunCharacterInput : CharacterInput
 {
     [SerializeField]
-    private UnityEvent<bool> OnMouseKeyEvent;
+    private UnityEvent OnMouseKeyEvent;
 
-    public UnityEvent<bool> GetOnMouseKeyEvent => OnMouseKeyEvent;
+    public UnityEvent GetOnMouseKeyEvent => OnMouseKeyEvent;
 
     protected override void LateUpdate() {
         base.LateUpdate();
-        OnMouseKeyEvent?.Invoke(Input.GetMouseButton(0));
+        if(Input.GetMouseButton(0))
+            OnMouseKeyEvent?.Invoke();
     }
 }

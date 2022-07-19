@@ -36,9 +36,9 @@ public class CharacterAttack : MonoBehaviour
     {
         _rangeObject.SetActive(_rangeObject.activeInHierarchy);
     }
-    public void DoAttack(bool clicked)
+    public void DoAttack()
     {
-        if (clicked && !(_base.State.CurrentState.HasFlag(CharacterState.State.Attack) 
+        if (!(_base.State.CurrentState.HasFlag(CharacterState.State.Attack) 
             || _base.State.CurrentState.HasFlag(CharacterState.State.Died) ))
         {
             OnAttacked?.Invoke();
