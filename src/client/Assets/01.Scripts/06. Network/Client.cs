@@ -284,8 +284,8 @@ namespace WebSocket
                 _connectionState = ConnectionState.Connecting;
                 _clientWebSocket = new ClientWebSocket();
 
-                // var uri = new Uri("ws://172.31.2.199:3000/");
-                var uri = new Uri("ws://localhost:3000/");
+                var uri = new Uri("ws://172.31.2.199:3000/");
+                // var uri = new Uri("ws://localhost:3000/");
                 await _clientWebSocket.ConnectAsync(uri, CancellationToken.None);
 
                 if (_clientWebSocket.State == WebSocketState.Open)
@@ -415,7 +415,7 @@ namespace WebSocket
         #region Functional methods
         public static void Login(string username, string password)
         {
-            if (_connectionState == ConnectionState.Connected)
+            if (_connectionState != ConnectionState.LoggedIn)
             {
                 var loginRequest = new Protobuf.Server.LoginRequest();
                 loginRequest.Username = username;
@@ -423,11 +423,7 @@ namespace WebSocket
 
                 SendPacket(0, loginRequest);
             }
-            else if (_connectionState == ConnectionState.Disconnected)
-            {
-                Debug.LogWarning("You are not connected to the server.");
-            }
-            else if (_connectionState == ConnectionState.LoggedIn)
+            else
             {
                 Debug.LogWarning("You are already logged in.");
             }
@@ -435,18 +431,14 @@ namespace WebSocket
 
         public static void Login(string token)
         {
-            if (_connectionState == ConnectionState.Connected)
+            if (_connectionState != ConnectionState.LoggedIn)
             {
                 var tokenLoginRequest = new Protobuf.Server.TokenLoginRequest();
                 tokenLoginRequest.Token = token;
 
                 SendPacket(1, tokenLoginRequest);
             }
-            else if (_connectionState == ConnectionState.Disconnected)
-            {
-                Debug.LogWarning("You are not connected to the server.");
-            }
-            else if (_connectionState == ConnectionState.LoggedIn)
+            else
             {
                 Debug.LogWarning("You are already logged in.");
             }
@@ -455,21 +447,16 @@ namespace WebSocket
         public static void ApplyEntityMove(Entity entity)
         {
             if (Storage.CurrentUser.UUID == entity.Data.OwnerUUID)
-                if (_connectionState == ConnectionState.Connected)
-                {
-                    var moveEntityRequest = new Protobuf.Server.EntityMoveRequest();
-                    moveEntityRequest.EntityUUID = entity.Data.UUID;
-                    moveEntityRequest.Position = entity.Data.Position.ToProtobuf();
-                    moveEntityRequest.TargetPosition = entity.Data.TargetPosition.ToProtobuf();
-                    moveEntityRequest.Rotation = entity.Data.Rotation.ToProtobuf();
+            {
+                var moveEntityRequest = new Protobuf.Server.EntityMoveRequest();
+                moveEntityRequest.EntityUUID = entity.Data.UUID;
+                moveEntityRequest.Position = entity.Data.Position.ToProtobuf();
+                moveEntityRequest.TargetPosition = entity.Data.TargetPosition.ToProtobuf();
+                moveEntityRequest.Rotation = entity.Data.Rotation.ToProtobuf();
 
 
-                    SendPacket(2, moveEntityRequest);
-                }
-                else if (_connectionState == ConnectionState.Disconnected)
-                {
-                    Debug.LogWarning("You are not connected to the server.");
-                }
+                SendPacket(2, moveEntityRequest);
+            }
         }
 
         public static void ApplyEntityEvent(Entity entity, string eventName)
@@ -489,50 +476,53 @@ namespace WebSocket
         }
         public static void CreateEntityEvent(Entity entity)
         {
-            if (_connectionState == ConnectionState.Connected)
-            {
-                var createEntityRequest = new Protobuf.Server.EntityCreateRequest();
+            var createEntityRequest = new Protobuf.Server.EntityCreateRequest();
 
-                createEntityRequest.Entity = new Protobuf.Entity();
-                createEntityRequest.Entity.UUID = entity.Data.UUID;
-                createEntityRequest.Entity.OwnerUUID = entity.Data.OwnerUUID;
-                createEntityRequest.Entity.Name = entity.Data.Name;
-                createEntityRequest.Entity.Position = entity.Data.Position.ToProtobuf();
-                createEntityRequest.Entity.Rotation = entity.Data.Rotation.ToProtobuf();
-                createEntityRequest.Entity.Data = JObject.FromObject(new
-                {
-                    type = (int)entity.Data.Type
-                }).ToString();
-
-                SendPacket(5, createEntityRequest);
-            }
-            else if (_connectionState == ConnectionState.Disconnected)
+            createEntityRequest.Entity = new Protobuf.Entity();
+            createEntityRequest.Entity.UUID = entity.Data.UUID;
+            createEntityRequest.Entity.OwnerUUID = entity.Data.OwnerUUID;
+            createEntityRequest.Entity.Name = entity.Data.Name;
+            createEntityRequest.Entity.Position = entity.Data.Position.ToProtobuf();
+            createEntityRequest.Entity.Rotation = entity.Data.Rotation.ToProtobuf();
+            createEntityRequest.Entity.Data = JObject.FromObject(new
             {
-                Debug.LogWarning("You are not connected to the server.");
-            }
+                type = (int)entity.Data.Type
+            }).ToString();
+
+            SendPacket(5, createEntityRequest);
         }
 
         public static void CreateRoom(string name, string password)
         {
-            // TODO: 방 생성 패킷 전송 + password가 없다면 공개방 있다면 비공개방
-            throw new NotImplementedException();
+            var createRoomRequest = new Protobuf.Server.RoomCreateRequest();
+            createRoomRequest.Name = name;
+            createRoomRequest.Password = password;
+
+            SendPacket(6, createRoomRequest);
         }
 
-        public static Room JoinRoom(string name, string password)
+        public static void JoinRoom(string uuid, string password)
         {
-            // TODO: 방 입장 패킷 전송
-            throw new NotImplementedException();
-        }
+            var joinRoomRequest = new Protobuf.Server.RoomJoinRequest();
+            joinRoomRequest.RoomUUID = uuid;
+            joinRoomRequest.Password = password;
 
-        public static RoomInfo[] GetRoomList()
-        {
-            // TODO: 방 목록 불러오기
-            throw new NotImplementedException();
+            SendPacket(7, joinRoomRequest);
         }
 
         public static void LeaveRoom()
         {
-            // TODO: 방 나가기 패킷 전송
+            var leaveRoomRequest = new Protobuf.Server.RoomLeaveRequest();
+
+            SendPacket(8, leaveRoomRequest);
+            throw new NotImplementedException();
+        }
+
+        public static void GetRoomList()
+        {
+            var roomListRequest = new Protobuf.Server.RoomListRequest();
+
+            SendPacket(9, roomListRequest);
             throw new NotImplementedException();
         }
         #endregion

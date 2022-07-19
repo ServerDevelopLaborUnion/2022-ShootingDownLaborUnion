@@ -31,10 +31,10 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     /// 지금 존재하는 방들의 정보를 요청할 때 사용되는 함수입니다.
     /// </summary>
     /// <returns></returns>
-    public void GetRoomList()
+    public void GetRoomList(List<RoomInfo> roomList)
     {
-        // TODO : WebSocket.Client.GetRoomList()에서 값을 받았(을때 OnRoomListUpdate를 호출하도록 하기
-        OnRoomListUpdated(WebSocket.Client.GetRoomList().ToList());
+        // TODO : WebSocket.Client.GetRoomList()에서 값을 받았을 때 OnRoomListUpdate를 호출하도록 하기
+        OnRoomListUpdated(roomList);
     }
 
     /// <summary>
