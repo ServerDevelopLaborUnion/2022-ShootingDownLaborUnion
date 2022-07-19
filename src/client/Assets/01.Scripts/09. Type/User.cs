@@ -3,7 +3,7 @@ public class User
     public string UUID { get; private set; }
     public string Name { get; private set; }
     public WeaponType Weapon { get; set; }
-    public JobType Job{ get; set; }
+    public RoleType Role{ get; set; }
     public bool IsReady { get; set; }
     public bool IsMaster { get; set; }
 

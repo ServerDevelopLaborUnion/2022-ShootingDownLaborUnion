@@ -1,4 +1,4 @@
-public enum JobType{
+public enum RoleType{
     NONE,
     WARRIOR,
     GUNNER,
