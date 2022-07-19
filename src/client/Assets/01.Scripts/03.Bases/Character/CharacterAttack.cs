@@ -26,8 +26,11 @@ public class CharacterAttack : MonoBehaviour
         _base = par.GetComponent<CharacterBase>();
         _playerCol = par.GetComponent<Collider2D>();
         _isPlayer = par.CompareTag("Player");
-        _rangeObject = transform.Find("Range").gameObject;
-        _rangeObject.SetActive(false);
+        if(_base.Data.Type == EntityType.Player)
+        {
+            _rangeObject = transform.parent.Find("Range").gameObject;
+            _rangeObject.SetActive(false);
+        }
     }
     public void ToggleRange()
     {
