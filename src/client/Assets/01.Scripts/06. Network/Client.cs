@@ -542,7 +542,7 @@ namespace WebSocket
             throw new NotImplementedException();
         }
 
-        public static void SetWeapon(int weapon){
+        public static void SetRole(int role){
 
             // TODO: 무기 변경 패킷 전송
             throw new NotImplementedException();
