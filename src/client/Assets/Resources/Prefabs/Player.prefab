@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RangeTrm: {fileID: 444730648}
-  _range: 10
+  _range: 1.5
 --- !u!1 &693142077867749933
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 693142078219233099}
   - component: {fileID: 693142078219233097}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MoveCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,6 @@ GameObject:
   - component: {fileID: 693142079330332351}
   - component: {fileID: 693142079330332349}
   - component: {fileID: 693142079330332350}
-  - component: {fileID: 693142079330332346}
   - component: {fileID: 693142079330332347}
   - component: {fileID: 61729670}
   m_Layer: 0
@@ -744,46 +743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2272f5406cff7b942a43254165d20cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &693142079330332346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693142079330332290}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d4db82b3bfdb14e8787cf66bf1124d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnAttacked:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 693142079330332350}
-        m_TargetAssemblyTypeName: CharacterAnimation, Assembly-CSharp
-        m_MethodName: PlayAttackAnime
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 693142078744925210}
-        m_TargetAssemblyTypeName: CharacterMove, Assembly-CSharp
-        m_MethodName: StopImmediatelly
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _atkRange: 1.1
 --- !u!114 &693142079330332347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,5 +784,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnAttacked:
     m_PersistentCalls:
-      m_Calls: []
-  _range: 10
+      m_Calls:
+      - m_Target: {fileID: 693142079330332350}
+        m_TargetAssemblyTypeName: CharacterAnimation, Assembly-CSharp
+        m_MethodName: PlayAttackAnime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 693142078744925210}
+        m_TargetAssemblyTypeName: CharacterMove, Assembly-CSharp
+        m_MethodName: StopImmediatelly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _range: 3
+  GetTarget: 1

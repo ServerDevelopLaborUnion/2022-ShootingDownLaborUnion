@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,24 +9,84 @@ public class PlayerAttack : CharacterAttack
     [SerializeField]
     private float _range = 0;
 
+    public Action OnGetRangeBtnClick = null;
+
+
+    private GameObject _rangeObject = null;
+
+    public bool GetTarget = true;
+
+    private CharacterMove _move;
+    private CharacterRenderer _renderer;
+    private Entity closestEnemy = null;
     protected override void Start()
     {
         base.Start();
+
+        if (_base.Data.Type == EntityType.Player)
+        {
+            _rangeObject = transform.parent.Find("Range").gameObject;
+            _rangeObject.GetComponent<RangeRenderer>().SetRange(_range);
+            _rangeObject.SetActive(false);
+        }
+        OnGetRangeBtnClick += ToggleRange;
+        _move = transform.parent.GetComponent<CharacterMove>();
+        _renderer = GetComponent<CharacterRenderer>();
+    }
+
+    public void ToggleRange()
+    {
+        _rangeObject.SetActive(!_rangeObject.activeInHierarchy);
+    }
+
+    public override void DoAttack()
+    {
+        if (!(_base.State.CurrentState.HasFlag(CharacterState.State.Attack)
+            || _base.State.CurrentState.HasFlag(CharacterState.State.Died)))
+        {
+            Attack();
+        }
     }
 
     protected override void Attack()
     {
-        base.Attack();
-        List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy).FindAll((entity) => GetDistance(transform.parent.position, entity.transform.position) <= _range);
-        Entity closestEnemy = enemies.OrderBy((enemy) => GetDistance(Define.MainCam.ScreenToWorldPoint(Input.mousePosition), enemy.transform.position)).FirstOrDefault();
+        List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
+        closestEnemy = enemies.OrderBy((enemy) => GetDistance(Define.MainCam.ScreenToWorldPoint(Input.mousePosition), enemy.transform.position)).FirstOrDefault();
+        _renderer.FlipCharacter(closestEnemy.transform.position);
 
-        closestEnemy?.GetComponent<CharacterDamage>().GetDamaged(_base.Data.entityStat.AD, _playerCol);
+        if (GetDistance(transform.parent.position, closestEnemy.transform.position) <= _range)
+        {
+            OnAttacked?.Invoke();
+            Debug.Log($"{closestEnemy.name}, {GetDistance(transform.parent.position, closestEnemy.transform.position)}");
+            closestEnemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol);
+        }
+        else
+        {
+            _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition));
+
+            WebSocket.Client.ApplyEntityMove(_base);
+            return;
+        }
+
+        base.Attack();
+    }
+
+    private void Update()
+    {
+        if(closestEnemy != null)
+        {
+            if(GetDistance(transform.parent.position, closestEnemy.transform.position) <= _range)
+            {
+                DoAttack();
+                closestEnemy = null;
+            }
+        }
     }
 
     float GetDistance(Vector2 pos1, Vector2 pos2)
     {
         float x = Mathf.Pow(pos1.x - pos2.x, 2);
-        float y = Mathf.Pow(pos1.y / 2 - pos2.y / 2, 2);
+        float y = Mathf.Pow(pos1.y * 2 - pos2.y * 2, 2);
         return Mathf.Sqrt(x + y);
         
     }
