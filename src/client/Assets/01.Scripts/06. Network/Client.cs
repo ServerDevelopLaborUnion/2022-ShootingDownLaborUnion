@@ -525,6 +525,18 @@ namespace WebSocket
             SendPacket(9, roomListRequest);
             throw new NotImplementedException();
         }
+
+        public static void SetReady(bool isReady){
+
+            // TODO: 레디 패킷 전송
+            throw new NotImplementedException();
+        }
+
+        public static void SetRole(int role){
+
+            // TODO: 무기 변경 패킷 전송
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

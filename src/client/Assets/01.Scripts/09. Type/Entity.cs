@@ -22,11 +22,11 @@ public class Entity : MonoBehaviour
         if(data.Type == EntityType.Player)
         if (WebSocket.Client.CheckIsOwnedEntity(temp))
         {
-            newObject.AddComponent<CharacterInput>().InitEvent();
+            newObject.AddComponent<CharacterInput>()?.InitEvent();
         }
         
         if (data.entityStat != null)
-            temp.EntityObject.GetComponent<CharacterBase>().InitStat(data.entityStat);
+            temp.EntityObject.GetComponent<CharacterBase>()?.InitStat(data.entityStat);
         return temp;
     }
 
@@ -36,7 +36,7 @@ public class Entity : MonoBehaviour
         {
             if (string.Compare(entity.Data.UUID, uuid) == 0)
             {
-                entity.EntityObject.GetComponent<CharacterEvent>().InvokeEvent(eventName);
+                entity.EntityObject.GetComponent<CharacterEvent>()?.InvokeEvent(eventName);
                 break;
             }
         }
