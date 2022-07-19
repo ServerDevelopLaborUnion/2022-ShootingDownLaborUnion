@@ -7,12 +7,12 @@ export const UserType = {
     ValidUser: 1
 }
 
-interface INotValidUser {
+export interface INotValidUser {
     type: "notValid";
     client: Client;
 }
 
-interface IValidUser {
+export interface IValidUser {
     type: "valid";
     client: Client;
     account: Account;

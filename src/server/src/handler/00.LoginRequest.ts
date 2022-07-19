@@ -1,11 +1,9 @@
 import { Account } from '../types/Account';
-import { UserType, User } from '../types/User';
 import { sleep } from '../util/sleep';
 import * as Logger from '../util/logger';
 import * as auth from '../util/auth';
 import proto from '../util/proto';
 import { IHandler } from '../types/IHandler';
-import { connection } from 'websocket';
 import { Client } from '../types/Client';
 
 const logger = Logger.getLogger('LoginRequest');

@@ -31,7 +31,7 @@ export class Room {
         return this.clients.length;
     }
 
-    addClient(client: Client) {
+    addUser(client: Client) {
         client.room = this;
         this.clients.push(client);
         this.entities.forEach(entity => {
@@ -56,5 +56,14 @@ export class Room {
     removeEntity(entity: Entity) {
         this.entities.delete(entity.UUID);
         this.broadcast(entity.getDespawnPacket());
+    }
+
+    toProto() {
+        return {
+            Info: {
+
+            },
+            Users: this.clients.map(client => client.toObject()),
+        };
     }
 }

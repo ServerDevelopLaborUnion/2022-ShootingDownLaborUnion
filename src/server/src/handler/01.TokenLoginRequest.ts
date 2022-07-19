@@ -1,27 +1,23 @@
 import { Account } from '../types/Account';
-import { User } from '../types/User';
 import { sleep } from '../util/sleep';
 import * as Logger from '../util/logger';
 import * as auth from '../util/auth';
 import proto from '../util/proto';
 import { Client } from '../types/Client';
-import { storage } from '../storage';
+import { IHandler } from '../types/IHandler';
 
 const logger = Logger.getLogger('TokenLoginRequest');
 
-const id = 1;
-const type = 'TokenLoginRequest';
-
-export default {
-    id: id,
-    type: type,
-    receive: async (client: Client, buffer: Buffer) => {
+class LoginRequest implements IHandler {
+    id = 1;
+    type = 'TokenLoginRequest';
+    async receive (client: Client, buffer: Buffer) {
         await sleep(3000);
-        if (!proto.server.verify(type, buffer)) {
+        if (!proto.server.verify(this.type, buffer)) {
             logger.warn(`Invalid packet from ${client.socket.remoteAddress}`);
             return;
         }
-        const tokenLoginRequest: any = proto.server.decode(type, buffer);
+        const tokenLoginRequest: any = proto.server.decode(this.type, buffer);
         const verifyed = auth.verify(tokenLoginRequest.Token, (err, decoded) => {
             if (err) {
                 logger.warn(`Invalid token from ${client.socket.remoteAddress}`);

@@ -1,5 +1,6 @@
 public class RoomInfo
 {
+    public string UUID { get; private set; }
     public string Name { get; private set; }
     public bool IsPrivate { get; private set; }
     public int PlayerCount { get; private set; }

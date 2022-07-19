@@ -24,15 +24,7 @@ export default {
         verify: (type: string, buffer: Buffer) => {
             const message = server.lookupType(`Server.${type}`).verify(buffer);
             return message == null;
-        },
-        LoginRequest: {
-            id: 0,
-            type: 'LoginRequest',
-        },
-        TokenLoginRequest: {
-            id: 1,
-            type: 'TokenLoginRequest',
-        },
+        }
     },
     client: {
         encode: (type: IProto, message: any) => {
@@ -76,6 +68,22 @@ export default {
         EntityEvent: {
             id: 6,
             type: 'EntityEvent',
+        },
+        RoomCreateResponse: {
+            id: 7,
+            type: 'RoomCreateResponse',
+        },
+        RoomJoinResponse: {
+            id: 8,
+            type: 'RoomJoinResponse',
+        },
+        RoomLeaveResponse: {
+            id: 9,
+            type: 'RoomLeaveResponse',
+        },
+        RoomListResponse: {
+            id: 10,
+            type: 'RoomListResponse',
         }
     }
 }

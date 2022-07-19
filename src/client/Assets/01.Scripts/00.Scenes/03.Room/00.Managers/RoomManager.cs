@@ -12,8 +12,8 @@ public class RoomManager : MonoSingleton<RoomManager>
     private void Start()
     {
         // UI 에 CurrentRoom 정보 업데이트
-        for (int i = 0; i < Storage.CurrentRoom.Players.Count; ++i){
-            _userNameTexts[i].text = Storage.CurrentRoom.Players[i].Name;
+        for (int i = 0; i < Storage.CurrentRoom.Users.Count; ++i){
+            _userNameTexts[i].text = Storage.CurrentRoom.Users[i].Name;
         }
         
     }
@@ -22,8 +22,8 @@ public class RoomManager : MonoSingleton<RoomManager>
     {
         //  UI 인원수 업데이트
         // 플레이어 닉네임 가져와서 UI업데이트
-        _userNameTexts[Storage.CurrentRoom.Players.Count].text = user.Name;
-        _userCountText.text = $"{Storage.CurrentRoom.Players} / {RoomInfo.MaxPlayers}";
+        _userNameTexts[Storage.CurrentRoom.Users.Count].text = user.Name;
+        _userCountText.text = $"{Storage.CurrentRoom.Users} / {RoomInfo.MaxPlayers}";
     }
 
     public void OnUserLeave(User user)
@@ -37,7 +37,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void OnReadyStateUpdate(User user){
         if(user.IsReady){
             //TODO: 대충 인원수 UI++
-            if(Storage.CurrentRoom.Players.Count == RoomInfo.MaxPlayers && user.IsMaster){
+            if(Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers && user.IsMaster){
                 // TODO: 시작 버튼 생김
             }
         }
@@ -72,7 +72,7 @@ public class RoomManager : MonoSingleton<RoomManager>
             // TODO: 대충 직업이 겹쳐서 실행 못한다는 UI
             return;
         }
-        if(Storage.CurrentRoom.Players.Count < RoomInfo.MaxPlayers){
+        if(Storage.CurrentRoom.Users.Count < RoomInfo.MaxPlayers){
             // TODO: 대충 인원수가 부족하다는 UI
             return;
         }
@@ -81,10 +81,10 @@ public class RoomManager : MonoSingleton<RoomManager>
     }
 
     private bool IsOverlapJob(){
-        for (int i = 0; i < Storage.CurrentRoom.Players.Count; ++i){
-            for (int j = 0; j < Storage.CurrentRoom.Players.Count; ++j){
+        for (int i = 0; i < Storage.CurrentRoom.Users.Count; ++i){
+            for (int j = 0; j < Storage.CurrentRoom.Users.Count; ++j){
                 if(i==j)continue;
-                if (Storage.CurrentRoom.Players[i].Role == Storage.CurrentRoom.Players[j].Role){
+                if (Storage.CurrentRoom.Users[i].Role == Storage.CurrentRoom.Users[j].Role){
                     return true;
                 }
             }

@@ -14,9 +14,9 @@ export class Client {
     constructor(socket: connection) {
         this.socket = socket;
         this.sessionId = v4();
-        this.user = { 
+        this.user = {
             type: "notValid",
-            client: this 
+            client: this
         };
         this.room = null;
     }
@@ -24,5 +24,21 @@ export class Client {
     sendPacket(buffer: Buffer) {
         logger.debug(`Sending: ${buffer.length} bytes to ${this.sessionId}`);
         this.socket.sendBytes(buffer);
+    }
+
+    toObject() {
+        if (this.user.type === "valid") {
+            return {
+                UUID: this.sessionId,
+                Name: this.user.account.username,
+                // IsReady: 
+            }
+        }
+        else {
+            return {
+                UUID: this.sessionId,
+                Name: "",
+            }
+        }
     }
 }

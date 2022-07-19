@@ -23,3 +23,32 @@ message Entity {
     Quaternion Rotation = 6;
     string Data = 7;
 }
+
+enum WeaponType {
+    WeaponType_None = 0;
+}
+
+enum RoleType {
+    RoleType_None = 0;
+}
+
+message User {
+    string UUID = 1;
+    string Name = 2;
+    WeaponType Weapon = 3;
+    RoleType Role = 4;
+    bool IsReady = 5;
+    bool IsMaster = 6;
+}
+
+message RoomInfo {
+    string UUID = 1;
+    string Name = 2;
+    bool IsPrivate = 3;
+    int32 PlayerCount = 4;
+}
+
+message Room {
+    RoomInfo Info = 1;
+    repeated User Users = 2;
+}

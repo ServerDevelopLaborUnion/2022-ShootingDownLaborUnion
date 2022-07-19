@@ -3,15 +3,15 @@ using System.Collections.Generic;
 public class Room
 {
     public RoomInfo Info { get; private set; }
-    public List<User> Players { get; private set; }
+    public List<User> Users { get; private set; }
 
     public void AddUser(User user)
     {
-        Players.Add(user);
+        Users.Add(user);
     }
 
     public void ExitUser(User user)
     {
-        Players.Remove(user);
+        Users.Remove(user);
     }
 }
