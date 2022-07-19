@@ -377,7 +377,6 @@ namespace WebSocket
                                     (EntityType)entityType
                                 )
                             )));
-                            Debug.Log(entityCreateMessage.Entity.Position);
                             break;
                         case 3:
                             var entityMoveMessage = Protobuf.Client.EntityMove.Parser.ParseFrom(buffer);

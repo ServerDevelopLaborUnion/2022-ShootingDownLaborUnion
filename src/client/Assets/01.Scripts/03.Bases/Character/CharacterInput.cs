@@ -11,6 +11,7 @@ public class CharacterInput : MonoBehaviour
     private UnityEvent<Vector2> OnMoveKeyInput = new UnityEvent<Vector2>();
 
     private UnityEvent OnAttackKeyInput = new UnityEvent();
+    private UnityEvent OnRangeKeyInput = new UnityEvent();
 
     public UnityEvent GetOnAttackKeyInput => OnAttackKeyInput;
 
@@ -21,6 +22,8 @@ public class CharacterInput : MonoBehaviour
     private CharacterRenderer _renderer = null;
 
     private float _delay = 0;
+
+    private bool _isShowingRange = false;
 
 
     private void Awake()
@@ -40,6 +43,7 @@ public class CharacterInput : MonoBehaviour
             _renderer.FlipCharacter(goal);
         });
         OnAttackKeyInput.AddListener(() => visualTransform.GetComponent<PlayerAttack>().DoAttack());
+        OnRangeKeyInput.AddListener(() => visualTransform.GetComponent<PlayerAttack>().ToggleRange());
     }
     protected virtual void LateUpdate()
     {
@@ -60,7 +64,18 @@ public class CharacterInput : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            OnAttackKeyInput?.Invoke();
+            OnRangeKeyInput?.Invoke();
+            _isShowingRange = !_isShowingRange;
+        }
+
+        if (_isShowingRange)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                OnAttackKeyInput?.Invoke();
+                OnRangeKeyInput?.Invoke();
+                _isShowingRange = !_isShowingRange;
+            }
         }
     }
 }

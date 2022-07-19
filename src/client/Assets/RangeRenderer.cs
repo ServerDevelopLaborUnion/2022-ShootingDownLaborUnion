@@ -12,7 +12,12 @@ public class RangeRenderer : MonoBehaviour
 
     public void RenderRange()
     {
-        RangeTrm.localScale = new Vector2(1 + _range, (1 + _range) / 2);
+        RangeTrm.localScale = new Vector2((_range) * 2f, (_range));
+    }
+
+    public void SetRange(float range)
+    {
+        _range = range;
     }
 
     private void Update()
