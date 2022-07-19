@@ -23,7 +23,7 @@ public class RoomListManager : MonoSingleton<RoomListManager>
     /// </summary>
     public void UpdateRoomList()
     {
-        LobbyManager.Instance.GetRoomList();
+        WebSocket.Client.GetRoomList();
     }
 
     /// <summary>

@@ -63,3 +63,12 @@ message RoomJoinResponse {
     optional string RoomName = 3;
 }
 
+// id: 9
+message RoomLeaveResponse {
+    bool Success = 1;
+}
+
+// id: 10
+message RoomListResponse {
+    repeated Room Room = 1;
+}
