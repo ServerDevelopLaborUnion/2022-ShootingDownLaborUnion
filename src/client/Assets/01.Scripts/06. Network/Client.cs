@@ -126,11 +126,11 @@ namespace WebSocket
 
     public class RoomListEventArgs : EventArgs
     {
-        public List<Room> Rooms { get; set; }
+        public List<RoomInfo> Rooms { get; set; }
 
-        public RoomListEventArgs(List<Room> rooms)
+        public RoomListEventArgs(List<RoomInfo> roomInfos)
         {
-            Rooms = rooms;
+            Rooms = roomInfos;
         }
     }
 
@@ -479,25 +479,23 @@ namespace WebSocket
                                 room
                             )));
                             break;
-                        // case 9:
-                        //     var roomLeaveResponseMessage = Protobuf.Client.RoomLeaveResponse.Parser.ParseFrom(buffer);
-                        //     MainTask.Enqueue(() => OnRoomLeaveMessage?.Invoke(this, new RoomLeaveEventArgs(
-                        //         roomLeaveResponseMessage.Success,
-                        //         roomLeaveResponseMessage.RoomUUID,
-                        //         roomLeaveResponseMessage.RoomName
-                        //     )));
-                        //     break;
-                        // case 10:
-                        //     var roomListResponseMessage = Protobuf.Client.RoomListResponse.Parser.ParseFrom(buffer);
-                        //     MainTask.Enqueue(() => OnRoomListMessage?.Invoke(this, new RoomListEventArgs(
-                        //         roomListResponseMessage.Info.Select(x => new RoomInfo(
-                        //             x.UUID,
-                        //             x.Name,
-                        //             x.IsPrivate,
-                        //             x.PlayerCount
-                        //         )).ToList()
-                        //     )));
-                        //     break;
+                        case 9:
+                            var roomLeaveResponseMessage = Protobuf.Client.RoomLeaveResponse.Parser.ParseFrom(buffer);
+                            MainTask.Enqueue(() => OnRoomLeaveMessage?.Invoke(this, new RoomLeaveEventArgs(
+                                roomLeaveResponseMessage.Success
+                            )));
+                            break;
+                        case 10:
+                            var roomListResponseMessage = Protobuf.Client.RoomListResponse.Parser.ParseFrom(buffer);
+                            var rooms = new List<RoomInfo>();
+                            foreach (var roomInfo in roomListResponseMessage.Info)
+                            {
+                                rooms.Add(new RoomInfo(roomInfo.UUID, roomInfo.Name, roomInfo.IsPrivate, roomInfo.PlayerCount));
+                            }
+                            MainTask.Enqueue(() => OnRoomListMessage?.Invoke(this, new RoomListEventArgs(
+                                rooms
+                            )));
+                            break;
                         case 11:
                             var ChatMessage = Protobuf.Client.ChatMessage.Parser.ParseFrom(buffer);
                             MainTask.Enqueue(() => OnChatMessage?.Invoke(this, new ChatMessageEventArgs(
