@@ -525,6 +525,14 @@ namespace WebSocket
             throw new NotImplementedException();
         }
 
+        public static void EntityDespawn(Entity entity)
+        {
+            var entityDespawnRequest = new Protobuf.Server.EneityDespawnRequest();
+            entityDespawnRequest.EntityUUID = entity.Data.UUID;
+
+            SendPacket(10, entityDespawnRequest);
+        }
+
         public static void SetReady(bool isReady){
 
             // TODO: 레디 패킷 전송

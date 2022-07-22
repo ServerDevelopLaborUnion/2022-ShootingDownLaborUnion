@@ -29,13 +29,13 @@ public class CharacterInput : MonoBehaviour
     private void Awake()
     {
         _move = GetComponent<CharacterMove>();
+        playerEntity = GetComponent<Entity>();
         _renderer = transform.GetChild(0).GetComponent<CharacterRenderer>();
     }
 
     public void InitEvent()
     {
         _base = GetComponent<CharacterBase>();
-        playerEntity = GetComponent<Entity>();
         Transform visualTransform = transform.Find("Visual Sprite");
         OnMoveKeyInput.AddListener((goal) =>
         {
