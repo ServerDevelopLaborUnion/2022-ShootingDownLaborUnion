@@ -87,6 +87,64 @@ namespace WebSocket
             EntityUUID = entityId;
         }
     }
+
+    public class RoomCreateEventArgs : EventArgs
+    {
+        public bool Success { get; set; }
+        public string RoomUUID { get; set; }
+        public string RoomName { get; set; }
+
+        public RoomCreateEventArgs(bool success, string roomUUID, string roomName)
+        {
+            Success = success;
+            RoomUUID = roomUUID;
+            RoomName = roomName;
+        }
+    }
+
+    public class RoomJoinEventArgs : EventArgs
+    {
+        public bool Success { get; set; }
+        public Room Room { get; set; }
+
+        public RoomJoinEventArgs(bool success, Room room)
+        {
+            Success = success;
+            Room = room;
+        }
+    }
+
+    public class RoomLeaveEventArgs : EventArgs
+    {
+        public bool Success { get; set; }
+
+        public RoomLeaveEventArgs(bool success)
+        {
+            Success = success;
+        }
+    }
+
+    public class RoomListEventArgs : EventArgs
+    {
+        public List<Room> Rooms { get; set; }
+
+        public RoomListEventArgs(List<Room> rooms)
+        {
+            Rooms = rooms;
+        }
+    }
+
+    public class ChatMessageEventArgs : EventArgs
+    {
+        public string UUID { get; set; }
+        public string Message { get; set; }
+
+        public ChatMessageEventArgs(string uuid, string message)
+        {
+            UUID = uuid;
+            Message = message;
+        }
+    }
     #endregion
 
     public class Client : MonoSingleton<Client>
@@ -111,14 +169,16 @@ namespace WebSocket
         #region Client Events
 
         public static event EventHandler<ConnectionEventArgs> OnConnectionMessage;
-
         public static event EventHandler<LoginResponseEventArgs> OnLoginResponseMessage;
-
         public static event EventHandler<EntityCreateEventArgs> OnEntityCreateMessage;
-
         public static event EventHandler<EntityMoveEventArgs> OnEntityMoveMessage;
         public static event EventHandler<EntityRemoveEventArgs> OnEntityReMoveMessage;
         public static event EventHandler<EntityEventArgs> OnEntityEventMessage;
+        public static event EventHandler<RoomCreateEventArgs> OnRoomCreateMessage;
+        public static event EventHandler<RoomJoinEventArgs> OnRoomJoinMessage;
+        public static event EventHandler<RoomLeaveEventArgs> OnRoomLeaveMessage;
+        public static event EventHandler<RoomListEventArgs> OnRoomListMessage;
+        public static event EventHandler<ChatMessageEventArgs> OnChatMessage;
         #endregion
 
         public static Account Account { get; private set; }
@@ -402,6 +462,49 @@ namespace WebSocket
                                 entityEventMessage.EventName
                             )));
                             break;
+                        case 7:
+                            var roomCreateResponseMessage = Protobuf.Client.RoomCreateResponse.Parser.ParseFrom(buffer);
+                            MainTask.Enqueue(() => OnRoomCreateMessage?.Invoke(this, new RoomCreateEventArgs(
+                                roomCreateResponseMessage.Success,
+                                roomCreateResponseMessage.RoomUUID,
+                                roomCreateResponseMessage.RoomName
+                            )));
+                            break;
+                        case 8:
+                            var roomJoinResponseMessage = Protobuf.Client.RoomJoinResponse.Parser.ParseFrom(buffer);
+                            Room room = new Room(new RoomInfo(roomJoinResponseMessage.Room.Info.UUID, roomJoinResponseMessage.Room.Info.Name, roomJoinResponseMessage.Room.Info.IsPrivate, roomJoinResponseMessage.Room.Info.PlayerCount), new List<User>());
+                            room.Users.AddRange(roomJoinResponseMessage.Room.Users.Select(user => new User(user.UUID, user.Name, (WeaponType)user.Weapon, (RoleType)user.Role, user.IsReady, user.IsMaster)));
+                            MainTask.Enqueue(() => OnRoomJoinMessage?.Invoke(this, new RoomJoinEventArgs(
+                                roomJoinResponseMessage.Success,
+                                room
+                            )));
+                            break;
+                        // case 9:
+                        //     var roomLeaveResponseMessage = Protobuf.Client.RoomLeaveResponse.Parser.ParseFrom(buffer);
+                        //     MainTask.Enqueue(() => OnRoomLeaveMessage?.Invoke(this, new RoomLeaveEventArgs(
+                        //         roomLeaveResponseMessage.Success,
+                        //         roomLeaveResponseMessage.RoomUUID,
+                        //         roomLeaveResponseMessage.RoomName
+                        //     )));
+                        //     break;
+                        // case 10:
+                        //     var roomListResponseMessage = Protobuf.Client.RoomListResponse.Parser.ParseFrom(buffer);
+                        //     MainTask.Enqueue(() => OnRoomListMessage?.Invoke(this, new RoomListEventArgs(
+                        //         roomListResponseMessage.Info.Select(x => new RoomInfo(
+                        //             x.UUID,
+                        //             x.Name,
+                        //             x.IsPrivate,
+                        //             x.PlayerCount
+                        //         )).ToList()
+                        //     )));
+                        //     break;
+                        case 11:
+                            var ChatMessage = Protobuf.Client.ChatMessage.Parser.ParseFrom(buffer);
+                            MainTask.Enqueue(() => OnChatMessage?.Invoke(this, new ChatMessageEventArgs(
+                                ChatMessage.UUID,
+                                ChatMessage.Message
+                            )));
+                            break;
                         default:
                             Debug.LogWarning($"Unknown message type {type}");
                             break;
@@ -531,13 +634,15 @@ namespace WebSocket
             SendPacket(10, entityDespawnRequest);
         }
 
-        public static void SetReady(bool isReady){
+        public static void SetReady(bool isReady)
+        {
 
             // TODO: 레디 패킷 전송
             throw new NotImplementedException();
         }
 
-        public static void SetRole(int role){
+        public static void SetRole(int role)
+        {
 
             // TODO: 무기 변경 패킷 전송
             throw new NotImplementedException();

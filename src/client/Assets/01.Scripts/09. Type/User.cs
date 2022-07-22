@@ -20,4 +20,14 @@ public class User
         IsReady = false;
         IsMaster = false;
     }
+
+    public User(string uuid, string name, WeaponType weapon, RoleType role, bool isReady, bool isMaster)
+    {
+        UUID = uuid;
+        Name = name;
+        Weapon = weapon;
+        Role = role;
+        IsReady = isReady;
+        IsMaster = isMaster;
+    }
 }
