@@ -514,7 +514,6 @@ namespace WebSocket
             var leaveRoomRequest = new Protobuf.Server.RoomLeaveRequest();
 
             SendPacket(8, leaveRoomRequest);
-            throw new NotImplementedException();
         }
 
         public static void GetRoomList()
@@ -522,7 +521,6 @@ namespace WebSocket
             var roomListRequest = new Protobuf.Server.RoomListRequest();
 
             SendPacket(9, roomListRequest);
-            throw new NotImplementedException();
         }
 
         public static void EntityDespawn(Entity entity)
