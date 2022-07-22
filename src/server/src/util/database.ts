@@ -6,7 +6,7 @@ export default class DatabaseManager
     connection: mariadb.Connection | null;
     constructor() {
         this.pool  = mariadb.createPool({
-            host: '172.31.2.199', 
+            host: 'localhost', 
             user:'wassabi', 
             password: 'wa!sans10101',
             connectionLimit: 1

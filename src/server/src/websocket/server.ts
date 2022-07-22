@@ -26,8 +26,6 @@ export default class WebsocketServer {
         this.port = 3000;
         this.server = null;
         this.wsServer = null;
-        // this.wsServer = new server({ httpServer: this.server });
-        console.log(storage);
         this.rooms.set('test', new Room('test', null));
     }
 

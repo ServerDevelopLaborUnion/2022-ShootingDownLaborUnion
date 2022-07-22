@@ -62,3 +62,8 @@ message RoomLeaveRequest {
 message RoomListRequest {
     
 }
+
+// id: 10
+message EneityDespawnRequest {
+    string EntityUUID = 1;
+}
