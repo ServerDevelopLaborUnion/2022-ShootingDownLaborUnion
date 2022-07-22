@@ -25,12 +25,12 @@ public class CharacterDeath : MonoBehaviour
         WebSocket.Client.ApplyEntityEvent(_base, "DoDie");
         _base.State.CurrentState |= CharacterState.State.Died;
         OnCharacterDied?.Invoke();
-        Entity.DeleteEntity(_base.Data.UUID);
     }
 
     public virtual void EndDeath()
     {
         if (_base == null) return;
         transform.parent.gameObject.SetActive(false);
+        WebSocket.Client.EntityDespawn(_base);
     }
 }
