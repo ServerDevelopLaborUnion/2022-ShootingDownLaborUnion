@@ -51,8 +51,15 @@ public class PlayerAttack : CharacterAttack
     protected override void Attack()
     {
         List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
+        if (enemies.Count == 0)
+            return;
         closestEnemy = enemies.OrderBy((enemy) => GetDistance(Define.MainCam.ScreenToWorldPoint(Input.mousePosition), enemy.transform.position)).FirstOrDefault();
-        _renderer.FlipCharacter(closestEnemy.transform.position);
+        Vector2 dir = Define.MainCam.ScreenToWorldPoint(Input.mousePosition);
+        if (closestEnemy != null)
+        {
+            dir = closestEnemy.transform.position;
+        }
+        _renderer.FlipCharacter(dir);
 
         if (GetDistance(transform.parent.position, closestEnemy.transform.position) <= _range)
         {
