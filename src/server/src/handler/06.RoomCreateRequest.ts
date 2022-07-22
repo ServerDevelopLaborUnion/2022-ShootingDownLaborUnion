@@ -23,3 +23,5 @@ class RoomCreateRequest implements IHandler {
         }
     }
 }
+
+export default new RoomCreateRequest();

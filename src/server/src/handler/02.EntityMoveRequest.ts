@@ -22,7 +22,7 @@ export default {
         if (entity !== undefined) {
             if (client.sessionId == entity.OwnerUUID) {
                 entity.Position = EntityMoveRequest.Position;
-                storage.server.broadcastPacket(proto.client.encode(proto.client.EntityMove, EntityMoveRequest), client);
+                client.room?.broadcast(proto.client.encode(proto.client.EntityMove, EntityMoveRequest), client);
             }
         }
     }

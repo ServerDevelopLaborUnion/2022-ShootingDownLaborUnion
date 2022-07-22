@@ -11,3 +11,5 @@ class RoomJoinRequest implements IHandler {
         // TODO: Implement
     }
 }
+
+export default new RoomJoinRequest();

@@ -67,3 +67,8 @@ message RoomListRequest {
 message EneityDespawnRequest {
     string EntityUUID = 1;
 }
+
+// id: 11
+message ChatRequest {
+    string Message = 1;
+}

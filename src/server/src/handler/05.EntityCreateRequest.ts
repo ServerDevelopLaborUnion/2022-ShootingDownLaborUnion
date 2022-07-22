@@ -22,7 +22,7 @@ module.exports = {
         if (entity !== undefined) {
             if (client.sessionId == entity.OwnerUUID) {
                 entity.Position = EntityCreateRequest.Position;
-                storage.server.broadcastPacket(proto.client.encode(proto.client.EntityMove, {
+                client.room?.broadcast(proto.client.encode(proto.client.EntityMove, {
                     EntityUUID: EntityCreateRequest.EntityUUID,
                     Position: EntityCreateRequest.Position,
                     Rotation: EntityCreateRequest.Rotation,

@@ -22,7 +22,7 @@ export class Client {
     }
 
     sendPacket(buffer: Buffer) {
-        logger.debug(`Sending: ${buffer.length} bytes to ${this.sessionId}`);
+        // logger.debug(`Sending: ${buffer.length} bytes to ${this.sessionId}`);
         this.socket.sendBytes(buffer);
     }
 

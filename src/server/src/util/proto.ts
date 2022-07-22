@@ -84,6 +84,10 @@ export default {
         RoomListResponse: {
             id: 10,
             type: 'RoomListResponse',
-        }
+        },
+        ChatMessage: {
+            id: 11,
+            type: 'ChatMessage',
+        },
     }
 }
