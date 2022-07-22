@@ -559,13 +559,30 @@ namespace WebSocket
             }
         }
 
-        public static void ApplyEntityEvent(Entity entity, string eventName)
+        public static void ApplyEntityAction(Entity entity, string eventName)
         {
             if (_connectionState == ConnectionState.Connected)
             {
                 var entityEventRequest = new Protobuf.Server.EntityEventRequest();
                 entityEventRequest.EntityUUID = entity.Data.UUID;
                 entityEventRequest.EventName = eventName;
+
+                SendPacket(4, entityEventRequest);
+            }
+            else if (_connectionState == ConnectionState.Disconnected)
+            {
+                Debug.LogWarning("You are not connected to the server.");
+            }
+        }
+
+        public static void ApplyEntityFunc(Entity entity, string eventName, string message)
+        {
+            if (_connectionState == ConnectionState.Connected)
+            {
+                var entityEventRequest = new Protobuf.Server.EntityEventRequest();
+                entityEventRequest.EntityUUID = entity.Data.UUID;
+                entityEventRequest.EventName = eventName;
+                entityEventRequest.EventData = message;
 
                 SendPacket(4, entityEventRequest);
             }
@@ -644,6 +661,13 @@ namespace WebSocket
 
             // TODO: 무기 변경 패킷 전송
             throw new NotImplementedException();
+        }
+
+        public static void SendChatMessage(string message)
+        {
+            var entityChatRequest = new Protobuf.Server.ChatRequest();
+            entityChatRequest.Message = message;
+            SendPacket(11, entityChatRequest);
         }
         #endregion
     }

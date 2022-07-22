@@ -7,18 +7,27 @@ using WebSocket;
 
 public class GameManager : MonoBehaviour
 {
+    ChatManager chatManager;
     // Start is called before the first frame update
     void Start()
     {
+        chatManager = GameObject.Find("ChatObject").GetComponent<ChatManager>();
+
         WebSocket.Client.OnEntityCreateMessage += Client_OnEntityCreateMessage;
         WebSocket.Client.OnEntityReMoveMessage += Client_OnEntityReMoveMessage;
         WebSocket.Client.OnEntityMoveMessage += Client_OnEntityMoveMessage;
         WebSocket.Client.OnEntityEventMessage += Client_OnEntityEventMessage;
+        WebSocket.Client.OnChatMessage += Client_OnChatMessage;
+    }
+
+    private void Client_OnChatMessage(object sender, ChatMessageEventArgs e)
+    {
+        chatManager.GetChatMessage(e.Message);
     }
 
     private void Client_OnEntityEventMessage(object sender, EntityEventArgs e)
     {
-        Entity.InvokeEvent(e.EntityUUID, e.EventName);
+        Entity.InvokeAction(e.EntityUUID, e.EventName);
         //TODO DoAttack -> CharacterEvent.InvokeEvent(DoAttack)
         //TODO DoFlipLeft -> CharacterEvent.InvokeEvent(DoFlipLeft)
         //TODO DoFlipRight -> CharacterEvent.InvokeEvent(DoFlipRight)
@@ -50,6 +59,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"{e.Data.UUID} Has Created");
         StartCoroutine(SetHostClient(e.Data));
     }
+
+    
 
     private IEnumerator SetHostClient(EntityData e)
     {
