@@ -62,3 +62,13 @@ message RoomLeaveRequest {
 message RoomListRequest {
     
 }
+
+// id: 10
+message EneityDespawnRequest {
+    string EntityUUID = 1;
+}
+
+// id: 11
+message ChatRequest {
+    string Message = 1;
+}

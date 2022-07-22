@@ -22,8 +22,15 @@ export default {
         
         const entity = storage.server.rooms.get("test")?.entities.get(EntityEventRequest.EntityUUID);
         if (entity !== undefined) {
+            switch (EntityEventRequest.EventName) {
+                case "DoDie":
+                {
+
+                    break;
+                }
+            }
             if (client.sessionId == entity.OwnerUUID) {
-                storage.server.broadcastPacket(proto.client.encode(proto.client.EntityEvent, {
+                client.room?.broadcast(proto.client.encode(proto.client.EntityEvent, {
                     EntityUUID: EntityEventRequest.EntityUUID,
                     EventName: EntityEventRequest.EventName,
                 }), client);

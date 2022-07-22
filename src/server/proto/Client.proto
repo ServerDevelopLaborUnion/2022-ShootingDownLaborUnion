@@ -71,3 +71,9 @@ message RoomLeaveResponse {
 message RoomListResponse {
     repeated RoomInfo Info = 1;
 }
+
+// id: 11
+message ChatMessage {
+    string UUID = 1;
+    string Message = 2;
+}

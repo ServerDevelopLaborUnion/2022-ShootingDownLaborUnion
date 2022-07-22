@@ -15,6 +15,27 @@ import { storage } from '../storage';
 
 const logger = Logger.getLogger('Websocket');
 
+type UserType = {
+    UUID: string,
+    Name: string,
+    Weapon: number,
+    Role: number,
+    IsReady: boolean,
+    IsMaster: boolean,
+}
+
+type RoomInfoType = {
+    UUID: string,
+    Name: string,
+    IsPrivate: boolean,
+    PlayerCount: number
+}
+
+type RoomType = {
+    Info: RoomInfoType[],
+    Users: UserType[]
+}
+
 export default class WebsocketServer {
     port: number;
     server: http.Server | null;
@@ -26,8 +47,6 @@ export default class WebsocketServer {
         this.port = 3000;
         this.server = null;
         this.wsServer = null;
-        // this.wsServer = new server({ httpServer: this.server });
-        console.log(storage);
         this.rooms.set('test', new Room('test', null));
     }
 
@@ -47,9 +66,6 @@ export default class WebsocketServer {
 
         this.wsServer.on("connect", (connection: connection) => {
             logger.info(`Client connected: ${connection.remoteAddress}`);
-            connection.on("message", (message) => {
-                logger.debug(`Received: ${message} bytes`);
-            });
         });
 
         this.wsServer.on("request", async (request) => {
@@ -113,5 +129,19 @@ export default class WebsocketServer {
                 client.socket.sendBytes(buffer);
             });
         }
+    }
+
+    getRoomInfoList() {
+        const roomInfoList: RoomInfoType[] = [];
+        this.rooms.forEach((room, key) => {
+            roomInfoList.push({
+                UUID: key,
+                Name: room.name,
+                IsPrivate: room.password !== "",
+                PlayerCount: room.clients.length,
+            });
+        }
+        );
+        return roomInfoList;
     }
 }

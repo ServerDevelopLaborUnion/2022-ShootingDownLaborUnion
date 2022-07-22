@@ -30,13 +30,24 @@ public class Entity : MonoBehaviour
         return temp;
     }
 
-    public static void InvokeEvent(string uuid, string eventName)
+    public static void InvokeAction(string uuid, string eventName)
     {
         foreach (var entity in NetworkManager.Instance.entityList)
         {
             if (string.Compare(entity.Data.UUID, uuid) == 0)
             {
-                entity.EntityObject.GetComponent<CharacterEvent>()?.InvokeEvent(eventName);
+                entity.EntityObject.GetComponent<CharacterEvent>()?.InvokeAction(eventName);
+                break;
+            }
+        }
+    }
+    public static void InvokeFunc(string uuid, string eventName, string message)
+    {
+        foreach (var entity in NetworkManager.Instance.entityList)
+        {
+            if (string.Compare(entity.Data.UUID, uuid) == 0)
+            {
+                entity.EntityObject.GetComponent<CharacterEvent>()?.InvokeAction(eventName);
                 break;
             }
         }

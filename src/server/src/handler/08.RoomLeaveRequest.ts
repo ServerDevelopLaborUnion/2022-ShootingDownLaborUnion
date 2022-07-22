@@ -11,3 +11,5 @@ class RoomLeaveRequest implements IHandler {
         // TODO: Implement
     }
 }
+
+export default new RoomLeaveRequest();
