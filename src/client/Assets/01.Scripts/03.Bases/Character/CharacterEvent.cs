@@ -12,6 +12,7 @@ public class CharacterEvent : MonoBehaviour
     public UnityEvent DoMove = new UnityEvent();
     public UnityEvent DoFlipLeft = new UnityEvent();
     public UnityEvent DoFlipRight = new UnityEvent();
+    public UnityEvent DoDie = new UnityEvent();
 
     private void Awake()
     {
@@ -21,10 +22,12 @@ public class CharacterEvent : MonoBehaviour
         CharacterRenderer characterRenderer = visualTransform.GetComponent<CharacterRenderer>();
         CharacterAnimation characterAnimation = visualTransform.GetComponent<CharacterAnimation>();
         CharacterMove characterMove = GetComponent<CharacterMove>();
+        CharacterDeath characterDeath = visualTransform.GetComponent<CharacterDeath>();
         DoAttack.AddListener(() => characterAttack.DoAttack());
         DoMove.AddListener(() => characterAnimation.PlayMoveAnime(true));
         DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(Vector2.left));
         DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));
+        DoDie.AddListener(() => characterDeath.CharacterDead());
     }
     public void InvokeEvent(string eventName)
     {
@@ -42,6 +45,10 @@ public class CharacterEvent : MonoBehaviour
             case "DoFlipRight":
                 DoFlipRight?.Invoke();
                 break ;
+            case "DoDie":
+                DoDie?.Invoke();
+                break;
+
         }
     }
 }
