@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,6 +24,7 @@ public class CharacterDeath : MonoBehaviour
     {
         _base.State.CurrentState |= CharacterState.State.Died;
         OnCharacterDied?.Invoke();
+        Entity.DeleteEntity(_base.Data.UUID);
     }
 
     public virtual void EndDeath()
