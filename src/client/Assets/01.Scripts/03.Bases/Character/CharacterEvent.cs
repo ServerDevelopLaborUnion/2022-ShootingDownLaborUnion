@@ -29,7 +29,7 @@ public class CharacterEvent : MonoBehaviour
         DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));
         DoDie.AddListener(() => characterDeath.CharacterDead());
     }
-    public void InvokeEvent(string eventName)
+    public void InvokeAction(string eventName)
     {
         switch (eventName)
         {
