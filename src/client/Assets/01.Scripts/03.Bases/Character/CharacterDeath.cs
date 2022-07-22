@@ -22,6 +22,7 @@ public class CharacterDeath : MonoBehaviour
 
     public void CharacterDead()
     {
+        WebSocket.Client.ApplyEntityEvent(_base, "DoDie");
         _base.State.CurrentState |= CharacterState.State.Died;
         OnCharacterDied?.Invoke();
         Entity.DeleteEntity(_base.Data.UUID);
