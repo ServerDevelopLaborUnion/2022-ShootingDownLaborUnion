@@ -4,6 +4,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System;
 using WebSocket;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,6 +71,8 @@ public class GameManager : MonoBehaviour
             if (NetworkManager.Instance.playerList.Count == 1)
             {
                 e.parantEntity.GetComponent<PlayerBase>().RoomHost = true;
+                e.parantEntity.GetComponent<PlayerBase>().statManager.UpdateText(e.parantEntity.GetComponent<PlayerBase>(), e.parantEntity.transform.GetChild(0).GetComponent<PlayerAttack>());
+                GameObject.Find("VirtualCam").GetComponent<CinemachineVirtualCamera>().Follow = e.parantEntity.transform;
             }
         }
     }

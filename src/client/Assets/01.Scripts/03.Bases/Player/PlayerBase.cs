@@ -5,4 +5,10 @@ using UnityEngine;
 public class PlayerBase : CharacterBase
 {
     public bool RoomHost = false;
+    public StatManager statManager = null;
+
+    private void Start()
+    {
+        statManager = GetComponent<StatManager>();
+    }
 }
