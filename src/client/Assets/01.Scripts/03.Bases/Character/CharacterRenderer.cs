@@ -23,7 +23,7 @@ public class CharacterRenderer : MonoBehaviour
             Vector3 scale = transform.localScale;
             if(scale.x < 0)
             {
-                WebSocket.Client.ApplyEntityEvent(_characterBase, "DoFlipRight");
+                WebSocket.Client.ApplyEntityAction(_characterBase, "DoFlipRight");
             }
             scale.x = Mathf.Abs(scale.x);
             transform.localScale = scale;
@@ -33,7 +33,7 @@ public class CharacterRenderer : MonoBehaviour
             Vector3 scale = transform.localScale;
             if (scale.x > 0)
             {
-                WebSocket.Client.ApplyEntityEvent(_characterBase, "DoFlipLeft");
+                WebSocket.Client.ApplyEntityAction(_characterBase, "DoFlipLeft");
             }
             scale.x = -Mathf.Abs(scale.x);
             transform.localScale = scale;

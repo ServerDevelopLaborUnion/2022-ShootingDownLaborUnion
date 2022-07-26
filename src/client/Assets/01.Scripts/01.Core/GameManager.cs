@@ -4,21 +4,31 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System;
 using WebSocket;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
+    ChatManager chatManager;
     // Start is called before the first frame update
     void Start()
     {
+        chatManager = GameObject.Find("ChatObject").GetComponent<ChatManager>();
+
         WebSocket.Client.OnEntityCreateMessage += Client_OnEntityCreateMessage;
         WebSocket.Client.OnEntityReMoveMessage += Client_OnEntityReMoveMessage;
         WebSocket.Client.OnEntityMoveMessage += Client_OnEntityMoveMessage;
         WebSocket.Client.OnEntityEventMessage += Client_OnEntityEventMessage;
+        WebSocket.Client.OnChatMessage += Client_OnChatMessage;
+    }
+
+    private void Client_OnChatMessage(object sender, ChatMessageEventArgs e)
+    {
+        chatManager.GetChatMessage(e.Message);
     }
 
     private void Client_OnEntityEventMessage(object sender, EntityEventArgs e)
     {
-        Entity.InvokeEvent(e.EntityUUID, e.EventName);
+        Entity.InvokeAction(e.EntityUUID, e.EventName);
         //TODO DoAttack -> CharacterEvent.InvokeEvent(DoAttack)
         //TODO DoFlipLeft -> CharacterEvent.InvokeEvent(DoFlipLeft)
         //TODO DoFlipRight -> CharacterEvent.InvokeEvent(DoFlipRight)
@@ -51,6 +61,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SetHostClient(e.Data));
     }
 
+    
+
     private IEnumerator SetHostClient(EntityData e)
     {
         yield return new WaitForSeconds(1f);
@@ -59,6 +71,8 @@ public class GameManager : MonoBehaviour
             if (NetworkManager.Instance.playerList.Count == 1)
             {
                 e.parantEntity.GetComponent<PlayerBase>().RoomHost = true;
+                e.parantEntity.GetComponent<PlayerBase>().statManager.UpdateText(e.parantEntity.GetComponent<PlayerBase>(), e.parantEntity.transform.GetChild(0).GetComponent<PlayerAttack>());
+                GameObject.Find("VirtualCam").GetComponent<CinemachineVirtualCamera>().Follow = e.parantEntity.transform;
             }
         }
     }

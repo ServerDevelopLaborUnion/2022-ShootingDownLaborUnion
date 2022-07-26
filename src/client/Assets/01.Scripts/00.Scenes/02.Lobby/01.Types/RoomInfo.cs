@@ -11,8 +11,9 @@ public class RoomInfo
         return string.Format("{0} ({1}/{2})", Name, PlayerCount, MaxPlayers);
     }
 
-    public RoomInfo(string name, bool isPrivate, int playerCount)
+    public RoomInfo(string uuid, string name, bool isPrivate, int playerCount)
     {
+        UUID = uuid;
         Name = name;
         IsPrivate = isPrivate;
         PlayerCount = playerCount;

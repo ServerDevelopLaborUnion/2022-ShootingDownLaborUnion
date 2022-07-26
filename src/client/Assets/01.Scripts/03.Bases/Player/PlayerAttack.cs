@@ -9,6 +9,11 @@ public class PlayerAttack : CharacterAttack
     [SerializeField]
     private float _range = 0;
 
+    public float Range
+    {
+        get { return _range; }
+    }
+
     public Action OnGetRangeBtnClick = null;
 
 
@@ -51,29 +56,42 @@ public class PlayerAttack : CharacterAttack
     protected override void Attack()
     {
         List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
-        if (enemies.Count == 0)
-            return;
-        closestEnemy = enemies.OrderBy((enemy) => GetDistance(Define.MainCam.ScreenToWorldPoint(Input.mousePosition), enemy.transform.position)).FirstOrDefault();
+        if (enemies.Count != 0)
+        {
+            closestEnemy = enemies.OrderBy((enemy) => GetDistance(Define.MainCam.ScreenToWorldPoint(Input.mousePosition), enemy.transform.position)).FirstOrDefault();
+        }
         Vector2 dir = Define.MainCam.ScreenToWorldPoint(Input.mousePosition);
         if (closestEnemy != null)
         {
-            dir = closestEnemy.transform.position;
-        }
-        _renderer.FlipCharacter(dir);
 
-        if (GetDistance(transform.parent.position, closestEnemy.transform.position) <= _range)
-        {
-            OnAttacked?.Invoke();
-            Debug.Log($"{closestEnemy.name}, {GetDistance(transform.parent.position, closestEnemy.transform.position)}");
-            closestEnemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol);
+            if (GetDistance(transform.parent.position, closestEnemy.transform.position) <= _range)
+            {
+                dir = closestEnemy.transform.position;
+
+                OnAttacked?.Invoke();
+                Debug.Log($"{closestEnemy.name}, {GetDistance(transform.parent.position, closestEnemy.transform.position)}");
+                closestEnemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol);
+            }
+
+            else
+            {
+                _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition));
+
+                WebSocket.Client.ApplyEntityMove(_base);
+                return;
+            }
         }
         else
         {
             _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition));
 
             WebSocket.Client.ApplyEntityMove(_base);
+            _renderer.FlipCharacter(dir);
             return;
         }
+        _renderer.FlipCharacter(dir);
+
+        
 
         base.Attack();
     }

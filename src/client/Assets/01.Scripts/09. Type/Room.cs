@@ -14,4 +14,10 @@ public class Room
     {
         Users.Remove(user);
     }
+
+    public Room(RoomInfo info, List<User> users)
+    {
+        Info = info;
+        Users = users;
+    }
 }

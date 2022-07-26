@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,7 +18,7 @@ public class CharacterDamage : MonoBehaviour
     {
         if (_base.State.CurrentState.HasFlag(CharacterState.State.Damaged) || _base.State.CurrentState.HasFlag(CharacterState.State.Died)) return;
         _base.State.CurrentState |= CharacterState.State.Damaged;
-        _base.Stat.ChangeStat(CharacterStat.Stat.HP, _base.Stat.HP - value);
+        _base.Stat.ChangeStat(CharacterStat.Stat.HP, _base.Stat.HP - value * (10 / (_base.Stat.Def + 10)));
         OnCharacterDamaged?.Invoke();
         OnDamagedFeedBack?.Invoke(col);
     }
