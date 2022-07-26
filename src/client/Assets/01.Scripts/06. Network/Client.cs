@@ -281,7 +281,7 @@ namespace WebSocket
 
         private void Update()
         {
-            if (_connectionState == ConnectionState.Disconnected)
+            if (_clientWebSocket == null || _clientWebSocket.State == WebSocketState.Closed)
                 Initialize();
         }
 
