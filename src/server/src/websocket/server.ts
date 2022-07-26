@@ -11,7 +11,6 @@ import { Client } from '../types/Client';
 import { Entity } from '../types/Entity';
 import { Vector2 } from '../types/Vector2';
 import { Quaternion } from '../types/Quaternion';
-import { storage } from '../storage';
 
 const logger = Logger.getLogger('Websocket');
 
@@ -105,10 +104,10 @@ export default class WebsocketServer {
             this.rooms.get('test')?.addUser(client);
 
             const playerEntity = new Entity(v4(), client.sessionId, "머ㅜ이망할승현아", new Vector2(0, 0), new Quaternion(0, 0, 0, 0), '{"type": 0}');
-            const enemyEntity = new Entity(v4(), client.sessionId, "머ㅜ이망할원석아", new Vector2(8, 0), new Quaternion(0, 0, 0, 0), '{"type": 1}');
-
             this.rooms.get('test')?.addEntity(playerEntity);
-            this.rooms.get('test')?.addEntity(enemyEntity);
+            
+            // const enemyEntity = new Entity(v4(), client.sessionId, "머ㅜ이망할원석아", new Vector2(8, 0), new Quaternion(0, 0, 0, 0), '{"type": 1}');
+            // this.rooms.get('test')?.addEntity(enemyEntity);
         });
 
         this.server.listen(this.port, () => {
@@ -143,5 +142,9 @@ export default class WebsocketServer {
         }
         );
         return roomInfoList;
+    }
+
+    getRoom(roomId: string) {
+        return this.rooms.get(roomId);
     }
 }

@@ -12,7 +12,7 @@ class RoomListRequest implements IHandler {
     async receive(client: Client, buffer: Buffer) {
         const roomInfoList = storage.server.getRoomInfoList();
         client.sendPacket(proto.client.encode(proto.client.RoomListResponse, {
-            
+            Info: roomInfoList
         }));
     }
 }

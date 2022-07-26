@@ -5,14 +5,14 @@ import { Entity } from './Entity';
 import { Client } from "./Client";
 
 export class Room {
-    id: string;
+    uuid: string;
     name: string;
     password: string | null;
     clients: Client[];
     entities: Map<string, Entity>;
 
     constructor(name: string, password: string | null) {
-        this.id = v4();
+        this.uuid = v4();
         this.name = name;
         this.password = password;
         this.clients = [];

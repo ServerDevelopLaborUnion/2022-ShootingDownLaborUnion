@@ -6,7 +6,7 @@ import proto from '../util/proto';
 const logger = Logger.getLogger('ChatRequest');
 
 class ChatRequest implements IHandler {
-    id = 10;
+    id = 11;
     type = 'ChatRequest';
     async receive(client: Client, buffer: Buffer) {
         const ChatRequest: any = proto.server.decode(this.type, buffer);
