@@ -28,6 +28,7 @@ public class PlayerAttack : CharacterAttack
     {
         base.Start();
 
+        _range = _base.Stat.AtkRange;
         if (_base.Data.Type == EntityType.Player)
         {
             _rangeObject = transform.parent.Find("Range").gameObject;
@@ -71,14 +72,15 @@ public class PlayerAttack : CharacterAttack
                 OnAttacked?.Invoke();
                 Debug.Log($"{closestEnemy.name}, {GetDistance(transform.parent.position, closestEnemy.transform.position)}");
                 closestEnemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol);
+
+                base.Attack();
             }
 
             else
             {
                 _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition));
-
+                _renderer.FlipCharacter(dir);
                 WebSocket.Client.ApplyEntityMove(_base);
-                return;
             }
         }
         else
@@ -86,14 +88,9 @@ public class PlayerAttack : CharacterAttack
             _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition));
 
             WebSocket.Client.ApplyEntityMove(_base);
-            _renderer.FlipCharacter(dir);
-            return;
         }
+
         _renderer.FlipCharacter(dir);
-
-        
-
-        base.Attack();
     }
 
     private void Update()

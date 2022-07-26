@@ -39,11 +39,9 @@ public class CharacterMove : MonoBehaviour
             StopImmediatelly();
             return;
         }
-        if (Vector3.Distance(_base.Data.TargetPosition, transform.position) >= 0.1f)
+        if (Vector2.Distance(_base.Data.TargetPosition, transform.position) >= 0.1f)
         {
             //transform.position = Vector3.Lerp(transform.position, _base.Data.TargetPosition, Time.deltaTime * _base.Stat.Speed /     Vector3.Distance(_base.Data.TargetPosition, transform.position));
-            Debug.Log(_base.Data.TargetPosition);
-            Debug.Log(transform.position);
             OnVelocityChange?.Invoke(true);
         }
         else
@@ -60,7 +58,7 @@ public class CharacterMove : MonoBehaviour
         agent.isStopped = false;
         _base.Data.TargetPosition = goal;
         
-        agent.SetDestination(_base.Data.TargetPosition);
+        agent.SetDestination(_base.Data.TargetPosition + Vector2.up);
     }
 
     public void StopImmediatelly()

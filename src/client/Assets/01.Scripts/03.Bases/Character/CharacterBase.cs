@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class CharacterBase : Entity
 {
-    [SerializeField] private CharacterStat _playerStat;
+    [SerializeField] protected CharacterStat _playerStat;
     [SerializeField] private CharacterState _playerState;
 
     public CharacterStat Stat => _playerStat;
