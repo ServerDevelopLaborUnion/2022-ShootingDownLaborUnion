@@ -68,7 +68,7 @@ public class ColorHierarchy : MonoBehaviour
 
     public Font _nameFont;
 
-    public TextAnchor _nameAlignment;
+    public TextAnchor _nameAlignment = TextAnchor.MiddleCenter;
 
     public int _fontSize = 13;
 
