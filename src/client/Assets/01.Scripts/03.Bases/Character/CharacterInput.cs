@@ -49,7 +49,7 @@ public class CharacterInput : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            OnMoveKeyInput?.Invoke(MousePos);
+            OnMoveKeyInput?.Invoke(MousePos + Vector2.up);
             WebSocket.Client.ApplyEntityMove(playerEntity);
         }
         else if (Input.GetMouseButton(1))
@@ -57,7 +57,7 @@ public class CharacterInput : MonoBehaviour
             _delay += Time.deltaTime;
             if (_delay > 0.2f)
             {
-                OnMoveKeyInput?.Invoke(MousePos);
+                OnMoveKeyInput?.Invoke(MousePos + Vector2.up);
                 WebSocket.Client.ApplyEntityMove(playerEntity);
                 _delay = 0;
             }

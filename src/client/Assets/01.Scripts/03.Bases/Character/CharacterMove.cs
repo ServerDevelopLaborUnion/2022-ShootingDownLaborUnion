@@ -29,7 +29,6 @@ public class CharacterMove : MonoBehaviour
 
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        agent.speed = _base.Stat.Speed;
     }
 
     private void Update()
@@ -39,7 +38,7 @@ public class CharacterMove : MonoBehaviour
             StopImmediatelly();
             return;
         }
-        if (Vector2.Distance(_base.Data.TargetPosition, transform.position) >= 0.1f)
+        if (Vector2.Distance(_base.Data.TargetPosition, transform.position) >= 0.3f)
         {
             //transform.position = Vector3.Lerp(transform.position, _base.Data.TargetPosition, Time.deltaTime * _base.Stat.Speed /     Vector3.Distance(_base.Data.TargetPosition, transform.position));
             OnVelocityChange?.Invoke(true);
@@ -51,6 +50,7 @@ public class CharacterMove : MonoBehaviour
     }
     public void MoveAgent(Vector3 goal)
     {
+        agent.speed = _base.Stat.Speed;
         if (_base.State.CurrentState.HasFlag(CharacterState.State.Attack))
         {
             return;
@@ -58,7 +58,7 @@ public class CharacterMove : MonoBehaviour
         agent.isStopped = false;
         _base.Data.TargetPosition = goal;
         
-        agent.SetDestination(_base.Data.TargetPosition + Vector2.up);
+        agent.SetDestination(_base.Data.TargetPosition);
     }
 
     public void StopImmediatelly()

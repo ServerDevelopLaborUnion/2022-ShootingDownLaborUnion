@@ -217,7 +217,6 @@ namespace WebSocket
 
         public static void SendPacket(uint type, Google.Protobuf.IMessage message)
         {
-            Debug.Log(type);
             if (_connectionState == ConnectionState.Connected)
             {
                 byte[] buffer = new byte[message.CalculateSize()];

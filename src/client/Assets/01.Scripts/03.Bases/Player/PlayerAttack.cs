@@ -78,14 +78,14 @@ public class PlayerAttack : CharacterAttack
 
             else
             {
-                _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition));
+                _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition + Vector3.up));
                 _renderer.FlipCharacter(dir);
                 WebSocket.Client.ApplyEntityMove(_base);
             }
         }
         else
         {
-            _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition));
+            _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition + Vector3.up));
 
             WebSocket.Client.ApplyEntityMove(_base);
         }
