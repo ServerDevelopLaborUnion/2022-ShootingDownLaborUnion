@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,6 +14,23 @@ public class ColorHierarchy : MonoBehaviour
     {
         EditorApplication.hierarchyWindowItemOnGUI += HandleDraw;
     }
+
+
+    public Color _backColor = Color.white;
+
+    public Color _fontColor = Color.black;
+
+    public Font _nameFont;
+
+    public TextAnchor _nameAlignment = TextAnchor.UpperLeft;
+
+    public int _fontSize = 13;
+
+    public int _gapCount = 1;
+
+    public Color _offBackColor = new Color(0.3f, 0.3f, 0.3f, 1f);
+
+    public Color _offFontColor = new Color(0.6f, 0.6f, 0.6f, 1f);
 
     private static void HandleDraw(int id, Rect selectionRect)
     {
@@ -37,40 +55,39 @@ public class ColorHierarchy : MonoBehaviour
     {
         Rect bgRect = new Rect(selectionRect.x, selectionRect.y, selectionRect.width + 50, selectionRect.height);
         GameObject gObj = obj as GameObject;
-        if (Selection.activeObject != obj)
+        string name;
+        if (gObj.activeSelf)
         {
-            EditorGUI.DrawRect(bgRect, ch.backColor);
-            string name;
-            if (gObj.activeSelf)
-            {
-                name = $"{obj.name}";
-            }
-            else
-            {
-                name = $"! {obj.name}";
-            }
-
-            EditorGUI.LabelField(bgRect, name, new GUIStyle()
-            {
-                normal = new GUIStyleState() { textColor = ch.fontColor },
-                font = ch._nameFont,
-                alignment = ch._nameAlignment,
-                fontStyle = FontStyle.Bold,
-                fontSize = ch._fontSize,
-        });
+            EditorGUI.DrawRect(bgRect, ch._backColor);
+            name = $"◆{ch.Gap(ch._gapCount)}{obj.name}";
         }
+        else
+        {
+            EditorGUI.DrawRect(bgRect, ch._offBackColor);
+            name = $"◇{ch.Gap(ch._gapCount)}{obj.name}";
+        }
+
+        EditorGUI.LabelField(bgRect, name, new GUIStyle()
+        {
+            normal = new GUIStyleState() { textColor = gObj.activeSelf ? ch._fontColor : ch._offFontColor },
+            font = ch._nameFont,
+            alignment = ch._nameAlignment,
+            fontStyle = FontStyle.Bold,
+            fontSize = ch._fontSize,
+        }
+        );
         //선택된 오브젝트면 기본 유니티가 그리는대로 내버려 둔다.
     }
 
-    public Color backColor = Color.white;
-
-    public Color fontColor = Color.black;
-
-    public Font _nameFont;
-
-    public TextAnchor _nameAlignment = TextAnchor.MiddleCenter;
-
-    public int _fontSize = 13;
+    private string Gap(int gapCount)
+    {
+        StringBuilder gap = new StringBuilder();
+        for (int i = 0; i < gapCount; ++i)
+        {
+            gap.Append("  ");
+        }
+        return gap.ToString();
+    }
 
     private void Reset()
     {

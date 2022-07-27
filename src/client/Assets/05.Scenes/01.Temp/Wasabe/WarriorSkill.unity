@@ -212,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &458324532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,11 +256,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e384d6dea4fbee4e8bf5e759a191b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backColor: {r: 1, g: 1, b: 1, a: 1}
-  fontColor: {r: 0, g: 0, b: 0, a: 1}
+  _backColor: {r: 1, g: 1, b: 1, a: 1}
+  _fontColor: {r: 0, g: 0, b: 0, a: 1}
   _nameFont: {fileID: 0}
-  _nameAlignment: 4
+  _nameAlignment: 0
   _fontSize: 13
+  _gapCount: 1
+  _offBackColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+  _offFontColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
 --- !u!1 &478297780
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &827651863
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1044,6 +1047,7 @@ GameObject:
   - component: {fileID: 2005980402}
   - component: {fileID: 2005980403}
   - component: {fileID: 2005980404}
+  - component: {fileID: 2005980405}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1110,7 +1114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005980399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6943417, y: 0.49644995, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1177,6 +1181,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2005980403}
   moveSpeed: 15
+--- !u!114 &2005980405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005980399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19844cb6ef92fb3449254d5e4fcd3d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coolTime: 3
+  _light: {fileID: 2016547699}
+  _lightGap: 1
+  _delayTime: 1
+  _lightCount: 5
 --- !u!1 &2016547699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,12 +1209,12 @@ GameObject:
   - component: {fileID: 2016547701}
   - component: {fileID: 2016547700}
   m_Layer: 0
-  m_Name: Sprite Light 2D
+  m_Name: SwordLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2016547700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1243,7 +1264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016547699}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3.2261014, y: -0.48482972, z: 0}
+  m_LocalPosition: {x: -0.5, y: -0.5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
