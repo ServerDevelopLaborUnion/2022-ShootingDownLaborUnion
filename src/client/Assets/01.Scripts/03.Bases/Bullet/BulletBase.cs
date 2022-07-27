@@ -6,6 +6,8 @@ public class BulletBase : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 20f;
+    [SerializeField]
+    private Vector2 _dir = Vector2.up;
 
     protected Transform _transform = null;
 
@@ -18,7 +20,7 @@ public class BulletBase : MonoBehaviour
     }
 
     protected virtual void Move(){
-        _transform.Translate(Vector2.up * _speed * Time.deltaTime);
+        _transform.Translate(_dir * _speed * Time.deltaTime);
     }
 
     protected virtual void Limit(){
