@@ -14,12 +14,17 @@ public class SkillBase : MonoBehaviour
     protected bool _isSkill = false;
 
 
-    protected virtual void Start() {
+    protected virtual void Awake() {
         _coolTimeImage = UIManager.Instance.SkillCoolTimeImage;
     }
 
+    protected virtual IEnumerator Skill(){
+        _isSkill = true;
+        return null;
+    }
 
-    protected virtual IEnumerator UseSkilled(){
+
+    protected virtual IEnumerator UsedSkill(){
         _coolTimeImage.fillAmount = 0f;
         _coolTimeImage.color = Color.gray;
 
