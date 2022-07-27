@@ -906,13 +906,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce4f82d39743d14eb2c79578b337777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponName: Ice Sword
+  WeaponImage: {fileID: 21300000, guid: 77df9309f8e8f4aa0b33a3370cad608d, type: 3}
   Stat:
-    _hp: 0
-    _atk: 0
-    _def: 0
-    _speed: 0
-    _atkSpeed: 0
+    _hp: 1
+    _atk: 5
+    _def: 2
+    _speed: -1
+    _atkSpeed: -1
     _atkRange: 0
+  WeaponExplain: The Sword Can Make Enemy Slow
 --- !u!1 &6349192800315621074
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +940,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6349192800315621074}
   m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
-  m_LocalPosition: {x: 0.3, y: -0.83674216, z: 0}
+  m_LocalPosition: {x: 0.3, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6159827721170713962}

@@ -7,6 +7,7 @@ public class PlayerBase : CharacterBase
 {
     [SerializeField]
     private Weapon weapon;
+    public Weapon Weapon { get => weapon; }
     public bool RoomHost = false;
     public StatManager statManager = null;
 

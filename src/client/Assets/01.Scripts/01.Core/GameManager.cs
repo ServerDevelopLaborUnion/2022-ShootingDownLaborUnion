@@ -70,8 +70,9 @@ public class GameManager : MonoBehaviour
         {
             if (NetworkManager.Instance.playerList.Count == 1)
             {
-                e.parantEntity.GetComponent<PlayerBase>().RoomHost = true;
-                e.parantEntity.gameObject.AddComponent<StatManager>().UpdateText(e.parantEntity.GetComponent<PlayerBase>());
+                PlayerBase HostPlayer = e.parantEntity.GetComponent<PlayerBase>();
+                HostPlayer.RoomHost = true;
+                e.parantEntity.gameObject.AddComponent<StatManager>().UpdateText(HostPlayer, HostPlayer.Weapon);
                 GameObject.Find("VirtualCam").GetComponent<CinemachineVirtualCamera>().Follow = e.parantEntity.transform;
             }
         }
