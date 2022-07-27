@@ -8,7 +8,6 @@ public class ColorHierarchyEditor : MonoBehaviour
     [MenuItem("GameObject/ColorHierarchyasdf %H")]
     private static void CreateColorHierarchy()
     {
-        Debug.Log("컬러 하이어라키 들어감");
         GameObject[] obj = Selection.gameObjects;
 
 
