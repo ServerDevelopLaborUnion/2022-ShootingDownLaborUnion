@@ -7,14 +7,24 @@ public class RoomManager : MonoSingleton<RoomManager>
     [SerializeField]
     private List<RolePanel> _rolePanels = new List<RolePanel>();
 
+    [SerializeField]
+    private TMP_Text _titletext;
+    [SerializeField]
+    private TMP_Text _userCountText;
 
+    private User _masterUser;
     private void Start()
     {
         // UI 에 CurrentRoom 정보 업데이트
         foreach(User user in Storage.CurrentRoom.Users){
             SetRole((int)user.Role, user.IsReady);
+            if(user.IsMaster){
+                _masterUser = user;
+            }
         }
-        
+
+        _titletext.text = $"{_masterUser.Name}님의 {Storage.CurrentRoom.Info.Name}";
+        _userCountText.text = $"{Storage.CurrentRoom.Users.Count}/4";
     }
 
     public void OnUserJoin(User user)
