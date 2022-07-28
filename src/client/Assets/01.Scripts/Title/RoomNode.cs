@@ -25,6 +25,7 @@ public class RoomNode : MonoBehaviour
         {
             if (isPrivate)
             {
+                // TODO: 패스워드 입력
                 LobbyManager.Instance.JoinRoom(roomInfo.UUID);
             }
             else
