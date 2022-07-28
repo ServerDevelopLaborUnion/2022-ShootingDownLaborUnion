@@ -11,6 +11,10 @@ public class RoomManager : MonoSingleton<RoomManager>
     private void Start()
     {
         // UI 에 CurrentRoom 정보 업데이트
+        foreach(User user in Storage.CurrentRoom.Users){
+            SetRole((int)user.Role, user.IsReady);
+        }
+        
     }
 
     public void OnUserJoin(User user)
@@ -32,15 +36,16 @@ public class RoomManager : MonoSingleton<RoomManager>
     {
         user.IsReady = isReady;
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
-
+        
+        user.Role = (RoleType)role;
 
         if (user.IsReady)
         {
             _rolePanels[role].SetNameText(Storage.CurrentUser.Name);
-            //TODO: 대충 인원수 UI++
+            // 대충 인원수 UI++
             if ( CheckAllUserIsReady() && Storage.CurrentUser.IsMaster)
             {
-                // TODO: 시작 버튼 생김
+                //시작 버튼 생김
                 _rolePanels[role].ActiveStartBtn(true);
             }
         }
@@ -54,19 +59,16 @@ public class RoomManager : MonoSingleton<RoomManager>
     {
         // 무기를 눌렀을 때
         // 무기를 바꿨을 때 무기가 겹칠경우 실행이 안되게
-        //WebSocket.Client.SetRole(role);
+        WebSocket.Client.SetRole(role, isReady);
     }
 
     public void ClickStartGame(){
-        //TODO: 씬 로딩
-        //WebSocket.Client.ClickStartGame;
+        WebSocket.Client.StartGame();
     }
 
     public void OnStartGame()
     {
-        // 게임 시작 버튼을 눌렀을 때
-        // 인원수가 맞지 않거나, 겹치는 무기가 있을 경우 불가 메세지 출력
-        // 방장이 아니면 못누름
+        SceneLoader.Load(SceneType.Game);
     }
 
     

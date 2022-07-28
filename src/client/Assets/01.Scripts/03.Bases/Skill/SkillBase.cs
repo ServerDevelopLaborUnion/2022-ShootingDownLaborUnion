@@ -33,7 +33,7 @@ public class SkillBase : MonoBehaviour
             yield return null;
         }
 
-        _isSkill = true;
+        _isSkill = false;
         _coolTimeImage.color = Color.white;
     }
 }

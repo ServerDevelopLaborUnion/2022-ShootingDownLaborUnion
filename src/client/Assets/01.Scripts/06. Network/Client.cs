@@ -648,18 +648,15 @@ namespace WebSocket
             SendPacket(10, entityDespawnRequest);
         }
 
-        public static void SetReady(bool isReady)
+        public static void SetRole(int role, bool isReady)
         {
 
-            // TODO: 레디 패킷 전송
-            throw new NotImplementedException();
+            // TODO: OnUpdateRole실행
         }
 
-        public static void SetRole(int role)
+        public static void StartGame()
         {
-
-            // TODO: 무기 변경 패킷 전송
-            throw new NotImplementedException();
+            //TODO: 방 안에있는 모든 플레이어 씬 로딩
         }
 
         public static void SendChatMessage(string message)

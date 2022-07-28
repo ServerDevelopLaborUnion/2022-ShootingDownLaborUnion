@@ -3,6 +3,7 @@ using static Yields;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class WarriorSkill : SkillBase
 {
@@ -35,12 +36,13 @@ public class WarriorSkill : SkillBase
             Vector2 _spawnPos = transform.position;
             _spawnPos.y -= 0.5f;
 
-            GameObject g = Instantiate(_light, _spawnPos + new Vector2(Mathf.Cos(i * lightAngle * Mathf.Deg2Rad), Mathf.Sin(i * lightAngle * Mathf.Deg2Rad)) * _lightGap, Quaternion.Euler(0f, 0f, 90f));
+            GameObject g = Instantiate(_light, _spawnPos + new Vector2(Mathf.Cos((i * lightAngle + 90f) * Mathf.Deg2Rad), Mathf.Sin((i * lightAngle + 90f) * Mathf.Deg2Rad)) * _lightGap, Quaternion.Euler(0f, 0f, 90f));
             g.SetActive(true);
+            g.transform.DOScale(Vector3.one * 0.5f, 0.1f);
             yield return WaitForSeconds(_delayTime * 0.2f);
         }
 
-        UsedSkill();
+        StartCoroutine(UsedSkill());
     }
 
 
