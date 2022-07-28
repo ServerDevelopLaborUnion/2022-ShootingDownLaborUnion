@@ -40,8 +40,7 @@ public class RoomListManager : MonoSingleton<RoomListManager>
         foreach (var room in roomList)
         {
             var roomNode = Instantiate(_roomNodePrefab, _roomList);
-            // TODO : room.MaxPlayers 불러와서 매개변수 4 들어가 있는자리 대체하기
-            roomNode.GetComponent<RoomNode>().SetInfo(room.Name, 4, room.PlayerCount, room.IsPrivate);
+            roomNode.GetComponent<RoomNode>().SetInfo(room);
         }
     }
 }

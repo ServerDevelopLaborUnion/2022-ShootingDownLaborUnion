@@ -16,20 +16,20 @@ public class RoomNode : MonoBehaviour
 
     private Button _roomEnterButton = null;
 
-    public void SetInfo(string roomName, int maxPersonnel, int currentPersonnel, bool isPrivate)
+    public void SetInfo(RoomInfo roomInfo)
     {
         _roomEnterButton = GetComponent<Button>();
-        this.roomName.text = roomName;
-        this.personnel.text = $"{currentPersonnel.ToString()}/{maxPersonnel.ToString()}";
+        this.roomName.text = roomInfo.Name;
+        this.personnel.text = $"{roomInfo.PlayerCount}/{RoomInfo.MaxPlayers}";
         _roomEnterButton.onClick.AddListener(() =>
         {
             if (isPrivate)
             {
-
+                LobbyManager.Instance.JoinRoom(roomInfo.UUID);
             }
             else
             {
-                LobbyManager.Instance.JoinRoom(roomName);
+                LobbyManager.Instance.JoinRoom(roomInfo.UUID);
             }
         });
     }

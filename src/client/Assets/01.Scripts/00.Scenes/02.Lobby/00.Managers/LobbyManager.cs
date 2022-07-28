@@ -7,6 +7,17 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 {
     private List<RoomInfo> _roomList => WebSocket.Client.RoomList;
 
+    private void Start()
+    {
+        WebSocket.Client.OnRoomListMessage += (sender, e) => {
+            GetRoomList(e.Rooms);
+        };
+
+        WebSocket.Client.OnRoomJoinMessage += (sender, e) => {
+            OnJoinedRoom(e.Room);
+        };
+    }
+
     /// <summary>
     /// 방을 생성할 때 사용되는 함수입니다.
     /// </summary>
@@ -20,11 +31,11 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     /// <summary>
     /// 방에 입장할 때 사용되는 함수입니다.
     /// </summary>
-    /// <param name="name"></param>
+    /// <param name="uuid"></param>
     /// <param name="password"></param>
-    public void JoinRoom(string name, string password = "")
+    public void JoinRoom(string uuid, string password = "")
     {
-        WebSocket.Client.JoinRoom(name, password);
+        WebSocket.Client.JoinRoom(uuid, password);
     }
 
     /// <summary>
