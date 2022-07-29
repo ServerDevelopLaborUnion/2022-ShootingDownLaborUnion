@@ -19,9 +19,9 @@ public class PlayerAttack : CharacterAttack
 
     private GameObject _rangeObject = null;
 
-    private CharacterMove _move;
+    protected CharacterMove _move;
     protected CharacterRenderer _renderer;
-    private Entity closestEnemy = null;
+    protected Entity closestEnemy = null;
     protected override void Start()
     {
         base.Start();
@@ -103,7 +103,7 @@ public class PlayerAttack : CharacterAttack
         }
     }
 
-    float GetDistance(Vector2 pos1, Vector2 pos2)
+    public float GetDistance(Vector2 pos1, Vector2 pos2)
     {
         float x = Mathf.Pow(pos1.x - pos2.x, 2);
         float y = Mathf.Pow(pos1.y * 2 - pos2.y * 2, 2);
