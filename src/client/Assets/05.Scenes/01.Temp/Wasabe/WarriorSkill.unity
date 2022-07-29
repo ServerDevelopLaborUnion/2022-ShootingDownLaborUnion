@@ -123,6 +123,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &303172280
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925208, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925211, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_Name
+      value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 693142078744925211, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
 --- !u!1 &319361895
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +195,7 @@ GameObject:
   - component: {fileID: 319361897}
   - component: {fileID: 319361896}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Visual Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,6 +338,78 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &369283061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 369283062}
+  - component: {fileID: 369283063}
+  m_Layer: 7
+  m_Name: SwordLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &369283062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369283061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.469, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6159827721981820483}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &369283063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369283061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.8
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 1
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 3
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &458324531
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,13 +489,15 @@ GameObject:
   m_Component:
   - component: {fileID: 475215821}
   - component: {fileID: 475215822}
+  - component: {fileID: 475215823}
+  - component: {fileID: 475215824}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SwordBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &475215821
 Transform:
   m_ObjectHideFlags: 0
@@ -428,6 +563,41 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &475215823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475215820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0955a867705b641b460598f7acde82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 20
+  _dir: {x: 1, y: 0}
+  _range: 1346.29
+--- !u!114 &475215824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475215820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e384d6dea4fbee4e8bf5e759a191b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backColor: {r: 1, g: 1, b: 1, a: 1}
+  _fontColor: {r: 0, g: 0, b: 0, a: 1}
+  _nameFont: {fileID: 0}
+  _nameAlignment: 0
+  _fontSize: 13
+  _gapCount: 1
+  _offBackColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+  _offFontColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
 --- !u!1 &478297780
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 20
   _dir: {x: 1, y: 0}
+  _range: 3
 --- !u!114 &827651867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,6 +1066,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coolTime: 5
+--- !u!1 &1123233463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1123233464}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1123233464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123233463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1227722288
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1292,7 +1493,6 @@ GameObject:
   - component: {fileID: 2005980402}
   - component: {fileID: 2005980403}
   - component: {fileID: 2005980404}
-  - component: {fileID: 2005980405}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1377,23 +1577,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2005980403}
   moveSpeed: 15
---- !u!114 &2005980405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005980399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19844cb6ef92fb3449254d5e4fcd3d4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coolTime: 3
-  _light: {fileID: 2016547699}
-  _lightGap: 1
-  _delayTime: 1
-  _lightCount: 5
 --- !u!1 &2016547699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,6 +1746,7 @@ GameObject:
   - component: {fileID: 693142078014860713}
   - component: {fileID: 693142078014860712}
   - component: {fileID: 693142078014860694}
+  - component: {fileID: 693142078014860716}
   m_Layer: 0
   m_Name: Visual Sprite
   m_TagString: Untagged
@@ -1570,6 +1754,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &693142078014860716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693142078014860715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19844cb6ef92fb3449254d5e4fcd3d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coolTime: 3
+  _swordBullet: {fileID: 475215820}
+  _shootPos: {fileID: 819024186070250171}
 --- !u!212 &693142079198556417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1659,14 +1858,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6349192799537610235}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: -0.538, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
+  m_LocalPosition: {x: 0.3, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6159827721981820483}
   m_Father: {fileID: 693142078014860713}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
 --- !u!1 &3878094853865501207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,6 +1876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6159827721981820483}
   - component: {fileID: 8430347269377391084}
+  - component: {fileID: 3878094853865501208}
   m_Layer: 7
   m_Name: IceSword
   m_TagString: Untagged
@@ -1684,6 +1884,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3878094853865501208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878094853865501207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce1b89b977ed884fabc9f067b54468a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _swordInfo: {fileID: 11400000, guid: b6ee6514d15fd93428cacc47baeaf426, type: 2}
+  _swordLight: {fileID: 369283062}
 --- !u!4 &6159827721981820483
 Transform:
   m_ObjectHideFlags: 0
@@ -1694,7 +1908,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 369283062}
   m_Father: {fileID: 819024186070250171}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}

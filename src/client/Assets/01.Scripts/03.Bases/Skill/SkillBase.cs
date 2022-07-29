@@ -18,11 +18,6 @@ public class SkillBase : MonoBehaviour
         _coolTimeImage = UIManager.Instance.SkillCoolTimeImage;
     }
 
-    protected virtual IEnumerator Skill(){
-        _isSkill = true;
-        return null;
-    }
-
 
     protected virtual IEnumerator UsedSkill(){
         _coolTimeImage.fillAmount = 0f;

@@ -1,49 +1,53 @@
+using static Define;
 using static Yields;
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class WarriorSkill : SkillBase
 {
     [SerializeField]
-    private GameObject _light;
+    private GameObject _swordBullet = null;
 
     [SerializeField]
-    private float _lightGap = 0.5f;
+    private Transform _shootPos = null;
 
-    [SerializeField]
-    private float _delayTime = 1f;
+    private Animator _animator;
 
-    [SerializeField]
-    private int _lightCount = 5;
+    private bool _isRight = false;
 
-
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.E) && !_isSkill){
-            StartCoroutine(Skill());
-        }    
+    private void Start() {
+        _animator = GetComponent<Animator>();
+        _animator.enabled = true;
     }
 
-    protected override IEnumerator Skill()
+    private void Update()
     {
-        base.Skill();
-
-        float lightAngle = 360f / _lightCount;
-
-        for (int i = 0; i < _lightCount; ++i){
-            Vector2 _spawnPos = transform.position;
-            _spawnPos.y -= 0.5f;
-
-            GameObject g = Instantiate(_light, _spawnPos + new Vector2(Mathf.Cos((i * lightAngle + 90f) * Mathf.Deg2Rad), Mathf.Sin((i * lightAngle + 90f) * Mathf.Deg2Rad)) * _lightGap, Quaternion.Euler(0f, 0f, 90f));
-            g.SetActive(true);
-            g.transform.DOScale(Vector3.one * 0.5f, 0.1f);
-            yield return WaitForSeconds(_delayTime * 0.2f);
+        if (Input.GetKeyDown(KeyCode.E) && !_isSkill)
+        {
+            // TOOD: 플레이어 좌우 도는거 막기
+            _isSkill = true;
+            _isRight = MousePos.x >= transform.position.x;
+            _animator.Play("Skill");
         }
+    }
 
+    protected void EventUseSkill(){
+        Skill();
+    }
+
+    protected void EventEndSkill()
+    {
+        //TODO: 플레이어 좌우 도는거 풀기
         StartCoroutine(UsedSkill());
     }
+
+    private void Skill(){
+        GameObject g = Instantiate(_swordBullet, _shootPos.position, (_isRight) ? Quaternion.identity : Quaternion.Euler(0f, 180f, 0f));
+        g.SetActive(true);
+    }
+
 
 
 
