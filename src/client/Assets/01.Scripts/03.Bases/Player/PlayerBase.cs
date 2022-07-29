@@ -24,6 +24,7 @@ public class PlayerBase : CharacterBase
 
     public void GetWeaponStat()
     {
-        _playerStat += weapon.Stat;
+        if (weapon != null)
+            _playerStat += weapon.Stat;
     }
 }

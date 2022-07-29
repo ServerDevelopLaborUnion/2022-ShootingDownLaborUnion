@@ -50,12 +50,12 @@ public class StatManager : MonoBehaviour
         }
         else
         {
-            _hpText.text = $"{_base.Stat.HP}";
-            _atkText.text = $"{_base.Stat.AD}";
-            _defText.text = $"{_base.Stat.Def}";
-            _speedText.text = $"{_base.Stat.Speed}";
-            _atkSpeedText.text = $"{_base.Stat.AtkSpeed}";
-            _atkRangeText.text = $"{_base.Stat.AtkRange})";
+            _hpText.text = $"{_base.Stat.HP} +()";
+            _atkText.text = $"{_base.Stat.AD} +()";
+            _defText.text = $"{_base.Stat.Def} +()";
+            _speedText.text = $"{_base.Stat.Speed} +()";
+            _atkSpeedText.text = $"{_base.Stat.AtkSpeed} +()";
+            _atkRangeText.text = $"{_base.Stat.AtkRange} +()";
         }
     }
 

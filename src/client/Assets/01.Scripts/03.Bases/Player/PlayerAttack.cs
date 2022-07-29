@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerAttack : CharacterAttack
 {
     [SerializeField]
-    private float _range = 0;
+    protected float _range = 0;
 
     public float Range
     {
@@ -19,10 +19,8 @@ public class PlayerAttack : CharacterAttack
 
     private GameObject _rangeObject = null;
 
-    public bool GetTarget = true;
-
     private CharacterMove _move;
-    private CharacterRenderer _renderer;
+    protected CharacterRenderer _renderer;
     private Entity closestEnemy = null;
     protected override void Start()
     {
@@ -110,6 +108,11 @@ public class PlayerAttack : CharacterAttack
         float x = Mathf.Pow(pos1.x - pos2.x, 2);
         float y = Mathf.Pow(pos1.y * 2 - pos2.y * 2, 2);
         return Mathf.Sqrt(x + y);
-        
+    }
+
+    public override void EndAttack()
+    {
+        base.EndAttack();
+        closestEnemy = null;
     }
 }

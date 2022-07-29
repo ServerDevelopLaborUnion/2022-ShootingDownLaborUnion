@@ -50,7 +50,7 @@ public class CharacterAttack : MonoBehaviour
             Attack();
         }
     }
-    public void EndAttack()
+    public virtual void EndAttack()
     {
         if (_base == null) return;
         _base.State.CurrentState &= ~CharacterState.State.Attack;

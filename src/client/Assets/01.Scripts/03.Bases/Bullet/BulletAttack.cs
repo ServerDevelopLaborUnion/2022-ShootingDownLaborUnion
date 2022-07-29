@@ -1,12 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class BulletAttack : MonoBehaviour
 {
-    [SerializeField]
-    private int _damage = 1;
+    public int _damage = 1;
 
     private Collider2D _col = null;
 
