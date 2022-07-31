@@ -21,26 +21,26 @@ public class RoomManager : MonoSingleton<RoomManager>
     private User _masterUser;
     private void Start()
     {
-        WebSocket.Client.OnRoomEvent["UserJoined"] += (data) => {
+        WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) => {
             var user = JsonUtility.FromJson<User>(data);
             Storage.CurrentRoom.AddUser(user);
             OnUserJoin(user);
-        };
+        });
 
-        WebSocket.Client.OnRoomEvent["UserLeft"] += (data) => {
+        WebSocket.Client.SubscribeRoomEvent("UserLeft", (data) => {
             var user = JsonUtility.FromJson<User>(data);
             Storage.CurrentRoom.LeftUser(user);
             OnUserLeave(user);
-        };
+        });
 
-        WebSocket.Client.OnRoomEvent["StartGame"] += (data) => {
+        WebSocket.Client.SubscribeRoomEvent("StartGame", (data) => {
             OnStartGame();
-        };
+        });
 
-        WebSocket.Client.OnUserEvent["UserUpdated"] += (data) => {
+        WebSocket.Client.SubscribeUserEvent("UserUpdated", (data) => {
             var user = JsonUtility.FromJson<User>(data);
             OnUpdateRole(user, (int)user.Role, user.IsReady);
-        };
+        });
 
         foreach(User user in Storage.CurrentRoom.Users){
             SetRole((int)user.Role, user.IsReady);

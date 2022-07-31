@@ -200,8 +200,8 @@ namespace WebSocket
         public static event EventHandler<ChatMessageEventArgs> OnChatMessage;
         public static event EventHandler<StartGameEventArgs> OnStartGameMessage;
         public static event EventHandler<SetRoleEventArgs> OnSetRoleMessage;
-        public static Dictionary<string, Action<string>> OnRoomEvent;
-        public static Dictionary<string, Action<string>> OnUserEvent;
+        public static Dictionary<string, Action<string>> OnRoomEvent = new Dictionary<string, Action<string>>();
+        public static Dictionary<string, Action<string>> OnUserEvent = new Dictionary<string, Action<string>>();
         #endregion
 
         public static Account Account { get; private set; }
@@ -561,6 +561,29 @@ namespace WebSocket
         #endregion
 
         #region Functional methods
+        public static void SubscribeRoomEvent(string eventName, Action<string> action)
+        {
+            if (OnRoomEvent.ContainsKey(eventName))
+            {
+                OnRoomEvent[eventName] += action;
+            }
+            else
+            {
+                OnRoomEvent.Add(eventName, action);
+            }
+        }
+
+        public static void SubscribeUserEvent(string eventName, Action<string> action)
+        {
+            if (OnUserEvent.ContainsKey(eventName))
+            {
+                OnUserEvent[eventName] += action;
+            }
+            else
+            {
+                OnUserEvent.Add(eventName, action);
+            }
+        }
         public static void Login(string username, string password)
         {
             if (_connectionState != ConnectionState.LoggedIn)
