@@ -12,9 +12,16 @@ public class RoomManager : MonoSingleton<RoomManager>
     [SerializeField]
     private TMP_Text _userCountText;
 
+    [SerializeField]
+    private RectTransform _choosePanel;
+
+    [SerializeField]
+    private RectTransform _testPanel;
+
     private User _masterUser;
     private void Start()
     {
+        _choosePanel
         // UI 에 CurrentRoom 정보 업데이트
         foreach(User user in Storage.CurrentRoom.Users){
             SetRole((int)user.Role, user.IsReady);
