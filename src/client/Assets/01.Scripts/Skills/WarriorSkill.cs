@@ -1,9 +1,10 @@
-using static Define;
+﻿using static Define;
 using static Yields;
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WarriorSkill : SkillBase
 {
@@ -12,6 +13,9 @@ public class WarriorSkill : SkillBase
 
     [SerializeField]
     private Transform _shootPos = null;
+
+    public UnityEvent OnSkillUsed = null;
+    public UnityEvent OnSkillEnded= null;
 
     private Animator _animator;
 
@@ -22,15 +26,13 @@ public class WarriorSkill : SkillBase
         _animator.enabled = true;
     }
 
-    private void Update()
+    public override void UseSkill()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !_isSkill)
-        {
-            // TOOD: 플레이어 좌우 도는거 막기
-            _isSkill = true;
-            _isRight = MousePos.x >= transform.position.x;
-            _animator.Play("Skill");
-        }
+        // TOOD: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄?留됯린
+        OnSkillUsed?.Invoke();
+        _isSkill = true;
+        _isRight = MousePos.x >= transform.position.x;
+        _animator.Play("Skill");
     }
 
     protected void EventUseSkill(){
@@ -39,8 +41,9 @@ public class WarriorSkill : SkillBase
 
     protected void EventEndSkill()
     {
-        //TODO: 플레이어 좌우 도는거 풀기
+        //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
         StartCoroutine(UsedSkill());
+        OnSkillEnded?.Invoke();
     }
 
     private void Skill(){

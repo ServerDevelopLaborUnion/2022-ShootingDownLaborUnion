@@ -11,6 +11,7 @@ public class CharacterInput : MonoBehaviour
     private UnityEvent<Vector2> OnMoveKeyInput = new UnityEvent<Vector2>();
 
     private UnityEvent OnAttackKeyInput = new UnityEvent();
+    private UnityEvent OnSkillKeyInput = new UnityEvent();
     private UnityEvent OnRangeKeyInput = new UnityEvent();
 
     public UnityEvent GetOnAttackKeyInput => OnAttackKeyInput;
@@ -19,16 +20,22 @@ public class CharacterInput : MonoBehaviour
     private Vector2 tempPosition = Vector2.zero;
 
     private CharacterMove _move = null;
+    private PlayerAttack _attack = null;
+    private SkillBase _skill = null;
     private CharacterRenderer _renderer = null;
 
     private float _delay = 0;
 
     private bool _isShowingRange = false;
 
+    Transform visualTransform = null;
 
     private void Awake()
     {
         _move = GetComponent<CharacterMove>();
+        visualTransform = transform.Find("Visual Sprite");
+        _attack = visualTransform.GetComponent<PlayerAttack>();
+        _skill = visualTransform.GetComponent<SkillBase>();
         playerEntity = GetComponent<Entity>();
         _renderer = transform.GetChild(0).GetComponent<CharacterRenderer>();
     }
@@ -36,19 +43,20 @@ public class CharacterInput : MonoBehaviour
     public void InitEvent()
     {
         _base = GetComponent<CharacterBase>();
-        Transform visualTransform = transform.Find("Visual Sprite");
         OnMoveKeyInput.AddListener((goal) =>
         {
             _move.MoveAgent(goal);
             _renderer.FlipCharacter(goal);
         });
-        OnAttackKeyInput.AddListener(() => visualTransform.GetComponent<PlayerAttack>().DoAttack());
-        OnRangeKeyInput.AddListener(() => visualTransform.GetComponent<PlayerAttack>().ToggleRange());
+        OnAttackKeyInput.AddListener(() => _attack.DoAttack());
+        OnRangeKeyInput.AddListener(() => _attack.ToggleRange());
+        OnSkillKeyInput.AddListener(() => _skill.UseSkill());
     }
     protected virtual void LateUpdate()
     {
         if (Input.GetMouseButtonDown(1))
         {
+            UIManager.Instance.SummonMoveImpact();
             OnMoveKeyInput?.Invoke(MousePos + Vector2.up);
             WebSocket.Client.ApplyEntityMove(playerEntity);
         }
@@ -76,6 +84,11 @@ public class CharacterInput : MonoBehaviour
                 OnRangeKeyInput?.Invoke();
                 _isShowingRange = !_isShowingRange;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            OnSkillKeyInput?.Invoke();
         }
     }
 }
