@@ -200,6 +200,8 @@ namespace WebSocket
         public static event EventHandler<ChatMessageEventArgs> OnChatMessage;
         public static event EventHandler<StartGameEventArgs> OnStartGameMessage;
         public static event EventHandler<SetRoleEventArgs> OnSetRoleMessage;
+        public static Dictionary<string, Action<string>> OnRoomEvent;
+        public static Dictionary<string, Action<string>> OnUserEvent;
         #endregion
 
         public static Account Account { get; private set; }
@@ -535,6 +537,20 @@ namespace WebSocket
                                 SetRoleMessage.IsReady
                             )));
                             break;
+                        case 14:
+                            var RoomEventMessage = Protobuf.Client.RoomEvent.Parser.ParseFrom(buffer);
+                            if (Storage.CurrentRoom.Info.UUID == RoomEventMessage.RoomUUID)
+                            {
+                                MainTask.Enqueue(() => OnRoomEvent[RoomEventMessage.EventName].Invoke(RoomEventMessage.EventData));
+                            }
+                            break;
+                        case 15:
+                            var UserEventMessage = Protobuf.Client.UserEvent.Parser.ParseFrom(buffer);
+                            if (Storage.CurrentRoom.Users.Any(user => user.UUID == UserEventMessage.UserUUID))
+                            {
+                                MainTask.Enqueue(() => OnUserEvent[UserEventMessage.EventName].Invoke(UserEventMessage.EventData));
+                            }
+                            break;
                         default:
                             Debug.LogWarning($"Unknown message type {type}");
                             break;
@@ -705,6 +721,26 @@ namespace WebSocket
             SendPacket(13, setRoleRequest);
 
             // TODO: OnUpdateRole실행
+        }
+
+        public static void RoomEvent(string name, string data)
+        {
+            var roomEventRequest = new Protobuf.Server.RoomEvent();
+            roomEventRequest.RoomUUID = Storage.CurrentRoom.Info.UUID;
+            roomEventRequest.EventName = name;
+            roomEventRequest.EventData = data;
+
+            SendPacket(14, roomEventRequest);
+        }
+
+        public static void UserEvent(string name, string data)
+        {
+            var userEventRequest = new Protobuf.Server.UserEvent();
+            userEventRequest.UserUUID = Storage.CurrentUser.UUID;
+            userEventRequest.EventName = name;
+            userEventRequest.EventData = data;
+
+            SendPacket(15, userEventRequest);
         }
         #endregion
     }
