@@ -77,3 +77,14 @@ message ChatMessage {
     string UUID = 1;
     string Message = 2;
 }
+
+// id: 12
+message StartGame {
+
+}
+
+message SetRole {
+    strnig UUID = 1;
+    int32 Role = 2;
+    bool IsReady = 3;
+}
