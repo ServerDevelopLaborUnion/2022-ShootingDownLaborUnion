@@ -42,6 +42,7 @@ public class RolePanel : MonoBehaviour
     public void OnClickReadyOrCancel(bool isReady)
     {
         RoomManager.Instance.SetRole(_roleNumber, isReady);
+        
     }
 
     public void OnClickStartGame()
@@ -59,10 +60,11 @@ public class RolePanel : MonoBehaviour
         }
         else
         {
-            if(_startTextShakeTween != null){
+            if (_startTextShakeTween != null)
+            {
                 _startTextShakeTween.Kill();
             }
-         }
+        }
     }
 
 

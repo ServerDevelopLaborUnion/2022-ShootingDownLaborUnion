@@ -13,38 +13,71 @@ public class RoomManager : MonoSingleton<RoomManager>
     private TMP_Text _userCountText;
 
     [SerializeField]
-    private RectTransform _choosePanel;
+    private RectTransform _choosePanelRect;
 
     [SerializeField]
-    private RectTransform _testPanel;
+    private Transform _roomCanvasTransform;
+
+    [SerializeField]
+    private RectTransform _chooseBlockPanel;
 
     private User _masterUser;
     private void Start()
     {
-        // _choosePanel
-        // UI ?— CurrentRoom ? •ë³? ?—…?°?´?Š¸
-        foreach(User user in Storage.CurrentRoom.Users){
+
+        // UI ?ï¿½ï¿½ CurrentRoom ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½
+        foreach (User user in Storage.CurrentRoom.Users)
+        {
             SetRole((int)user.Role, user.IsReady);
-            if(user.IsMaster){
+            if (user.IsMaster)
+            {
                 _masterUser = user;
             }
         }
 
-        _titletext.text = $"{_masterUser.Name}?‹˜?˜ {Storage.CurrentRoom.Info.Name}";
+        UpdateText();
+    }
+
+    private void UpdateText()
+    {
+        _titletext.text = $"{_masterUser.Name}?ï¿½ï¿½?ï¿½ï¿½ {Storage.CurrentRoom.Info.Name}";
         _userCountText.text = $"{Storage.CurrentRoom.Users.Count}/4";
     }
 
     public void OnUserJoin(User user)
     {
-        //  UI ?¸?›?ˆ˜ ?—…?°?´?Š¸
-        // ?”Œ? ˆ?´?–´ ?‹‰?„¤?„ ê°?? ¸????„œ UI?—…?°?´?Š¸
+        //  UI ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½
+        // ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ï¿½??ï¿½ï¿½????ï¿½ï¿½ UI?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½
         //_userNameTexts[Storage.CurrentRoom.Users.Count].text = user.Name;
+        UpdateText();
     }
 
     public void OnUserLeave(User user)
     {
-        //UI ?¸?›?ˆ˜ ?—…?°?´?Š¸
-        // ?”Œ? ˆ?´?–´ ?‹‰?„¤?„ ê°?? ¸????„œ UI?—…?°?´?Š¸
+        //UI ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½
+        // ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ï¿½??ï¿½ï¿½????ï¿½ï¿½ UI?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½
+        UpdateText();
+
+    }
+
+    private void SetChoosePanel(int role, bool isActive)
+    {
+        _choosePanelRect.gameObject.SetActive(isActive);
+        if (isActive)
+        {
+            RectTransform rect = _rolePanels[role].GetComponent<RectTransform>();
+
+            _choosePanelRect.pivot = rect.pivot;
+            _choosePanelRect.anchorMin = rect.anchorMin;
+            _choosePanelRect.anchorMax = rect.anchorMax;
+            _choosePanelRect.position = rect.position;
+
+            _chooseBlockPanel.SetParent(_choosePanelRect);
+        }
+        else
+        {
+            _chooseBlockPanel.SetParent(_roomCanvasTransform);
+        }
 
     }
 
@@ -52,16 +85,16 @@ public class RoomManager : MonoSingleton<RoomManager>
     {
         user.IsReady = isReady;
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
-        
+
         user.Role = (RoleType)role;
 
         if (user.IsReady)
         {
             _rolePanels[role].SetNameText(Storage.CurrentUser.Name);
-            // ???ì¶? ?¸?›?ˆ˜ UI++
-            if ( CheckAllUserIsReady() && Storage.CurrentUser.IsMaster)
+            // ???ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ UI++
+            if (CheckAllUserIsReady() && Storage.CurrentUser.IsMaster)
             {
-                //?‹œ?‘ ë²„íŠ¼ ?ƒê¹?
+                //?ï¿½ï¿½?ï¿½ï¿½ ë²„íŠ¼ ?ï¿½ï¿½ï¿½?
                 _rolePanels[role].ActiveStartBtn(true);
             }
         }
@@ -73,9 +106,12 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void SetRole(int role, bool isReady)
     {
-        // ë¬´ê¸°ë¥? ?ˆŒ????„ ?•Œ
-        // ë¬´ê¸°ë¥? ë°”ê¿¨?„ ?•Œ ë¬´ê¸°ê°? ê²¹ì¹ ê²½ìš° ?‹¤?–‰?´ ?•ˆ?˜ê²?
+        // ë¬´ê¸°ï¿½? ?ï¿½ï¿½????ï¿½ï¿½ ?ï¿½ï¿½
+        // ë¬´ê¸°ï¿½? ë°”ê¿¨?ï¿½ï¿½ ?ï¿½ï¿½ ë¬´ê¸°ï¿½? ê²¹ì¹ ê²½ìš° ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½ï¿½?
+
+        SetChoosePanel(role, isReady);
         WebSocket.Client.SetRole(role, isReady);
+
     }
 
     public void ClickStartGame()
@@ -87,10 +123,13 @@ public class RoomManager : MonoSingleton<RoomManager>
     {
         SceneLoader.Load(SceneType.Game);
     }
-    
-    private bool CheckAllUserIsReady(){
-        for (int i = 0; i < Storage.CurrentRoom.Users.Count; ++i){
-            if(!Storage.CurrentRoom.Users[i].IsReady){
+
+    private bool CheckAllUserIsReady()
+    {
+        for (int i = 0; i < Storage.CurrentRoom.Users.Count; ++i)
+        {
+            if (!Storage.CurrentRoom.Users[i].IsReady)
+            {
                 return false;
             }
         }
