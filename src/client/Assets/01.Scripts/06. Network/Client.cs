@@ -657,19 +657,19 @@ namespace WebSocket
 
         public static void StartGame()
         {
-            // var startGameRequest = new Protobuf.Server.StartGameRequest();
+            var startGameRequest = new Protobuf.Server.StartGameRequest();
 
-            // SendPacket(12, startGameRequest);
+            SendPacket(12, startGameRequest);
             //TODO: 방 안에있는 모든 플레이어 씬 로딩
         }
 
         public static void SetRole(int role, bool isReady)
         {
-            // var setRoleRequest = new Protobuf.Server.SetRoleRequest();
-            // setRoleRequest.Role = role;
-            // setRoleRequest.IsReady = isReady;
+            var setRoleRequest = new Protobuf.Server.SetRoleRequest();
+            setRoleRequest.Role = role;
+            setRoleRequest.IsReady = isReady;
 
-            // SendPacket(13, setRoleRequest);
+            SendPacket(13, setRoleRequest);
 
             // TODO: OnUpdateRole실행
         }

@@ -58,5 +58,5 @@
         "Temp/": true
     },
     "nuxt.isNuxtApp": false,
-    "explorerExclude.backup": null
+    "files.encoding": "euckr"
 }
