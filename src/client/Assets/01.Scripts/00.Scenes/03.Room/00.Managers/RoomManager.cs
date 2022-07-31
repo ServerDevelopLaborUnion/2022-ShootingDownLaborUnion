@@ -37,7 +37,6 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void OnUserLeave(User user)
     {
         //UI 인원수 업데이트
-        //UI 플레이어들 땡기기
         // 플레이어 닉네임 가져와서 UI업데이트
 
     }
@@ -72,7 +71,8 @@ public class RoomManager : MonoSingleton<RoomManager>
         WebSocket.Client.SetRole(role, isReady);
     }
 
-    public void ClickStartGame(){
+    public void ClickStartGame()
+    {
         WebSocket.Client.StartGame();
     }
 
@@ -80,7 +80,6 @@ public class RoomManager : MonoSingleton<RoomManager>
     {
         SceneLoader.Load(SceneType.Game);
     }
-
     
     private bool CheckAllUserIsReady(){
         for (int i = 0; i < Storage.CurrentRoom.Users.Count; ++i){
@@ -90,6 +89,4 @@ public class RoomManager : MonoSingleton<RoomManager>
         }
         return true;
     }
-
-
 }

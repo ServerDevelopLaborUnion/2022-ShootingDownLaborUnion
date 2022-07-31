@@ -648,22 +648,30 @@ namespace WebSocket
             SendPacket(10, entityDespawnRequest);
         }
 
-        public static void SetRole(int role, bool isReady)
-        {
-
-            // TODO: OnUpdateRole실행
-        }
-
-        public static void StartGame()
-        {
-            //TODO: 방 안에있는 모든 플레이어 씬 로딩
-        }
-
         public static void SendChatMessage(string message)
         {
             var entityChatRequest = new Protobuf.Server.ChatRequest();
             entityChatRequest.Message = message;
             SendPacket(11, entityChatRequest);
+        }
+
+        public static void StartGame()
+        {
+            // var startGameRequest = new Protobuf.Server.StartGameRequest();
+
+            // SendPacket(12, startGameRequest);
+            //TODO: 방 안에있는 모든 플레이어 씬 로딩
+        }
+
+        public static void SetRole(int role, bool isReady)
+        {
+            // var setRoleRequest = new Protobuf.Server.SetRoleRequest();
+            // setRoleRequest.Role = role;
+            // setRoleRequest.IsReady = isReady;
+
+            // SendPacket(13, setRoleRequest);
+
+            // TODO: OnUpdateRole실행
         }
         #endregion
     }
