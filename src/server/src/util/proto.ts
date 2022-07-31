@@ -89,5 +89,13 @@ export default {
             id: 11,
             type: 'ChatMessage',
         },
+        StartGame: {
+            id: 12,
+            type: 'StartGame',
+        },
+        SetRole: {
+            id: 13,
+            type: 'SetRole',
+        }
     }
 }
