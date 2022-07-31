@@ -12,7 +12,7 @@ public class KnightSword : MonoBehaviour
     private Transform _swordLight;
 
     private void Start() {
-        _swordLight.position = _swordInfo.LightPos;
+        _swordLight.localPosition = _swordInfo.LightPos;
     }
 
 }
