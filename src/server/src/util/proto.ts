@@ -96,6 +96,14 @@ export default {
         SetRole: {
             id: 13,
             type: 'SetRole',
+        },
+        RoomEvent: {
+            id: 14,
+            type: 'RoomEvent',
+        },
+        UserEvent: {
+            id: 15,
+            type: 'UserEvent',
         }
     }
 }

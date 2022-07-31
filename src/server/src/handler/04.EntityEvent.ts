@@ -18,7 +18,6 @@ export default {
         }
 
         const EntityEventRequest: any = proto.server.decode(type, buffer);
-        console.log(EntityEventRequest.EventName);
         
         const entity = storage.server.rooms.get("test")?.entities.get(EntityEventRequest.EntityUUID);
         if (entity !== undefined) {

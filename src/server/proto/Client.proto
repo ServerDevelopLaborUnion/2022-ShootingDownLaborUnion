@@ -83,8 +83,23 @@ message StartGame {
 
 }
 
+// id: 13
 message SetRole {
     string UUID = 1;
     int32 Role = 2;
     bool IsReady = 3;
+}
+
+// id: 14
+message RoomEvent {
+    string RoomUUID = 1;
+    string EventName = 2;
+    string EventData = 3;
+}
+
+// id: 15
+message UserEvent {
+    string UserUUID = 1;
+    string EventName = 2;
+    string EventData = 3;
 }

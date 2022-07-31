@@ -6,7 +6,7 @@ import proto from '../util/proto';
 const logger = Logger.getLogger('SetRoleRequest');
 
 class SetRoleRequest implements IHandler {
-    id = 11;
+    id = 13;
     type = 'SetRoleRequest';
     async receive(client: Client, buffer: Buffer) {
         const SetRoleRequest: any = proto.server.decode(this.type, buffer);
