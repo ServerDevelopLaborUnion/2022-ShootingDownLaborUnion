@@ -145,6 +145,25 @@ namespace WebSocket
             Message = message;
         }
     }
+
+    public class StartGameEventArgs : EventArgs
+    {
+        
+    }
+
+    public class SetRoleEventArgs : EventArgs
+    {
+        public string UUD { get; set; }
+        public RoleType Role { get; set; }
+        public bool IsReady { get; set; }
+
+        public SetRoleEventArgs(string uud, RoleType role, bool isReady)
+        {
+            UUD = uud;
+            Role = role;
+            IsReady = isReady;
+        }
+    }
     #endregion
 
     public class Client : MonoSingleton<Client>
@@ -179,6 +198,8 @@ namespace WebSocket
         public static event EventHandler<RoomLeaveEventArgs> OnRoomLeaveMessage;
         public static event EventHandler<RoomListEventArgs> OnRoomListMessage;
         public static event EventHandler<ChatMessageEventArgs> OnChatMessage;
+        public static event EventHandler<StartGameEventArgs> OnStartGameMessage;
+        public static event EventHandler<SetRoleEventArgs> OnSetRoleMessage;
         #endregion
 
         public static Account Account { get; private set; }
@@ -500,6 +521,18 @@ namespace WebSocket
                             MainTask.Enqueue(() => OnChatMessage?.Invoke(this, new ChatMessageEventArgs(
                                 ChatMessage.UUID,
                                 ChatMessage.Message
+                            )));
+                            break;
+                        case 12:
+                            var StartGameMessage = Protobuf.Client.StartGame.Parser.ParseFrom(buffer);
+                            MainTask.Enqueue(() => OnStartGameMessage?.Invoke(this, new StartGameEventArgs()));
+                            break;
+                        case 13:
+                            var SetRoleMessage = Protobuf.Client.SetRole.Parser.ParseFrom(buffer);
+                            MainTask.Enqueue(() => OnSetRoleMessage?.Invoke(this, new SetRoleEventArgs(
+                                SetRoleMessage.UUID,
+                                (RoleType)SetRoleMessage.Role,
+                                SetRoleMessage.IsReady
                             )));
                             break;
                         default:
