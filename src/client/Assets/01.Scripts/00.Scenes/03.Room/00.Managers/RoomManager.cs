@@ -33,6 +33,15 @@ public class RoomManager : MonoSingleton<RoomManager>
             OnUserLeave(user);
         };
 
+        WebSocket.Client.OnRoomEvent["StartGame"] += (data) => {
+            OnStartGame();
+        };
+
+        WebSocket.Client.OnUserEvent["UserUpdated"] += (data) => {
+            var user = JsonUtility.FromJson<User>(data);
+            OnUpdateRole(user, (int)user.Role, user.IsReady);
+        };
+
         foreach(User user in Storage.CurrentRoom.Users){
             SetRole((int)user.Role, user.IsReady);
             if(user.IsMaster){
@@ -83,14 +92,14 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void SetRole(int role, bool isReady)
     {
-        // ¹«±â?? ????????? ???
-        // ¹«±â?? ¹Ù²å??? ??? ¹«±â?? °ãÄ¥°æ¿ì ????????? ????????
-        WebSocket.Client.SetRole(role, isReady);
+        Storage.CurrentUser.Role = (RoleType)role;
+        Storage.CurrentUser.IsReady = isReady;
+        WebSocket.Client.RoomEvent("UserUpdated", JsonUtility.ToJson(Storage.CurrentUser));
     }
 
     public void ClickStartGame()
     {
-        WebSocket.Client.StartGame();
+        WebSocket.Client.RoomEvent("StartGame", "");
     }
 
     public void OnStartGame()
