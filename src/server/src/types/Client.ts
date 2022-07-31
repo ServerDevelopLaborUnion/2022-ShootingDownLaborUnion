@@ -27,11 +27,18 @@ export class Client {
     }
 
     toObject() {
-        if (this.user.type === "valid") {
+        if (this.user.type === "user") {
             return {
                 UUID: this.sessionId,
                 Name: this.user.account.username,
-                // IsReady: 
+                IsReady: this.user.isReady,
+                IsMaster: this.user.isMaster,
+            };
+        }
+        else if (this.user.type === "valid") {
+            return {
+                UUID: this.sessionId,
+                Name: this.user.account.username,
             }
         }
         else {

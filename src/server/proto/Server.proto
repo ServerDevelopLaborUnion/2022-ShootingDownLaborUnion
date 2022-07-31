@@ -72,3 +72,14 @@ message EneityDespawnRequest {
 message ChatRequest {
     string Message = 1;
 }
+
+// id: 12
+message StartGameRequest {
+    
+}
+
+// id: 13
+message SetRoleRequest {
+    int32 Role = 1;
+    bool IsReady = 2;
+}

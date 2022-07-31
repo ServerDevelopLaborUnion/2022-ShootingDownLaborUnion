@@ -2,11 +2,6 @@ import { connection } from "websocket";
 import { Account } from "./Account";
 import { Client } from './Client';
 
-export const UserType = {
-    NotValidUser: 0,
-    ValidUser: 1
-}
-
 export interface INotValidUser {
     type: "notValid";
     client: Client;
@@ -18,4 +13,12 @@ export interface IValidUser {
     account: Account;
 }
 
-export type User = INotValidUser | IValidUser;
+export interface IUser {
+    type: "user";
+    client: Client;
+    account: Account;
+    isReady: boolean;
+    isMaster: boolean;
+}
+
+export type User = INotValidUser | IValidUser | IUser;

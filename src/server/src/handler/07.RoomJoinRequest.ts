@@ -16,7 +16,7 @@ class RoomJoinRequest implements IHandler {
 
         const room = storage.server.getRoom(roomUUID);
         if (room) {
-            if (room.password === password) {
+            if (room.password == null || room.password === password) {
                 client.sendPacket(proto.client.encode(proto.client.RoomJoinResponse, {
                     Success: true,
                     Room: room.toProto(),

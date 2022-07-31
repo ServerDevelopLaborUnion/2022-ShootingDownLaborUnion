@@ -106,8 +106,8 @@ export default class WebsocketServer {
             const playerEntity = new Entity(v4(), client.sessionId, "머ㅜ이망할승현아", new Vector2(0, 0), new Quaternion(0, 0, 0, 0), '{"type": 0}');
             this.rooms.get('test')?.addEntity(playerEntity);
             
-            // const enemyEntity = new Entity(v4(), client.sessionId, "머ㅜ이망할원석아", new Vector2(8, 0), new Quaternion(0, 0, 0, 0), '{"type": 1}');
-            // this.rooms.get('test')?.addEntity(enemyEntity);
+            const enemyEntity = new Entity(v4(), client.sessionId, "머ㅜ이망할원석아", new Vector2(8, 0), new Quaternion(0, 0, 0, 0), '{"type": 1}');
+            this.rooms.get('test')?.addEntity(enemyEntity);
         });
 
         this.server.listen(this.port, () => {

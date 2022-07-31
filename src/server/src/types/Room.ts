@@ -32,6 +32,7 @@ export class Room {
     }
 
     addUser(client: Client) {
+        if (this.clients.indexOf(client) !== -1) return;
         client.room = this;
         this.clients.push(client);
         this.entities.forEach(entity => {
@@ -40,6 +41,7 @@ export class Room {
     }
 
     removeClient(client: Client) {
+        client.room = null;
         this.clients.splice(this.clients.indexOf(client), 1);
         this.entities.forEach(entity => {
             if (entity.OwnerUUID === client.sessionId) {

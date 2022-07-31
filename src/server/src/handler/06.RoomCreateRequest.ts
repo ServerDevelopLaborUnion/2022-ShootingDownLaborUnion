@@ -12,8 +12,12 @@ class RoomCreateRequest implements IHandler {
     type = 'RoomCreateRequest';
     async receive (client: Client, buffer: Buffer) {
         const RoomCreateRequest: any = proto.server.decode(this.type, buffer);
-        if (client.room === undefined) {
+        console.log(client.room);
+        
+        if (client.room === null) {
             const room = new Room(RoomCreateRequest.Name, RoomCreateRequest.Password);
+            storage.server.rooms.set(room.uuid, room);
+            logger.info(`Room ${room.uuid} created`);
             room.addUser(client);
 
             client.sendPacket(proto.client.encode(proto.client.RoomJoinResponse, {
