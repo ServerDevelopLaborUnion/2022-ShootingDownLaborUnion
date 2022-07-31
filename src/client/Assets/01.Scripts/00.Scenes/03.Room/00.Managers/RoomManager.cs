@@ -21,8 +21,8 @@ public class RoomManager : MonoSingleton<RoomManager>
     private User _masterUser;
     private void Start()
     {
-        _choosePanel
-        // UI ì— CurrentRoom ì •ë³´ ì—…ë°ì´íŠ¸
+        // _choosePanel
+        // UI ?— CurrentRoom ? •ë³? ?—…?°?´?Š¸
         foreach(User user in Storage.CurrentRoom.Users){
             SetRole((int)user.Role, user.IsReady);
             if(user.IsMaster){
@@ -30,21 +30,21 @@ public class RoomManager : MonoSingleton<RoomManager>
             }
         }
 
-        _titletext.text = $"{_masterUser.Name}ë‹˜ì˜ {Storage.CurrentRoom.Info.Name}";
+        _titletext.text = $"{_masterUser.Name}?‹˜?˜ {Storage.CurrentRoom.Info.Name}";
         _userCountText.text = $"{Storage.CurrentRoom.Users.Count}/4";
     }
 
     public void OnUserJoin(User user)
     {
-        //  UI ì¸ì›ìˆ˜ ì—…ë°ì´íŠ¸
-        // í”Œë ˆì´ì–´ ë‹‰ë„¤ì„ ê°€ì ¸ì™€ì„œ UIì—…ë°ì´íŠ¸
+        //  UI ?¸?›?ˆ˜ ?—…?°?´?Š¸
+        // ?”Œ? ˆ?´?–´ ?‹‰?„¤?„ ê°?? ¸????„œ UI?—…?°?´?Š¸
         //_userNameTexts[Storage.CurrentRoom.Users.Count].text = user.Name;
     }
 
     public void OnUserLeave(User user)
     {
-        //UI ì¸ì›ìˆ˜ ì—…ë°ì´íŠ¸
-        // í”Œë ˆì´ì–´ ë‹‰ë„¤ì„ ê°€ì ¸ì™€ì„œ UIì—…ë°ì´íŠ¸
+        //UI ?¸?›?ˆ˜ ?—…?°?´?Š¸
+        // ?”Œ? ˆ?´?–´ ?‹‰?„¤?„ ê°?? ¸????„œ UI?—…?°?´?Š¸
 
     }
 
@@ -58,10 +58,10 @@ public class RoomManager : MonoSingleton<RoomManager>
         if (user.IsReady)
         {
             _rolePanels[role].SetNameText(Storage.CurrentUser.Name);
-            // ëŒ€ì¶© ì¸ì›ìˆ˜ UI++
+            // ???ì¶? ?¸?›?ˆ˜ UI++
             if ( CheckAllUserIsReady() && Storage.CurrentUser.IsMaster)
             {
-                //ì‹œì‘ ë²„íŠ¼ ìƒê¹€
+                //?‹œ?‘ ë²„íŠ¼ ?ƒê¹?
                 _rolePanels[role].ActiveStartBtn(true);
             }
         }
@@ -73,8 +73,8 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void SetRole(int role, bool isReady)
     {
-        // ë¬´ê¸°ë¥¼ ëˆŒë €ì„ ë•Œ
-        // ë¬´ê¸°ë¥¼ ë°”ê¿¨ì„ ë•Œ ë¬´ê¸°ê°€ ê²¹ì¹ ê²½ìš° ì‹¤í–‰ì´ ì•ˆë˜ê²Œ
+        // ë¬´ê¸°ë¥? ?ˆŒ????„ ?•Œ
+        // ë¬´ê¸°ë¥? ë°”ê¿¨?„ ?•Œ ë¬´ê¸°ê°? ê²¹ì¹ ê²½ìš° ?‹¤?–‰?´ ?•ˆ?˜ê²?
         WebSocket.Client.SetRole(role, isReady);
     }
 
