@@ -74,7 +74,11 @@ public class CharacterMove : MonoBehaviour
 
     public void Knockback(Collider2D col)
     {
-        _rigid.position -= ((Vector2)(col.transform.position - transform.position).normalized) * _knockbackPercent * 0.02f;
+        StopImmediatelly();
+        Debug.Log(_rigid.position);
+        _rigid.position -= (Vector2) (((col.transform.position - transform.position).normalized) * _knockbackPercent * 0.02f);
+        transform.position = _rigid.position;
+        Debug.Log(_rigid.position);
     }
 
     public void SetMovePossible(bool value)

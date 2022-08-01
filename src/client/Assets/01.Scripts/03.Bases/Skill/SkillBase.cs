@@ -20,7 +20,7 @@ public class SkillBase : MonoBehaviour
 
     public virtual void UseSkill()
     {
-
+        
     }
 
     protected virtual IEnumerator UsedSkill(){

@@ -8,6 +8,12 @@ public class UnTargetAttack : PlayerAttack
     [SerializeField]
     private Transform _firePos = null;
     [SerializeField] private GameObject _bulletPrefab = null;
+    private BulletAttack _bullet = null;
+    private bool _isSkill = false;
+    protected override void Start()
+    {
+        base.Start();    
+    }
     void Update()
     {
 
@@ -32,6 +38,11 @@ public class UnTargetAttack : PlayerAttack
                 Debug.Log($"{closestEnemy.name}, {GetDistance(transform.parent.position, closestEnemy.transform.position)}");
                 _renderer.FlipCharacter(dir);
                 GameObject bullet = Instantiate(_bulletPrefab, _firePos.position, Quaternion.identity);
+                if (_isSkill)
+                {
+                    _bullet = bullet.GetComponent<BulletAttack>();
+                    _bullet._col = _playerCol;
+                }
                 Vector2 target = bullet.transform.position - closestEnemy.transform.position;
                 float z = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
                 bullet.transform.eulerAngles = new Vector3(0, 0, z + 90);
@@ -54,5 +65,15 @@ public class UnTargetAttack : PlayerAttack
 
             WebSocket.Client.ApplyEntityMove(_base);
         }
+    }
+
+    public void ActiveSkill()
+    {
+        _isSkill = true;
+    }
+
+    public void DeActiveSkill()
+    {
+        _isSkill = false;
     }
 }

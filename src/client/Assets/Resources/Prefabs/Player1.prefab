@@ -1065,7 +1065,7 @@ MonoBehaviour:
   WeaponImage: {fileID: 21300000, guid: 77df9309f8e8f4aa0b33a3370cad608d, type: 3}
   Stat:
     _hp: 1
-    _atk: 5
+    _atk: 0
     _def: 2
     _speed: -1
     _atkSpeed: -1

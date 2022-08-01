@@ -20,6 +20,7 @@ public class CharacterDamage : MonoBehaviour
         _base.State.CurrentState |= CharacterState.State.Damaged;
         _base.Stat.ChangeStat(CharacterStat.Stat.HP, _base.Stat.HP - Mathf.RoundToInt(Mathf.Pow(value, 2) / (value + _base.Stat.Def)));
         OnCharacterDamaged?.Invoke();
-        OnDamagedFeedBack?.Invoke(col);
+        if(col != null)
+            OnDamagedFeedBack?.Invoke(col);
     }
 }
