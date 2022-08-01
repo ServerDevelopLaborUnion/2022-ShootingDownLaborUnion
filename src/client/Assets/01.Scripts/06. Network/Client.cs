@@ -539,6 +539,7 @@ namespace WebSocket
                             break;
                         case 14:
                             var RoomEventMessage = Protobuf.Client.RoomEvent.Parser.ParseFrom(buffer);
+                            if (Storage.CurrentRoom == null) break;
                             if (Storage.CurrentRoom.Info.UUID == RoomEventMessage.RoomUUID)
                             {
                                 MainTask.Enqueue(() => OnRoomEvent[RoomEventMessage.EventName].Invoke(RoomEventMessage.EventData));
@@ -546,6 +547,7 @@ namespace WebSocket
                             break;
                         case 15:
                             var UserEventMessage = Protobuf.Client.UserEvent.Parser.ParseFrom(buffer);
+                            if (Storage.CurrentRoom == null) break;
                             if (Storage.CurrentRoom.Users.Any(user => user.UUID == UserEventMessage.UserUUID))
                             {
                                 MainTask.Enqueue(() => OnUserEvent[UserEventMessage.EventName].Invoke(UserEventMessage.EventData));
