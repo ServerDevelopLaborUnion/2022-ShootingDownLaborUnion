@@ -62,7 +62,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     private void SetChoosePanel(int role, bool isActive)
     {
-        _choosePanelRect.gameObject.SetActive(isActive);
+        _chooseBlockPanel.gameObject.SetActive(isActive);
         if (isActive)
         {
             RectTransform rect = _rolePanels[role].GetComponent<RectTransform>();
