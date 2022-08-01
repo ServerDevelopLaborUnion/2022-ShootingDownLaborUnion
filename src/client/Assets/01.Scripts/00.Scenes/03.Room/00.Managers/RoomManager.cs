@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 public class RoomManager : MonoSingleton<RoomManager>
 {
@@ -24,42 +25,42 @@ public class RoomManager : MonoSingleton<RoomManager>
     private User _masterUser;
     private void Start()
     {
+        WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
+        {
+            var user = JsonUtility.FromJson<User>(data);
+            Storage.CurrentRoom.AddUser(user);
+            OnUserJoin(user);
+        });
 
-        // UI ?�� CurrentRoom ?���? ?��?��?��?��
+        WebSocket.Client.SubscribeRoomEvent("UserLeft", (data) =>
+        {
+            var user = JsonUtility.FromJson<User>(data);
+            Storage.CurrentRoom.LeftUser(user);
+            OnUserLeave(user);
+        });
+
+        WebSocket.Client.SubscribeRoomEvent("StartGame", (data) =>
+        {
+            OnStartGame();
+        });
+
+        WebSocket.Client.SubscribeRoomEvent("UserUpdated", (data) =>
+        {
+            Debug.Log($"data : {data}");
+            var user = JsonConvert.DeserializeObject<User>(data);
+            OnUpdateRole(user, (int)user.Role, user.IsReady);
+        });
+
         foreach (User user in Storage.CurrentRoom.Users)
         {
-            WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
-            {
-                var user = JsonUtility.FromJson<User>(data);
-                Storage.CurrentRoom.AddUser(user);
-                OnUserJoin(user);
-            });
-
-            WebSocket.Client.SubscribeRoomEvent("UserLeft", (data) =>
-            {
-                var user = JsonUtility.FromJson<User>(data);
-                Storage.CurrentRoom.LeftUser(user);
-                OnUserLeave(user);
-            });
-
-            WebSocket.Client.SubscribeRoomEvent("StartGame", (data) =>
-            {
-                OnStartGame();
-            });
-
-            WebSocket.Client.SubscribeRoomEvent("UserUpdated", (data) =>
-            {
-                var user = JsonUtility.FromJson<User>(data);
-                OnUpdateRole(user, (int)user.Role, user.IsReady);
-            });
-
-            SetRole((int)user.Role, user.IsReady);
+            OnUpdateRole(user,(int)user.Role, user.IsReady);
             if (user.IsMaster)
             {
                 _masterUser = user;
             }
         }
-        if(_masterUser == null){
+        if (_masterUser == null)
+        {
             _masterUser = Storage.CurrentUser;
         }
         Debug.Log(Storage.CurrentRoom.Info.Name);
@@ -109,6 +110,8 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void OnUpdateRole(User user, int role, bool isReady)
     {
         user.IsReady = isReady;
+        Debug.Log("ON유저 롤 : " + role);
+
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
 
         user.Role = (RoleType)role;
@@ -129,13 +132,13 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void SetRole(int role, bool isReady)
     {
-
         SetChoosePanel(role, isReady);
+        Debug.Log("유저 롤 : " + role);
 
         Storage.CurrentUser.Role = (RoleType)role;
         Storage.CurrentUser.IsReady = isReady;
 
-        WebSocket.Client.RoomEvent("UserUpdated", JsonUtility.ToJson(Storage.CurrentUser));
+        WebSocket.Client.RoomEvent("UserUpdated", JsonConvert.SerializeObject(Storage.CurrentUser));
     }
 
     public void ClickStartGame()

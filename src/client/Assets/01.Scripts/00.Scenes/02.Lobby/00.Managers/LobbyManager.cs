@@ -73,6 +73,7 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     /// <param name="room"></param>
     public void OnJoinedRoom(Room room)
     {
+        Debug.Log($"OnJoinedRoom : {room.Info.UUID} {room.Info.Name}");
         Storage.CurrentRoom = room;
         WebSocket.Client.RoomEvent("UserJoined", JsonUtility.ToJson(Storage.CurrentUser));
         SceneLoader.Load(SceneType.Room);

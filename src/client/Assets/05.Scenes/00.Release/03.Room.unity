@@ -687,7 +687,7 @@ MonoBehaviour:
   _readyPanel: {fileID: 22843252}
   _startBtn: {fileID: 566622936}
   _nameText: {fileID: 926845279}
-  _roleNumber: 0
+  _roleNumber: 3
   _duration: 4
   _strength: 8
   _vivrato: 10
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   _readyPanel: {fileID: 1160192998}
   _startBtn: {fileID: 791421635}
   _nameText: {fileID: 44011288}
-  _roleNumber: 0
+  _roleNumber: 2
   _duration: 4
   _strength: 8
   _vivrato: 10
@@ -2869,8 +2869,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -60.000023}
+  m_SizeDelta: {x: 0, y: -120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &609157303
 MonoBehaviour:
@@ -2886,7 +2886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.028301895, g: 0.028301895, b: 0.028301895, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5844,7 +5844,7 @@ MonoBehaviour:
   _readyPanel: {fileID: 1834328050}
   _startBtn: {fileID: 1417994437}
   _nameText: {fileID: 152223758}
-  _roleNumber: 0
+  _roleNumber: 1
   _duration: 4
   _strength: 8
   _vivrato: 10
