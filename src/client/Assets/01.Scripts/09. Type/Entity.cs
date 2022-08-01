@@ -1,4 +1,5 @@
 ﻿using System;
+using Cinemachine;
 using UnityEngine;
 
 [System.Serializable]
@@ -22,6 +23,9 @@ public class Entity : MonoBehaviour
         if(data.Type == EntityType.Player)
         if (WebSocket.Client.CheckIsOwnedEntity(temp))
         {
+            PlayerBase HostPlayer = data.parantEntity.GetComponent<PlayerBase>();
+            data.parantEntity.gameObject.AddComponent<StatManager>().UpdateText(HostPlayer, HostPlayer.Weapon);
+            GameObject.Find("VirtualCam").GetComponent<CinemachineVirtualCamera>().Follow = data.parantEntity.transform;
             newObject.AddComponent<CharacterInput>()?.InitEvent();
         }
         
