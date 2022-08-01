@@ -110,8 +110,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void OnUpdateRole(User user, int role, bool isReady)
     {
         user.IsReady = isReady;
-        Debug.Log("이즈 레디 :" + isReady);
-        Debug.Log("유저 이즈 레디 :" + user.IsReady);
+        Debug.Log("ON유저 롤 : " + role);
 
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
 
@@ -135,6 +134,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     {
 
         SetChoosePanel(role, isReady);
+        Debug.Log("유저 롤 : " + role);
 
         Storage.CurrentUser.Role = (RoleType)role;
         Storage.CurrentUser.IsReady = isReady;
