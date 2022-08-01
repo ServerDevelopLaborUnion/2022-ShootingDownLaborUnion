@@ -127,10 +127,10 @@ public class RoomManager : MonoSingleton<RoomManager>
     {
 
         SetChoosePanel(role, isReady);
-        WebSocket.Client.SetRole(role, isReady);
 
         Storage.CurrentUser.Role = (RoleType)role;
         Storage.CurrentUser.IsReady = isReady;
+
         WebSocket.Client.RoomEvent("UserUpdated", JsonUtility.ToJson(Storage.CurrentUser));
     }
 
