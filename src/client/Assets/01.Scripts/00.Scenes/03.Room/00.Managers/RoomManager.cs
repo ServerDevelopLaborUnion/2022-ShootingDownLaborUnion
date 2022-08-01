@@ -136,7 +136,6 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void SetRole(int role, bool isReady)
     {
-
         SetChoosePanel(role, isReady);
         Debug.Log("?œ ??? ë¡? : " + role);
 
