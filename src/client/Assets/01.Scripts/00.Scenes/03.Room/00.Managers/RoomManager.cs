@@ -26,7 +26,6 @@ public class RoomManager : MonoSingleton<RoomManager>
     private void Start()
     {
 
-        // UI ?�� CurrentRoom ?���?? ?��?��?��?��
         foreach (User user in Storage.CurrentRoom.Users)
         {
             WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
@@ -70,7 +69,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     private void UpdateText()
     {
-        _titletext.text = $"{_masterUser.Name}?��?�� {Storage.CurrentRoom.Info.Name} �?";
+        _titletext.text = $"{_masterUser.Name}님의 {Storage.CurrentRoom.Info.Name} 방";
         _userCountText.text = $"{Storage.CurrentRoom.Users.Count}/4";
     }
 
@@ -110,8 +109,10 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void OnUpdateRole(User user, int role, bool isReady)
     {
-        Debug.Log($"{user.Name} - {role}, {isReady}");
         user.IsReady = isReady;
+        Debug.Log("이즈 레디 :" + isReady);
+        Debug.Log("유저 이즈 레디 :" + user.IsReady);
+
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
 
         user.Role = (RoleType)role;
