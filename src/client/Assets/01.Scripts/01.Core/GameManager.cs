@@ -72,8 +72,6 @@ public class GameManager : MonoBehaviour
             {
                 PlayerBase HostPlayer = e.parantEntity.GetComponent<PlayerBase>();
                 HostPlayer.RoomHost = true;
-                e.parantEntity.gameObject.AddComponent<StatManager>().UpdateText(HostPlayer, HostPlayer.Weapon);
-                GameObject.Find("VirtualCam").GetComponent<CinemachineVirtualCamera>().Follow = e.parantEntity.transform;
             }
         }
     }
