@@ -51,7 +51,7 @@ public class RoomManager : MonoSingleton<RoomManager>
             WebSocket.Client.SubscribeRoomEvent("UserUpdated", (data) =>
             {
                 Debug.Log($"data : {data}");
-                var user = JsonUtility.FromJson<User>(data);
+                var user = JsonConvert.DeserializeObject<User>(data);
                 OnUpdateRole(user, (int)user.Role, user.IsReady);
             });
 
