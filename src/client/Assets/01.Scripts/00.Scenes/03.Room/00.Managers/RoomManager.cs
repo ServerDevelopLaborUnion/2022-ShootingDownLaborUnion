@@ -132,7 +132,6 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void SetRole(int role, bool isReady)
     {
-
         SetChoosePanel(role, isReady);
         Debug.Log("유저 롤 : " + role);
 

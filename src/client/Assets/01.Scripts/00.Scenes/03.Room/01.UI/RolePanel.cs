@@ -41,8 +41,8 @@ public class RolePanel : MonoBehaviour
 
     public void OnClickReadyOrCancel(bool isReady)
     {
+        if(isReady && Storage.CurrentUser.IsReady)return;
         RoomManager.Instance.SetRole(_roleNumber, isReady);
-        
     }
 
     public void OnClickStartGame()
