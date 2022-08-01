@@ -25,42 +25,42 @@ public class RoomManager : MonoSingleton<RoomManager>
     private User _masterUser;
     private void Start()
     {
+        WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
+        {
+            var user = JsonUtility.FromJson<User>(data);
+            Storage.CurrentRoom.AddUser(user);
+            OnUserJoin(user);
+        });
+
+        WebSocket.Client.SubscribeRoomEvent("UserLeft", (data) =>
+        {
+            var user = JsonUtility.FromJson<User>(data);
+            Storage.CurrentRoom.LeftUser(user);
+            OnUserLeave(user);
+        });
+
+        WebSocket.Client.SubscribeRoomEvent("StartGame", (data) =>
+        {
+            OnStartGame();
+        });
+
+        WebSocket.Client.SubscribeRoomEvent("UserUpdated", (data) =>
+        {
+            Debug.Log($"data : {data}");
+            var user = JsonConvert.DeserializeObject<User>(data);
+            OnUpdateRole(user, (int)user.Role, user.IsReady);
+        });
 
         foreach (User user in Storage.CurrentRoom.Users)
         {
-            WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
-            {
-                var user = JsonUtility.FromJson<User>(data);
-                Storage.CurrentRoom.AddUser(user);
-                OnUserJoin(user);
-            });
-
-            WebSocket.Client.SubscribeRoomEvent("UserLeft", (data) =>
-            {
-                var user = JsonUtility.FromJson<User>(data);
-                Storage.CurrentRoom.LeftUser(user);
-                OnUserLeave(user);
-            });
-
-            WebSocket.Client.SubscribeRoomEvent("StartGame", (data) =>
-            {
-                OnStartGame();
-            });
-
-            WebSocket.Client.SubscribeRoomEvent("UserUpdated", (data) =>
-            {
-                Debug.Log($"data : {data}");
-                var user = JsonConvert.DeserializeObject<User>(data);
-                OnUpdateRole(user, (int)user.Role, user.IsReady);
-            });
-
-            SetRole((int)user.Role, user.IsReady);
+            OnUpdateRole(user,(int)user.Role, user.IsReady);
             if (user.IsMaster)
             {
                 _masterUser = user;
             }
         }
-        if(_masterUser == null){
+        if (_masterUser == null)
+        {
             _masterUser = Storage.CurrentUser;
         }
         Debug.Log(Storage.CurrentRoom.Info.Name);
