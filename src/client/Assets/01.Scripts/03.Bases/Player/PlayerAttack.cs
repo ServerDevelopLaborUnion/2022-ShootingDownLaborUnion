@@ -22,6 +22,7 @@ public class PlayerAttack : CharacterAttack
     protected CharacterMove _move;
     protected CharacterRenderer _renderer;
     protected Entity closestEnemy = null;
+    private Vector2 _targetPos = Vector2.zero;
     protected override void Start()
     {
         base.Start();
@@ -76,14 +77,16 @@ public class PlayerAttack : CharacterAttack
 
             else
             {
-                _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition + Vector3.up));
+                _targetPos = Define.MousePos;
+                _move.MoveAgent(Define.MousePos + Vector2.up);
                 _renderer.FlipCharacter(dir);
                 WebSocket.Client.ApplyEntityMove(_base);
             }
         }
         else
         {
-            _move.MoveAgent(Define.MainCam.ScreenToWorldPoint(Input.mousePosition + Vector3.up));
+            _targetPos = Define.MousePos;
+            _move.MoveAgent(Define.MousePos + Vector2.up);
 
             WebSocket.Client.ApplyEntityMove(_base);
         }
@@ -101,6 +104,11 @@ public class PlayerAttack : CharacterAttack
                 closestEnemy = null;
             }
         }
+
+        if(GetDistance(_targetPos, transform.parent.position) <= 0.01f)
+        {
+            closestEnemy = null;
+        }
     }
 
     public float GetDistance(Vector2 pos1, Vector2 pos2)
@@ -113,6 +121,5 @@ public class PlayerAttack : CharacterAttack
     public override void EndAttack()
     {
         base.EndAttack();
-        closestEnemy = null;
     }
 }
