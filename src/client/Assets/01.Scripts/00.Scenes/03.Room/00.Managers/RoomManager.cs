@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 public class RoomManager : MonoSingleton<RoomManager>
 {
@@ -25,7 +26,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     private void Start()
     {
 
-        // UI ?ÔøΩÔøΩ CurrentRoom ?ÔøΩÔøΩÔøΩ? ?ÔøΩÔøΩ?ÔøΩÔøΩ?ÔøΩÔøΩ?ÔøΩÔøΩ
+        // UI ?ÔøΩÔøΩ CurrentRoom ?ÔøΩÔøΩÔø?? ?ÔøΩÔøΩ?ÔøΩÔøΩ?ÔøΩÔøΩ?ÔøΩÔøΩ
         foreach (User user in Storage.CurrentRoom.Users)
         {
             WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
@@ -49,6 +50,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
             WebSocket.Client.SubscribeRoomEvent("UserUpdated", (data) =>
             {
+                Debug.Log($"data : {data}");
                 var user = JsonUtility.FromJson<User>(data);
                 OnUpdateRole(user, (int)user.Role, user.IsReady);
             });
@@ -68,7 +70,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     private void UpdateText()
     {
-        _titletext.text = $"{_masterUser.Name}ÎãòÏùò {Storage.CurrentRoom.Info.Name} Î∞©";
+        _titletext.text = $"{_masterUser.Name}?ãò?ùò {Storage.CurrentRoom.Info.Name} Î∞?";
         _userCountText.text = $"{Storage.CurrentRoom.Users.Count}/4";
     }
 
@@ -108,6 +110,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void OnUpdateRole(User user, int role, bool isReady)
     {
+        Debug.Log($"{user.Name} - {role}, {isReady}");
         user.IsReady = isReady;
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
 
@@ -135,7 +138,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         Storage.CurrentUser.Role = (RoleType)role;
         Storage.CurrentUser.IsReady = isReady;
 
-        WebSocket.Client.RoomEvent("UserUpdated", JsonUtility.ToJson(Storage.CurrentUser));
+        WebSocket.Client.RoomEvent("UserUpdated", JsonConvert.SerializeObject(Storage.CurrentUser));
     }
 
     public void ClickStartGame()
