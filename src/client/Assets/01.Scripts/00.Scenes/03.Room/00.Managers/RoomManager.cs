@@ -47,7 +47,7 @@ public class RoomManager : MonoSingleton<RoomManager>
                 OnStartGame();
             });
 
-            WebSocket.Client.SubscribeUserEvent("UserUpdated", (data) =>
+            WebSocket.Client.SubscribeRoomEvent("UserUpdated", (data) =>
             {
                 var user = JsonUtility.FromJson<User>(data);
                 OnUpdateRole(user, (int)user.Role, user.IsReady);
@@ -59,6 +59,10 @@ public class RoomManager : MonoSingleton<RoomManager>
                 _masterUser = user;
             }
         }
+        if(_masterUser == null){
+            _masterUser = Storage.CurrentUser;
+        }
+        Debug.Log(Storage.CurrentRoom.Info.Name);
         UpdateText();
     }
 

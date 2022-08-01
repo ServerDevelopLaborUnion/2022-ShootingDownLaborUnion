@@ -3781,9 +3781,9 @@ MonoBehaviour:
   - {fileID: 166752253}
   _titletext: {fileID: 687262701}
   _userCountText: {fileID: 1665350012}
-  _choosePanelRect: {fileID: 0}
-  _roomCanvasTransform: {fileID: 0}
-  _chooseBlockPanel: {fileID: 0}
+  _choosePanelRect: {fileID: 1920039757}
+  _roomCanvasTransform: {fileID: 274595389}
+  _chooseBlockPanel: {fileID: 609157301}
 --- !u!4 &735031104
 Transform:
   m_ObjectHideFlags: 0
@@ -8288,8 +8288,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 476.25, y: 1000}
+  m_AnchoredPosition: {x: -732, y: -37}
+  m_SizeDelta: {x: 476.04, y: 940}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1920039759
 CanvasRenderer:
