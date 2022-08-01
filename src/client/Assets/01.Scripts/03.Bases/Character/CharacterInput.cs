@@ -80,6 +80,7 @@ public class CharacterInput : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                UIManager.Instance.SummonMoveImpact();
                 OnAttackKeyInput?.Invoke();
                 OnRangeKeyInput?.Invoke();
                 _isShowingRange = !_isShowingRange;
