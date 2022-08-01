@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +18,10 @@ public class SkillBase : MonoBehaviour
         _coolTimeImage = UIManager.Instance.SkillCoolTimeImage;
     }
 
+    public virtual void UseSkill()
+    {
+
+    }
 
     protected virtual IEnumerator UsedSkill(){
         _coolTimeImage.fillAmount = 0f;

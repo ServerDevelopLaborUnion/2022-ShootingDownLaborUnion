@@ -8,6 +8,7 @@ public class CharacterRenderer : MonoBehaviour
     private CharacterBase _characterBase;
     private SpriteRenderer _spriteRenderer;
 
+    private bool _canFlip = true;
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -16,12 +17,14 @@ public class CharacterRenderer : MonoBehaviour
 
     public void FlipCharacter(Vector3 pointerVec)
     {
+        if (!_canFlip)
+            return;
         pointerVec -= transform.position;
         if (_characterBase.State.CurrentState.HasFlag(CharacterState.State.Attack)) return;
         if (pointerVec.x > 0)
         {
             Vector3 scale = transform.localScale;
-            if(scale.x < 0)
+            if (scale.x < 0)
             {
                 WebSocket.Client.ApplyEntityAction(_characterBase, "DoFlipRight");
             }
@@ -42,6 +45,8 @@ public class CharacterRenderer : MonoBehaviour
 
     public void Flip()
     {
+        if (!_canFlip)
+            return;
         transform.localScale = new Vector3(transform.localScale.x > 0 ? -1 : 1, 1, 1);
     }
 
@@ -56,5 +61,15 @@ public class CharacterRenderer : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         _spriteRenderer.material.SetColor("_MainColor", new Color(1, 1, 1, 0));
         _characterBase.State.CurrentState &= ~CharacterState.State.Damaged;
+    }
+
+    public void SetFlipPossible(bool value)
+    {
+        _canFlip = value;
+    }
+
+    public void FaceToMouse()
+    {
+        FlipCharacter(Define.MousePos);
     }
 }

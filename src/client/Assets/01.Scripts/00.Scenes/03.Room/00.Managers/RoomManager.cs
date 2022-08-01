@@ -28,36 +28,55 @@ public class RoomManager : MonoSingleton<RoomManager>
         // UI ?�� CurrentRoom ?���? ?��?��?��?��
         foreach (User user in Storage.CurrentRoom.Users)
         {
+            WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
+            {
+                var user = JsonUtility.FromJson<User>(data);
+                Storage.CurrentRoom.AddUser(user);
+                OnUserJoin(user);
+            });
+
+            WebSocket.Client.SubscribeRoomEvent("UserLeft", (data) =>
+            {
+                var user = JsonUtility.FromJson<User>(data);
+                Storage.CurrentRoom.LeftUser(user);
+                OnUserLeave(user);
+            });
+
+            WebSocket.Client.SubscribeRoomEvent("StartGame", (data) =>
+            {
+                OnStartGame();
+            });
+
+            WebSocket.Client.SubscribeUserEvent("UserUpdated", (data) =>
+            {
+                var user = JsonUtility.FromJson<User>(data);
+                OnUpdateRole(user, (int)user.Role, user.IsReady);
+            });
+
             SetRole((int)user.Role, user.IsReady);
             if (user.IsMaster)
             {
                 _masterUser = user;
             }
         }
-
         UpdateText();
     }
 
     private void UpdateText()
     {
-        _titletext.text = $"{_masterUser.Name}?��?�� {Storage.CurrentRoom.Info.Name}";
+        _titletext.text = $"{_masterUser.Name}님의 {Storage.CurrentRoom.Info.Name} 방";
         _userCountText.text = $"{Storage.CurrentRoom.Users.Count}/4";
     }
 
     public void OnUserJoin(User user)
     {
-        //  UI ?��?��?�� ?��?��?��?��
-        // ?��?��?��?�� ?��?��?�� �??��????�� UI?��?��?��?��
         //_userNameTexts[Storage.CurrentRoom.Users.Count].text = user.Name;
         UpdateText();
     }
 
     public void OnUserLeave(User user)
     {
-        //UI ?��?��?�� ?��?��?��?��
-        // ?��?��?��?�� ?��?��?�� �??��????�� UI?��?��?��?��
         UpdateText();
-
     }
 
     private void SetChoosePanel(int role, bool isActive)
@@ -78,6 +97,8 @@ public class RoomManager : MonoSingleton<RoomManager>
         {
             _chooseBlockPanel.SetParent(_roomCanvasTransform);
         }
+        //UI ????????? ????????????
+        // ???????????? ????????? ??????????? UI????????????
 
     }
 
@@ -91,10 +112,8 @@ public class RoomManager : MonoSingleton<RoomManager>
         if (user.IsReady)
         {
             _rolePanels[role].SetNameText(Storage.CurrentUser.Name);
-            // ???�? ?��?��?�� UI++
             if (CheckAllUserIsReady() && Storage.CurrentUser.IsMaster)
             {
-                //?��?�� 버튼 ?���?
                 _rolePanels[role].ActiveStartBtn(true);
             }
         }
@@ -106,17 +125,18 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void SetRole(int role, bool isReady)
     {
-        // 무기�? ?��????�� ?��
-        // 무기�? 바꿨?�� ?�� 무기�? 겹칠경우 ?��?��?�� ?��?���?
 
         SetChoosePanel(role, isReady);
         WebSocket.Client.SetRole(role, isReady);
 
+        Storage.CurrentUser.Role = (RoleType)role;
+        Storage.CurrentUser.IsReady = isReady;
+        WebSocket.Client.RoomEvent("UserUpdated", JsonUtility.ToJson(Storage.CurrentUser));
     }
 
     public void ClickStartGame()
     {
-        WebSocket.Client.StartGame();
+        WebSocket.Client.RoomEvent("StartGame", "");
     }
 
     public void OnStartGame()

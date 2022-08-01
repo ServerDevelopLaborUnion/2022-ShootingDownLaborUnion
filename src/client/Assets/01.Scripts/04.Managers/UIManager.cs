@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,16 +8,13 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField]
     private Image _skillCoolTimeImage;
 
+    [SerializeField]
+    private GameObject MoveImpact = null;
+
     public Image SkillCoolTimeImage => _skillCoolTimeImage;
 
-
-
-    public void CopyRectTransformSize(RectTransform copyFrom, RectTransform copyTo)
+    public void SummonMoveImpact()
     {
-        copyTo.pivot = copyFrom.pivot;
-        copyTo.anchoredPosition = copyFrom.anchoredPosition;
-        copyTo.anchorMin = copyFrom.anchorMin;
-        copyTo.anchorMax = copyFrom.anchorMax;
-        copyTo.sizeDelta = copyFrom.sizeDelta;
+        Instantiate(MoveImpact, Define.MousePos, Quaternion.identity);
     }
 }

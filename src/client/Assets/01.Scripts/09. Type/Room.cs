@@ -10,7 +10,7 @@ public class Room
         Users.Add(user);
     }
 
-    public void ExitUser(User user)
+    public void LeftUser(User user)
     {
         Users.Remove(user);
     }
