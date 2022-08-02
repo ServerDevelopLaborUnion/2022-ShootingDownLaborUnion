@@ -14,7 +14,7 @@ public class ElectricEffect : BaseDungeonEnter
     [SerializeField]
     private SpriteRenderer _player;
 
-    [Header("카메라")]
+    [Header("카메?��")]
     [SerializeField]
     private float _camDuration = 2f;
     [SerializeField]

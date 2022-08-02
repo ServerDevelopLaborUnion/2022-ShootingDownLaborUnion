@@ -17,18 +17,6 @@ public class SummonPortalEnterEffect : BaseDungeonEnter
     private float _fadeDuration = 1.5f;
 
 
-
-    [Space]
-    [SerializeField]
-    private float _camExitDuration = 2f;
-    [SerializeField]
-    private float _camExitStrength = 0.1f;
-    [SerializeField]
-    private float _camExitRandomness = 90f;
-
-    [SerializeField]
-    private int _camExitVibrato = 30;
-
     private int SUMMONPORTAL = Animator.StringToHash("SummonPortal 2");
 
     private Animator _animator = null;
