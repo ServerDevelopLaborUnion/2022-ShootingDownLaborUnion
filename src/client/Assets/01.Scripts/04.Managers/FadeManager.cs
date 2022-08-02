@@ -26,7 +26,8 @@ public class FadeManager : MonoSingleton<FadeManager>
     {
         _topBar = FadeParent.GetChild((int)FADECHILDS.TOPBAR).GetComponent<RectTransform>();
         _bottomBar = FadeParent.GetChild((int)FADECHILDS.BOTTOMBAR).GetComponent<RectTransform>();
-
+        Debug.Log(_topBar);
+        Debug.Log(_bottomBar);
         FadeObject = FadeParent.GetChild((int)FADECHILDS.FADEOBJECT).GetComponent<Image>();
 
         _hideBarY = Mathf.Abs(_topBar.anchoredPosition.y);

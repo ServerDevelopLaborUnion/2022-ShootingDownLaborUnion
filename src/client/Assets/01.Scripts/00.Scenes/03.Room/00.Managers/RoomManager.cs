@@ -53,6 +53,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         foreach (User user in Storage.CurrentRoom.Users)
         {
+            if(!user.IsReady)return;
             OnUpdateRole(user,(int)user.Role, user.IsReady);
             if (user.IsMaster)
             {
@@ -110,7 +111,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void OnUpdateRole(User user, int role, bool isReady)
     {
         user.IsReady = isReady;
-        Debug.Log("ON유저 롤 : " + role);
+        Debug.Log("ON유저 롤 : " + role + user.IsReady);
 
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
 
