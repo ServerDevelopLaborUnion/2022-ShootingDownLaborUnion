@@ -53,8 +53,8 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         foreach (User user in Storage.CurrentRoom.Users)
         {
-            if(!user.IsReady)return;
-            OnUpdateRole(user,(int)user.Role, user.IsReady);
+            if (!user.IsReady) continue;
+            OnUpdateRole(user, (int)user.Role, user.IsReady);
             if (user.IsMaster)
             {
                 _masterUser = user;
@@ -70,7 +70,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     private void UpdateText()
     {
-        _titletext.text = $"{_masterUser.Name}ÎãòÏùò {Storage.CurrentRoom.Info.Name} Î∞©";
+        _titletext.text = $"{_masterUser.Name} ¥‘¿« {Storage.CurrentRoom.Info.Name} πÊ";
         _userCountText.text = $"{Storage.CurrentRoom.Users.Count}/4";
     }
 
@@ -111,7 +111,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void OnUpdateRole(User user, int role, bool isReady)
     {
         user.IsReady = isReady;
-        Debug.Log("ONÏú†Ï†Ä Î°§ : " + role + user.IsReady);
+        Debug.Log("ON?ú†??? Î°? : " + role + user.IsReady);
 
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
 
@@ -134,7 +134,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void SetRole(int role, bool isReady)
     {
         SetChoosePanel(role, isReady);
-        Debug.Log("Ïú†Ï†Ä Î°§ : " + role);
+        Debug.Log("?ú†??? Î°? : " + role);
 
         Storage.CurrentUser.Role = (RoleType)role;
         Storage.CurrentUser.IsReady = isReady;
