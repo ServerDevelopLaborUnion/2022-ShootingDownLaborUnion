@@ -13,14 +13,6 @@ public class SlowAttack : PlayerAttack
         base.Start();
     }
 
-    public override void DoAttack()
-    {
-        if (!(_base.State.CurrentState.HasFlag(CharacterState.State.Attack)
-            || _base.State.CurrentState.HasFlag(CharacterState.State.Died)))
-        {
-            Attack();
-        }
-    }
 
     protected override void Attack()
     {

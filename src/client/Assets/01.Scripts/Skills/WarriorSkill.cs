@@ -37,13 +37,16 @@ public class WarriorSkill : SkillBase
         _animator.Play("Skill");
     }
 
-    protected void EventUseSkill(){
+    protected override void EventUseSkill()
+    {
+        base.EventUseSkill();
         Skill();
     }
 
-    protected void EventEndSkill()
+    protected override void EventEndSkill()
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
+        base.EventEndSkill();
         StartCoroutine(UsedSkill());
         OnSkillEnded?.Invoke();
     }

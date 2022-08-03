@@ -34,22 +34,23 @@ public class GunnerSkill : SkillBase
         _animator.Play("Skill");
     }
 
-    protected void EventUseSkill()
+    protected override void EventUseSkill()
     {
+        base.EventUseSkill();
         StartCoroutine(Skill());
         StartCoroutine(UsedSkill());
     }
 
-    protected void EventEndSkill()
+    protected override void EventEndSkill()
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
-        _base.Stat.ChangeStat(CharacterStat.Stat.ATKSPEED, _base.Stat.AtkSpeed - 2);
+        base.EventEndSkill();
         OnSkillEnded?.Invoke();
     }
 
     private IEnumerator Skill()
     {
-        _base.Stat.ChangeStat(CharacterStat.Stat.ATKSPEED, _base.Stat.AtkSpeed + 2);
+        _base.Effect.GetEffectOnCharacter(CharacterStat.Stat.ATKSPEED, CharacterEffect.Effect.Fast, 3);
         DOTween.To(() => _light.intensity, (v) => _light.intensity = v, 1, 0.5f);
         _targetAttack.ActiveSkill();
         yield return WaitForSeconds(3);

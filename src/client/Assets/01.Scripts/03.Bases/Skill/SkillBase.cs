@@ -27,6 +27,16 @@ public class SkillBase : MonoBehaviour
         
     }
 
+    protected virtual void EventUseSkill()
+    {
+        _base.State.CurrentState |= CharacterState.State.Skill;
+    }
+    protected virtual void EventEndSkill()
+    {
+        _base.State.CurrentState &= ~CharacterState.State.Skill;
+    }
+
+
     protected virtual IEnumerator UsedSkill(){
         _coolTimeImage.fillAmount = 0f;
         _coolTimeImage.color = Color.gray;

@@ -30,7 +30,8 @@ public class CharacterAttack : MonoBehaviour
     public virtual void DoAttack()
     {
         if (!(_base.State.CurrentState.HasFlag(CharacterState.State.Attack) 
-            || _base.State.CurrentState.HasFlag(CharacterState.State.Died) ))
+            || _base.State.CurrentState.HasFlag(CharacterState.State.Died)
+            ||_base.State.CurrentState.HasFlag(CharacterState.State.Skill)))
         {
             OnAttacked?.Invoke();
             Attack();
