@@ -10,6 +10,8 @@ public class TankerSkill : SkillBase
 {
     [SerializeField]
     private float _range = 3f;
+    [SerializeField]
+    private GameObject _hammerTrail = null;
     public UnityEvent OnSkillUsed = null;
     public UnityEvent OnSkillEnded = null;
 
@@ -29,18 +31,22 @@ public class TankerSkill : SkillBase
         OnSkillUsed?.Invoke();
         _isSkill = true;
         _animator.Play("Skill");
+        _hammerTrail.SetActive(true);
     }
 
-    protected void EventUseSkill()
+    protected override void EventUseSkill()
     {
+        base.EventUseSkill();
         Skill();
     }
 
-    protected void EventEndSkill()
+    protected override void EventEndSkill()
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
+        base.EventEndSkill();
         StartCoroutine(UsedSkill());
         OnSkillEnded?.Invoke();
+        _hammerTrail.SetActive(false);
     }
 
     private void Skill()

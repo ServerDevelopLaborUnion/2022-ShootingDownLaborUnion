@@ -282,9 +282,9 @@ MonoBehaviour:
   <Data>k__BackingField:
     UUID: 
     OwnerUUID: 
-    Name: 
+    Name: Enemy
     TargetPosition: {x: 0, y: 0}
-    Type: 0
+    Type: 1
     entityStat:
       _hp: 0
       _atk: 0

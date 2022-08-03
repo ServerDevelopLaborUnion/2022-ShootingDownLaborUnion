@@ -44,15 +44,6 @@ public class PlayerAttack : CharacterAttack
         _rangeObject.SetActive(!_rangeObject.activeInHierarchy);
     }
 
-    public override void DoAttack()
-    {
-        if (!(_base.State.CurrentState.HasFlag(CharacterState.State.Attack)
-            || _base.State.CurrentState.HasFlag(CharacterState.State.Died)))
-        {
-            Attack();
-        }
-    }
-
     protected override void Attack()
     {
         List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);

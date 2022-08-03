@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,8 +13,9 @@ public class CharacterState
     {
         Null = 0,
         Attack = 1 << 1,
-        Damaged = 1 << 2,
-        Died = 1 << 3,
+        Skill = 1 << 2,
+        Damaged = 1 << 3,
+        Died = 1 << 4,
         All = int.MaxValue
     }
 }

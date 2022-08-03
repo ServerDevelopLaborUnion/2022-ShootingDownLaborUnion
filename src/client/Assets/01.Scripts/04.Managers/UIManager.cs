@@ -11,7 +11,19 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField]
     private GameObject MoveImpact = null;
 
+    [SerializeField]
+    private Button _enemySummonBtn = null;
+
+    [SerializeField]
+    private Entity _enemyEntity = null;
+
     public Image SkillCoolTimeImage => _skillCoolTimeImage;
+
+
+    private void Awake()
+    {
+        _enemySummonBtn.onClick.AddListener(()=> WebSocket.Client.CreateEntityEvent(_enemyEntity));
+    }
 
     public void SummonMoveImpact()
     {

@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &95238595354498928
 Transform:
   m_ObjectHideFlags: 0
@@ -918,6 +918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coolTime: 1
   _range: 3
+  _hammerTrail: {fileID: 1643970840993962645}
   OnSkillUsed:
     m_PersistentCalls:
       m_Calls: []
