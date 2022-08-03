@@ -21,6 +21,8 @@ public class CharacterMove : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    private bool _canMove = true;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -33,12 +35,14 @@ public class CharacterMove : MonoBehaviour
 
     private void Update()
     {
+        if (!_canMove)
+            StopImmediatelly();
         if (_base.State.CurrentState.HasFlag(CharacterState.State.Died))
         {
             StopImmediatelly();
             return;
         }
-        if (Vector2.Distance(_base.Data.TargetPosition, transform.position) >= 0.3f)
+        if (Vector2.Distance(_base.Data.TargetPosition, transform.position) >= 0.1f)
         {
             //transform.position = Vector3.Lerp(transform.position, _base.Data.TargetPosition, Time.deltaTime * _base.Stat.Speed /     Vector3.Distance(_base.Data.TargetPosition, transform.position));
             OnVelocityChange?.Invoke(true);
@@ -70,6 +74,15 @@ public class CharacterMove : MonoBehaviour
 
     public void Knockback(Collider2D col)
     {
-        _rigid.position -= ((Vector2)(col.transform.position - transform.position).normalized) * _knockbackPercent * 0.02f;
+        StopImmediatelly();
+        Debug.Log(_rigid.position);
+        _rigid.position -= (Vector2) (((col.transform.position - transform.position).normalized) * _knockbackPercent * 0.02f);
+        transform.position = _rigid.position;
+        Debug.Log(_rigid.position);
+    }
+
+    public void SetMovePossible(bool value)
+    {
+        _canMove = value;
     }
 }

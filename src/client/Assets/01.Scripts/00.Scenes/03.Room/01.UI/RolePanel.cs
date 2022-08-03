@@ -26,6 +26,7 @@ public class RolePanel : MonoBehaviour
     [SerializeField]
     private float _randomness = 90;
 
+    private User _currentUser;
     private Tweener _startTextShakeTween;
     public void ActiveReadyPanel(bool isActive)
     {
@@ -41,6 +42,14 @@ public class RolePanel : MonoBehaviour
 
     public void OnClickReadyOrCancel(bool isReady)
     {
+        if(isReady){
+            if(Storage.CurrentUser.IsReady)return;
+            _currentUser = Storage.CurrentUser;
+        }
+        else{
+            if(_currentUser != Storage.CurrentUser)return;
+        }
+
         RoomManager.Instance.SetRole(_roleNumber, isReady);
     }
 
@@ -59,10 +68,11 @@ public class RolePanel : MonoBehaviour
         }
         else
         {
-            if(_startTextShakeTween != null){
+            if (_startTextShakeTween != null)
+            {
                 _startTextShakeTween.Kill();
             }
-         }
+        }
     }
 
 

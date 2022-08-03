@@ -1,3 +1,4 @@
+[System.Serializable]
 public class User
 {
     public string UUID { get; private set; }
@@ -10,6 +11,16 @@ public class User
     public new string ToString()
     {
         return string.Format("{0} ({1})", Name, Weapon);
+    }
+
+    public User()
+    {
+        UUID = string.Empty;
+        Name = string.Empty;
+        Weapon = WeaponType.None;
+        Role = RoleType.NONE;
+        IsReady = false;
+        IsMaster = false;
     }
 
     public User(string uuid, string name)

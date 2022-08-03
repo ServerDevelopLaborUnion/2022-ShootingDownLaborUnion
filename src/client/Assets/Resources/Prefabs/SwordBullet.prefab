@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2459352886885821921}
   - component: {fileID: 2459352886885821920}
   - component: {fileID: 2459352886885821951}
+  - component: {fileID: 8165653791930682831}
+  - component: {fileID: 2452882056001709086}
   m_Layer: 0
   m_Name: SwordBullet
   m_TagString: Untagged
@@ -119,6 +121,46 @@ MonoBehaviour:
   _gapCount: 1
   _offBackColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
   _offFontColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+--- !u!61 &8165653791930682831
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459352886885821923}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &2452882056001709086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459352886885821923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f3565565dbaa4418efc278180bd62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _col: {fileID: 0}
 --- !u!1 &2459352887142320456
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,8 +229,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -374888483
+  m_SortingLayer: 3
   m_SortingOrder: 20
   m_Sprite: {fileID: 1392692461771914079, guid: 62cdfa907490344469224b5fb0cf99f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

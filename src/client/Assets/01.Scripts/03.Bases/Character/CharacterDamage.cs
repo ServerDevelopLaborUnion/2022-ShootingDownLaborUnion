@@ -18,8 +18,9 @@ public class CharacterDamage : MonoBehaviour
     {
         if (_base.State.CurrentState.HasFlag(CharacterState.State.Damaged) || _base.State.CurrentState.HasFlag(CharacterState.State.Died)) return;
         _base.State.CurrentState |= CharacterState.State.Damaged;
-        _base.Stat.ChangeStat(CharacterStat.Stat.HP, _base.Stat.HP - value * (10 / (_base.Stat.Def + 10)));
+        _base.Stat.ChangeStat(CharacterStat.Stat.HP, _base.Stat.HP - Mathf.RoundToInt(Mathf.Pow(value, 2) / (value + _base.Stat.Def)));
         OnCharacterDamaged?.Invoke();
-        OnDamagedFeedBack?.Invoke(col);
+        if(col != null)
+            OnDamagedFeedBack?.Invoke(col);
     }
 }

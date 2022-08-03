@@ -41,7 +41,10 @@ namespace Protobuf.Server {
             "aXN0UmVxdWVzdCIqChRFbmVpdHlEZXNwYXduUmVxdWVzdBISCgpFbnRpdHlV",
             "VUlEGAEgASgJIh4KC0NoYXRSZXF1ZXN0Eg8KB01lc3NhZ2UYASABKAkiEgoQ",
             "U3RhcnRHYW1lUmVxdWVzdCIvCg5TZXRSb2xlUmVxdWVzdBIMCgRSb2xlGAEg",
-            "ASgFEg8KB0lzUmVhZHkYAiABKAhiBnByb3RvMw=="));
+            "ASgFEg8KB0lzUmVhZHkYAiABKAgiQwoJUm9vbUV2ZW50EhAKCFJvb21VVUlE",
+            "GAEgASgJEhEKCUV2ZW50TmFtZRgCIAEoCRIRCglFdmVudERhdGEYAyABKAki",
+            "QwoJVXNlckV2ZW50EhAKCFVzZXJVVUlEGAEgASgJEhEKCUV2ZW50TmFtZRgC",
+            "IAEoCRIRCglFdmVudERhdGEYAyABKAliBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protobuf.TypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -58,7 +61,9 @@ namespace Protobuf.Server {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.EneityDespawnRequest), global::Protobuf.Server.EneityDespawnRequest.Parser, new[]{ "EntityUUID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.ChatRequest), global::Protobuf.Server.ChatRequest.Parser, new[]{ "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.StartGameRequest), global::Protobuf.Server.StartGameRequest.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.SetRoleRequest), global::Protobuf.Server.SetRoleRequest.Parser, new[]{ "Role", "IsReady" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.SetRoleRequest), global::Protobuf.Server.SetRoleRequest.Parser, new[]{ "Role", "IsReady" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.RoomEvent), global::Protobuf.Server.RoomEvent.Parser, new[]{ "RoomUUID", "EventName", "EventData" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protobuf.Server.UserEvent), global::Protobuf.Server.UserEvent.Parser, new[]{ "UserUUID", "EventName", "EventData" }, null, null, null, null)
           }));
     }
     #endregion
@@ -3039,6 +3044,538 @@ namespace Protobuf.Server {
           }
           case 16: {
             IsReady = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// id: 14
+  /// </summary>
+  public sealed partial class RoomEvent : pb::IMessage<RoomEvent>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<RoomEvent> _parser = new pb::MessageParser<RoomEvent>(() => new RoomEvent());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<RoomEvent> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protobuf.Server.ServerReflection.Descriptor.MessageTypes[14]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RoomEvent() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RoomEvent(RoomEvent other) : this() {
+      roomUUID_ = other.roomUUID_;
+      eventName_ = other.eventName_;
+      eventData_ = other.eventData_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RoomEvent Clone() {
+      return new RoomEvent(this);
+    }
+
+    /// <summary>Field number for the "RoomUUID" field.</summary>
+    public const int RoomUUIDFieldNumber = 1;
+    private string roomUUID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomUUID {
+      get { return roomUUID_; }
+      set {
+        roomUUID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "EventName" field.</summary>
+    public const int EventNameFieldNumber = 2;
+    private string eventName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EventName {
+      get { return eventName_; }
+      set {
+        eventName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "EventData" field.</summary>
+    public const int EventDataFieldNumber = 3;
+    private string eventData_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EventData {
+      get { return eventData_; }
+      set {
+        eventData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as RoomEvent);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(RoomEvent other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RoomUUID != other.RoomUUID) return false;
+      if (EventName != other.EventName) return false;
+      if (EventData != other.EventData) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RoomUUID.Length != 0) hash ^= RoomUUID.GetHashCode();
+      if (EventName.Length != 0) hash ^= EventName.GetHashCode();
+      if (EventData.Length != 0) hash ^= EventData.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (RoomUUID.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RoomUUID);
+      }
+      if (EventName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(EventName);
+      }
+      if (EventData.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(EventData);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (RoomUUID.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RoomUUID);
+      }
+      if (EventName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(EventName);
+      }
+      if (EventData.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(EventData);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (RoomUUID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomUUID);
+      }
+      if (EventName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EventName);
+      }
+      if (EventData.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EventData);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(RoomEvent other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RoomUUID.Length != 0) {
+        RoomUUID = other.RoomUUID;
+      }
+      if (other.EventName.Length != 0) {
+        EventName = other.EventName;
+      }
+      if (other.EventData.Length != 0) {
+        EventData = other.EventData;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RoomUUID = input.ReadString();
+            break;
+          }
+          case 18: {
+            EventName = input.ReadString();
+            break;
+          }
+          case 26: {
+            EventData = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            RoomUUID = input.ReadString();
+            break;
+          }
+          case 18: {
+            EventName = input.ReadString();
+            break;
+          }
+          case 26: {
+            EventData = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// id: 15
+  /// </summary>
+  public sealed partial class UserEvent : pb::IMessage<UserEvent>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UserEvent> _parser = new pb::MessageParser<UserEvent>(() => new UserEvent());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UserEvent> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protobuf.Server.ServerReflection.Descriptor.MessageTypes[15]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UserEvent() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UserEvent(UserEvent other) : this() {
+      userUUID_ = other.userUUID_;
+      eventName_ = other.eventName_;
+      eventData_ = other.eventData_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UserEvent Clone() {
+      return new UserEvent(this);
+    }
+
+    /// <summary>Field number for the "UserUUID" field.</summary>
+    public const int UserUUIDFieldNumber = 1;
+    private string userUUID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string UserUUID {
+      get { return userUUID_; }
+      set {
+        userUUID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "EventName" field.</summary>
+    public const int EventNameFieldNumber = 2;
+    private string eventName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EventName {
+      get { return eventName_; }
+      set {
+        eventName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "EventData" field.</summary>
+    public const int EventDataFieldNumber = 3;
+    private string eventData_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EventData {
+      get { return eventData_; }
+      set {
+        eventData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UserEvent);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UserEvent other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (UserUUID != other.UserUUID) return false;
+      if (EventName != other.EventName) return false;
+      if (EventData != other.EventData) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (UserUUID.Length != 0) hash ^= UserUUID.GetHashCode();
+      if (EventName.Length != 0) hash ^= EventName.GetHashCode();
+      if (EventData.Length != 0) hash ^= EventData.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (UserUUID.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(UserUUID);
+      }
+      if (EventName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(EventName);
+      }
+      if (EventData.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(EventData);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (UserUUID.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(UserUUID);
+      }
+      if (EventName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(EventName);
+      }
+      if (EventData.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(EventData);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (UserUUID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(UserUUID);
+      }
+      if (EventName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EventName);
+      }
+      if (EventData.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EventData);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UserEvent other) {
+      if (other == null) {
+        return;
+      }
+      if (other.UserUUID.Length != 0) {
+        UserUUID = other.UserUUID;
+      }
+      if (other.EventName.Length != 0) {
+        EventName = other.EventName;
+      }
+      if (other.EventData.Length != 0) {
+        EventData = other.EventData;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            UserUUID = input.ReadString();
+            break;
+          }
+          case 18: {
+            EventName = input.ReadString();
+            break;
+          }
+          case 26: {
+            EventData = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            UserUUID = input.ReadString();
+            break;
+          }
+          case 18: {
+            EventName = input.ReadString();
+            break;
+          }
+          case 26: {
+            EventData = input.ReadString();
             break;
           }
         }

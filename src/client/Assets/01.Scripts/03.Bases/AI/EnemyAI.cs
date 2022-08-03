@@ -18,12 +18,12 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         fsm = new StateMachine();
-        fsm.AddState("Idle", new State(onLogic: (state) => {DoStop?.Invoke(); _delay = 0.6f; }));
+        fsm.AddState("Idle", new State(onLogic: (state) => { DoStop?.Invoke(); _delay = 0.6f; }));
         fsm.AddState("Chase", new State(onLogic: (state) =>
-        { 
+        {
             OnPlayerIn?.Invoke(GetNearestColliderInRange(_range).transform.position);
             _delay += Time.deltaTime;
-            if(_delay > 0.5f)
+            if (_delay > 0.5f)
             {
                 _delay = 0f;
                 WebSocket.Client.ApplyEntityMove(_base);

@@ -79,6 +79,33 @@ public class CharacterStat
         }
     }
 
+    public void AddStat(Stat stat, int value)
+    {
+        switch (stat)
+        {
+            case Stat.HP:
+                _hp += value;
+                break;
+            case Stat.ATK:
+                _atk += value;
+                break;
+            case Stat.DEF:
+                _def += value;
+                break;
+            case Stat.SPEED:
+                _speed += value;
+                break;
+            case Stat.ATKSPEED:
+                _atkSpeed += value;
+                break;
+            case Stat.ATKRANGE:
+                _atkRange += value;
+                break;
+            default:
+                return;
+        }
+    }
+
     public static CharacterStat operator+(CharacterStat _base, CharacterStat value)
     {
         CharacterStat temp = _base;

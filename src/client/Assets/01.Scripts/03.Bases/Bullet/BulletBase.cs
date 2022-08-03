@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -47,7 +47,7 @@ public class BulletBase : MonoBehaviour
 
     protected virtual void Despawn()
     {
-        //TODO: 풀링
+        //TODO: ?留?
 
         gameObject.SetActive(false);
     }
