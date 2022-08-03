@@ -70,8 +70,11 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
     public void OnClickSelect(){
         WebSocket.Client.UserEvent("ChangeNickname", _inputField.text);
         Debug.Log(FadeManager.Instance.FadeObject);
-        FadeManager.Instance.FadeObject.DOFade(1f, 1f).OnComplete(() =>
+        Tweener tweener = null;
+        tweener = FadeManager.Instance.FadeObject.DOFade(1f, 1f).OnComplete(() =>
         {
+            if(tweener != null)
+                tweener.Kill();
             SceneLoader.Load(SceneType.Lobby);
         });
     }
@@ -110,8 +113,8 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
         Sequence sequence;
         sequence = DOTween.Sequence();
 
-        sequence.Append(_decidePanel.transform.DOScaleY(1f, 0.1f).SetEase(Ease.InElastic));
-        sequence.Append(_decidePanel.transform.DOScaleX(1f, 0.2f).SetEase(Ease.InElastic));
+        sequence.Append(_decidePanel.transform.DOScaleY(1f, 0.1f).SetEase(Ease.Linear));
+        sequence.Append(_decidePanel.transform.DOScaleX(1f, 0.2f).SetEase(Ease.Linear));
 
     }
 
@@ -134,8 +137,8 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
         Sequence sequence;
         sequence = DOTween.Sequence();
 
-        sequence.Append(_decidePanel.transform.DOScaleX(0.01f, 0.1f).SetEase(Ease.InElastic));
-        sequence.Append(_decidePanel.transform.DOScaleY(0f, 0.2f).SetEase(Ease.InElastic));
+        sequence.Append(_decidePanel.transform.DOScaleX(0.01f, 0.1f).SetEase(Ease.Linear));
+        sequence.Append(_decidePanel.transform.DOScaleY(0f, 0.2f).SetEase(Ease.Linear));
         sequence.AppendCallback(
             () =>
             {

@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using TMPro;
 
 public class TitleManager : MonoBehaviour
 {
@@ -14,7 +13,11 @@ public class TitleManager : MonoBehaviour
 
     private void Update() {
         if(Input.anyKeyDown){
-            FadeManager.Instance.FadeObject.DOFade(1f, _fadeDuration).OnComplete(()=>{
+            Tweener tweener = null;
+            tweener = FadeManager.Instance.FadeObject.DOFade(1f, _fadeDuration).OnComplete(()=>{
+                if(tweener != null){
+                    tweener.Kill();
+                }
                 SceneLoader.Load(SceneType.Login);
             });
         }
