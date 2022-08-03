@@ -55,10 +55,12 @@ public class GameManager : MonoBehaviour
     {
         Entity temp = Entity.EntityCreate(e.Data);
         if (e.Data.Type == EntityType.Player)
+        {
             NetworkManager.Instance.playerList.Add(temp);
+            StartCoroutine(SetHostClient(e.Data));
+        }
         NetworkManager.Instance.entityList.Add(temp);
         Debug.Log($"{e.Data.UUID} Has Created");
-        StartCoroutine(SetHostClient(e.Data));
     }
 
     
