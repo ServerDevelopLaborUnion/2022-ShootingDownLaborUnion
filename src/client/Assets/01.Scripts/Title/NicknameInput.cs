@@ -39,6 +39,12 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
     private bool _isShaking;
     private void Start()
     {
+        WebSocket.Client.SubscribeUserEvent("ChangeNickname", (data) =>
+        {
+            Storage.CurrentUser.SetUserName(data);
+        });
+
+
         _inputField = GetComponent<TMP_InputField>();
         _placeholder = _inputField.placeholder.GetComponent<TMP_Text>();
 
@@ -59,6 +65,15 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
         {
             _placeholder.text = _tempPlaceholder;
         }
+    }
+
+    public void OnClickSelect(){
+        WebSocket.Client.UserEvent("ChangeNickname", _inputField.text);
+        Debug.Log(FadeManager.Instance.FadeObject);
+        FadeManager.Instance.FadeObject.DOFade(1f, 1f).OnComplete(() =>
+        {
+            SceneLoader.Load(SceneType.Lobby);
+        });
     }
 
     public void OnClickRandomlName()

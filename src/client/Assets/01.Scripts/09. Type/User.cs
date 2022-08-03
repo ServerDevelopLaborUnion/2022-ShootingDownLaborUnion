@@ -13,6 +13,10 @@ public class User
         return string.Format("{0} ({1})", Name, Weapon);
     }
 
+    public void SetUserName(string name){
+        Name = name;
+    }
+
     public User()
     {
         UUID = string.Empty;
