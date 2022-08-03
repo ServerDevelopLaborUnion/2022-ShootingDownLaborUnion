@@ -14,7 +14,6 @@ public class GunnerSkill : SkillBase
     public UnityEvent OnSkillEnded = null;
 
     private Animator _animator;
-    private PlayerBase _base = null;
     [SerializeField]
     private Light2D _light = null;
     [SerializeField]
@@ -23,7 +22,6 @@ public class GunnerSkill : SkillBase
     {
         _animator = GetComponent<Animator>();
         _animator.enabled = true;
-        _base = transform.parent.GetComponent<PlayerBase>();
     }
 
     public override void UseSkill()

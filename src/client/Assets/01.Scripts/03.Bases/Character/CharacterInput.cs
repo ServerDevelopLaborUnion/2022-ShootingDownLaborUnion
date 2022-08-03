@@ -90,6 +90,7 @@ public class CharacterInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             OnSkillKeyInput?.Invoke();
+            Debug.Log(1);
         }
     }
 }

@@ -6,22 +6,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WarriorSkill : SkillBase
+public class TankerSkill : SkillBase
 {
     [SerializeField]
-    private GameObject _swordBullet = null;
-
-    [SerializeField]
-    private Transform _shootPos = null;
-
+    private float _range = 3f;
     public UnityEvent OnSkillUsed = null;
-    public UnityEvent OnSkillEnded= null;
+    public UnityEvent OnSkillEnded = null;
 
     private Animator _animator;
 
-    private bool _isRight = false;
-
-    private void Start() {
+    private void Start()
+    {
         _animator = GetComponent<Animator>();
         _animator.enabled = true;
     }
@@ -33,11 +28,11 @@ public class WarriorSkill : SkillBase
         // TOOD: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄?留됯린
         OnSkillUsed?.Invoke();
         _isSkill = true;
-        _isRight = MousePos.x >= transform.position.x;
         _animator.Play("Skill");
     }
 
-    protected void EventUseSkill(){
+    protected void EventUseSkill()
+    {
         Skill();
     }
 
@@ -48,10 +43,11 @@ public class WarriorSkill : SkillBase
         OnSkillEnded?.Invoke();
     }
 
-    private void Skill(){
-        GameObject g = Instantiate(_swordBullet, _shootPos.position, (_isRight) ? Quaternion.identity : Quaternion.Euler(0f, 180f, 0f));
-        g.GetComponent<BulletAttack>()._damage = 2 + _base.Stat.AD;
-        g.SetActive(true);
+    private void Skill()
+    {
+        List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
+        List<Entity> closeEnemies = enemies.FindAll((entity) => GetDistance(transform.parent.position, entity.transform.position) <= _range);
+        closeEnemies.ForEach((enemy)=> enemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol));
     }
 
 
