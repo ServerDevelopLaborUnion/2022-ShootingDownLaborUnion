@@ -1,3 +1,5 @@
+import { WritieLog } from "./notion";
+
 const Level = {
     DEBUG: 0,
     INFO: 1,
@@ -22,6 +24,7 @@ class Log {
     Debug(prefix: string, msg: string) {
         if (this.level <= Level.DEBUG) {
             msg = `\x1b[32m[DEBUG]: ${prefix}\x1b[0m ${msg}`;
+            WritieLog(msg, "Debug");
             this.logWrite(msg);
         }
     }
@@ -29,6 +32,7 @@ class Log {
     Info(prefix: string, msg: string) {
         if (this.level <= Level.INFO) {
             msg = `\x1b[34m[INFO]: ${prefix}\x1b[0m ${msg}`;
+            WritieLog(msg, "Info");
             this.logWrite(msg);
         }
     }
@@ -36,6 +40,7 @@ class Log {
     Warn(prefix: string, msg: string) {
         if (this.level <= Level.WARN) {
             msg = `\x1b[33m[WARN]: ${prefix}\x1b[0m ${msg}`;
+            WritieLog(msg, "Warn");
             this.logWrite(msg);
         }
     }
@@ -43,6 +48,7 @@ class Log {
     Error(prefix: string, msg: string) {
         if (this.level <= Level.ERROR) {
             msg = `\x1b[31m[ERROR]: ${prefix}\x1b[0m ${msg}`;
+            WritieLog(msg, "Error");
             this.logWrite(msg);
         }
     }
@@ -50,6 +56,7 @@ class Log {
     Fatal(prefix: string, msg: string) {
         if (this.level <= Level.FATAL) {
             msg = `[FATAL]: ${prefix}\x1b[0m ${msg}`;
+            WritieLog(msg, "Fatal");
             this.logWrite(msg);
         }
     }

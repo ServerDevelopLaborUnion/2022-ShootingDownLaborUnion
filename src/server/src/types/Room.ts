@@ -63,9 +63,12 @@ export class Room {
     toProto() {
         return {
             Info: {
-
+                UUID: this.uuid,
+                Name: this.name,
+                IsPrivate: this.password !== null,
+                PlayerCount: this.getPlayerCount(),
             },
-            Users: this.clients.map(client => client.toObject()),
+            Users: this.clients.map(client => client.toProto()),
         };
     }
 }

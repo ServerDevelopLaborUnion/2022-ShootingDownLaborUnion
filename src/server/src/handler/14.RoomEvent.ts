@@ -18,6 +18,27 @@ export default {
         }
 
         const RoomEvent: any = proto.server.decode(type, buffer);
+        logger.debug(`${client.sessionId} sent event ${RoomEvent.EventName}`);
+        switch (RoomEvent.EventName) {
+            case 'UserUpdated':
+            {
+                const user = JSON.parse(RoomEvent.EventData);
+                client.room?.clients.forEach(c => {
+                    if (c.sessionId === user.UUID) {
+                        console.log(c.user.type);
+                        if (c.user.type === 'user')
+                        {
+                            c.user.role = user.Role;
+                            c.user.isReady = user.IsReady;
+                            c.user.isMaster = user.IsMaster;
+
+                            console.log(`${c.sessionId} updated to ${c.user}`);
+                        }
+                    }
+                });
+                break;
+            }
+        }
         client.room?.broadcast(proto.client.encode(proto.client.RoomEvent, {
             RoomUUID: client.room?.uuid,
             EventName: RoomEvent.EventName,

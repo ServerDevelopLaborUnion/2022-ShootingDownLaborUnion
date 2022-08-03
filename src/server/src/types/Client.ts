@@ -15,8 +15,12 @@ export class Client {
         this.socket = socket;
         this.sessionId = v4();
         this.user = {
-            type: "notValid",
-            client: this
+            type: "valid",
+            client: this,
+            account: {
+                userId: this.sessionId,
+                username: "Not Defined",
+            }
         };
         this.room = null;
     }
@@ -26,11 +30,11 @@ export class Client {
         this.socket.sendBytes(buffer);
     }
 
-    toObject() {
+    toProto() {
         if (this.user.type === "user") {
             return {
                 UUID: this.sessionId,
-                Name: this.user.account.username,
+                Role: this.user.role,
                 IsReady: this.user.isReady,
                 IsMaster: this.user.isMaster,
             };

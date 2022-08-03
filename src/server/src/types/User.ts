@@ -17,6 +17,7 @@ export interface IUser {
     type: "user";
     client: Client;
     account: Account;
+    role: number;
     isReady: boolean;
     isMaster: boolean;
 }
