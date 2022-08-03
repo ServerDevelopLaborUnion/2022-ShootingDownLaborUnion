@@ -114,8 +114,9 @@ GameObject:
   - component: {fileID: 5724995783221755376}
   - component: {fileID: 5933175678915238777}
   - component: {fileID: 3171443064460518595}
+  - component: {fileID: 7236298222863464543}
   m_Layer: 7
-  m_Name: Gunner
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
     _state: 0
   weapon: {fileID: 7114753236651836130}
   RoomHost: 0
+  Effect: {fileID: 0}
   statManager: {fileID: 0}
 --- !u!114 &3171443064460518600
 MonoBehaviour:
@@ -398,6 +400,18 @@ MonoBehaviour:
   _gapCount: 1
   _offBackColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
   _offFontColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+--- !u!114 &7236298222863464543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3171443064460518601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0118e61303055a64aabee2b71e294779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3171443065183280720
 GameObject:
   m_ObjectHideFlags: 0

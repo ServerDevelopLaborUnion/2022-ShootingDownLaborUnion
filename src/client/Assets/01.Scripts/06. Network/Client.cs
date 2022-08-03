@@ -446,7 +446,7 @@ namespace WebSocket
                             break;
                         case 2:
                             var entityCreateMessage = Protobuf.Client.EntityCreate.Parser.ParseFrom(buffer);
-                            Debug.Log(entityCreateMessage.Entity.Data);
+                            Debug.Log(entityCreateMessage.Entity);
                             int entityType = JObject.Parse(entityCreateMessage.Entity.Data)["type"].Value<int>();
                             MainTask.Enqueue(() => OnEntityCreateMessage?.Invoke(this, new EntityCreateEventArgs(
                                 new EntityData

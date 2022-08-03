@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 3600877881508328523}
   - component: {fileID: 3232874076056654530}
   - component: {fileID: 1432555076}
+  - component: {fileID: 2630810760014192221}
   m_Layer: 7
   m_Name: Tanker
   m_TagString: Player
@@ -528,6 +529,7 @@ MonoBehaviour:
     _state: 0
   weapon: {fileID: 6563457325275455483}
   RoomHost: 0
+  Effect: {fileID: 0}
   statManager: {fileID: 0}
 --- !u!114 &5947175543712279923
 MonoBehaviour:
@@ -704,6 +706,18 @@ MonoBehaviour:
   _gapCount: 1
   _offBackColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
   _offFontColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+--- !u!114 &2630810760014192221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947175543712279922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0118e61303055a64aabee2b71e294779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5947175544401942507
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,7 +36,6 @@ public class GunnerSkill : SkillBase
 
     protected override void EventUseSkill()
     {
-        base.EventUseSkill();
         StartCoroutine(Skill());
         StartCoroutine(UsedSkill());
     }
