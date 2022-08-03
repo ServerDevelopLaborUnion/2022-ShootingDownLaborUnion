@@ -674,10 +674,7 @@ namespace WebSocket
             createEntityRequest.Entity.Name = entity.Data.Name;
             createEntityRequest.Entity.Position = entity.Data.Position.ToProtobuf();
             createEntityRequest.Entity.Rotation = entity.Data.Rotation.ToProtobuf();
-            createEntityRequest.Entity.Data = JObject.FromObject(new
-            {
-                type = (int)entity.Data.Type
-            }).ToString();
+            createEntityRequest.Entity.Data = $"{{\"type\": {(int)entity.Data.Type}}}";
 
             SendPacket(5, createEntityRequest);
         }
