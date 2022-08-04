@@ -9,6 +9,7 @@ public class CharacterEvent : MonoBehaviour
 {
     private CharacterBase _base = null;
     private UnityEvent DoAttack = new UnityEvent();
+    private UnityEvent PlayAttack = new UnityEvent();
     private UnityEvent DoMove = new UnityEvent();
     private UnityEvent DoFlipLeft = new UnityEvent();
     private UnityEvent DoFlipRight = new UnityEvent();
@@ -26,6 +27,7 @@ public class CharacterEvent : MonoBehaviour
         CharacterDeath characterDeath = visualTransform.GetComponent<CharacterDeath>();
         SkillBase skillBase = visualTransform.GetComponent<SkillBase>();
         DoAttack.AddListener(() => characterAttack.DoAttack());
+        PlayAttack.AddListener(()=> characterAnimation.PlayAttackAnime());
         DoMove.AddListener(() => characterAnimation.PlayMoveAnime(true));
         DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(Vector2.left));
         DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));
@@ -42,6 +44,10 @@ public class CharacterEvent : MonoBehaviour
                 break;
             case "DoAttack":
                 DoAttack.Invoke();
+                break;
+
+            case "PlayAttack":
+                PlayAttack.Invoke();
                 break;
             case "DoFlipLeft":
                 DoFlipLeft?.Invoke();
