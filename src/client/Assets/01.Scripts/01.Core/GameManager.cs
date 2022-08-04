@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         temp.transform.position = e.Position;
         CharacterMove tempMove = temp.GetComponent<CharacterMove>();
         if(tempMove != null)
-            tempMove.MoveAgent(e.TargetPosition);
+            tempMove?.MoveAgent(e.TargetPosition);
     }
 
     private void Client_OnEntityReMoveMessage(object sender, WebSocket.EntityRemoveEventArgs e)

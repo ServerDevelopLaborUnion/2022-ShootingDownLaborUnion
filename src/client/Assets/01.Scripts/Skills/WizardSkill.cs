@@ -29,6 +29,7 @@ public class WizardSkill : SkillBase
         _isSkill = true;
         _anime.PlaySkillAnime();
         EventUseSkill();
+        WebSocket.Client.ApplyEntityAction(_base, "DoSkill");
     }
 
     protected override void EventUseSkill()

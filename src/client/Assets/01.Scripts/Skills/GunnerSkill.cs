@@ -25,6 +25,7 @@ public class GunnerSkill : SkillBase
         OnSkillUsed?.Invoke();
         _isSkill = true;
         _anime.PlaySkillAnime();
+        WebSocket.Client.ApplyEntityAction(_base, "DoSkill");
     }
 
     protected override void EventUseSkill()
