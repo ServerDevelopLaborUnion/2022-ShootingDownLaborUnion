@@ -22,7 +22,7 @@ public class PlayerAttack : CharacterAttack
     protected CharacterMove _move;
     protected CharacterRenderer _renderer;
     protected Entity closestEnemy = null;
-    private Vector2 _targetPos = Vector2.zero;
+    protected Vector2 _targetPos = Vector2.zero;
     protected override void Start()
     {
         base.Start();

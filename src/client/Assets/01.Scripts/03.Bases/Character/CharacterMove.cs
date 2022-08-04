@@ -57,7 +57,7 @@ public class CharacterMove : MonoBehaviour
         if (!gameObject.activeSelf)
             return;
         agent.speed = _base.Stat.Speed;
-        if (_base.State.CurrentState.HasFlag(CharacterState.State.Attack))
+        if (_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || _base.State.CurrentState.HasFlag(CharacterState.State.Died))
         {
             return;
         }
