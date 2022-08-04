@@ -17,9 +17,7 @@ public class TankerSkill : SkillBase
 
     public override void UseSkill()
     {
-        base.UseSkill();
-        if (!_isIUseSkill) return;
-        
+
         if (_isSkill)
             return;
         // TOOD: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄?留됯린

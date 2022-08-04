@@ -17,8 +17,6 @@ public class SkillBase : MonoBehaviour
 
     protected bool _isSkill = false;
 
-    protected bool _isIUseSkill = false;
-
     protected virtual void Awake() {
         _coolTimeImage = UIManager.Instance.SkillCoolTimeImage;
         _base = transform.parent.GetComponent<PlayerBase>();

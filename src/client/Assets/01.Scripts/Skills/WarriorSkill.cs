@@ -21,8 +21,6 @@ public class WarriorSkill : SkillBase
 
     public override void UseSkill()
     {
-        base.UseSkill();
-        if(!_isIUseSkill)return;
         
         if (_isSkill)
             return;

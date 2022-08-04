@@ -18,14 +18,6 @@ public class WizardSkill : SkillBase
     List<Entity> enemies = new List<Entity>();
     public override void UseSkill()
     {
-        base.UseSkill();
-        if (!_isIUseSkill)
-        {
-            return;
-        }
-        else{
-            Debug.Log("안끊어짐");
-        }
 
         if (_isSkill)
             return;
