@@ -25,6 +25,15 @@ public class SkillBase : MonoBehaviour
         _anime = GetComponent<CharacterAnimation>();
     }
 
+    private void Start() {
+        WebSocket.Client.SubscribeUserEvent("UserUsedSkill", (data) =>
+        {
+            if(Storage.CurrentUser.UUID == data){
+                StartCoroutine(UsedSkill());
+            }
+        });
+    }
+
     public virtual void UseSkill()
     {
         
