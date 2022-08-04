@@ -17,6 +17,7 @@ public class SkillBase : MonoBehaviour
 
     protected bool _isSkill = false;
 
+    protected bool _isIUseSkill = false;
 
     protected virtual void Awake() {
         _coolTimeImage = UIManager.Instance.SkillCoolTimeImage;
@@ -28,19 +29,13 @@ public class SkillBase : MonoBehaviour
     private void Start() {
         WebSocket.Client.SubscribeUserEvent("UserUsedSkill", (data) =>
         {
-            if(Storage.CurrentUser.UUID == data){
-                StartCoroutine(UsedSkill());
-                Debug.Log("아이디가 같음!");
-            }
-            else{
-                Debug.Log("아이디가 다름!");
-            }
+            _isIUseSkill = Storage.CurrentUser.UUID == data;
         });
     }
 
     public virtual void UseSkill()
     {
-        
+        WebSocket.Client.OnUserEvent["UserUsedSkill"].Invoke(Storage.CurrentUser.UUID);
     }
 
     protected virtual void EventUseSkill()

@@ -21,6 +21,9 @@ public class WarriorSkill : SkillBase
 
     public override void UseSkill()
     {
+        base.UseSkill();
+        if(!_isIUseSkill)return;
+        
         if (_isSkill)
             return;
         // TOOD: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄?留됯린
@@ -41,7 +44,7 @@ public class WarriorSkill : SkillBase
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
         base.EventEndSkill();
-        WebSocket.Client.UserEvent("UserUsedSkill", Storage.CurrentUser.UUID);
+        StartCoroutine(UsedSkill());
         OnSkillEnded?.Invoke();
     }
 
