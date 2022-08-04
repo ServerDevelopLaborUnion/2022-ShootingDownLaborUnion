@@ -50,7 +50,7 @@ public class RolePanel : MonoBehaviour
             if(_currentUser != Storage.CurrentUser)return;
         }
 
-        RoomManager.Instance.SetRole(_roleNumber, isReady);
+        RoomManager.Instance.UpdateUser(_roleNumber, isReady);
     }
 
     public void OnClickStartGame()

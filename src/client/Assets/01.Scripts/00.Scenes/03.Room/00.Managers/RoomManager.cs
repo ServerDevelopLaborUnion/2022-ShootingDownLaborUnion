@@ -148,7 +148,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         }
     }
 
-    public void SetRole(int role, bool isReady)
+    public void UpdateUser(int role, bool isReady)
     {
         SetChoosePanel(role, isReady);
 
