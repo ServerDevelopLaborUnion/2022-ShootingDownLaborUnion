@@ -157,6 +157,11 @@ public class RoomManager : MonoSingleton<RoomManager>
         SceneLoader.Load(SceneType.Game);
     }
 
+    public void OnClickExit(){
+        SceneLoader.Load(SceneType.Lobby);
+        Debug.Log("´­¸²");
+    }
+
     private bool CheckAllUserIsReady()
     {
         for (int i = 0; i < Storage.CurrentRoom.Users.Count; ++i)
