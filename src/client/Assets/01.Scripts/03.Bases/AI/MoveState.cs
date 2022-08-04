@@ -17,10 +17,14 @@ public class MoveState : AIState
     public Transform Target { get => _target; set => _target = value; }
 
     [SerializeField]
+    private CharacterBase _base = null;
+
+    [SerializeField]
     private CharacterMove _move = null;
 
     [SerializeField]
     private CharacterRenderer _renderer = null;
+    private float _delay = 0;
 
     private void Awake()
     {
@@ -28,10 +32,15 @@ public class MoveState : AIState
         {
             if(_target != null)
             {
-
-                if (_move != null)
-                    _move.MoveAgent(_target.position);
-                _renderer.FlipCharacter(_target.position);
+                _delay += Time.deltaTime;
+                if (_delay > 0.2f)
+                {
+                    if (_move != null)
+                        _move.MoveAgent(_target.position);
+                    _renderer.FlipCharacter(_target.position);
+                    WebSocket.Client.ApplyEntityMove(_base);
+                    _delay = 0;
+                }
             }
         };
     }
