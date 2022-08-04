@@ -7,7 +7,6 @@ using UnityEngine;
 public class SlowAttack : PlayerAttack
 {
     
-    private Vector2 _targetPos = Vector2.zero;
     protected override void Start()
     {
         base.Start();
