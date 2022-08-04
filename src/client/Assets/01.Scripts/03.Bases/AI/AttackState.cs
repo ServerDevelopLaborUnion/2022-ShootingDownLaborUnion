@@ -26,6 +26,8 @@ public class AttackState : AIState
 
             _move.StopImmediatelly();
             _anime.PlayAttackAnime();
+            WebSocket.Client.ApplyEntityAction(_base, "DoAttack");
+
             _base.State.CurrentState |= CharacterState.State.Attack;
         };
     }

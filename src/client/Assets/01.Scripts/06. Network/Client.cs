@@ -634,6 +634,7 @@ namespace WebSocket
 
         public static void ApplyEntityAction(Entity entity, string eventName)
         {
+            Debug.Log(eventName);
             if (_connectionState == ConnectionState.Connected)
             {
                 var entityEventRequest = new Protobuf.Server.EntityEventRequest();
