@@ -17,6 +17,9 @@ public class TankerSkill : SkillBase
 
     public override void UseSkill()
     {
+        base.UseSkill();
+        if (!_isIUseSkill) return;
+        
         if (_isSkill)
             return;
         // TOOD: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄?留됯린
@@ -37,7 +40,7 @@ public class TankerSkill : SkillBase
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
         base.EventEndSkill();
-        WebSocket.Client.OnUserEvent["UserUsedSkill"].Invoke(Storage.CurrentUser.UUID);
+        StartCoroutine(UsedSkill());
 
         OnSkillEnded?.Invoke();
         _hammerTrail.SetActive(false);
@@ -47,7 +50,7 @@ public class TankerSkill : SkillBase
     {
         List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
         List<Entity> closeEnemies = enemies.FindAll((entity) => GetDistance(transform.parent.position, entity.transform.position) <= _range);
-        closeEnemies.ForEach((enemy)=> enemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol));
+        closeEnemies.ForEach((enemy) => enemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol));
     }
 
 

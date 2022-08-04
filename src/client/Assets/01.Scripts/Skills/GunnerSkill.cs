@@ -19,6 +19,9 @@ public class GunnerSkill : SkillBase
 
     public override void UseSkill()
     {
+        base.UseSkill();
+        if (!_isIUseSkill) return;
+        
         if (_isSkill)
             return;
         // TOOD: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄?留됯린
@@ -31,7 +34,7 @@ public class GunnerSkill : SkillBase
     protected override void EventUseSkill()
     {
         StartCoroutine(Skill());
-        WebSocket.Client.OnUserEvent["UserUsedSkill"].Invoke(Storage.CurrentUser.UUID);
+        StartCoroutine(UsedSkill());
 
     }
 

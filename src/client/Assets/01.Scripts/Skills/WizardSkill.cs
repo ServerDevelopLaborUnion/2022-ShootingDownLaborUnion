@@ -18,6 +18,9 @@ public class WizardSkill : SkillBase
     List<Entity> enemies = new List<Entity>();
     public override void UseSkill()
     {
+        base.UseSkill();
+        if (!_isIUseSkill) return;
+        
         if (_isSkill)
             return;
         enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
@@ -42,14 +45,15 @@ public class WizardSkill : SkillBase
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
         base.EventEndSkill();
-        WebSocket.Client.OnUserEvent["UserUsedSkill"].Invoke(Storage.CurrentUser.UUID);
+        StartCoroutine(UsedSkill());
+
         Debug.Log("실행함");
         OnSkillEnded?.Invoke();
     }
 
     private IEnumerator Skill()
     {
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
 
             yield return WaitForSeconds(1);
