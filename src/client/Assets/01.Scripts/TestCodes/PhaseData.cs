@@ -9,14 +9,21 @@ public enum SpawnType
     width,
     length
 }
+
+public enum EnemyType
+{
+    normal
+}
+
+[Serializable]
+public class SpawnData
+{
+    public SpawnType Shape;
+    public EnemyType EnemyType;
+}
+
 [Serializable]
 public class PhaseData
 {
-    public float maxEnemy;
-    //public SpawnType spawnType;
-    public PhaseData(float maxEnemy)
-    {
-        this.maxEnemy = maxEnemy;
-        //this.spawnType = spawnType;
-    }
+    public List<SpawnData> SpawnDataList;
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System.Linq;
 
 public class RoomManager : MonoSingleton<RoomManager>
 {
@@ -28,7 +29,10 @@ public class RoomManager : MonoSingleton<RoomManager>
         WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
         {
             var user = JsonUtility.FromJson<User>(data);
-            Storage.CurrentRoom.AddUser(user);
+            if (Storage.CurrentRoom.Users.FirstOrDefault(x => x.UUID == user.UUID) == null)
+            {
+                Storage.CurrentRoom.Users.Add(user);
+            }
             OnUserJoin(user);
         });
 
@@ -111,7 +115,6 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void OnUpdateRole(User user, int role, bool isReady)
     {
         user.IsReady = isReady;
-        Debug.Log("ON?œ ??? ë¡? : " + role + user.IsReady);
 
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
 
