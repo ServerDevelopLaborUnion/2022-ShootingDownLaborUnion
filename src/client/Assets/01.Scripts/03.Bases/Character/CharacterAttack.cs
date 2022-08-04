@@ -34,6 +34,7 @@ public class CharacterAttack : MonoBehaviour
             ||_base.State.CurrentState.HasFlag(CharacterState.State.Skill)))
         {
             Attack();
+            WebSocket.Client.ApplyEntityAction(_base, "DoAttack");
         }
     }
 
@@ -45,7 +46,6 @@ public class CharacterAttack : MonoBehaviour
     protected virtual void SetAttack()
     {
         _base.State.CurrentState |= CharacterState.State.Attack;
-        WebSocket.Client.ApplyEntityAction(_base, "DoAttack");
 
         OnAttacked?.Invoke();
     }
@@ -54,6 +54,7 @@ public class CharacterAttack : MonoBehaviour
     {
         if ((!_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || !_base.State.CurrentState.HasFlag(CharacterState.State.Died)))
         {
+            WebSocket.Client.ApplyEntityAction(_base, "DoAttack");
             Attack();
         }
     }

@@ -34,6 +34,7 @@ public class CharacterEvent : MonoBehaviour
     }
     public void InvokeAction(string eventName)
     {
+        Debug.Log(eventName);
         switch (eventName)
         {
             case "DoMove":

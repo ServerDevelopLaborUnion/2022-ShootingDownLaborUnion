@@ -24,7 +24,7 @@ public class MoveState : AIState
 
     [SerializeField]
     private CharacterRenderer _renderer = null;
-    private float _delay = 0;
+    private float _delay = 0.2f;
 
     private void Awake()
     {
@@ -32,8 +32,7 @@ public class MoveState : AIState
         {
             if(_target != null)
             {
-                _delay += Time.deltaTime;
-                if (_delay > 0.2f)
+                if (_delay < 0f)
                 {
                     if (_move != null)
                         _move.MoveAgent(_target.position);
@@ -44,8 +43,9 @@ public class MoveState : AIState
                         WebSocket.Client.ApplyEntityAction(_base, "DoFilpLeft");
 
                     WebSocket.Client.ApplyEntityMove(_base);
-                    _delay = 0;
+                    _delay = 0.2f;
                 }
+                _delay -= Time.deltaTime;
             }
         };
     }
