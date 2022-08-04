@@ -41,8 +41,9 @@ public class WizardSkill : SkillBase
     protected override void EventEndSkill()
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
-        WebSocket.Client.UserEvent("UserUsedSkill", Storage.CurrentUser.UUID);
         base.EventEndSkill();
+        WebSocket.Client.OnUserEvent["UserUsedSkill"].Invoke(Storage.CurrentUser.UUID);
+        Debug.Log("실행함");
         OnSkillEnded?.Invoke();
     }
 

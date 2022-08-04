@@ -30,6 +30,10 @@ public class SkillBase : MonoBehaviour
         {
             if(Storage.CurrentUser.UUID == data){
                 StartCoroutine(UsedSkill());
+                Debug.Log("아이디가 같음!");
+            }
+            else{
+                Debug.Log("아이디가 다름!");
             }
         });
     }
@@ -50,6 +54,7 @@ public class SkillBase : MonoBehaviour
 
 
     protected virtual IEnumerator UsedSkill(){
+        Debug.Log("스킬 실행 됨!");
         _coolTimeImage.fillAmount = 0f;
         _coolTimeImage.color = Color.gray;
 

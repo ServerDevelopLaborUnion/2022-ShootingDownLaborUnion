@@ -31,7 +31,8 @@ public class GunnerSkill : SkillBase
     protected override void EventUseSkill()
     {
         StartCoroutine(Skill());
-        WebSocket.Client.UserEvent("UserUsedSkill", Storage.CurrentUser.UUID);
+        WebSocket.Client.OnUserEvent["UserUsedSkill"].Invoke(Storage.CurrentUser.UUID);
+
     }
 
     protected override void EventEndSkill()

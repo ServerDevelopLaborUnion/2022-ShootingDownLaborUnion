@@ -37,7 +37,8 @@ public class TankerSkill : SkillBase
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
         base.EventEndSkill();
-        WebSocket.Client.UserEvent("UserUsedSkill", Storage.CurrentUser.UUID);
+        WebSocket.Client.OnUserEvent["UserUsedSkill"].Invoke(Storage.CurrentUser.UUID);
+
         OnSkillEnded?.Invoke();
         _hammerTrail.SetActive(false);
     }
