@@ -26,9 +26,13 @@ public class MoveState : AIState
     {
         OnStateAction += () =>
         {
-            if (_move != null)
-            _move.MoveAgent(_target.position);
-            _renderer.FlipCharacter(_target.position);
+            if(_target != null)
+            {
+
+                if (_move != null)
+                    _move.MoveAgent(_target.position);
+                _renderer.FlipCharacter(_target.position);
+            }
         };
     }
 }
