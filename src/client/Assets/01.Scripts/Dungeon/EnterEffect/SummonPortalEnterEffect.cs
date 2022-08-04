@@ -62,11 +62,16 @@ public class SummonPortalEnterEffect : BaseDungeonEnter
         _animator.Play(SUMMONPORTAL);
     }
 
+    protected void EventFalseObject(){
+        transform.localScale = Vector3.zero;
+        Debug.Log("žÍ±î");
+    }
+
 
 
     public override float GetAmountDuration()
     {
-        _amountDuration = _animationClip.length;
+        _amountDuration = _animationClip.length + _fadeDuration;
         return _amountDuration;
     }
 }

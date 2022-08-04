@@ -14,9 +14,12 @@ public class ElectricEffect : BaseDungeonEnter
     [SerializeField]
     private SpriteRenderer _player;
 
-    [Header("카메?��")]
     [SerializeField]
-    private float _camDuration = 2f;
+    private float _playerFadeDuration = 1f;
+
+    [Header("카메라")]
+    [SerializeField]
+    private float _camDuration = 1f;
     [SerializeField]
     private float _camStrength = 0.1f;
     [SerializeField]
@@ -42,12 +45,12 @@ public class ElectricEffect : BaseDungeonEnter
 
     protected void EventSpawnPlayer()
     {
-        _player.DOFade(1f, 1f);
+        VCam.transform.DOShakePosition(_camDuration, _camStrength, _camVibrato, _camRandomness);
+        _player.DOFade(1f, _playerFadeDuration);
     }
 
     public override void EnterDirecting()
     {
-        MainCam.DOShakePosition(_camDuration, _camStrength, _camVibrato, _camRandomness);
         _animator.Play(ANIMATIONHASH);
         StartCoroutine(ActiveFalse());
     }
@@ -61,7 +64,7 @@ public class ElectricEffect : BaseDungeonEnter
 
     public override float GetAmountDuration()
     {
-        _amountDuration = _animationClip.length;
+        _amountDuration = _animationClip.length + _playerFadeDuration;
         return _amountDuration;
     }
 }

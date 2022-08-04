@@ -9,6 +9,8 @@ public class RedPortalEffect : BaseDungeonEnter
 {
     [SerializeField]
     private SpriteRenderer _player;
+    [SerializeField]
+    private Sprite _playerEndSprite;
 
     [SerializeField]
     private Transform _playerEndPos;
@@ -22,8 +24,8 @@ public class RedPortalEffect : BaseDungeonEnter
     [SerializeField]
     private float _fadeDuration = 1f;
 
-
-    // [Header("카메라")]
+    private Animator _playerAnimator;
+    // [Header("카메?��")]
     // [SerializeField]
     // private float _camDuration = 1f;
     // [SerializeField]
@@ -33,6 +35,10 @@ public class RedPortalEffect : BaseDungeonEnter
 
     // [SerializeField]
     // private int _camVibrato = 10;
+
+    private void Awake() {
+        _playerAnimator = _player.GetComponent<Animator>();
+    }
 
     public override void EnterDirecting()
     {
@@ -53,10 +59,15 @@ public class RedPortalEffect : BaseDungeonEnter
         transform.DOScale(Vector3.one, _scaleDuration);
         yield return WaitForSeconds(_scaleDuration);
 
-        _player.DOFade(1f, _fadeDuration);
+        _player.DOFade(1f, _fadeDuration).OnComplete(()=>{
+            _playerAnimator.enabled = true;
+        });
         yield return WaitForSeconds(_fadeDuration);
 
-        _player.transform.DOMove(_playerEndPos.position, _playerMoveDuration);
+        _player.transform.DOMove(_playerEndPos.position, _playerMoveDuration).OnComplete(()=>{
+            _playerAnimator.enabled = false;
+            _player.sprite = _playerEndSprite;
+        });
         yield return WaitForSeconds(_playerMoveDuration);
         
         transform.DOScale(Vector3.zero, _scaleDuration);

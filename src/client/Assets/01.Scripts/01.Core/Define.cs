@@ -21,7 +21,7 @@ public static class Define
     public static CinemachineVirtualCamera VCam{
         get{
             if(_vCam == null){
-                _vCam = GameObject.Find("VirtualCamera").GetComponent<CinemachineVirtualCamera>();
+                _vCam = GameObject.Find("VirtualCam").GetComponent<CinemachineVirtualCamera>();
             }
             return _vCam;
         }
