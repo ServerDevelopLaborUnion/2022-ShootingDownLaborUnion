@@ -1,8 +1,14 @@
 ﻿++솔루션 'client' ‎(9/9개 프로젝트)
 i:{00000000-0000-0000-0000-000000000000}:client.sln
-++Assembly-CSharp
-i:{00000000-0000-0000-0000-000000000000}:Assembly-CSharp
+++NavMeshComponents
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{00000000-0000-0000-0000-000000000000}:NavMeshComponents
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++참조
 i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
 i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
@@ -23,179 +29,12 @@ i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:f:\git\2022-shootingdownlaborunion\src\
 i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:f:\git\2022-shootingdownlaborunion\src\client\assets\
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:f:\git\2022-shootingdownlaborunion\src\client\assets\
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:f:\git\2022-shootingdownlaborunion\src\client\assets\
-++00.Common
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\
-++01.Scripts
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\
-++00.Scenes
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\
-++01.Core
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\
-++02.Abstracts
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\02.abstracts\
-++03.Bases
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\
-++AI
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\ai\
-++EnemyAI.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\ai\enemyai.cs
-++EnemyBase.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\ai\enemybase.cs
-++EnemyDetect.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\ai\enemydetect.cs
-++EnemyMove.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\ai\enemymove.cs
-++Bullet
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\bullet\
-++Character
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\
-++CharacterAnimation.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characteranimation.cs
-++CharacterAttack.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterattack.cs
-++CharacterBase.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterbase.cs
-++CharacterDamage.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterdamage.cs
-++CharacterDeath.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterdeath.cs
-++CharacterEffect.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\charactereffect.cs
-++CharacterEvent.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterevent.cs
-++CharacterInput.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterinput.cs
-++CharacterJob.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterjob.cs
-++CharacterMove.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\charactermove.cs
-++CharacterRenderer.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterrenderer.cs
-++CharacterStat.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterstat.cs
-++CharacterState.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterstate.cs
-++Player
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\
-++PlayerAttack.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\playerattack.cs
-++PlayerBase.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\playerbase.cs
-++PlayerDeath.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\playerdeath.cs
-++PlayerLight.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\playerlight.cs
-++SlowAttack.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\slowattack.cs
-++Skill
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\skill\
-++SO
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\so\
-++Weapon
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\
-++Gun
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\
-++SingleShot
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\singleshot\
-++GunBase.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\gunbase.cs
-++GunCharacterInput.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\guncharacterinput.cs
-++Knight
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\knight\
-++Weapon.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\weapon.cs
-++WeaponBase.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\weaponbase.cs
-++04.Managers
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\04.managers\
-++05.UI
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\
-++06. Network
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\
-++07.Enum
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\07.enum\
-++08. Protobuf
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\08. protobuf\
-++09. Type
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\
-++10. Extentions
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\10. extentions\
-++12. Debug
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\12. debug\
-++Dungeon
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\02.abstracts\abstract\dungeon\
-++Lobby
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\lobby\
-++Shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\shader\
-++Skills
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\skills\
-++TestCodes
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\
-++PhaseData.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\phasedata.cs
-++PhaseManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\phasemanager.cs
-++TestClientUI.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\testclientui.cs
-++TestEnemy.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\testenemy.cs
-++TestPlayer.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\testplayer.cs
-++Title
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\
-++02.Sprites
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\
-++08.Fonts
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\08.fonts\
-++Packages
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\
-++Prototype Hero - Pixel Art
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\
-++SoftMask
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\
-i:{00000000-0000-0000-0000-000000000000}:SoftMask
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\
+++DemiEditor
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
 i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++TextMesh Pro
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\
-++10.Shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\10.shader
-++GunnerSkill.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\gunnerskill.cs
-++Impact.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\impact.cs
-++RangeRenderer.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\rangerenderer.cs
-++StatManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\statmanager.cs
-++SwingParticle.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\swingparticle.cs
-++UnTargetAttack.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\untargetattack.cs
-++Assembly-CSharp-firstpass
-i:{00000000-0000-0000-0000-000000000000}:Assembly-CSharp-firstpass
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Cinemachine
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++com.unity.cinemachine.editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++DemiLib
@@ -222,6 +61,14 @@ i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:f:\git\2022-shootingdownlaborunion\src\client\assets\plugins\demigiant\dotween\
+++DOTweenEditor
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++DOTweenPro
 i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
 i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:f:\git\2022-shootingdownlaborunion\src\client\assets\plugins\demigiant\dotweenpro\
@@ -234,9 +81,33 @@ i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:f:\git\2022-shootingdownlaborunion\src\client\assets\plugins\demigiant\dotweenpro\
+++DOTweenProEditor
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++Google.Protobuf
 i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
 i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++ICSharpCode.NRefactory
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++log4netPlastic
 i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
 i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
 i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
@@ -274,21 +145,6 @@ i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
 i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++NavMeshComponents
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{00000000-0000-0000-0000-000000000000}:NavMeshComponents
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++NavMeshComponentsEditor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{00000000-0000-0000-0000-000000000000}:NavMeshComponentsEditor
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++netstandard
 i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
 i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
@@ -309,15 +165,12 @@ i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
 i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++PsdPlugin
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++SoftMask-Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{00000000-0000-0000-0000-000000000000}:SoftMask-Editor
+++NugetForUnity
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++System
@@ -1470,195 +1323,20 @@ i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
 i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++ToolbarExtender.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{00000000-0000-0000-0000-000000000000}:ToolbarExtender.Editor
+++Unity.Plastic.Antlr3.Runtime
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.Animation.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.Animation.Runtime
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.Animation.Triangle.Runtime
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.Common.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.Common.Runtime
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.IK.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.IK.Runtime
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.Path.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.PixelPerfect
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.PixelPerfect.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.Psdimporter.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.Sprite.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.SpriteShape.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.SpriteShape.Runtime
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.2D.Tilemap.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.InternalAPIEditorBridge.001
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.InternalAPIEngineBridge.001
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.Mathematics
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.Mathematics.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.PlasticSCM.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.RenderPipeline.Universal.ShaderLibrary
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.RenderPipelines.Core.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.RenderPipelines.Core.Runtime
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.RenderPipelines.Core.ShaderLibrary
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.RenderPipelines.Universal.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.RenderPipelines.Universal.Runtime
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.RenderPipelines.Universal.Shaders
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.Rider.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.Searcher.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.ShaderGraph.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.TextMeshPro
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.TextMeshPro.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.Timeline
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.Timeline.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.VisualStudio.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.VSCode.Editor
-i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+++Unity.Plastic.Newtonsoft.Json
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++UnityEditor
@@ -1671,9 +1349,25 @@ i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
 i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++UnityEditor.Android.Extensions
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++UnityEditor.CoreModule
 i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
 i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++UnityEditor.Graphs
 i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
 i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
 i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
@@ -1754,6 +1448,14 @@ i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++UnityEditor.UnityConnectModule
 i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
 i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
+i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++UnityEditor.WindowsStandalone.Extensions
 i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
 i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
 i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
@@ -2421,507 +2123,6 @@ i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
 i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++BackgroundMove.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\backgroundmove.cs
-++ColorHierarchy.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\colorhierarchy.cs
-++EventManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\eventmanager.cs
-++FuncEventManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\funceventmanager.cs
-++MonoSingleton.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\monosingleton.cs
-++ParamEventManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\parameventmanager.cs
-++Yields.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\yields.cs
-++02.Lobby
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\
-++03.Room
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\
-++FSM
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\
-++Define.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\define.cs
-++GameManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\gamemanager.cs
-++SceneLoader.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\sceneloader.cs
-++Storage.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\storage.cs
-++Abstract
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\02.abstracts\abstract\
-++BulletAttack.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\bullet\bulletattack.cs
-++BulletBase.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\bullet\bulletbase.cs
-++SkillBase.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\skill\skillbase.cs
-++SwordInfo.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\so\swordinfo.cs
-++GunReapeater.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\singleshot\gunreapeater.cs
-++GunSingleShot.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\singleshot\gunsingleshot.cs
-++KnightSword.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\knight\knightsword.cs
-++MeleeAtackBase.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\knight\meleeatackbase.cs
-++FadeManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\04.managers\fademanager.cs
-++TitleManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\04.managers\titlemanager.cs
-++UIManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\04.managers\uimanager.cs
-++StartMenu
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\startmenu\
-++ChangeScene.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\changescene.cs
-++ChatManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\chatmanager.cs
-++HPBar.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\hpbar.cs
-++Client.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\client.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\08. protobuf\client.cs
-++MainTask.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\maintask.cs
-++NetworkManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\networkmanager.cs
-++NetworkObject.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\networkobject.cs
-++Packet.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\packet.cs
-++ConnectionState.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\07.enum\connectionstate.cs
-++RoleType.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\07.enum\roletype.cs
-++WeaponType.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\07.enum\weapontype.cs
-++Server.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\08. protobuf\server.cs
-++Type.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\08. protobuf\type.cs
-++Account.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\account.cs
-++Entity.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\entity.cs
-++EntityData.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\entitydata.cs
-++Room.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\room.cs
-++User.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\user.cs
-++ExtensionForProtobuf.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\10. extentions\extensionforprotobuf.cs
-++ToolbarControl.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\12. debug\toolbarcontrol.cs
-++EnterEffect
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\entereffect\
-++DungeonEnter.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\dungeonenter.cs
-++LobbyCamera.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\lobby\lobbycamera.cs
-++LobbyManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\lobby\lobbymanager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\00.managers\lobbymanager.cs
-++MapController.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\lobby\mapcontroller.cs
-++Mask.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\shader\mask.shader
-++WarriorSkill.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\skills\warriorskill.cs
-++NewTitle
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\newtitle\
-++OldTItle
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\
-++NicknameInput.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\nicknameinput.cs
-++RoomNode.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\roomnode.cs
-++TitleTextColorChange.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\titletextcolorchange.cs
-++Archers v2.0
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\archers v2.0\
-++Grim Reaper by RgsDev
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\grim reaper by rgsdev\
-++Knight Character Pack v3.0 by RgsDev
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\knight character pack v3.0 by rgsdev\
-++Mages Character Pack by RgsDev
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\mages character pack by rgsdev\
-++Orcs v2.0
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\orcs v2.0\
-++Witches
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\witches\
-++FONT
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\08.fonts\font\
-++Google.Protobuf.3.20.1
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\google.protobuf.3.20.1\
-++Newtonsoft.Json.13.0.1
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\newtonsoft.json.13.0.1\
-++System.Buffers.4.4.0
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\
-++System.Memory.4.5.3
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\
-++System.Runtime.CompilerServices.Unsafe.4.5.2
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\
-++ColorSwap
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\colorswap\
-++Demo
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\
-++Samples
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\
-++Shaders
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\
-++Fonts
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\fonts\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\fonts\
-++Resources
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\resources\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\
-++Sprites
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\sprites\
-++00.Managers
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\00.managers\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\00.managers\
-++01.Types
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\01.types\
-++01.UI
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\01.ui\
-++Base
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\base\
-++Exceptions
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\exceptions\
-++Util
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\util\
-++CoState.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\costate.cs
-++HybridStateMachine.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\hybridstatemachine.cs
-++State.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\state.cs
-++StateMachine.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\statemachine.cs
-++StateWrapper.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\statewrapper.cs
-++Transition.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\transition.cs
-++TransitionAfter.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\transitionafter.cs
-++TransitionAfterDynamic.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\transitionafterdynamic.cs
-++TransitionOnKey.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\transitiononkey.cs
-++FadeText.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\startmenu\fadetext.cs
-++BoomEffect.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\entereffect\boomeffect.cs
-++ElectricEffect.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\entereffect\electriceffect.cs
-++RedPortalEffect.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\entereffect\redportaleffect.cs
-++SummonPortalEnterEffect.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\entereffect\summonportalentereffect.cs
-++TestTitlePlayer.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\newtitle\testtitleplayer.cs
-++TitleBPWave.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\titlebpwave.cs
-++TitleCameraMove.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\titlecameramove.cs
-++TitleTeacherWave.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\titleteacherwave.cs
-++TitleTextGlow.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\titletextglow.cs
-++TitleTextWave.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\titletextwave.cs
-++public-license.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\archers v2.0\public-license.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\grim reaper by rgsdev\public-license.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\knight character pack v3.0 by rgsdev\public-license.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\mages character pack by rgsdev\public-license.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\orcs v2.0\public-license.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\witches\public-license.txt
-++frames guide.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\grim reaper by rgsdev\frames guide.txt
-++animation frames guide.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\knight character pack v3.0 by rgsdev\animation frames guide.txt
-++LICENSE.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\08.fonts\font\license.txt
-++lib
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\google.protobuf.3.20.1\lib\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\newtonsoft.json.13.0.1\lib\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\lib\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\lib\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\lib\
-++LICENSE.TXT
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\license.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\license.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\license.txt
-++THIRD-PARTY-NOTICES.TXT
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\third-party-notices.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\third-party-notices.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\third-party-notices.txt
-++useSharedDesignerContext.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\useshareddesignercontext.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\useshareddesignercontext.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\useshareddesignercontext.txt
-++version.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\version.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\version.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\version.txt
-++ColorSwap_Prototype.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\colorswap\colorswap_prototype.cs
-++Sprites-ColorSwap.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\colorswap\sprites-colorswap.shader
-++AudioManager_PrototypeHero.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\audiomanager_prototypehero.cs
-++Dust_DestroyEvent.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\dust_destroyevent.cs
-++GrabableLedge.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\grabableledge.cs
-++PrototypeHero.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\prototypehero.cs
-++PrototypeHeroAnimEvents.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\prototypeheroanimevents.cs
-++Sensor_Prototype.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\sensor_prototype.cs
-++Materials
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\materials\
-++Scripts
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\scripts\
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\scripts\
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\scripts\
-++LiberationSans - OFL.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\fonts\liberationsans - ofl.txt
-++LineBreaking Following Characters.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\resources\linebreaking following characters.txt
-++LineBreaking Leading Characters.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\resources\linebreaking leading characters.txt
-++TMP_Bitmap-Custom-Atlas.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_bitmap-custom-atlas.shader
-++TMP_Bitmap-Mobile.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_bitmap-mobile.shader
-++TMP_Bitmap.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_bitmap.shader
-++TMP_SDF-Mobile Masking.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-mobile masking.shader
-++TMP_SDF-Mobile Overlay.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-mobile overlay.shader
-++TMP_SDF-Mobile SSD.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-mobile ssd.shader
-++TMP_SDF-Mobile.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-mobile.shader
-++TMP_SDF-Surface-Mobile.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-surface-mobile.shader
-++TMP_SDF-Surface.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-surface.shader
-++TMP_SDF Overlay.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf overlay.shader
-++TMP_SDF SSD.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf ssd.shader
-++TMP_SDF.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf.shader
-++TMP_Sprite.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sprite.shader
-++TMPro.cginc
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmpro.cginc
-++TMPro_Mobile.cginc
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmpro_mobile.cginc
-++TMPro_Properties.cginc
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmpro_properties.cginc
-++TMPro_Surface.cginc
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmpro_surface.cginc
-++EmojiOne Attribution.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\sprites\emojione attribution.txt
-++RoomGenerateManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\00.managers\roomgeneratemanager.cs
-++RoomListManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\00.managers\roomlistmanager.cs
-++RoomInfo.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\01.types\roominfo.cs
-++RoomManager.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\00.managers\roommanager.cs
-++TestShake.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\00.managers\testshake.cs
-++RolePanel.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\01.ui\rolepanel.cs
-++IStateMachine.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\base\istatemachine.cs
-++ITriggerable.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\base\itriggerable.cs
-++StateBase.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\base\statebase.cs
-++TransitionBase.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\base\transitionbase.cs
-++ExceptionFormatter.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\exceptions\exceptionformatter.cs
-++StateMachineNotInitializedException.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\exceptions\statemachinenotinitializedexception.cs
-++StateNotFoundException.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\exceptions\statenotfoundexception.cs
-++Timer.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\util\timer.cs
-++BaseDungeonEnter.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\02.abstracts\abstract\dungeon\basedungeonenter.cs
-++net45
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\google.protobuf.3.20.1\lib\net45\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\newtonsoft.json.13.0.1\lib\net45\
-++netstandard2.0
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\lib\netstandard2.0\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\lib\netstandard2.0\
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\lib\netstandard2.0\
-++OpenSans License.txt
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\fonts\opensans license.txt
-++MaxBlend.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\materials\maxblend.shader
-++WaveWithSoftMask.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\materials\wavewithsoftmask.shader
-++Draggable.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\draggable.cs
-++HorizontalFovSetter.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\horizontalfovsetter.cs
-++Item.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\item.cs
-++ItemsGenerator.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\itemsgenerator.cs
-++MaskPainter.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\maskpainter.cs
-++Minimap.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\minimap.cs
-++PaintedMask.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\paintedmask.cs
-++RectManipulator.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\rectmanipulator.cs
-++ShowOnHover.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\showonhover.cs
-++SoftMaskSampleChooser.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\softmasksamplechooser.cs
-++SoftMaskToggler.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\softmasktoggler.cs
-++Tooltip.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\tooltip.cs
-++SoftMask.cginc
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmask.cginc
-++SoftMask.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmask.shader
-++SoftMaskETC1.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmasketc1.shader
-++SoftMaskETC1PremultipliedAlpha.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmasketc1premultipliedalpha.shader
-++SoftMaskPremultipliedAlpha.shader
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmaskpremultipliedalpha.shader
-++SoftMaskTemplate.cginc
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmasktemplate.cginc
-++Google.Protobuf.dll
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\google.protobuf.3.20.1\lib\net45\google.protobuf.dll
-++Google.Protobuf.xml
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\google.protobuf.3.20.1\lib\net45\google.protobuf.xml
-++Newtonsoft.Json.dll
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\newtonsoft.json.13.0.1\lib\net45\newtonsoft.json.dll
-++Newtonsoft.Json.xml
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\newtonsoft.json.13.0.1\lib\net45\newtonsoft.json.xml
-++System.Buffers.dll
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\lib\netstandard2.0\system.buffers.dll
-++System.Buffers.xml
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\lib\netstandard2.0\system.buffers.xml
-++System.Memory.dll
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\lib\netstandard2.0\system.memory.dll
-++System.Memory.xml
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\lib\netstandard2.0\system.memory.xml
-++System.Runtime.CompilerServices.Unsafe.dll
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\lib\netstandard2.0\system.runtime.compilerservices.unsafe.dll
-++System.Runtime.CompilerServices.Unsafe.xml
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\lib\netstandard2.0\system.runtime.compilerservices.unsafe.xml
-++DemiEditor
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++DOTweenEditor
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++DOTweenProEditor
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++ICSharpCode.NRefactory
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++log4netPlastic
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++NugetForUnity
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.Plastic.Antlr3.Runtime
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++Unity.Plastic.Newtonsoft.Json
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++UnityEditor.Android.Extensions
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++UnityEditor.Graphs
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
-++UnityEditor.WindowsStandalone.Extensions
-i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
-i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
-i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
-i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
-i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
-i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
-i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++unityplastic
 i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:
 i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:
@@ -2933,6 +2134,11 @@ i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++NavMeshPlus-master
 i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\
 i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\
+++Scripts
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\
+i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\scripts\
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\scripts\
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\scripts\
 ++NavMeshBuilder2d.cs
 i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\scripts\navmeshbuilder2d.cs
 ++NavMeshBuilderState.cs
@@ -2959,6 +2165,16 @@ i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:f:\git\2022-shootingdownlaborunion\src\
 i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\scripts\navmeshsurface.cs
 ++NavMeshSurface2d.cs
 i:{6404e7aa-caf6-e073-1181-2b2c9932b573}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\scripts\navmeshsurface2d.cs
+++SoftMask
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\
+i:{00000000-0000-0000-0000-000000000000}:SoftMask
+i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
+i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++TextMeshPro
 i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\scripts\textmeshpro\
 i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\scripts\editor\textmeshpro\
@@ -2979,6 +2195,12 @@ i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:f:\git\2022-shootingdownlaborunion\src\
 i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\scripts\softmask.cs
 ++SoftMaskable.cs
 i:{9fe8c88b-b973-1c7b-a723-2f426389d4bf}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\scripts\softmaskable.cs
+++ToolbarExtender.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{00000000-0000-0000-0000-000000000000}:ToolbarExtender.Editor
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++nunit.framework
 i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:
 i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
@@ -2997,6 +2219,10 @@ i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:
 i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++01.Scripts
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\
+i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\
 ++Editor
 i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\editor\
 i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\editor\
@@ -3015,6 +2241,12 @@ i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:f:\git\2022-shootingdownlaborunion\src\
 i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\editor\toolbarextender\toolbarextender.cs
 ++ToolbarExtender.Editor.asmdef
 i:{7d850d03-6df6-d83c-48d1-64a0d0b45184}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\editor\toolbarextender\toolbarextender.editor.asmdef
+++NavMeshComponentsEditor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{00000000-0000-0000-0000-000000000000}:NavMeshComponentsEditor
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
 ++NavMeshAssetManager.cs
 i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\editor\navmeshassetmanager.cs
 ++NavMeshAssetManager2d.cs
@@ -3041,9 +2273,226 @@ i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:f:\git\2022-shootingdownlaborunion\src\
 i:{dbdcc622-b55d-0941-af2a-d5be321a516e}:f:\git\2022-shootingdownlaborunion\src\client\assets\navmeshplus-master\navmeshcomponents\editor\navmeshsurfaceeditor2d.cs
 ++Assembly-CSharp-Editor
 i:{00000000-0000-0000-0000-000000000000}:Assembly-CSharp-Editor
+++Assembly-CSharp
+i:{00000000-0000-0000-0000-000000000000}:Assembly-CSharp
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 ++Assembly-CSharp-Editor-firstpass
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
 i:{00000000-0000-0000-0000-000000000000}:Assembly-CSharp-Editor-firstpass
+++Assembly-CSharp-firstpass
+i:{00000000-0000-0000-0000-000000000000}:Assembly-CSharp-firstpass
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Cinemachine
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++com.unity.cinemachine.editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++PsdPlugin
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++SoftMask-Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{00000000-0000-0000-0000-000000000000}:SoftMask-Editor
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.Animation.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.Animation.Runtime
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.Animation.Triangle.Runtime
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.Common.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.Common.Runtime
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.IK.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.IK.Runtime
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.Path.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.PixelPerfect
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.PixelPerfect.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.Psdimporter.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.Sprite.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.SpriteShape.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.SpriteShape.Runtime
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.2D.Tilemap.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.InternalAPIEditorBridge.001
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.InternalAPIEngineBridge.001
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.Mathematics
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.Mathematics.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.PlasticSCM.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.RenderPipeline.Universal.ShaderLibrary
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.RenderPipelines.Core.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.RenderPipelines.Core.Runtime
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.RenderPipelines.Core.ShaderLibrary
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.RenderPipelines.Universal.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.RenderPipelines.Universal.Runtime
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.RenderPipelines.Universal.Shaders
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.Rider.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.Searcher.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.ShaderGraph.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.TextMeshPro
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.TextMeshPro.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.Timeline
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.Timeline.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.VisualStudio.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++Unity.VSCode.Editor
+i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:
+i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:
+++00.Common
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\
+i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\
 ++NuGet
 i:{2fc59fce-bcb1-13d3-fb79-5dd1af79a2af}:f:\git\2022-shootingdownlaborunion\src\client\assets\nuget\
 ++ColorHierarchyEditor.cs
@@ -3110,6 +2559,559 @@ i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:f:\git\2022-shootingdownlaborunion\src\
 i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:f:\git\2022-shootingdownlaborunion\src\client\assets\plugins\demigiant\dotween\modules\dotweenmoduleunityversion.cs
 ++DOTweenModuleUtils.cs
 i:{3a1b43a0-276e-34fb-197e-1acde9001a0f}:f:\git\2022-shootingdownlaborunion\src\client\assets\plugins\demigiant\dotween\modules\dotweenmoduleutils.cs
+++02.Sprites
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\
+++08.Fonts
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\08.fonts\
+++Packages
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\
+++Prototype Hero - Pixel Art
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\
+++TextMesh Pro
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\
+++10.Shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\10.shader
+++GunnerSkill.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\skills\gunnerskill.cs
+++Impact.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\impact.cs
+++RangeRenderer.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\rangerenderer.cs
+++StatManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\statmanager.cs
+++SwingParticle.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\swingparticle.cs
+++BackgroundMove.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\backgroundmove.cs
+++ColorHierarchy.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\colorhierarchy.cs
+++EventManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\eventmanager.cs
+++FuncEventManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\funceventmanager.cs
+++MonoSingleton.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\monosingleton.cs
+++ParamEventManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\parameventmanager.cs
+++Yields.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\00.common\yields.cs
+++00.Scenes
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\
+++01.Core
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\
+++02.Abstracts
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\02.abstracts\
+++03.Bases
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\
+++04.Managers
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\04.managers\
+++05.UI
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\
+++06. Network
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\
+++07.Enum
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\07.enum\
+++08. Protobuf
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\08. protobuf\
+++09. Type
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\
+++10. Extentions
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\10. extentions\
+++12. Debug
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\12. debug\
+++Dungeon
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\02.abstracts\abstract\dungeon\
+++Lobby
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\lobby\
+++Shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\shader\
+++Skills
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\skills\
+++TestCodes
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\
+++Title
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\
+++Archers v2.0
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\archers v2.0\
+++Grim Reaper by RgsDev
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\grim reaper by rgsdev\
+++Knight Character Pack v3.0 by RgsDev
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\knight character pack v3.0 by rgsdev\
+++Mages Character Pack by RgsDev
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\mages character pack by rgsdev\
+++Orcs v2.0
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\orcs v2.0\
+++Witches
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\witches\
+++FONT
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\08.fonts\font\
+++Google.Protobuf.3.20.1
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\google.protobuf.3.20.1\
+++Newtonsoft.Json.13.0.1
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\newtonsoft.json.13.0.1\
+++System.Buffers.4.4.0
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\
+++System.Memory.4.5.3
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\
+++System.Runtime.CompilerServices.Unsafe.4.5.2
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\
+++ColorSwap
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\colorswap\
+++Demo
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\
+++Samples
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\
+++Shaders
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\
+++Fonts
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\fonts\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\fonts\
+++Resources
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\resources\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\
+++Sprites
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\sprites\
+++02.Lobby
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\
+++03.Room
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\
+++FSM
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\
+++Define.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\define.cs
+++GameManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\gamemanager.cs
+++SceneLoader.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\sceneloader.cs
+++Storage.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\storage.cs
+++Abstract
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\02.abstracts\abstract\
+++AI
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\ai\
+++Bullet
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\bullet\
+++Character
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\
+++Player
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\
+++Skill
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\skill\
+++SO
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\so\
+++Weapon
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\
+++FadeManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\04.managers\fademanager.cs
+++TitleManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\04.managers\titlemanager.cs
+++UIManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\04.managers\uimanager.cs
+++StartMenu
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\startmenu\
+++ChangeScene.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\changescene.cs
+++ChatManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\chatmanager.cs
+++HPBar.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\hpbar.cs
+++Client.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\client.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\08. protobuf\client.cs
+++MainTask.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\maintask.cs
+++NetworkManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\networkmanager.cs
+++NetworkObject.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\networkobject.cs
+++Packet.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\06. network\packet.cs
+++ConnectionState.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\07.enum\connectionstate.cs
+++RoleType.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\07.enum\roletype.cs
+++WeaponType.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\07.enum\weapontype.cs
+++Server.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\08. protobuf\server.cs
+++Type.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\08. protobuf\type.cs
+++Account.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\account.cs
+++Entity.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\entity.cs
+++EntityData.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\entitydata.cs
+++Room.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\room.cs
+++User.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\09. type\user.cs
+++ExtensionForProtobuf.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\10. extentions\extensionforprotobuf.cs
+++ToolbarControl.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\12. debug\toolbarcontrol.cs
+++EnterEffect
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\entereffect\
+++DungeonEnter.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\dungeonenter.cs
+++LobbyCamera.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\lobby\lobbycamera.cs
+++LobbyManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\lobby\lobbymanager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\00.managers\lobbymanager.cs
+++MapController.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\lobby\mapcontroller.cs
+++Mask.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\shader\mask.shader
+++TankerSkill.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\skills\tankerskill.cs
+++WarriorSkill.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\skills\warriorskill.cs
+++PhaseData.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\phasedata.cs
+++PhaseManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\phasemanager.cs
+++TestClientUI.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\testclientui.cs
+++TestEnemy.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\testenemy.cs
+++TestPlayer.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\testcodes\testplayer.cs
+++NewTitle
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\newtitle\
+++OldTItle
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\
+++NicknameInput.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\nicknameinput.cs
+++RoomNode.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\roomnode.cs
+++TitleTextColorChange.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\titletextcolorchange.cs
+++public-license.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\archers v2.0\public-license.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\grim reaper by rgsdev\public-license.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\knight character pack v3.0 by rgsdev\public-license.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\mages character pack by rgsdev\public-license.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\orcs v2.0\public-license.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\witches\public-license.txt
+++frames guide.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\grim reaper by rgsdev\frames guide.txt
+++animation frames guide.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\02.sprites\knight character pack v3.0 by rgsdev\animation frames guide.txt
+++LICENSE.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\08.fonts\font\license.txt
+++lib
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\google.protobuf.3.20.1\lib\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\newtonsoft.json.13.0.1\lib\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\lib\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\lib\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\lib\
+++LICENSE.TXT
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\license.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\license.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\license.txt
+++THIRD-PARTY-NOTICES.TXT
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\third-party-notices.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\third-party-notices.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\third-party-notices.txt
+++useSharedDesignerContext.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\useshareddesignercontext.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\useshareddesignercontext.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\useshareddesignercontext.txt
+++version.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\version.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\version.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\version.txt
+++ColorSwap_Prototype.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\colorswap\colorswap_prototype.cs
+++Sprites-ColorSwap.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\colorswap\sprites-colorswap.shader
+++AudioManager_PrototypeHero.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\audiomanager_prototypehero.cs
+++Dust_DestroyEvent.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\dust_destroyevent.cs
+++GrabableLedge.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\grabableledge.cs
+++PrototypeHero.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\prototypehero.cs
+++PrototypeHeroAnimEvents.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\prototypeheroanimevents.cs
+++Sensor_Prototype.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\prototype hero - pixel art\demo\sensor_prototype.cs
+++Materials
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\materials\
+++LiberationSans - OFL.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\fonts\liberationsans - ofl.txt
+++LineBreaking Following Characters.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\resources\linebreaking following characters.txt
+++LineBreaking Leading Characters.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\resources\linebreaking leading characters.txt
+++TMP_Bitmap-Custom-Atlas.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_bitmap-custom-atlas.shader
+++TMP_Bitmap-Mobile.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_bitmap-mobile.shader
+++TMP_Bitmap.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_bitmap.shader
+++TMP_SDF-Mobile Masking.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-mobile masking.shader
+++TMP_SDF-Mobile Overlay.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-mobile overlay.shader
+++TMP_SDF-Mobile SSD.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-mobile ssd.shader
+++TMP_SDF-Mobile.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-mobile.shader
+++TMP_SDF-Surface-Mobile.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-surface-mobile.shader
+++TMP_SDF-Surface.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf-surface.shader
+++TMP_SDF Overlay.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf overlay.shader
+++TMP_SDF SSD.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf ssd.shader
+++TMP_SDF.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sdf.shader
+++TMP_Sprite.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmp_sprite.shader
+++TMPro.cginc
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmpro.cginc
+++TMPro_Mobile.cginc
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmpro_mobile.cginc
+++TMPro_Properties.cginc
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmpro_properties.cginc
+++TMPro_Surface.cginc
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\shaders\tmpro_surface.cginc
+++EmojiOne Attribution.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\textmesh pro\sprites\emojione attribution.txt
+++00.Managers
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\00.managers\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\00.managers\
+++01.Types
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\01.types\
+++01.UI
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\01.ui\
+++Base
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\base\
+++Exceptions
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\exceptions\
+++Util
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\util\
+++CoState.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\costate.cs
+++HybridStateMachine.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\hybridstatemachine.cs
+++State.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\state.cs
+++StateMachine.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\statemachine.cs
+++StateWrapper.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\statewrapper.cs
+++Transition.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\transition.cs
+++TransitionAfter.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\transitionafter.cs
+++TransitionAfterDynamic.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\transitionafterdynamic.cs
+++TransitionOnKey.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\transitiononkey.cs
+++EnemyAI.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\ai\enemyai.cs
+++EnemyBase.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\ai\enemybase.cs
+++EnemyDetect.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\ai\enemydetect.cs
+++EnemyMove.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\ai\enemymove.cs
+++BulletAttack.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\bullet\bulletattack.cs
+++BulletBase.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\bullet\bulletbase.cs
+++CharacterAnimation.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characteranimation.cs
+++CharacterAttack.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterattack.cs
+++CharacterBase.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterbase.cs
+++CharacterDamage.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterdamage.cs
+++CharacterDeath.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterdeath.cs
+++CharacterEffect.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\charactereffect.cs
+++CharacterEvent.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterevent.cs
+++CharacterInput.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterinput.cs
+++CharacterJob.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterjob.cs
+++CharacterMove.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\charactermove.cs
+++CharacterRenderer.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterrenderer.cs
+++CharacterStat.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterstat.cs
+++CharacterState.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\character\characterstate.cs
+++PlayerAttack.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\playerattack.cs
+++PlayerBase.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\playerbase.cs
+++PlayerDeath.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\playerdeath.cs
+++PlayerLight.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\playerlight.cs
+++SlowAttack.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\slowattack.cs
+++UnTargetAttack.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\player\untargetattack.cs
+++SkillBase.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\skill\skillbase.cs
+++SwordInfo.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\so\swordinfo.cs
+++Gun
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\
+++Knight
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\knight\
+++Weapon.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\weapon.cs
+++WeaponBase.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\weaponbase.cs
+++FadeText.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\05.ui\startmenu\fadetext.cs
+++BoomEffect.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\entereffect\boomeffect.cs
+++ElectricEffect.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\entereffect\electriceffect.cs
+++RedPortalEffect.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\entereffect\redportaleffect.cs
+++SummonPortalEnterEffect.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\dungeon\entereffect\summonportalentereffect.cs
+++TestTitlePlayer.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\newtitle\testtitleplayer.cs
+++TitleBPWave.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\titlebpwave.cs
+++TitleCameraMove.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\titlecameramove.cs
+++TitleTeacherWave.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\titleteacherwave.cs
+++TitleTextGlow.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\titletextglow.cs
+++TitleTextWave.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\title\oldtitle\titletextwave.cs
+++net45
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\google.protobuf.3.20.1\lib\net45\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\newtonsoft.json.13.0.1\lib\net45\
+++netstandard2.0
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\lib\netstandard2.0\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\lib\netstandard2.0\
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\lib\netstandard2.0\
+++OpenSans License.txt
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\fonts\opensans license.txt
+++MaxBlend.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\materials\maxblend.shader
+++WaveWithSoftMask.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\materials\wavewithsoftmask.shader
+++Draggable.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\draggable.cs
+++HorizontalFovSetter.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\horizontalfovsetter.cs
+++Item.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\item.cs
+++ItemsGenerator.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\itemsgenerator.cs
+++MaskPainter.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\maskpainter.cs
+++Minimap.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\minimap.cs
+++PaintedMask.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\paintedmask.cs
+++RectManipulator.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\rectmanipulator.cs
+++ShowOnHover.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\showonhover.cs
+++SoftMaskSampleChooser.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\softmasksamplechooser.cs
+++SoftMaskToggler.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\softmasktoggler.cs
+++Tooltip.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\samples\scripts\tooltip.cs
+++SoftMask.cginc
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmask.cginc
+++SoftMask.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmask.shader
+++SoftMaskETC1.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmasketc1.shader
+++SoftMaskETC1PremultipliedAlpha.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmasketc1premultipliedalpha.shader
+++SoftMaskPremultipliedAlpha.shader
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmaskpremultipliedalpha.shader
+++SoftMaskTemplate.cginc
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\shaders\resources\softmasktemplate.cginc
+++RoomGenerateManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\00.managers\roomgeneratemanager.cs
+++RoomListManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\00.managers\roomlistmanager.cs
+++RoomInfo.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\02.lobby\01.types\roominfo.cs
+++RoomManager.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\00.managers\roommanager.cs
+++TestShake.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\00.managers\testshake.cs
+++RolePanel.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\00.scenes\03.room\01.ui\rolepanel.cs
+++IStateMachine.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\base\istatemachine.cs
+++ITriggerable.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\base\itriggerable.cs
+++StateBase.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\base\statebase.cs
+++TransitionBase.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\base\transitionbase.cs
+++ExceptionFormatter.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\exceptions\exceptionformatter.cs
+++StateMachineNotInitializedException.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\exceptions\statemachinenotinitializedexception.cs
+++StateNotFoundException.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\exceptions\statenotfoundexception.cs
+++Timer.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\01.core\fsm\util\timer.cs
+++BaseDungeonEnter.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\02.abstracts\abstract\dungeon\basedungeonenter.cs
+++SingleShot
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\singleshot\
+++GunBase.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\gunbase.cs
+++GunCharacterInput.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\guncharacterinput.cs
+++KnightSword.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\knight\knightsword.cs
+++MeleeAtackBase.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\knight\meleeatackbase.cs
+++Google.Protobuf.dll
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\google.protobuf.3.20.1\lib\net45\google.protobuf.dll
+++Google.Protobuf.xml
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\google.protobuf.3.20.1\lib\net45\google.protobuf.xml
+++Newtonsoft.Json.dll
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\newtonsoft.json.13.0.1\lib\net45\newtonsoft.json.dll
+++Newtonsoft.Json.xml
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\newtonsoft.json.13.0.1\lib\net45\newtonsoft.json.xml
+++System.Buffers.dll
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\lib\netstandard2.0\system.buffers.dll
+++System.Buffers.xml
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.buffers.4.4.0\lib\netstandard2.0\system.buffers.xml
+++System.Memory.dll
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\lib\netstandard2.0\system.memory.dll
+++System.Memory.xml
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.memory.4.5.3\lib\netstandard2.0\system.memory.xml
+++System.Runtime.CompilerServices.Unsafe.dll
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\lib\netstandard2.0\system.runtime.compilerservices.unsafe.dll
+++System.Runtime.CompilerServices.Unsafe.xml
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\packages\system.runtime.compilerservices.unsafe.4.5.2\lib\netstandard2.0\system.runtime.compilerservices.unsafe.xml
+++GunReapeater.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\singleshot\gunreapeater.cs
+++GunSingleShot.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\weapon\gun\singleshot\gunsingleshot.cs
 ++ConvertMaskMenu.cs
 i:{4b80dca3-8dd7-2f8e-e365-a9466884c940}:f:\git\2022-shootingdownlaborunion\src\client\assets\softmask\scripts\editor\convertmaskmenu.cs
 ++PackageResources.cs
@@ -3140,5 +3142,6 @@ i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:f:\git\2022-shootingdownlaborunion\src\
 i:{6719e071-572b-6877-b821-8a6b33ec3a6c}:f:\git\2022-shootingdownlaborunion\src\client\assets\plugins\demigiant\demilib\core\editor\demieditor.xml
 ++Assembly-CSharp(언로드됨)
 ++솔루션 'client' ‎(8/9개 프로젝트)
-++TankerSkill.cs
-i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\tankerskill.cs
+++ExplosionAttack.cs
+++ExplosionBullet.cs
+i:{a2859a56-ab4a-51f9-60bb-1b6fc96e8c70}:f:\git\2022-shootingdownlaborunion\src\client\assets\01.scripts\03.bases\bullet\explosionbullet.cs

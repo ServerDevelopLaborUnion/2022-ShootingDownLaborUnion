@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 5568151714548934848}
   - component: {fileID: 7979478067302891843}
   - component: {fileID: 7026086961923027096}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ammo-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -212,3 +212,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  _col: {fileID: 0}

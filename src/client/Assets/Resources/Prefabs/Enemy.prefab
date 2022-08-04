@@ -187,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4610916560795007066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.7, y: 0, z: 0}
+  m_LocalPosition: {x: 18.78636, y: 12.791463, z: 0}
   m_LocalScale: {x: 0.75, y: 1, z: 1}
   m_Children:
   - {fileID: 4610916560940214631}
@@ -402,6 +402,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _damageParticle: {fileID: 7806420553562504446, guid: f1886da241f70fa46bab8a5d727ebb72, type: 3}
 --- !u!114 &4610916560795007068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,7 +762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4610916561946414686}
   - component: {fileID: 4610916561946414685}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MoveCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

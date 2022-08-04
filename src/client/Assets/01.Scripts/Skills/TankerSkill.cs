@@ -15,14 +15,6 @@ public class TankerSkill : SkillBase
     public UnityEvent OnSkillUsed = null;
     public UnityEvent OnSkillEnded = null;
 
-    private Animator _animator;
-
-    private void Start()
-    {
-        _animator = GetComponent<Animator>();
-        _animator.enabled = true;
-    }
-
     public override void UseSkill()
     {
         if (_isSkill)
@@ -30,7 +22,7 @@ public class TankerSkill : SkillBase
         // TOOD: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄?留됯린
         OnSkillUsed?.Invoke();
         _isSkill = true;
-        _animator.Play("Skill");
+        _anime.PlaySkillAnime();
         _hammerTrail.SetActive(true);
     }
 

@@ -294,7 +294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 693142078219233099}
   - component: {fileID: 693142078219233097}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MoveCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,6 +564,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _damageParticle: {fileID: 7806420553562504446, guid: f1886da241f70fa46bab8a5d727ebb72, type: 3}
 --- !u!114 &7705367537281043746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,6 +899,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: CharacterRenderer, Assembly-CSharp
         m_MethodName: SetFlipPossible
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 693142079330332350}
+        m_TargetAssemblyTypeName: CharacterAnimation, Assembly-CSharp
+        m_MethodName: StopSkillAnime
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

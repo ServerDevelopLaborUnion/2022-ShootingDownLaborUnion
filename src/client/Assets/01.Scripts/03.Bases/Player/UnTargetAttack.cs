@@ -14,10 +14,6 @@ public class UnTargetAttack : PlayerAttack
     {
         base.Start();    
     }
-    void Update()
-    {
-
-    }
 
     protected override void Attack()
     {

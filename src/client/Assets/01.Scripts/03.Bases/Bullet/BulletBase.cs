@@ -11,6 +11,7 @@ public class BulletBase : MonoBehaviour
 
     public float _range = 3;
     private float _movedDistance = 0;
+    [SerializeField]
     private Vector2 _summonedPos;
 
     protected Transform _transform = null;
@@ -24,6 +25,7 @@ public class BulletBase : MonoBehaviour
     {
         _summonedPos = summonedPos;
         _range = range;
+        gameObject.SetActive(true);
     }
 
     protected virtual void Update() 
@@ -40,7 +42,7 @@ public class BulletBase : MonoBehaviour
     protected virtual void Limit()
     {
 
-        _movedDistance = GetDistance(_summonedPos, transform.position);
+        _movedDistance = Define.GetDistance(_summonedPos, transform.position);
         if(_movedDistance >= _range)
             Despawn();
     }
@@ -50,12 +52,5 @@ public class BulletBase : MonoBehaviour
         //TODO: ?留?
 
         gameObject.SetActive(false);
-    }
-
-    float GetDistance(Vector2 pos1, Vector2 pos2)
-    {
-        float x = Mathf.Pow(pos1.x - pos2.x, 2);
-        float y = Mathf.Pow(pos1.y * 2 - pos2.y * 2, 2);
-        return Mathf.Sqrt(x + y);
     }
 }

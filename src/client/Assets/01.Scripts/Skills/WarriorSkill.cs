@@ -17,14 +17,7 @@ public class WarriorSkill : SkillBase
     public UnityEvent OnSkillUsed = null;
     public UnityEvent OnSkillEnded= null;
 
-    private Animator _animator;
-
     private bool _isRight = false;
-
-    private void Start() {
-        _animator = GetComponent<Animator>();
-        _animator.enabled = true;
-    }
 
     public override void UseSkill()
     {
@@ -34,7 +27,7 @@ public class WarriorSkill : SkillBase
         OnSkillUsed?.Invoke();
         _isSkill = true;
         _isRight = MousePos.x >= transform.position.x;
-        _animator.Play("Skill");
+        _anime.PlaySkillAnime();
     }
 
     protected override void EventUseSkill()

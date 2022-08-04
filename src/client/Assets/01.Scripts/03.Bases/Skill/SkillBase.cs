@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using static Define;
 
 public class SkillBase : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SkillBase : MonoBehaviour
     private Image _coolTimeImage;
     protected PlayerBase _base = null;
     protected Collider2D _playerCol = null;
+    protected CharacterAnimation _anime = null;
 
     protected bool _isSkill = false;
 
@@ -20,6 +22,7 @@ public class SkillBase : MonoBehaviour
         _coolTimeImage = UIManager.Instance.SkillCoolTimeImage;
         _base = transform.parent.GetComponent<PlayerBase>();
         _playerCol = _base.GetComponent<Collider2D>();
+        _anime = GetComponent<CharacterAnimation>();
     }
 
     public virtual void UseSkill()
@@ -48,12 +51,5 @@ public class SkillBase : MonoBehaviour
 
         _isSkill = false;
         _coolTimeImage.color = Color.white;
-    }
-
-    public float GetDistance(Vector2 pos1, Vector2 pos2)
-    {
-        float x = Mathf.Pow(pos1.x - pos2.x, 2);
-        float y = Mathf.Pow(pos1.y * 2 - pos2.y * 2, 2);
-        return Mathf.Sqrt(x + y);
     }
 }
