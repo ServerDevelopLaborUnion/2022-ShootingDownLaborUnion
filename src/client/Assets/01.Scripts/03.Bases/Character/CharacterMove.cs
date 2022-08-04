@@ -72,6 +72,7 @@ public class CharacterMove : MonoBehaviour
         agent.isStopped = true;
         _base.Data.TargetPosition = transform.position;
         OnVelocityChange?.Invoke(false);
+        WebSocket.Client.ApplyEntityMove(_base);
     }
 
     public void Knockback(Collider2D col)
