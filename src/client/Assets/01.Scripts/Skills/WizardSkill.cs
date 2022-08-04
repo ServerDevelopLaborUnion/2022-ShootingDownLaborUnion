@@ -60,7 +60,7 @@ public class WizardSkill : SkillBase
             enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
             if (enemies.Count == 0)
                 break;
-            Entity closestEnemy = enemies.OrderBy((enemy) => GetDistance(MousePos, enemy.transform.position)).FirstOrDefault();
+            Entity closestEnemy = enemies.OrderBy((enemy) => GetDistance(transform.position, enemy.transform.position)).FirstOrDefault();
             Vector2 target = closestEnemy.transform.position;
             GameObject bullet = Instantiate(_meteorPrefab, target + Vector2.up * 10, Quaternion.Euler(0, 0, -90));
             BulletBase bulletBase = bullet.GetComponent<BulletBase>();
