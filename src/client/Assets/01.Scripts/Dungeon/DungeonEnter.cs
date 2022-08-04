@@ -34,7 +34,7 @@ public class DungeonEnter : MonoBehaviour
 
     private IEnumerator EnterMovement()
     {
-        yield return null;
+        yield return WaitForSeconds(1f);
         _activeObjs.ForEach(x => x.SetActive(false));
 
         FadeManager.Instance.ShowBar(true);

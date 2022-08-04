@@ -3,6 +3,7 @@ using static Define;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 using UnityEngine.UI;
 
@@ -59,12 +60,25 @@ public class FadeManager : MonoSingleton<FadeManager>
 
     private float HideBarY
     {
-        get{
-            if(_hideBarY != Mathf.Abs(TopBar.anchoredPosition.y)){
+        get
+        {
+            if (_hideBarY != Mathf.Abs(TopBar.anchoredPosition.y))
+            {
                 _hideBarY = Mathf.Abs(TopBar.anchoredPosition.y);
             }
             return _hideBarY;
         }
+    }
+
+    private Canvas _fadeParent;
+    private void Awake()
+    {
+        _fadeParent = FadeParent.GetComponent<Canvas>();
+        SceneManager.sceneLoaded += (x, y) =>
+        {
+            _fadeParent.worldCamera = MainCam;
+            FadeObject.DOFade(0f, 1f);
+        };
     }
 
     private float _hideBarY = 60f;
