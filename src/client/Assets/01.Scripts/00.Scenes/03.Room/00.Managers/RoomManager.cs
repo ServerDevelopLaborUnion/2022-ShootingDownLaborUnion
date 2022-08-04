@@ -97,7 +97,9 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void OnUserLeave(User user)
     {
+        _rolePanels[(int)user.Role].ActiveReadyPanel(false);
         UpdateText();
+        OnUpdateRole(user, (int)user.Role, false);
     }
 
     private void SetChoosePanel(int role, bool isActive)
@@ -130,21 +132,21 @@ public class RoomManager : MonoSingleton<RoomManager>
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
 
         user.Role = (RoleType)role;
-        Debug.Log(user.Name);
-        if (!CheckAllUserIsReady() && Storage.CurrentRoom.Users.Count != RoomInfo.MaxPlayers)
-        {
-            _rolePanels[role].ActiveStartBtn(false);
-        }
+
         if (user.IsReady)
         {
             _rolePanels[role].SetNameText(user.Name);
-            if (CheckAllUserIsReady() && Storage.CurrentUser.IsMaster && Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers)
+            if (CheckAllUserIsReady() && Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers)
             {
-                _rolePanels[role].ActiveStartBtn(true);
+                _rolePanels[(int)_masterUser.Role].ActiveStartBtn(true);
             }
         }
         else
         {
+            if (!CheckAllUserIsReady() && Storage.CurrentRoom.Users.Count != RoomInfo.MaxPlayers)
+            {
+                _rolePanels[role].ActiveStartBtn(false);
+            }
             _rolePanels[role].SetNameText(string.Empty);
         }
     }
@@ -169,7 +171,8 @@ public class RoomManager : MonoSingleton<RoomManager>
         SceneLoader.Load(SceneType.Game);
     }
 
-    public void OnClickExit(){
+    public void OnClickExit()
+    {
         WebSocket.Client.RoomEvent("UserLeft", JsonConvert.SerializeObject(Storage.CurrentUser));
         LeaveRoom();
     }
