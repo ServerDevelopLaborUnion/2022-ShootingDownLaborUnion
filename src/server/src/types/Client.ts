@@ -34,6 +34,7 @@ export class Client {
         if (this.user.type === "user") {
             return {
                 UUID: this.sessionId,
+                Name: this.user.account.username,
                 Role: this.user.role,
                 IsReady: this.user.isReady,
                 IsMaster: this.user.isMaster,

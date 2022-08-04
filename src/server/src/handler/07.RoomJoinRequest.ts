@@ -14,7 +14,7 @@ class RoomJoinRequest implements IHandler {
         const roomUUID = roomJoinRequest.RoomUUID;
         const password = roomJoinRequest.Password;
 
-        const room = storage.server.getRoom(roomUUID);
+        const room = storage.server.getRoomByRoomID(roomUUID);
         if (room) {
             if (room.password == null || room.password === password) {
                 if (client.user.type === "valid") {
@@ -27,12 +27,12 @@ class RoomJoinRequest implements IHandler {
                         isMaster: false
                     }
                 }
+                room.addUser(client);
+                logger.info(`${client.sessionId} joined room ${roomUUID}`);
                 client.sendPacket(proto.client.encode(proto.client.RoomJoinResponse, {
                     Success: true,
                     Room: room.toProto(),
                 }));
-                room.addUser(client);
-                logger.info(`${client.sessionId} joined room ${roomUUID}`);
             }
         }
     }
