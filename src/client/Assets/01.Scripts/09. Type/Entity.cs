@@ -64,6 +64,9 @@ public class Entity : MonoBehaviour
             if (string.Compare(entity.Data.UUID, uuid) == 0)
             {
                 NetworkManager.Instance.entityList.Remove(entity);
+                if(entity.Data.Type == EntityType.Player)
+                    NetworkManager.Instance.playerList.Remove(entity);
+                Debug.Log(NetworkManager.Instance.entityList.Count);
                 Debug.Log($"{entity.Data.UUID} deleted");
                 Destroy(entity.gameObject);
                 break;
