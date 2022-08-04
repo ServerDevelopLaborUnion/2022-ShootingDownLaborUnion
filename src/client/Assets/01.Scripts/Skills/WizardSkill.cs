@@ -41,7 +41,7 @@ public class WizardSkill : SkillBase
     protected override void EventEndSkill()
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
-        StartCoroutine(UsedSkill());
+        WebSocket.Client.UserEvent("UserUsedSkill", Storage.CurrentUser.UUID);
         base.EventEndSkill();
         OnSkillEnded?.Invoke();
     }
