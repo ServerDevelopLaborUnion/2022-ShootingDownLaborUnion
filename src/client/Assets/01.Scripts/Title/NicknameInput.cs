@@ -67,16 +67,10 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void OnClickSelect(){
+    public void OnClickSelect()
+    {
         WebSocket.Client.UserEvent("ChangeNickname", _inputField.text);
-        Debug.Log(FadeManager.Instance.FadeObject);
-        Tweener tweener = null;
-        tweener = FadeManager.Instance.FadeObject.DOFade(1f, 1f).OnComplete(() =>
-        {
-            if(tweener != null)
-                tweener.Kill();
-            SceneLoader.Load(SceneType.Lobby);
-        });
+        SceneLoader.Load(SceneType.Lobby);
     }
 
     public void OnClickRandomlName()
@@ -90,10 +84,11 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
 
     public void OnClickChoose()
     {
-        if(_isShaking)return;
+        if (_isShaking) return;
 
-        
-        if(!CheckSuitableNickname()){
+
+        if (!CheckSuitableNickname())
+        {
             _isShaking = true;
             _inputField.text = "잘못된 이름입니다";
             _inputField.textComponent.color = Color.red;
@@ -118,13 +113,17 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
 
     }
 
-    private bool CheckSuitableNickname(){
-        if(_inputField.text == string.Empty){
+    private bool CheckSuitableNickname()
+    {
+        if (_inputField.text == string.Empty)
+        {
             return false;
         }
 
-        for (int i = 0; i < _inputField.text.Length; ++i){
-            if (_inputField.text[i] == '　' || _inputField.text[i] == 'ㅤ'){
+        for (int i = 0; i < _inputField.text.Length; ++i)
+        {
+            if (_inputField.text[i] == '　' || _inputField.text[i] == 'ㅤ')
+            {
                 return false;
             }
         }

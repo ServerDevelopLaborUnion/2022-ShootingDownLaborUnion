@@ -4,11 +4,14 @@ import process from 'process';
 import request from 'request';
 import 'dotenv/config'
 
+// Main의 Prefix를 가진 Logger 받아와서 변수에 저장
 const logger = Logger.getLogger('Main');
 
 logger.info('App Started');
+// 서버 시작
 storage.server.listen(5000);
 
+// 대처하지 못한 예외 처리
 process.on('uncaughtException', (err) => {
     if (err.stack) {
         logger.error(err.stack);
@@ -16,6 +19,7 @@ process.on('uncaughtException', (err) => {
     logger.error(err.name);
     logger.error(err.message);
 
+    // Disccord 웹훅으로 예외 전송
     const message = {
         embeds: [{
             title: 'Error',

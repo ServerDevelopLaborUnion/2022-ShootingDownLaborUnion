@@ -25,14 +25,11 @@ export default {
                 const user = JSON.parse(RoomEvent.EventData);
                 client.room?.clients.forEach(c => {
                     if (c.sessionId === user.UUID) {
-                        console.log(c.user.type);
                         if (c.user.type === 'user')
                         {
                             c.user.role = user.Role;
                             c.user.isReady = user.IsReady;
                             c.user.isMaster = user.IsMaster;
-
-                            console.log(`${c.sessionId} updated to ${c.user}`);
                         }
                     }
                 });

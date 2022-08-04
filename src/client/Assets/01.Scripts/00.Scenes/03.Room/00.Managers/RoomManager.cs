@@ -68,7 +68,6 @@ public class RoomManager : MonoSingleton<RoomManager>
         {
             _masterUser = Storage.CurrentUser;
         }
-        Debug.Log(Storage.CurrentRoom.Info.Name);
         UpdateText();
     }
 
@@ -141,7 +140,6 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void SetRole(int role, bool isReady)
     {
         SetChoosePanel(role, isReady);
-        Debug.Log("?œ ??? ë¡? : " + role);
 
         Storage.CurrentUser.Role = (RoleType)role;
         Storage.CurrentUser.IsReady = isReady;
@@ -157,6 +155,11 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void OnStartGame()
     {
         SceneLoader.Load(SceneType.Game);
+    }
+
+    public void OnClickExit(){
+        SceneLoader.Load(SceneType.Lobby);
+        Debug.Log("´­¸²");
     }
 
     private bool CheckAllUserIsReady()

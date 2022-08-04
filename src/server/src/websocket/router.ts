@@ -7,6 +7,7 @@ const logger = Logger.getLogger('Router');
 
 const handlers: Map<number, IHandler> = new Map();
 
+// 경로에 있는 파일을 불러온다.
 const files = fs.readdirSync('./dist/handler');
 
 logger.debug('Loading handlers: ' + files.join(', '));
@@ -27,7 +28,7 @@ export function receive(client: Client, buffer: Buffer) {
 
     const handler = handlers.get(type);
     if (handler !== undefined) {
-        if (handler.type !== "EntityMoveRequest" && handler.type !== "EntityEventRequest") {
+        if (handler.type !== "EntityMoveRequest") {
             logger.debug(`Received: ${handler.type} (${data.length} bytes) from ${client.socket.remoteAddress}`);
         }
         handler.receive(client, data);
