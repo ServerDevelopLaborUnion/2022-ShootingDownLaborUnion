@@ -36,6 +36,7 @@ public class ElectricEffect : BaseDungeonEnter
 
     private int ANIMATIONHASH;
 
+    private Tweener _tweener;
     private void Awake()
     {
         ANIMATIONHASH = Animator.StringToHash(_animationClip.name);
@@ -45,7 +46,7 @@ public class ElectricEffect : BaseDungeonEnter
 
     protected void EventSpawnPlayer()
     {
-        VCam.transform.DOShakePosition(_camDuration, _camStrength, _camVibrato, _camRandomness);
+        _tweener = VCam.transform.DOShakePosition(_camDuration, _camStrength, _camVibrato, _camRandomness);
         _player.DOFade(1f, _playerFadeDuration);
     }
 
@@ -59,6 +60,9 @@ public class ElectricEffect : BaseDungeonEnter
     {
         yield return WaitForSeconds(_animationClip.length);
         gameObject.SetActive(false);
+        if(_tweener != null){
+            _tweener.Kill();
+        }
     }
 
 

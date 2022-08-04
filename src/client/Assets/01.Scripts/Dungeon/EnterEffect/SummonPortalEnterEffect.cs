@@ -71,7 +71,7 @@ public class SummonPortalEnterEffect : BaseDungeonEnter
 
     public override float GetAmountDuration()
     {
-        _amountDuration = _animationClip.length + _fadeDuration;
+        _amountDuration = _animationClip.length;
         return _amountDuration;
     }
 }
