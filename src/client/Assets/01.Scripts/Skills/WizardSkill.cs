@@ -19,8 +19,14 @@ public class WizardSkill : SkillBase
     public override void UseSkill()
     {
         base.UseSkill();
-        if (!_isIUseSkill) return;
-        
+        if (!_isIUseSkill)
+        {
+            return;
+        }
+        else{
+            Debug.Log("안끊어짐");
+        }
+
         if (_isSkill)
             return;
         enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);

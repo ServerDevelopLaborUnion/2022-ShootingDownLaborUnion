@@ -30,12 +30,15 @@ public class SkillBase : MonoBehaviour
         WebSocket.Client.SubscribeUserEvent("UserUsedSkill", (data) =>
         {
             _isIUseSkill = Storage.CurrentUser.UUID == data;
+            Debug.LogWarning("데이터 : " + data);
+            Debug.LogWarning("UUID : " + Storage.CurrentUser.UUID);
+
         });
     }
 
     public virtual void UseSkill()
     {
-        WebSocket.Client.OnUserEvent["UserUsedSkill"].Invoke(Storage.CurrentUser.UUID);
+        WebSocket.Client.UserEvent("UserUsedSkill", Storage.CurrentUser.UUID);
     }
 
     protected virtual void EventUseSkill()
@@ -49,7 +52,6 @@ public class SkillBase : MonoBehaviour
 
 
     protected virtual IEnumerator UsedSkill(){
-        Debug.Log("스킬 실행 됨!");
         _coolTimeImage.fillAmount = 0f;
         _coolTimeImage.color = Color.gray;
 

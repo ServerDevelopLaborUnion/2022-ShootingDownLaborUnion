@@ -5,14 +5,16 @@ using UnityEngine;
 
 public enum SpawnType
 {
-    circle,
-    width,
-    length
+    CIRCLE,
+    WIDTH,
+    LENGTH
 }
 
 public enum EnemyType
 {
-    normal
+    NORMAL,
+    FALSE_GOD,
+    LENGTH
 }
 
 [Serializable]
@@ -20,6 +22,9 @@ public class SpawnData
 {
     public SpawnType Shape;
     public EnemyType EnemyType;
+
+    public int ShapeSpawnGoal;
+    public int ShapeSpawnCount;
 }
 
 [Serializable]
