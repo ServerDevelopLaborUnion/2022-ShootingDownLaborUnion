@@ -1,5 +1,9 @@
+import { v4 } from "uuid";
 import { storage } from "../storage";
 import { Client } from "../types/Client";
+import { Entity } from "../types/Entity";
+import { Quaternion } from "../types/Quaternion";
+import { Vector2 } from "../types/Vector2";
 import { getLogger } from "../util/logger";
 import proto from "../util/proto";
 
@@ -18,15 +22,14 @@ module.exports = {
         }
 
         const EntityCreateRequest: any = proto.server.decode(type, buffer);
-        const entity = storage.server.rooms.get("testRoom")?.entities.get(EntityCreateRequest.EntityUUID);
+        console.log(EntityCreateRequest);
+        const entity = new Entity(v4(), client.sessionId, EntityCreateRequest.Name, new Vector2(0, 0), new Quaternion(0, 0, 0, 0), EntityCreateRequest.Entity.Data);
         if (entity !== undefined) {
             if (client.sessionId == entity.OwnerUUID) {
-                entity.Position = EntityCreateRequest.Position;
-                client.room?.broadcast(proto.client.encode(proto.client.EntityMove, {
-                    EntityUUID: EntityCreateRequest.EntityUUID,
-                    Position: EntityCreateRequest.Position,
-                    Rotation: EntityCreateRequest.Rotation,
-                }), client);
+                console.log(entity);
+                entity.Position = EntityCreateRequest.Entity.Position;
+                entity.Rotation = EntityCreateRequest.Entity.Rotation;
+                storage.server.rooms.get('test')?.addEntity(entity);
             }
         }
     }
