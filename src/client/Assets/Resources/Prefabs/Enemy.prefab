@@ -1048,6 +1048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentState: {fileID: 8581586505363962053}
   _currentTransition: {fileID: 8581586505891368241}
+  _base: {fileID: 3821160388987991285}
 --- !u!1 &8581586505891368244
 GameObject:
   m_ObjectHideFlags: 0

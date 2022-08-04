@@ -9,7 +9,8 @@ public class AIBase : MonoBehaviour
     [SerializeField]
     private AITransition _currentTransition;
     Transform _basePos = null;
-
+    [SerializeField]
+    private CharacterBase _base = null;
     private bool pos = false, neg = false;
 
     private void Awake()
@@ -18,6 +19,8 @@ public class AIBase : MonoBehaviour
     }
     private void Update()
     {
+        if (Storage.CurrentUser.UUID != _base.Data.OwnerUUID)
+            return;
         foreach(var transition in _currentState.Transition)
         {
             pos = neg = true;
