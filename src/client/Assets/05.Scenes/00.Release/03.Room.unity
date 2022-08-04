@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC804\uC0AC"
+  m_text: "\uB9C8\uBC95\uC0AC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a59e778236c5c540af3b6411195fc70, type: 2}
   m_sharedMaterial: {fileID: 3263684313286165655, guid: 8a59e778236c5c540af3b6411195fc70, type: 2}
@@ -1425,7 +1425,7 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 1, g: 0, b: 0, a: 1}
+    topLeft: {r: 1, g: 0.9479667, b: 0, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
@@ -3811,7 +3811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC804\uC0AC"
+  m_text: "\uD0F1\uCEE4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a59e778236c5c540af3b6411195fc70, type: 2}
   m_sharedMaterial: {fileID: 3263684313286165655, guid: 8a59e778236c5c540af3b6411195fc70, type: 2}
@@ -3825,7 +3825,7 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 1, g: 0, b: 0, a: 1}
+    topLeft: {r: 0.6712227, g: 0, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
@@ -7402,7 +7402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC804\uC0AC"
+  m_text: "\uCD1D\uC7A1\uC774"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a59e778236c5c540af3b6411195fc70, type: 2}
   m_sharedMaterial: {fileID: 3263684313286165655, guid: 8a59e778236c5c540af3b6411195fc70, type: 2}
@@ -7416,7 +7416,7 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 1, g: 0, b: 0, a: 1}
+    topLeft: {r: 0, g: 0.14819956, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}

@@ -133,7 +133,7 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
 
         for (int i = 0; i < _inputField.text.Length; ++i)
         {
-            if (_inputField.text[i] == '　' || _inputField.text[i] == 'ㅤ')
+            if (_inputField.text[i] == '　' || _inputField.text[i] == 'ㅤ' || _inputField.text[i] == '​')
             {
                 return false;
             }
