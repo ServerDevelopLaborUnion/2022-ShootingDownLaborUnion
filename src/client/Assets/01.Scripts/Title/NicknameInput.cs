@@ -70,7 +70,6 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
     public void OnClickSelect()
     {
         WebSocket.Client.UserEvent("ChangeNickname", _inputField.text);
-        Debug.Log(FadeManager.Instance.FadeObject);
         SceneLoader.Load(SceneType.Lobby);
     }
 
