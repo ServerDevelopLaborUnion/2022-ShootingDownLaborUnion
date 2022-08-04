@@ -32,9 +32,20 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
     private string _tempPlaceholder;
 
 
-    private readonly string[] RANDOMFRONTNAMES = { "눈치보는", "고약한", "멋진", "무서운", "놀라운", "대단한", "멋있는", "예쁜", "화난", "긴장한", "못생긴", "잘생긴" };
+    private readonly string[] RANDOMFRONTNAMES = { 
+        "눈치보는", "고약한", "멋진", "무서운", "놀라운", 
+        "대단한", "멋있는", "예쁜", "화난", "긴장한", 
+        "못생긴", "잘생긴", "큰", "깔끔한", "색다른",
+        "중요한", "대중적인", "자연의", "어린", "늙은"
+        };
 
-    private readonly string[] RANDOMLASTNAMES = { "바지", "티셔츠", "고블린", "대장군", "핸드폰", "라떼", "한국인", "사람", "마우스", "쓰레기" };
+    private readonly string[] RANDOMLASTNAMES = { 
+        "바지", "티셔츠", "고블린", "대장군", "핸드폰",
+        "라떼", "꼰대", "사람", "마우스", "오크",
+        "난쟁이", "토마토", "배추", "까마귀", "김밥",
+        "기타", "오리", "고양이", "강아지", "익룡",
+        "코주부",
+      };
 
     private bool _isShaking;
     private void Start()
