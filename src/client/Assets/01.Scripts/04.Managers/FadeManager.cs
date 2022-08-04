@@ -3,6 +3,7 @@ using static Define;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 using UnityEngine.UI;
 
@@ -15,36 +16,84 @@ public enum FADECHILDS
 
 public class FadeManager : MonoSingleton<FadeManager>
 {
-    private RectTransform _topBar = null;
-
-    private RectTransform _bottomBar = null;
-
-    public Image FadeObject{ get; set; }
-
-    private float _hideBarY = 0f;
-    private void Start()
+    private RectTransform TopBar
     {
-        _topBar = FadeParent.GetChild((int)FADECHILDS.TOPBAR).GetComponent<RectTransform>();
-        _bottomBar = FadeParent.GetChild((int)FADECHILDS.BOTTOMBAR).GetComponent<RectTransform>();
-        Debug.Log(_topBar);
-        Debug.Log(_bottomBar);
-        FadeObject = FadeParent.GetChild((int)FADECHILDS.FADEOBJECT).GetComponent<Image>();
-
-        _hideBarY = Mathf.Abs(_topBar.anchoredPosition.y);
-
+        get
+        {
+            if (_topBar == null)
+            {
+                _topBar = FadeParent.GetChild((int)FADECHILDS.TOPBAR).GetComponent<RectTransform>();
+            }
+            return _topBar;
+        }
     }
 
-    public void ShowBar(bool isShow)
+    private RectTransform _topBar;
+
+    private RectTransform BottomBar
+    {
+        get
+        {
+            if (_bottomBar == null)
+            {
+                _bottomBar = FadeParent.GetChild((int)FADECHILDS.BOTTOMBAR).GetComponent<RectTransform>();
+            }
+            return _bottomBar;
+        }
+    }
+
+    private RectTransform _bottomBar;
+
+    public Image FadeObject
+    {
+        get
+        {
+            if (_fadeObject == null)
+            {
+                _fadeObject = FadeParent.GetChild((int)FADECHILDS.FADEOBJECT).GetComponent<Image>();
+            }
+            return _fadeObject;
+        }
+    }
+
+    private Image _fadeObject;
+
+    private float HideBarY
+    {
+        get
+        {
+            if (_hideBarY != Mathf.Abs(TopBar.anchoredPosition.y))
+            {
+                _hideBarY = Mathf.Abs(TopBar.anchoredPosition.y);
+            }
+            return _hideBarY;
+        }
+    }
+
+    private Canvas _fadeParent;
+    private void Awake()
+    {
+        _fadeParent = FadeParent.GetComponent<Canvas>();
+        SceneManager.sceneLoaded += (x, y) =>
+        {
+            _fadeParent.worldCamera = MainCam;
+            FadeObject.DOFade(0f, 1f);
+        };
+    }
+
+    private float _hideBarY = 60f;
+
+    public void ShowBar(bool isShow, float duration = 1f)
     {
         if (isShow)
         {
-            _topBar.DOAnchorPosY(-_hideBarY, 1f);
-            _bottomBar.DOAnchorPosY(_hideBarY, 1f);
+            TopBar.DOAnchorPosY(-HideBarY, duration);
+            BottomBar.DOAnchorPosY(HideBarY, duration);
         }
         else
         {
-            _topBar.DOAnchorPosY(_hideBarY, 1f);
-            _bottomBar.DOAnchorPosY(-_hideBarY, 1f);
+            TopBar.DOAnchorPosY(HideBarY, duration);
+            BottomBar.DOAnchorPosY(-HideBarY, duration);
         }
     }
 

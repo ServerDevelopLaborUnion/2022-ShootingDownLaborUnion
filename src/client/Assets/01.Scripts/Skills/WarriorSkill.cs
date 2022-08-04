@@ -17,14 +17,7 @@ public class WarriorSkill : SkillBase
     public UnityEvent OnSkillUsed = null;
     public UnityEvent OnSkillEnded= null;
 
-    private Animator _animator;
-
     private bool _isRight = false;
-
-    private void Start() {
-        _animator = GetComponent<Animator>();
-        _animator.enabled = true;
-    }
 
     public override void UseSkill()
     {
@@ -34,16 +27,20 @@ public class WarriorSkill : SkillBase
         OnSkillUsed?.Invoke();
         _isSkill = true;
         _isRight = MousePos.x >= transform.position.x;
-        _animator.Play("Skill");
+        _anime.PlaySkillAnime();
+        WebSocket.Client.ApplyEntityAction(_base, "DoSkill");
     }
 
-    protected void EventUseSkill(){
+    protected override void EventUseSkill()
+    {
+        base.EventUseSkill();
         Skill();
     }
 
-    protected void EventEndSkill()
+    protected override void EventEndSkill()
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
+        base.EventEndSkill();
         StartCoroutine(UsedSkill());
         OnSkillEnded?.Invoke();
     }

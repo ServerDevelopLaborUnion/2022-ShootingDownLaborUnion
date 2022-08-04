@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +14,7 @@ public class CharacterAnimation : MonoBehaviour
     private int _doDamage = Animator.StringToHash("DoDamage");
     private int _atkSpd = Animator.StringToHash("AttackSpeed");
     private int _moveSpd = Animator.StringToHash("MoveSpeed");
+    private int _doSkill = Animator.StringToHash("DoSkill");
 
     private void Start()
     {
@@ -49,6 +50,16 @@ public class CharacterAnimation : MonoBehaviour
 
         SetAnimationSpeed();
         _animator.SetTrigger(_doDamage);
+    }
+
+    public void PlaySkillAnime()
+    {
+        _animator.SetBool(_doSkill, true);
+    }
+
+    public void StopSkillAnime()
+    {
+        _animator.SetBool(_doSkill, false);
     }
 
     private void SetAnimationSpeed()

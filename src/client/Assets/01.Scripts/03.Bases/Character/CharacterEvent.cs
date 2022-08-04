@@ -8,11 +8,12 @@ using UnityEngine.Events;
 public class CharacterEvent : MonoBehaviour
 {
     private CharacterBase _base = null;
-    public UnityEvent DoAttack = new UnityEvent();
-    public UnityEvent DoMove = new UnityEvent();
-    public UnityEvent DoFlipLeft = new UnityEvent();
-    public UnityEvent DoFlipRight = new UnityEvent();
-    public UnityEvent DoDie = new UnityEvent();
+    private UnityEvent DoAttack = new UnityEvent();
+    private UnityEvent DoMove = new UnityEvent();
+    private UnityEvent DoFlipLeft = new UnityEvent();
+    private UnityEvent DoFlipRight = new UnityEvent();
+    private UnityEvent DoDie = new UnityEvent();
+    private UnityEvent DoSkill = new UnityEvent();
 
     private void Awake()
     {
@@ -23,11 +24,13 @@ public class CharacterEvent : MonoBehaviour
         CharacterAnimation characterAnimation = visualTransform.GetComponent<CharacterAnimation>();
         CharacterMove characterMove = GetComponent<CharacterMove>();
         CharacterDeath characterDeath = visualTransform.GetComponent<CharacterDeath>();
+        SkillBase skillBase = visualTransform.GetComponent<SkillBase>();
         DoAttack.AddListener(() => characterAttack.DoAttack());
         DoMove.AddListener(() => characterAnimation.PlayMoveAnime(true));
         DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(Vector2.left));
         DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));
         DoDie.AddListener(() => characterDeath.CharacterDead());
+        DoSkill.AddListener(() => skillBase.UseSkill());
     }
     public void InvokeAction(string eventName)
     {
@@ -47,6 +50,9 @@ public class CharacterEvent : MonoBehaviour
                 break ;
             case "DoDie":
                 DoDie?.Invoke();
+                break;
+            case "DoSkill":
+                DoSkill?.Invoke();
                 break;
 
         }

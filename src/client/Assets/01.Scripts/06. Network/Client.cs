@@ -446,7 +446,7 @@ namespace WebSocket
                             break;
                         case 2:
                             var entityCreateMessage = Protobuf.Client.EntityCreate.Parser.ParseFrom(buffer);
-                            Debug.Log(entityCreateMessage.Entity.Data);
+                            Debug.Log(entityCreateMessage.Entity);
                             int entityType = JObject.Parse(entityCreateMessage.Entity.Data)["type"].Value<int>();
                             MainTask.Enqueue(() => OnEntityCreateMessage?.Invoke(this, new EntityCreateEventArgs(
                                 new EntityData
@@ -674,10 +674,7 @@ namespace WebSocket
             createEntityRequest.Entity.Name = entity.Data.Name;
             createEntityRequest.Entity.Position = entity.Data.Position.ToProtobuf();
             createEntityRequest.Entity.Rotation = entity.Data.Rotation.ToProtobuf();
-            createEntityRequest.Entity.Data = JObject.FromObject(new
-            {
-                type = (int)entity.Data.Type
-            }).ToString();
+            createEntityRequest.Entity.Data = $"{{\"type\": {(int)entity.Data.Type}}}";
 
             SendPacket(5, createEntityRequest);
         }
@@ -761,7 +758,10 @@ namespace WebSocket
         public static void UserEvent(string name, string data)
         {
             var userEventRequest = new Protobuf.Server.UserEvent();
-            userEventRequest.UserUUID = Storage.CurrentUser.UUID;
+            if (Storage.CurrentUser != null)
+            {
+                userEventRequest.UserUUID = Storage.CurrentUser.UUID;
+            }
             userEventRequest.EventName = name;
             userEventRequest.EventData = data;
 

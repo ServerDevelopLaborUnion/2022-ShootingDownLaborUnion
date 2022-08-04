@@ -13,14 +13,6 @@ public class SlowAttack : PlayerAttack
         base.Start();
     }
 
-    public override void DoAttack()
-    {
-        if (!(_base.State.CurrentState.HasFlag(CharacterState.State.Attack)
-            || _base.State.CurrentState.HasFlag(CharacterState.State.Died)))
-        {
-            Attack();
-        }
-    }
 
     protected override void Attack()
     {
@@ -49,7 +41,6 @@ public class SlowAttack : PlayerAttack
             {
                 _targetPos = Define.MousePos;
                 _move.MoveAgent(Define.MousePos + Vector2.up);
-                _renderer.FlipCharacter(dir);
                 WebSocket.Client.ApplyEntityMove(_base);
             }
         }
@@ -79,13 +70,6 @@ public class SlowAttack : PlayerAttack
         {
             closestEnemy = null;
         }
-    }
-
-    public float GetDistance(Vector2 pos1, Vector2 pos2)
-    {
-        float x = Mathf.Pow(pos1.x - pos2.x, 2);
-        float y = Mathf.Pow(pos1.y * 2 - pos2.y * 2, 2);
-        return Mathf.Sqrt(x + y);
     }
 
     public override void EndAttack()

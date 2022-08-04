@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System.Linq;
 
 public class RoomManager : MonoSingleton<RoomManager>
 {
@@ -28,7 +29,10 @@ public class RoomManager : MonoSingleton<RoomManager>
         WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
         {
             var user = JsonUtility.FromJson<User>(data);
-            Storage.CurrentRoom.AddUser(user);
+            if (Storage.CurrentRoom.Users.FirstOrDefault(x => x.UUID == user.UUID) == null)
+            {
+                Storage.CurrentRoom.Users.Add(user);
+            }
             OnUserJoin(user);
         });
 
@@ -53,8 +57,8 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         foreach (User user in Storage.CurrentRoom.Users)
         {
-            if(!user.IsReady)return;
-            OnUpdateRole(user,(int)user.Role, user.IsReady);
+            if (!user.IsReady) continue;
+            OnUpdateRole(user, (int)user.Role, user.IsReady);
             if (user.IsMaster)
             {
                 _masterUser = user;
@@ -70,7 +74,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     private void UpdateText()
     {
-        _titletext.text = $"{_masterUser.Name}ÎãòÏùò {Storage.CurrentRoom.Info.Name} Î∞©";
+        _titletext.text = $"{_masterUser.Name} ¥‘¿« {Storage.CurrentRoom.Info.Name} πÊ";
         _userCountText.text = $"{Storage.CurrentRoom.Users.Count}/4";
     }
 
@@ -111,12 +115,15 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void OnUpdateRole(User user, int role, bool isReady)
     {
         user.IsReady = isReady;
-        Debug.Log("ONÏú†Ï†Ä Î°§ : " + role + user.IsReady);
 
         _rolePanels[role].ActiveReadyPanel(user.IsReady);
 
         user.Role = (RoleType)role;
 
+        if (!CheckAllUserIsReady())
+        {
+            _rolePanels[role].ActiveStartBtn(false);
+        }
         if (user.IsReady)
         {
             _rolePanels[role].SetNameText(Storage.CurrentUser.Name);
@@ -134,7 +141,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void SetRole(int role, bool isReady)
     {
         SetChoosePanel(role, isReady);
-        Debug.Log("Ïú†Ï†Ä Î°§ : " + role);
+        Debug.Log("?ú†??? Î°? : " + role);
 
         Storage.CurrentUser.Role = (RoleType)role;
         Storage.CurrentUser.IsReady = isReady;

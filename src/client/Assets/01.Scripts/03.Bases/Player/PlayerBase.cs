@@ -9,6 +9,7 @@ public class PlayerBase : CharacterBase
     private Weapon weapon;
     public Weapon Weapon { get => weapon; }
     public bool RoomHost = false;
+    public CharacterEffect Effect = null;
     public StatManager statManager = null;
 
     public Action OnWeaponChanged = null;
@@ -17,6 +18,7 @@ public class PlayerBase : CharacterBase
     private void Start()
     {
         statManager = GetComponent<StatManager>();
+        Effect = GetComponent<CharacterEffect>();
         OnWeaponChanged += GetWeaponStat;
         //for Debug
         OnWeaponChanged?.Invoke();

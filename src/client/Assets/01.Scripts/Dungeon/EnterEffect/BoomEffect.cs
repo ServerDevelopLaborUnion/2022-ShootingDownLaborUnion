@@ -22,7 +22,7 @@ public class BoomEffect : BaseDungeonEnter
     [SerializeField]
     private float _smokeFadeDuration = 0.5f;
 
-    [Header("移대찓?씪")]
+    [Header("카메라")]
     [SerializeField]
     private float _camDuration = 0.5f;
     [SerializeField]

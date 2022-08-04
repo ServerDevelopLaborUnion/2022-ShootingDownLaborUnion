@@ -9,7 +9,7 @@ public class BulletAttack : MonoBehaviour
 
     public Collider2D _col = null;
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    protected virtual void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Enemy")){
             other.GetComponent<CharacterDamage>().GetDamaged(_damage, _col);
             gameObject.SetActive(false);

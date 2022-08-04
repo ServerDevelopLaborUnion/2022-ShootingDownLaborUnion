@@ -294,7 +294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 693142078219233099}
   - component: {fileID: 693142078219233097}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MoveCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 693142078744925204}
   - component: {fileID: 7705367537281043746}
   - component: {fileID: -591259635780490325}
+  - component: {fileID: 2498423503496342935}
   m_Layer: 7
   m_Name: Warrior
   m_TagString: Player
@@ -455,6 +456,7 @@ MonoBehaviour:
     _state: 0
   weapon: {fileID: 919692946}
   RoomHost: 0
+  Effect: {fileID: 0}
   statManager: {fileID: 0}
 --- !u!114 &693142078744925210
 MonoBehaviour:
@@ -562,6 +564,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _damageParticle: {fileID: 7806420553562504446, guid: f1886da241f70fa46bab8a5d727ebb72, type: 3}
 --- !u!114 &7705367537281043746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,6 +614,18 @@ NavMeshAgent:
   m_BaseOffset: 1.13
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2498423503496342935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693142078744925211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0118e61303055a64aabee2b71e294779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &693142079330332290
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,6 +899,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: CharacterRenderer, Assembly-CSharp
         m_MethodName: SetFlipPossible
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 693142079330332350}
+        m_TargetAssemblyTypeName: CharacterAnimation, Assembly-CSharp
+        m_MethodName: StopSkillAnime
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

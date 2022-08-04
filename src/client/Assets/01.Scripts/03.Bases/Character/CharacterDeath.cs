@@ -31,6 +31,7 @@ public class CharacterDeath : MonoBehaviour
     {
         if (_base == null) return;
         transform.parent.gameObject.SetActive(false);
+        NetworkManager.Instance.entityList.Remove(_base);
         WebSocket.Client.EntityDespawn(_base);
 
     }

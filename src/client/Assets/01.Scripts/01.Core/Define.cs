@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Cinemachine;
 
 public static class Define
@@ -21,7 +21,7 @@ public static class Define
     public static CinemachineVirtualCamera VCam{
         get{
             if(_vCam == null){
-                _vCam = GameObject.Find("VirtualCamera").GetComponent<CinemachineVirtualCamera>();
+                _vCam = GameObject.Find("VirtualCam").GetComponent<CinemachineVirtualCamera>();
             }
             return _vCam;
         }
@@ -45,4 +45,10 @@ public static class Define
 
     private static Transform _fadeParent;
 
+    public static float GetDistance(Vector2 pos1, Vector2 pos2)
+    {
+        float x = Mathf.Pow(pos1.x - pos2.x, 2);
+        float y = Mathf.Pow(pos1.y * 2 - pos2.y * 2, 2);
+        return Mathf.Sqrt(x + y);
+    }
 }

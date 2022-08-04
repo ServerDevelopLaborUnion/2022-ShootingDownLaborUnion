@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &95238595354498928
 Transform:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5947175543153221154}
   - component: {fileID: 5947175543153221152}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MoveCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 3600877881508328523}
   - component: {fileID: 3232874076056654530}
   - component: {fileID: 1432555076}
+  - component: {fileID: 2630810760014192221}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -528,6 +529,7 @@ MonoBehaviour:
     _state: 0
   weapon: {fileID: 6563457325275455483}
   RoomHost: 0
+  Effect: {fileID: 0}
   statManager: {fileID: 0}
 --- !u!114 &5947175543712279923
 MonoBehaviour:
@@ -635,6 +637,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _damageParticle: {fileID: 7806420553562504446, guid: f1886da241f70fa46bab8a5d727ebb72, type: 3}
 --- !u!114 &3600877881508328523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -704,6 +707,18 @@ MonoBehaviour:
   _gapCount: 1
   _offBackColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
   _offFontColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+--- !u!114 &2630810760014192221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947175543712279922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0118e61303055a64aabee2b71e294779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5947175544401942507
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,12 +933,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coolTime: 1
   _range: 3
+  _hammerTrail: {fileID: 1643970840993962645}
   OnSkillUsed:
     m_PersistentCalls:
       m_Calls: []
   OnSkillEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5947175544401942487}
+        m_TargetAssemblyTypeName: CharacterAnimation, Assembly-CSharp
+        m_MethodName: StopSkillAnime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6563457324934624382
 GameObject:
   m_ObjectHideFlags: 0

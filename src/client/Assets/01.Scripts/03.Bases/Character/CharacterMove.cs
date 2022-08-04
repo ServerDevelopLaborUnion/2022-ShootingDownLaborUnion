@@ -54,6 +54,8 @@ public class CharacterMove : MonoBehaviour
     }
     public void MoveAgent(Vector3 goal)
     {
+        if (!gameObject.activeSelf)
+            return;
         agent.speed = _base.Stat.Speed;
         if (_base.State.CurrentState.HasFlag(CharacterState.State.Attack))
         {

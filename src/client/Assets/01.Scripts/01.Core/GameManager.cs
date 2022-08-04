@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
         WebSocket.Client.OnEntityMoveMessage += Client_OnEntityMoveMessage;
         WebSocket.Client.OnEntityEventMessage += Client_OnEntityEventMessage;
         WebSocket.Client.OnChatMessage += Client_OnChatMessage;
+        WebSocket.Client.OnConnected += (str) => {
+            WebSocket.Client.UserEvent("Debug", "");
+        };
     }
 
     private void Client_OnChatMessage(object sender, ChatMessageEventArgs e)
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour
         temp.transform.position = e.Position;
         CharacterMove tempMove = temp.GetComponent<CharacterMove>();
         if(tempMove != null)
-            tempMove.MoveAgent(e.TargetPosition);
+            tempMove?.MoveAgent(e.TargetPosition);
     }
 
     private void Client_OnEntityReMoveMessage(object sender, WebSocket.EntityRemoveEventArgs e)
@@ -55,10 +58,12 @@ public class GameManager : MonoBehaviour
     {
         Entity temp = Entity.EntityCreate(e.Data);
         if (e.Data.Type == EntityType.Player)
+        {
             NetworkManager.Instance.playerList.Add(temp);
+            StartCoroutine(SetHostClient(e.Data));
+        }
         NetworkManager.Instance.entityList.Add(temp);
         Debug.Log($"{e.Data.UUID} Has Created");
-        StartCoroutine(SetHostClient(e.Data));
     }
 
     

@@ -10,16 +10,10 @@ public class TankerSkill : SkillBase
 {
     [SerializeField]
     private float _range = 3f;
+    [SerializeField]
+    private GameObject _hammerTrail = null;
     public UnityEvent OnSkillUsed = null;
     public UnityEvent OnSkillEnded = null;
-
-    private Animator _animator;
-
-    private void Start()
-    {
-        _animator = GetComponent<Animator>();
-        _animator.enabled = true;
-    }
 
     public override void UseSkill()
     {
@@ -28,19 +22,24 @@ public class TankerSkill : SkillBase
         // TOOD: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄?留됯린
         OnSkillUsed?.Invoke();
         _isSkill = true;
-        _animator.Play("Skill");
+        _anime.PlaySkillAnime();
+        _hammerTrail.SetActive(true);
+        WebSocket.Client.ApplyEntityAction(_base, "DoSkill");
     }
 
-    protected void EventUseSkill()
+    protected override void EventUseSkill()
     {
+        base.EventUseSkill();
         Skill();
     }
 
-    protected void EventEndSkill()
+    protected override void EventEndSkill()
     {
         //TODO: ?뚮젅?댁뼱 醫뚯슦 ?꾨뒗嫄??湲?
+        base.EventEndSkill();
         StartCoroutine(UsedSkill());
         OnSkillEnded?.Invoke();
+        _hammerTrail.SetActive(false);
     }
 
     private void Skill()
