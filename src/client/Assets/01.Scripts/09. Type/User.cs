@@ -8,7 +8,7 @@ public class User
     public bool IsReady { get; set; }
     public bool IsMaster { get; set; }
 
-    public new string ToString()
+    public override string ToString()
     {
         return string.Format("{0} ({1})", Name, Weapon);
     }

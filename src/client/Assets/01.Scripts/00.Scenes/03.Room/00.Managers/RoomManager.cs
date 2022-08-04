@@ -53,6 +53,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         {
             Debug.Log($"data : {data}");
             var user = JsonConvert.DeserializeObject<User>(data);
+            Debug.Log($"user : {user}");
             OnUpdateRole(user, (int)user.Role, user.IsReady);
         });
 
