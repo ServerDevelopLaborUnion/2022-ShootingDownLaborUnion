@@ -117,6 +117,10 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         user.Role = (RoleType)role;
 
+        if (!CheckAllUserIsReady())
+        {
+            _rolePanels[role].ActiveStartBtn(false);
+        }
         if (user.IsReady)
         {
             _rolePanels[role].SetNameText(Storage.CurrentUser.Name);
