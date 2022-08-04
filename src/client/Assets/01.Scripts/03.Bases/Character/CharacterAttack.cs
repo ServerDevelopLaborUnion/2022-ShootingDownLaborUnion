@@ -48,6 +48,8 @@ public class CharacterAttack : MonoBehaviour
         _base.State.CurrentState |= CharacterState.State.Attack;
 
         OnAttacked?.Invoke();
+        WebSocket.Client.ApplyEntityMove(_base);
+
     }
 
     public void DoAttackInAnimation()
