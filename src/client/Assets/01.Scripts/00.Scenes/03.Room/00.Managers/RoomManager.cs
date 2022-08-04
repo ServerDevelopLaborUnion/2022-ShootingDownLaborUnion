@@ -136,7 +136,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         }
         if (user.IsReady)
         {
-            _rolePanels[role].SetNameText(Storage.CurrentUser.Name);
+            _rolePanels[role].SetNameText(user.Name);
             if (CheckAllUserIsReady() && Storage.CurrentUser.IsMaster && Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers)
             {
                 _rolePanels[role].ActiveStartBtn(true);
