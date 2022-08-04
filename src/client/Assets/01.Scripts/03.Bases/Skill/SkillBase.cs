@@ -27,18 +27,12 @@ public class SkillBase : MonoBehaviour
     }
 
     private void Start() {
-        WebSocket.Client.SubscribeUserEvent("UserUsedSkill", (data) =>
-        {
-            _isIUseSkill = Storage.CurrentUser.UUID == data;
-            Debug.LogWarning("데이터 : " + data);
-            Debug.LogWarning("UUID : " + Storage.CurrentUser.UUID);
-
-        });
+       
     }
 
     public virtual void UseSkill()
     {
-        WebSocket.Client.UserEvent("UserUsedSkill", Storage.CurrentUser.UUID);
+
     }
 
     protected virtual void EventUseSkill()
@@ -52,6 +46,8 @@ public class SkillBase : MonoBehaviour
 
 
     protected virtual IEnumerator UsedSkill(){
+        if (Storage.CurrentUser.UUID != _base.Data.OwnerUUID)
+            yield break;
         _coolTimeImage.fillAmount = 0f;
         _coolTimeImage.color = Color.gray;
 
