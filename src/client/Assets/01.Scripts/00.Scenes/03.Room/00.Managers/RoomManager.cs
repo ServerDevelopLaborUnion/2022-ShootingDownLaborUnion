@@ -130,14 +130,14 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         user.Role = (RoleType)role;
 
-        if (!CheckAllUserIsReady())
+        if (!CheckAllUserIsReady() && Storage.CurrentRoom.Users.Count != RoomInfo.MaxPlayers)
         {
             _rolePanels[role].ActiveStartBtn(false);
         }
         if (user.IsReady)
         {
             _rolePanels[role].SetNameText(Storage.CurrentUser.Name);
-            if (CheckAllUserIsReady() && Storage.CurrentUser.IsMaster)
+            if (CheckAllUserIsReady() && Storage.CurrentUser.IsMaster && Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers)
             {
                 _rolePanels[role].ActiveStartBtn(true);
             }
