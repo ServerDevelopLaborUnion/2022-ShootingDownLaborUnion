@@ -1,8 +1,8 @@
 [System.Serializable]
 public class User
 {
-    public string UUID { get; private set; }
-    public string Name { get; private set; }
+    public string UUID { get; set; }
+    public string Name { get; set; }
     public WeaponType Weapon { get; set; }
     public RoleType Role{ get; set; }
     public bool IsReady { get; set; }
