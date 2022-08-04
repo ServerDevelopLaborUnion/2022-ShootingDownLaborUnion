@@ -758,7 +758,10 @@ namespace WebSocket
         public static void UserEvent(string name, string data)
         {
             var userEventRequest = new Protobuf.Server.UserEvent();
-            userEventRequest.UserUUID = Storage.CurrentUser.UUID;
+            if (Storage.CurrentUser != null)
+            {
+                userEventRequest.UserUUID = Storage.CurrentUser.UUID;
+            }
             userEventRequest.EventName = name;
             userEventRequest.EventData = data;
 

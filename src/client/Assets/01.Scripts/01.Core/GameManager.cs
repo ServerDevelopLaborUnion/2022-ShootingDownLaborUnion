@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
         WebSocket.Client.OnEntityMoveMessage += Client_OnEntityMoveMessage;
         WebSocket.Client.OnEntityEventMessage += Client_OnEntityEventMessage;
         WebSocket.Client.OnChatMessage += Client_OnChatMessage;
+        WebSocket.Client.OnConnected += (str) => {
+            WebSocket.Client.UserEvent("Debug", "");
+        };
     }
 
     private void Client_OnChatMessage(object sender, ChatMessageEventArgs e)
