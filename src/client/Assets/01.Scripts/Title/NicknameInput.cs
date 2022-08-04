@@ -167,6 +167,7 @@ public class NicknameInput : MonoBehaviour, IPointerClickHandler
 
     public void OnValueChange(string value)
     {
+        _inputField.text = value.Trim();
         _inputField.text = value.Replace(" ", "");
     }
 
