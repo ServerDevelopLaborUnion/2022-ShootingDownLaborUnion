@@ -24,6 +24,7 @@ public class TankerSkill : SkillBase
         _isSkill = true;
         _anime.PlaySkillAnime();
         _hammerTrail.SetActive(true);
+        WebSocket.Client.ApplyEntityAction(_base, "DoSkill");
     }
 
     protected override void EventUseSkill()
