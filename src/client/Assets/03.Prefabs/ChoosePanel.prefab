@@ -1460,8 +1460,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _readyPanel: {fileID: 1453870276}
+  _startBtn: {fileID: 0}
   _nameText: {fileID: 99859388}
   _roleNumber: 0
+  _duration: 4
+  _strength: 8
+  _vivrato: 10
+  _randomness: 90
 --- !u!1 &4045764378189605773
 GameObject:
   m_ObjectHideFlags: 0

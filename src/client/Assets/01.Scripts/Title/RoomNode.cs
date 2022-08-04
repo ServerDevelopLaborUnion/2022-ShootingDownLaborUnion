@@ -15,22 +15,24 @@ public class RoomNode : MonoBehaviour
     private Image isPrivate = null;
 
     private Button _roomEnterButton = null;
+    private RoomInfo _roomInfo = null;
 
     public void SetInfo(RoomInfo roomInfo)
     {
+        _roomInfo = roomInfo;
         _roomEnterButton = GetComponent<Button>();
-        this.roomName.text = roomInfo.Name;
-        this.personnel.text = $"{roomInfo.PlayerCount}/{RoomInfo.MaxPlayers}";
+        this.roomName.text = _roomInfo.Name;
+        this.personnel.text = $"{_roomInfo.PlayerCount}/{RoomInfo.MaxPlayers}";
+        isPrivate.gameObject.SetActive(_roomInfo.IsPrivate);
         _roomEnterButton.onClick.AddListener(() =>
         {
-            if (isPrivate)
+            if (_roomInfo.IsPrivate)
             {
-                // TODO: 패스워드 입력
-                LobbyManager.Instance.JoinRoom(roomInfo.UUID);
+                LobbyManager.Instance.PasswordForm.Show(_roomInfo);
             }
             else
             {
-                LobbyManager.Instance.JoinRoom(roomInfo.UUID);
+                LobbyManager.Instance.JoinRoom(_roomInfo.UUID);
             }
         });
     }

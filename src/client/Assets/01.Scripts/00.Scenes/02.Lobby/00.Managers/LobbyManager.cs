@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LobbyManager : MonoSingleton<LobbyManager>
 {
+    public PasswordForm PasswordForm;
     private List<RoomInfo> _roomList => WebSocket.Client.RoomList;
 
     private void Start()
@@ -15,6 +16,10 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 
         WebSocket.Client.OnRoomJoinMessage += (sender, e) => {
             OnJoinedRoom(e.Room);
+        };
+
+        WebSocket.Client.OnConnected += (str) => {
+            RoomListManager.Instance.UpdateRoomList();
         };
     }
 
