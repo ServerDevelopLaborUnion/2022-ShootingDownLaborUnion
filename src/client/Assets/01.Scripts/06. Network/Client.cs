@@ -355,6 +355,18 @@ namespace WebSocket
             OnLoginResponseMessage = null;
             OnEntityCreateMessage = null;
             OnEntityMoveMessage = null;
+            OnEntityReMoveMessage = null;
+            OnEntityEventMessage = null;
+            OnRoomCreateMessage = null;
+            OnRoomJoinMessage = null;
+            OnRoomLeaveMessage = null;
+            OnRoomListMessage = null;
+            OnChatMessage = null;
+            OnStartGameMessage = null;
+            OnSetRoleMessage = null;
+            
+            OnRoomEvent.Clear();
+            OnUserEvent.Clear();
 
             InitializeEvents();
         }

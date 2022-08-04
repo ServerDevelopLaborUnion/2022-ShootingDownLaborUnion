@@ -45,15 +45,15 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
         }
     }
 
-    private void Start() {
+    private void Awake() {
         _shuttingDown = false;
     }
     private void OnDestroy()
     {
-        _shuttingDown = true;
+        // _shuttingDown = true;
     }
     private void OnApplicationQuit()
     {
-        _shuttingDown = true;
+        // _shuttingDown = true;
     }
 }

@@ -10,17 +10,27 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 
     private void Start()
     {
-        WebSocket.Client.OnRoomListMessage += (sender, e) => {
+        WebSocket.Client.OnRoomListMessage += (sender, e) =>
+        {
             GetRoomList(e.Rooms);
         };
 
-        WebSocket.Client.OnRoomJoinMessage += (sender, e) => {
+        WebSocket.Client.OnRoomJoinMessage += (sender, e) =>
+        {
             OnJoinedRoom(e.Room);
         };
 
-        WebSocket.Client.OnConnected += (str) => {
-            RoomListManager.Instance.UpdateRoomList();
-        };
+        if (Storage.CurrentUser != null)
+        {
+            WebSocket.Client.GetRoomList();
+        }
+        else
+        {
+            WebSocket.Client.OnConnected += (str) =>
+            {
+                RoomListManager.Instance.UpdateRoomList();
+            };
+        }
     }
 
     /// <summary>

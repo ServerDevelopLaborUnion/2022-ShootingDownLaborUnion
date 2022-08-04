@@ -32,7 +32,14 @@ public class MainTask : MonoSingleton<MainTask>
     {
         if (_messageQueue.Count > 0)
         {
-            _messageQueue.Dequeue()?.Invoke();
+            try
+            {
+                _messageQueue.Dequeue()?.Invoke();
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning(e);
+            }
         }
     }
 }

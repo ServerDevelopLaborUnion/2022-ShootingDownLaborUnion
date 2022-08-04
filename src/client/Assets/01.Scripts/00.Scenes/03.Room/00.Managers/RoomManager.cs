@@ -158,6 +158,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     }
 
     public void OnClickExit(){
+        WebSocket.Client.RoomEvent("UserLeft", JsonConvert.SerializeObject(Storage.CurrentUser));
         SceneLoader.Load(SceneType.Lobby);
         Debug.Log("´­¸²");
     }
