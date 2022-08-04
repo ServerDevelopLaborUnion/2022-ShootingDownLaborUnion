@@ -54,7 +54,6 @@ public class CharacterAttack : MonoBehaviour
     {
         if ((!_base.State.CurrentState.HasFlag(CharacterState.State.Attack) || !_base.State.CurrentState.HasFlag(CharacterState.State.Died)))
         {
-            WebSocket.Client.ApplyEntityAction(_base, "DoAttack");
             Attack();
         }
     }

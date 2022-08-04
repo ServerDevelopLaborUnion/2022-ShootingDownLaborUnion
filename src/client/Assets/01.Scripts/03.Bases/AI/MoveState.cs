@@ -37,10 +37,6 @@ public class MoveState : AIState
                     if (_move != null)
                         _move.MoveAgent(_target.position);
                     _renderer.FlipCharacter(_target.position);
-                    if(_target.position.x - transform.position.x > 0 )
-                        WebSocket.Client.ApplyEntityAction(_base, "DoFilpRight");
-                    else
-                        WebSocket.Client.ApplyEntityAction(_base, "DoFilpLeft");
 
                     WebSocket.Client.ApplyEntityMove(_base);
                     _delay = 0.2f;
