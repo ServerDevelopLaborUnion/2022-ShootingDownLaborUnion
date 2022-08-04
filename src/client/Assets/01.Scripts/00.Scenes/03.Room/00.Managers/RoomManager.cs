@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Linq;
+using System;
 
 public class RoomManager : MonoSingleton<RoomManager>
 {
@@ -55,6 +56,11 @@ public class RoomManager : MonoSingleton<RoomManager>
             OnUpdateRole(user, (int)user.Role, user.IsReady);
         });
 
+        WebSocket.Client.SubscribeRoomEvent("Kicked", (data) =>
+        {
+            OnKicked();
+        });
+
         foreach (User user in Storage.CurrentRoom.Users)
         {
             if (!user.IsReady) continue;
@@ -69,6 +75,11 @@ public class RoomManager : MonoSingleton<RoomManager>
             _masterUser = Storage.CurrentUser;
         }
         UpdateText();
+    }
+
+    private void OnKicked()
+    {
+        LeaveRoom();
     }
 
     private void UpdateText()
@@ -159,8 +170,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void OnClickExit(){
         WebSocket.Client.RoomEvent("UserLeft", JsonConvert.SerializeObject(Storage.CurrentUser));
-        SceneLoader.Load(SceneType.Lobby);
-        Debug.Log("´­¸²");
+        LeaveRoom();
     }
 
     private bool CheckAllUserIsReady()
@@ -173,5 +183,13 @@ public class RoomManager : MonoSingleton<RoomManager>
             }
         }
         return true;
+    }
+
+    public void LeaveRoom()
+    {
+        SceneLoader.Load(SceneType.Lobby);
+        Storage.CurrentRoom = null;
+        Storage.CurrentUser.IsReady = false;
+        Storage.CurrentUser.IsMaster = false;
     }
 }
