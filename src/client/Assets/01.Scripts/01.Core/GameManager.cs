@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     private void Client_OnEntityEventMessage(object sender, EntityEventArgs e)
     {
+        if (WebSocket.Client.CheckIsOwnedEntity(e.EntityUUID))
+            return;
         Entity.InvokeAction(e.EntityUUID, e.EventName);
         //TODO DoAttack -> CharacterEvent.InvokeEvent(DoAttack)
         //TODO DoFlipLeft -> CharacterEvent.InvokeEvent(DoFlipLeft)

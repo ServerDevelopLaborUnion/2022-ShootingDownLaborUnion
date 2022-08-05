@@ -18,9 +18,6 @@ public class UnTargetAttack : PlayerAttack
     protected override void Attack()
     {
         
-        if (_clickDelay <= 0)
-        {
-            _clickDelay = 0.2f;
             List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
             if (enemies.Count != 0)
             {
@@ -65,15 +62,7 @@ public class UnTargetAttack : PlayerAttack
 
                 WebSocket.Client.ApplyEntityMove(_base);
             }
-        }
     }
-
-    private void Update()
-    {
-        if (_clickDelay >= 0)
-            _clickDelay -= Time.deltaTime;
-    }
-
     public void ActiveSkill()
     {
         _isSkill = true;

@@ -47,9 +47,6 @@ public class PlayerAttack : CharacterAttack
 
     protected override void Attack()
     {
-        if(_clickDelay <= 0)
-        {
-            _clickDelay = 0.2f;
             List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
             if (enemies.Count != 0)
             {
@@ -87,7 +84,6 @@ public class PlayerAttack : CharacterAttack
             }
 
             _renderer.FlipCharacter(dir);
-        }
         
     }
 
@@ -106,8 +102,6 @@ public class PlayerAttack : CharacterAttack
         {
             closestEnemy = null;
         }
-        if (_clickDelay >= 0)
-            _clickDelay -= Time.deltaTime;
     }
 
     public float GetDistance(Vector2 pos1, Vector2 pos2)

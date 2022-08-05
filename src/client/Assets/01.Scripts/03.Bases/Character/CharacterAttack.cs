@@ -46,7 +46,6 @@ public class CharacterAttack : MonoBehaviour
     protected virtual void SetAttack()
     {
         _base.State.CurrentState |= CharacterState.State.Attack;
-
         OnAttacked?.Invoke();
         WebSocket.Client.ApplyEntityMove(_base);
 

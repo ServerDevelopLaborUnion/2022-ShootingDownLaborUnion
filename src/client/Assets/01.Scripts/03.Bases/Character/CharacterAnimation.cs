@@ -35,6 +35,8 @@ public class CharacterAnimation : MonoBehaviour
     {
         if (_characterBase.State.CurrentState.HasFlag(CharacterState.State.Died) || _characterBase.State.CurrentState.HasFlag(CharacterState.State.Attack)) return;
         SetAnimationSpeed();
+        if(_characterBase.Data.Type == EntityType.Player)
+        Debug.Log(1);
         _animator.SetTrigger(_doAttack);
     }
 

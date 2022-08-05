@@ -22,7 +22,9 @@ public class UIManager : MonoSingleton<UIManager>
 
     private void Awake()
     {
-        // _enemySummonBtn.onClick.AddListener(()=> WebSocket.Client.CreateEntityEvent(_enemyEntity));
+        Entity entity = _enemyEntity;
+        entity.Data.Job = RoleType.Enemy;
+        _enemySummonBtn.onClick.AddListener(()=> WebSocket.Client.CreateEntityEvent(entity));
     }
 
     public void CraeteEnemy()

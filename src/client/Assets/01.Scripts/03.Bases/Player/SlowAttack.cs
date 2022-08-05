@@ -15,9 +15,6 @@ public class SlowAttack : PlayerAttack
 
     protected override void Attack()
     {
-        if (_clickDelay <= 0)
-        {
-            _clickDelay = 0.2f;
             List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
             if (enemies.Count != 0)
             {
@@ -55,7 +52,6 @@ public class SlowAttack : PlayerAttack
             }
 
             _renderer.FlipCharacter(dir);
-        }
     }
 
     private void Update()
@@ -73,8 +69,6 @@ public class SlowAttack : PlayerAttack
         {
             closestEnemy = null;
         }
-        if (_clickDelay >= 0)
-            _clickDelay -= Time.deltaTime;
     }
 
     public override void EndAttack()
