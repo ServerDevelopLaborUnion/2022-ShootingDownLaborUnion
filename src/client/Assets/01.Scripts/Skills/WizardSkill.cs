@@ -30,6 +30,7 @@ public class WizardSkill : SkillBase
         _isSkill = true;
         _anime.PlaySkillAnime();
         EventUseSkill();
+        if (WebSocket.Client.CheckIsOwnedEntity(_base))
         WebSocket.Client.ApplyEntityAction(_base, "DoSkill");
     }
 

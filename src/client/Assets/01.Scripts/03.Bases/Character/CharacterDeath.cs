@@ -22,7 +22,8 @@ public class CharacterDeath : MonoBehaviour
 
     public void CharacterDead()
     {
-        WebSocket.Client.ApplyEntityAction(_base, "DoDie");
+        if (WebSocket.Client.CheckIsOwnedEntity(_base))
+            WebSocket.Client.ApplyEntityAction(_base, "DoDie");
         NetworkManager.Instance.playerList.Remove(_base);
         _base.State.CurrentState |= CharacterState.State.Died;
         OnCharacterDied?.Invoke();

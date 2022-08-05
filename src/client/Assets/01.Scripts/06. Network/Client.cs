@@ -292,7 +292,10 @@ namespace WebSocket
         {
             return string.Compare(SessionID, entity.Data.OwnerUUID) == 0;
         }
-
+        public static bool CheckIsOwnedEntity(string uuid)
+        {
+            return string.Compare(SessionID, uuid) == 0;
+        }
         private void Awake()
         {
             DontDestroyOnLoad(this);
@@ -633,8 +636,6 @@ namespace WebSocket
 
         public static void ApplyEntityMove(Entity entity)
         {
-            if (!CheckIsOwnedEntity(entity))
-                return;
             if (Storage.CurrentUser.UUID == entity.Data.OwnerUUID)
             {
                 var moveEntityRequest = new Protobuf.Server.EntityMoveRequest();
@@ -650,8 +651,6 @@ namespace WebSocket
 
         public static void ApplyEntityAction(Entity entity, string eventName)
         {
-            if (!CheckIsOwnedEntity(entity))
-                return;
             if (_connectionState == ConnectionState.Connected)
             {
                 var entityEventRequest = new Protobuf.Server.EntityEventRequest();

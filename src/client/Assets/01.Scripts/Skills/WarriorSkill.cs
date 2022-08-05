@@ -29,6 +29,7 @@ public class WarriorSkill : SkillBase
         _isSkill = true;
         _isRight = MousePos.x >= transform.position.x;
         _anime.PlaySkillAnime();
+        if (WebSocket.Client.CheckIsOwnedEntity(_base))
         WebSocket.Client.ApplyEntityAction(_base, "DoSkill");
     }
 

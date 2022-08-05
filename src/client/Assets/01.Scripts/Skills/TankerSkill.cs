@@ -25,6 +25,7 @@ public class TankerSkill : SkillBase
         _isSkill = true;
         _anime.PlaySkillAnime();
         _hammerTrail.SetActive(true);
+        if (WebSocket.Client.CheckIsOwnedEntity(_base))
         WebSocket.Client.ApplyEntityAction(_base, "DoSkill");
     }
 
