@@ -155,6 +155,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         else
         {
             Debug.Log($"{user.Name} : {CheckAllUserIsReady()} / {Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers}");
+            Debug.Log((int)_masterUser.Role);
             _rolePanels[(int)_masterUser.Role].ActiveStartBtn(false);
 
         }
