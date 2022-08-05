@@ -25,6 +25,11 @@ public class UIManager : MonoSingleton<UIManager>
         // _enemySummonBtn.onClick.AddListener(()=> WebSocket.Client.CreateEntityEvent(_enemyEntity));
     }
 
+    public void CraeteEnemy()
+    {
+        WebSocket.Client.CreateEntityEvent(_enemyEntity);
+    }
+
     public void SummonMoveImpact()
     {
         Instantiate(MoveImpact, Define.MousePos, Quaternion.identity);
