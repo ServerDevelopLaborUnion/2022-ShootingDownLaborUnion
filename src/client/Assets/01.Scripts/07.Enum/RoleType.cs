@@ -1,8 +1,8 @@
 ﻿public enum RoleType{
     NONE,
-    WARRIOR,
-    GUNNER,
-    WIZARD,
-    TANKER,
-    ENEMY
+    Warrior,
+    Gunner,
+    Wizard,
+    Tanker,
+    Enemy
 }
