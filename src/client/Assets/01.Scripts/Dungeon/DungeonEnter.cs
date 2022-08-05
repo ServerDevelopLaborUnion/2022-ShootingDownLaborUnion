@@ -19,6 +19,8 @@ public class DungeonEnter : MonoBehaviour
     [SerializeField]
     private List<GameObject> _activeObjs = new List<GameObject>();
 
+    [field: SerializeField]
+    private List<Entity> _roleEntity = new List<Entity>();
 
     [SerializeField]
     private float _moveDuration = 0.5f;
@@ -63,7 +65,15 @@ public class DungeonEnter : MonoBehaviour
         _activeObjs.ForEach(x => x.SetActive(true));
 
         //TOOD: 플레이어들 각각 위치로 스폰시켜주기
-        VCam.transform.DOMove(new Vector3(0f, 0f, -10f), 1f);
+
+        for (int i = 0; i < Storage.CurrentRoom.Users.Count; ++i){
+            WebSocket.Client.CreateEntityEvent(_roleEntity[(int)Storage.CurrentRoom.Users[i].Role]);
+        }
+        for (int i = 0; i < _roleEntity.Count; ++i){
+            _roleEntity[i].Data.Position = _playerSpawnTransform[i].position;
+        }
+
+            VCam.transform.DOMove(new Vector3(0f, 0f, -10f), 1f);
         DOTween.To(
             () => VCam.m_Lens.OrthographicSize,
             value => VCam.m_Lens.OrthographicSize = value,
