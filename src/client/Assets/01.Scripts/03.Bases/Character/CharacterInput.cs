@@ -24,6 +24,7 @@ public class CharacterInput : MonoBehaviour
     private SkillBase _skill = null;
     private CharacterRenderer _renderer = null;
 
+    private float _clickDelay = 0.2f;
     private float _delay = 0;
 
     private bool _isShowingRange = false;
@@ -52,13 +53,19 @@ public class CharacterInput : MonoBehaviour
         OnRangeKeyInput.AddListener(() => _attack.ToggleRange());
         OnSkillKeyInput.AddListener(() => _skill.UseSkill());
     }
-    protected virtual void LateUpdate()
+    protected virtual void Update()
     {
+        if(_clickDelay >= 0)
+            _clickDelay -= Time.deltaTime;
         if (Input.GetMouseButtonDown(1))
         {
-            UIManager.Instance.SummonMoveImpact();
-            OnMoveKeyInput?.Invoke(MousePos + Vector2.up);
-            WebSocket.Client.ApplyEntityMove(playerEntity);
+            if(_clickDelay <= 0)
+            {
+                UIManager.Instance.SummonMoveImpact();
+                OnMoveKeyInput?.Invoke(MousePos + Vector2.up);
+                WebSocket.Client.ApplyEntityMove(playerEntity);
+                _clickDelay = 0.2f;
+            }
         }
         else if (Input.GetMouseButton(1))
         {

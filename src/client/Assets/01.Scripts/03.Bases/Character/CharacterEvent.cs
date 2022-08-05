@@ -45,7 +45,6 @@ public class CharacterEvent : MonoBehaviour
             case "DoAttack":
                 DoAttack.Invoke();
                 break;
-
             case "PlayAttack":
                 PlayAttack.Invoke();
                 break;
