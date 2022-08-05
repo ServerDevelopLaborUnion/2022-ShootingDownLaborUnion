@@ -17111,7 +17111,7 @@ MonoBehaviour:
   _skillCoolTimeImage: {fileID: 1567365079}
   MoveImpact: {fileID: 4095399843556811132, guid: fba9896110c090d4eaa16dc5ca765337, type: 3}
   _enemySummonBtn: {fileID: 2119767601}
-  _enemyEntity: {fileID: 4610916560795007064, guid: 449fa7352d04f3f43bdcfad9d7f22560, type: 3}
+  _enemyEntity: {fileID: 3821160388987991285, guid: 11aa053e4c47a8c4191bfd8ea0caba39, type: 3}
 --- !u!114 &528410011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32468,6 +32468,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792334487}
   m_CullTransparentMesh: 1
+--- !u!1 &1826680150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5500343004469638667, guid: 97895536d98834149bc286a9700d3852, type: 3}
+  m_PrefabInstance: {fileID: 3765974441521293702}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1826680151}
+  m_Layer: 0
+  m_Name: 'Wizard (Missing Prefab with guid: 97895536d98834149bc286a9700d3852)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1826680151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5500343004469638664, guid: 97895536d98834149bc286a9700d3852, type: 3}
+  m_PrefabInstance: {fileID: 3765974441521293702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826680150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1970372201
 GameObject:
   m_ObjectHideFlags: 0
@@ -33200,7 +33230,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3821160388987991284, guid: 11aa053e4c47a8c4191bfd8ea0caba39, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3821160388987991284, guid: 11aa053e4c47a8c4191bfd8ea0caba39, type: 3}
       propertyPath: m_LocalPosition.x

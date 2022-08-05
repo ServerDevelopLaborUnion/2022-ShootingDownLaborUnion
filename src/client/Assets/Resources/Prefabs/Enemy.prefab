@@ -501,7 +501,7 @@ MonoBehaviour:
     _hp: 125
     _atk: 40
     _def: 0
-    _speed: 8
+    _speed: 1
     _atkSpeed: 2
     _atkRange: 0
   _playerState:
