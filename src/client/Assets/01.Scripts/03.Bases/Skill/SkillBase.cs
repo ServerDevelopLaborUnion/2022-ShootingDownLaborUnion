@@ -44,13 +44,15 @@ public class SkillBase : MonoBehaviour
 
 
     protected virtual IEnumerator UsedSkill(){
-        if (Storage.CurrentUser.UUID != _base.Data.OwnerUUID)
-            yield break;
-        _coolTimeImage.fillAmount = 0f;
-        _coolTimeImage.color = Color.gray;
+        if (WebSocket.Client.CheckIsOwnedEntity(_base))
+        {
+            _coolTimeImage.fillAmount = 0f;
+            _coolTimeImage.color = Color.gray;
+        }
 
         for (; _coolTimeImage.fillAmount < 1f; ){
-            _coolTimeImage.fillAmount += Time.deltaTime / _coolTime;
+            if (WebSocket.Client.CheckIsOwnedEntity(_base))
+                _coolTimeImage.fillAmount += Time.deltaTime / _coolTime;
             yield return null;
         }
 
