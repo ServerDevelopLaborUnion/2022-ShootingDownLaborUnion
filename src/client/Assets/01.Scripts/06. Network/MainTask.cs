@@ -34,7 +34,10 @@ public class MainTask : MonoSingleton<MainTask>
         {
             try
             {
-                _messageQueue.Dequeue()?.Invoke();
+                for (int i = 0; i < _messageQueue.Count; i++)
+                {
+                    _messageQueue.Dequeue()?.Invoke();
+                }
             }
             catch (Exception e)
             {
