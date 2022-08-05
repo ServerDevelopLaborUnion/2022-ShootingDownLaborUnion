@@ -198,6 +198,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         Storage.CurrentRoom = null;
         Storage.CurrentUser.IsReady = false;
         Storage.CurrentUser.IsMaster = false;
+        UpdateUser(0, false);
         SceneLoader.Load(SceneType.Lobby);
     }
 }
