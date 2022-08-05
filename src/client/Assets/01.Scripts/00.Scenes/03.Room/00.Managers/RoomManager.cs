@@ -29,7 +29,8 @@ public class RoomManager : MonoSingleton<RoomManager>
     {
         WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
         {
-            var user = JsonUtility.FromJson<User>(data);
+            var user = JsonConvert.DeserializeObject<User>(data);
+            Debug.Log($"{user.Name} ({user.UUID}) Has Joined");
             if (Storage.CurrentRoom.Users.FirstOrDefault(x => x.UUID == user.UUID) == null)
             {
                 Storage.CurrentRoom.Users.Add(user);
@@ -39,7 +40,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         WebSocket.Client.SubscribeRoomEvent("UserLeft", (data) =>
         {
-            var user = JsonUtility.FromJson<User>(data);
+            var user = JsonConvert.DeserializeObject<User>(data);
             Storage.CurrentRoom.LeftUser(user);
             OnUserLeave(user);
         });
@@ -51,14 +52,13 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         WebSocket.Client.SubscribeRoomEvent("UserUpdated", (data) =>
         {
-            Debug.Log($"data : {data}");
             var user = JsonConvert.DeserializeObject<User>(data);
-            Debug.Log($"user : {JsonConvert.SerializeObject(user)}");
             OnUpdateRole(user, (int)user.Role, user.IsReady);
         });
 
         WebSocket.Client.SubscribeRoomEvent("Kicked", (data) =>
         {
+            Debug.Log($"You have been kicked from the room");
             OnKicked();
         });
 
@@ -111,6 +111,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         _rolePanels[(int)user.Role].ActiveReadyPanel(false);
         UpdateText();
         OnUpdateRole(user, (int)user.Role, false);
+        Storage.CurrentRoom.Users.Remove(Storage.CurrentRoom.Users.FirstOrDefault(x => x.UUID == user.UUID));
     }
 
     private void SetChoosePanel(int role, bool isActive)
