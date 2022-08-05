@@ -66,14 +66,10 @@ public class DungeonEnter : MonoBehaviour
 
         //TOOD: 플레이어들 각각 위치로 스폰시켜주기
 
-        for (int i = 0; i < Storage.CurrentRoom.Users.Count; ++i){
-            WebSocket.Client.CreateEntityEvent(_roleEntity[(int)Storage.CurrentRoom.Users[i].Role]);
-        }
-        for (int i = 0; i < _roleEntity.Count; ++i){
-            _roleEntity[i].Data.Position = _playerSpawnTransform[i].position;
-        }
+        _roleEntity[(int)Storage.CurrentUser.Role].Data.Position = _playerSpawnTransform[(int)Storage.CurrentUser.Role].position;
+        WebSocket.Client.CreateEntityEvent(_roleEntity[(int)Storage.CurrentUser.Role]);
 
-            VCam.transform.DOMove(new Vector3(0f, 0f, -10f), 1f);
+        VCam.transform.DOMove(new Vector3(0f, 0f, -10f), 1f);
         DOTween.To(
             () => VCam.m_Lens.OrthographicSize,
             value => VCam.m_Lens.OrthographicSize = value,

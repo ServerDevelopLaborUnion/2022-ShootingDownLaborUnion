@@ -680,6 +680,7 @@ namespace WebSocket
         }
         public static void CreateEntityEvent(Entity entity)
         {
+            Debug.Log("Send CreateEvent");
             var createEntityRequest = new Protobuf.Server.EntityCreateRequest();
 
             createEntityRequest.Entity = new Protobuf.Entity();
