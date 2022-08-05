@@ -53,7 +53,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         WebSocket.Client.SubscribeRoomEvent("UserUpdated", (data) =>
         {
             var user = JsonConvert.DeserializeObject<User>(data);
-            OnUpdateRole(user, (int)user.Role, user.IsReady);
+            OnUpdateRole(user, (int)user.Role - 1, user.IsReady);
         });
 
         WebSocket.Client.SubscribeRoomEvent("Kicked", (data) =>
@@ -71,7 +71,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
             if (!user.IsReady) continue;
 
-            OnUpdateRole(user, (int)user.Role, user.IsReady);
+            OnUpdateRole(user, (int)user.Role - 1, user.IsReady);
         }
         if (_masterUser == null)
         {
@@ -110,7 +110,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         Debug.Log($"{user.Name}´ÔÀÌ ³ª°¡¼Ì½À´Ï´Ù");
         _rolePanels[(int)user.Role].ActiveReadyPanel(false);
         UpdateText();
-        OnUpdateRole(user, (int)user.Role, false);
+        OnUpdateRole(user, (int)user.Role - 1, false);
         Storage.CurrentRoom.Users.Remove(Storage.CurrentRoom.Users.FirstOrDefault(x => x.UUID == user.UUID));
     }
 
