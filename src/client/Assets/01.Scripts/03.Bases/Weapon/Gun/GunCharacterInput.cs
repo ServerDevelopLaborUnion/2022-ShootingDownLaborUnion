@@ -10,8 +10,8 @@ public class GunCharacterInput : CharacterInput
 
     public UnityEvent GetOnMouseKeyEvent => OnMouseKeyEvent;
 
-    protected override void LateUpdate() {
-        base.LateUpdate();
+    protected override void Update() {
+        base.Update();
         if(Input.GetMouseButton(0))
             OnMouseKeyEvent?.Invoke();
     }
