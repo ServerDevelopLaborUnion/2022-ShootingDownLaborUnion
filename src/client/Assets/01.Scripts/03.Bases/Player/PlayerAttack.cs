@@ -47,9 +47,7 @@ public class PlayerAttack : CharacterAttack
 
     protected override void Attack()
     {
-        if (_clickDelay >= 0)
-            _clickDelay -= Time.deltaTime;
-        if(_clickDelay < 0)
+        if(_clickDelay <= 0)
         {
             _clickDelay = 0.2f;
             List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
