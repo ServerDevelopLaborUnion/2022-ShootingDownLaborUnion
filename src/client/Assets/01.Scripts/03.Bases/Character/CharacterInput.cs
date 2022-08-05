@@ -87,10 +87,15 @@ public class CharacterInput : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                UIManager.Instance.SummonMoveImpact();
-                OnAttackKeyInput?.Invoke();
-                OnRangeKeyInput?.Invoke();
-                _isShowingRange = !_isShowingRange;
+                if (_clickDelay <= 0)
+                {
+                    UIManager.Instance.SummonMoveImpact();
+                    OnAttackKeyInput?.Invoke();
+                    OnRangeKeyInput?.Invoke();
+                    _isShowingRange = !_isShowingRange;
+                    _clickDelay = 0.2f;
+
+                }
             }
         }
 
