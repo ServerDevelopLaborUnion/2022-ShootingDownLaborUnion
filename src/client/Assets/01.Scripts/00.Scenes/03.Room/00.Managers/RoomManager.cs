@@ -136,7 +136,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         user.Role = (RoleType)role;
 
-        bool isStart = CheckAllUserIsReady() && Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers;
+        bool isStart = CheckAllUserIsReady();
 
         if (isStart)
         {
@@ -144,7 +144,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         }
         else
         {
-            Debug.Log($"{user.Name} : {CheckAllUserIsReady()} / {Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers}");
+            Debug.Log($"{user.Name} : {CheckAllUserIsReady()}");
             _rolePanels[(int)_masterUser.Role].ActiveStartBtn(false);
 
         }
@@ -182,7 +182,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     private bool CheckAllUserIsReady()
     {
         bool isAllUserIsReady = true;
-        for (int i = 0; i < Storage.CurrentRoom.Users.Count; ++i)
+        for (int i = 0; i < RoomInfo.MaxPlayers; ++i)
         {
             if (!Storage.CurrentRoom.Users[i].IsReady)
             {
