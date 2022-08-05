@@ -65,11 +65,11 @@ public class RoomManager : MonoSingleton<RoomManager>
         foreach (User user in Storage.CurrentRoom.Users)
         {
             if (!user.IsReady) continue;
-            OnUpdateRole(user, (int)user.Role, user.IsReady);
             if (user.IsMaster)
             {
                 _masterUser = user;
             }
+            OnUpdateRole(user, (int)user.Role, user.IsReady);
         }
         if (_masterUser == null)
         {
@@ -97,6 +97,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void OnUserLeave(User user)
     {
+        Debug.Log($"{user.Name}´ÔÀÌ ³ª°¡¼Ì½À´Ï´Ù");
         _rolePanels[(int)user.Role].ActiveReadyPanel(false);
         UpdateText();
         OnUpdateRole(user, (int)user.Role, false);
