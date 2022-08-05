@@ -460,6 +460,7 @@ namespace WebSocket
                             var entityCreateMessage = Protobuf.Client.EntityCreate.Parser.ParseFrom(buffer);
                             Debug.Log(entityCreateMessage.Entity);
                             int entityType = JObject.Parse(entityCreateMessage.Entity.Data)["type"].Value<int>();
+                            int entityJob = JObject.Parse(entityCreateMessage.Entity.Data)["role"].Value<int>();
                             MainTask.Enqueue(() => OnEntityCreateMessage?.Invoke(this, new EntityCreateEventArgs(
                                 new EntityData
                                 (
@@ -468,7 +469,8 @@ namespace WebSocket
                                     entityCreateMessage.Entity.Name,
                                     new Vector2(entityCreateMessage.Entity.Position.X, entityCreateMessage.Entity.Position.Y),
                                     new Quaternion(entityCreateMessage.Entity.Rotation.X, entityCreateMessage.Entity.Rotation.Y, entityCreateMessage.Entity.Rotation.Z, entityCreateMessage.Entity.Rotation.W),
-                                    (EntityType)entityType
+                                    (EntityType)entityType,
+                                    (RoleType)entityJob
                                 )
                             )));
                             break;
@@ -686,7 +688,7 @@ namespace WebSocket
             createEntityRequest.Entity.Name = entity.Data.Name;
             createEntityRequest.Entity.Position = entity.Data.Position.ToProtobuf();
             createEntityRequest.Entity.Rotation = entity.Data.Rotation.ToProtobuf();
-            createEntityRequest.Entity.Data = $"{{\"type\": {(int)entity.Data.Type}}}";
+            createEntityRequest.Entity.Data = $"{{\"type\": {(int)entity.Data.Type}, \"role\": {(int)entity.Data.Type}}}";
 
             SendPacket(5, createEntityRequest);
         }

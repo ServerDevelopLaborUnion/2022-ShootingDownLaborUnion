@@ -46,6 +46,7 @@ public class EntityData
         }
     }
     public EntityType Type;
+    public RoleType Job;
     public CharacterStat entityStat = null;
 
     private Vector2 position;
@@ -54,7 +55,7 @@ public class EntityData
     [NonSerialized]
     public Entity parantEntity = null;
 
-    public EntityData(string uuid, string ownerUUID, string name, Vector2 position, Quaternion rotation, EntityType type, Entity entity = null)
+    public EntityData(string uuid, string ownerUUID, string name, Vector2 position, Quaternion rotation, EntityType type, RoleType job, Entity entity = null)
     {
         UUID = uuid;
         OwnerUUID = ownerUUID;
@@ -62,6 +63,7 @@ public class EntityData
         Position = position;
         Rotation = rotation;
         Type = type;
+        Job = job;
         parantEntity = entity;
         TargetPosition = position;
     }
