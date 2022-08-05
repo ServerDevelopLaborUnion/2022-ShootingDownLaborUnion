@@ -184,6 +184,7 @@ public class RoomManager : MonoSingleton<RoomManager>
         bool isAllUserIsReady = true;
         for (int i = 0; i < RoomInfo.MaxPlayers; ++i)
         {
+            if(Storage.CurrentRoom.Users[i] == null)continue;
             if (!Storage.CurrentRoom.Users[i].IsReady)
             {
                 Debug.Log($"{Storage.CurrentRoom.Users[i].Name}이 레디를 누르지 않음");
