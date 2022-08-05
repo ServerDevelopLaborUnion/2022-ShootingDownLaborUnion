@@ -144,7 +144,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         _rolePanels[role].ActiveReadyPanel(localUser.IsReady);
 
-        localUser.Role = (RoleType)role;
+        localUser.Role = (RoleType)(role + 1);
 
         bool isStart = CheckAllUserIsReady() && Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers;
 
@@ -167,7 +167,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     {
         SetChoosePanel(role, isReady);
 
-        Storage.CurrentUser.Role = (RoleType)role;
+        Storage.CurrentUser.Role = (RoleType)(role + 1);
         Storage.CurrentUser.IsReady = isReady;
 
         WebSocket.Client.RoomEvent("UserUpdated", JsonConvert.SerializeObject(Storage.CurrentUser));
