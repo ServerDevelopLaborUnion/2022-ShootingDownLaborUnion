@@ -148,7 +148,7 @@ namespace WebSocket
 
     public class StartGameEventArgs : EventArgs
     {
-        
+
     }
 
     public class SetRoleEventArgs : EventArgs
@@ -364,7 +364,7 @@ namespace WebSocket
             OnChatMessage = null;
             OnStartGameMessage = null;
             OnSetRoleMessage = null;
-            
+
             OnRoomEvent.Clear();
             OnUserEvent.Clear();
 
@@ -762,7 +762,10 @@ namespace WebSocket
         public static void RoomEvent(string name, string data)
         {
             var roomEventRequest = new Protobuf.Server.RoomEvent();
-            roomEventRequest.RoomUUID = Storage.CurrentRoom.Info.UUID;
+            if (Storage.CurrentUser != null)
+            {
+                roomEventRequest.RoomUUID = Storage.CurrentRoom.Info.UUID;
+            }
             roomEventRequest.EventName = name;
             roomEventRequest.EventData = data;
 
