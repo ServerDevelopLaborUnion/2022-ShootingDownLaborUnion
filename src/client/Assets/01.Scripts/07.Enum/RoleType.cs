@@ -1,7 +1,8 @@
-public enum RoleType{
+﻿public enum RoleType{
     NONE,
     WARRIOR,
     GUNNER,
     WIZARD,
-    TANKER
+    TANKER,
+    ENEMY
 }

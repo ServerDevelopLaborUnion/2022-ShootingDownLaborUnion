@@ -12,7 +12,7 @@ public class Entity : MonoBehaviour
 
     public static Entity EntityCreate(EntityData data)
     {
-        GameObject prefab = Resources.Load("Prefabs/" + data.Type.ToString()) as GameObject;
+        GameObject prefab = Resources.Load("Prefabs/" + data.Job.ToString()) as GameObject;
         var newObject = Instantiate(prefab, data.Position, data.Rotation);
         newObject.name = data.Name;
         Entity temp = newObject.GetComponent<Entity>();
