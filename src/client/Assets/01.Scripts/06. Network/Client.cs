@@ -760,7 +760,7 @@ namespace WebSocket
         public static void RoomEvent(string name, string data)
         {
             var roomEventRequest = new Protobuf.Server.RoomEvent();
-            if (Storage.CurrentUser != null)
+            if (Storage.CurrentRoom != null)
             {
                 roomEventRequest.RoomUUID = Storage.CurrentRoom.Info.UUID;
             }
