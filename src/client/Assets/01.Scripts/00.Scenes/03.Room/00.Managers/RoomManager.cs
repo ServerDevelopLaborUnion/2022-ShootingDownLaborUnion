@@ -28,7 +28,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     private void Start()
     {
         WebSocket.Client.RoomEvent("UserJoined", JsonConvert.SerializeObject(Storage.CurrentUser));
-        
+
         WebSocket.Client.SubscribeRoomEvent("UserJoined", (data) =>
         {
             var user = JsonConvert.DeserializeObject<User>(data);
@@ -70,11 +70,14 @@ public class RoomManager : MonoSingleton<RoomManager>
             {
                 _masterUser = user;
             }
+        }
 
+        foreach (User user in Storage.CurrentRoom.Users)
+        {
             if (!user.IsReady) continue;
-
             OnUpdateRole(user, (int)user.Role, user.IsReady);
         }
+
         if (_masterUser == null)
         {
             _masterUser = Storage.CurrentUser;
