@@ -67,6 +67,7 @@ public class DungeonEnter : MonoBehaviour
 
         //TOOD: 플레이어들 각각 위치로 스폰시켜주기
 
+        _roleEntity[(int)Storage.CurrentUser.Role].Data.Job = Storage.CurrentUser.Role;
         _roleEntity[(int)Storage.CurrentUser.Role].Data.Name = Storage.CurrentUser.Name;
         _roleEntity[(int)Storage.CurrentUser.Role].Data.Type = EntityType.Player;
         _roleEntity[(int)Storage.CurrentUser.Role].Data.Position = _playerSpawnTransform[(int)Storage.CurrentUser.Role].position;

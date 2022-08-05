@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: -591259635780490325}
   - component: {fileID: 2498423503496342935}
   m_Layer: 7
-  m_Name: Warrior
+  m_Name: WARRIOR
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
