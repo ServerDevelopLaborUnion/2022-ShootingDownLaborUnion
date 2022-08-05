@@ -64,11 +64,13 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         foreach (User user in Storage.CurrentRoom.Users)
         {
-            if (!user.IsReady) continue;
             if (user.IsMaster)
             {
                 _masterUser = user;
             }
+
+            if (!user.IsReady) continue;
+
             OnUpdateRole(user, (int)user.Role, user.IsReady);
         }
         if (_masterUser == null)
@@ -193,9 +195,9 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void LeaveRoom()
     {
-        SceneLoader.Load(SceneType.Lobby);
         Storage.CurrentRoom = null;
         Storage.CurrentUser.IsReady = false;
         Storage.CurrentUser.IsMaster = false;
+        SceneLoader.Load(SceneType.Lobby);
     }
 }
