@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 3171443064460518595}
   - component: {fileID: 7236298222863464543}
   m_Layer: 7
-  m_Name: GUNNER
+  m_Name: Gunner
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
     Name: Player
     TargetPosition: {x: 0, y: 0}
     Type: 0
-    Job: 0
+    Job: 2
     entityStat:
       _hp: 0
       _atk: 0

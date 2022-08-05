@@ -511,7 +511,7 @@ MonoBehaviour:
     Name: Player
     TargetPosition: {x: 0, y: 0}
     Type: 0
-    Job: 0
+    Job: 4
     entityStat:
       _hp: 0
       _atk: 0
