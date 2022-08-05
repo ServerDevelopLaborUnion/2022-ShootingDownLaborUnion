@@ -19799,6 +19799,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoolTimeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4607369809614209612, guid: 61653ad768b1b064ea251e9c037740c1, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607369809614209612, guid: 61653ad768b1b064ea251e9c037740c1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8948503576348223928, guid: c44c75e55f0695242b91ae3f8d00af98, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61653ad768b1b064ea251e9c037740c1, type: 3}
 --- !u!114 &478965489 stripped
