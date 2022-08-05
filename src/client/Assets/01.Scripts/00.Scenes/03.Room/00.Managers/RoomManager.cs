@@ -80,6 +80,14 @@ public class RoomManager : MonoSingleton<RoomManager>
         UpdateText();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log($"{CheckAllUserIsReady()} / {Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers}");
+        }
+    }
+
     private void OnKicked()
     {
         LeaveRoom();
@@ -165,6 +173,7 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void ClickStartGame()
     {
+        if (!Storage.CurrentUser.IsMaster) return;
         WebSocket.Client.RoomEvent("StartGame", "");
     }
 
