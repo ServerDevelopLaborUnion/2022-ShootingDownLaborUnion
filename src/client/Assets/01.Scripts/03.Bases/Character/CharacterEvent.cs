@@ -29,8 +29,8 @@ public class CharacterEvent : MonoBehaviour
         DoAttack.AddListener(() => characterAttack.DoAttack());
         PlayAttack.AddListener(()=> characterAnimation.PlayAttackAnime());
         DoMove.AddListener(() => characterAnimation.PlayMoveAnime(true));
-        DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(Vector2.left));
-        DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(Vector2.right));
+        DoFlipLeft.AddListener(() => characterRenderer.FlipCharacter(transform.position + Vector3.left));
+        DoFlipRight.AddListener(() => characterRenderer.FlipCharacter(transform.position + Vector3.right));
         DoDie.AddListener(() => characterDeath.CharacterDead());
         DoSkill.AddListener(() => skillBase.UseSkill());
     }
