@@ -68,6 +68,12 @@ public class UnTargetAttack : PlayerAttack
         }
     }
 
+    private void Update()
+    {
+        if (_clickDelay >= 0)
+            _clickDelay -= Time.deltaTime;
+    }
+
     public void ActiveSkill()
     {
         _isSkill = true;
