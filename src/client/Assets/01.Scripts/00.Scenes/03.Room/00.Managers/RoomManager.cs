@@ -139,11 +139,12 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     public void OnUpdateRole(User user, int role, bool isReady)
     {
-        user.IsReady = isReady;
+        var localUser = Storage.CurrentRoom.Users.FirstOrDefault(x => x.UUID == user.UUID);
+        localUser.IsReady = isReady;
 
-        _rolePanels[role].ActiveReadyPanel(user.IsReady);
+        _rolePanels[role].ActiveReadyPanel(localUser.IsReady);
 
-        user.Role = (RoleType)role;
+        localUser.Role = (RoleType)role;
 
         bool isStart = CheckAllUserIsReady() && Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers;
 
