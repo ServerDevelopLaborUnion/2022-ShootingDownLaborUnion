@@ -36,8 +36,9 @@ public class DungeonEnter : MonoBehaviour
 
     private IEnumerator EnterMovement()
     {
-        yield return WaitForSeconds(1f);
+        yield return null;
         _activeObjs.ForEach(x => x.SetActive(false));
+        yield return WaitForSeconds(1f);
 
         FadeManager.Instance.ShowBar(true);
 
@@ -66,6 +67,8 @@ public class DungeonEnter : MonoBehaviour
 
         //TOOD: 플레이어들 각각 위치로 스폰시켜주기
 
+        _roleEntity[(int)Storage.CurrentUser.Role].Data.Name = Storage.CurrentUser.Name;
+        _roleEntity[(int)Storage.CurrentUser.Role].Data.Type = EntityType.Player;
         _roleEntity[(int)Storage.CurrentUser.Role].Data.Position = _playerSpawnTransform[(int)Storage.CurrentUser.Role].position;
         WebSocket.Client.CreateEntityEvent(_roleEntity[(int)Storage.CurrentUser.Role]);
 
