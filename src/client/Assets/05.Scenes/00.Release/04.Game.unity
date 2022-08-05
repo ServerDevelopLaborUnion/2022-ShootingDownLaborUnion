@@ -1025,7 +1025,11 @@ MonoBehaviour:
   - {fileID: 478965490}
   - {fileID: 1920171499}
   - {fileID: 161489636}
-  _roleEntity: []
+  _roleEntity:
+  - {fileID: 693142078744925206, guid: 24bcab09818c2aa4fa41fd40598a6975, type: 3}
+  - {fileID: 3171443064460518596, guid: e9ebc7b48e4b1f949aa1a5d2a1679eba, type: 3}
+  - {fileID: 5500343004469638662, guid: 97895536d98834149bc286a9700d3852, type: 3}
+  - {fileID: 5947175543712279935, guid: 077f4511f9914bc4bbe844ffaaa9eb8c, type: 3}
   _moveDuration: 0.5
   _waitDuration: 0.6
   _endMoveDuration: 0.6
