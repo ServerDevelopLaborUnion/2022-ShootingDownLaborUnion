@@ -13,6 +13,6 @@ public class GunCharacterInput : CharacterInput
     protected override void Update() {
         base.Update();
         if(Input.GetMouseButton(0))
-            OnMouseKeyEvent?.Invoke();
+            OnMouseKeyEvent?.Invoke();  
     }
 }
