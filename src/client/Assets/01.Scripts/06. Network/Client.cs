@@ -689,7 +689,7 @@ namespace WebSocket
             createEntityRequest.Entity.Name = entity.Data.Name;
             createEntityRequest.Entity.Position = entity.Data.Position.ToProtobuf();
             createEntityRequest.Entity.Rotation = entity.Data.Rotation.ToProtobuf();
-            createEntityRequest.Entity.Data = $"{{\"type\": {(int)entity.Data.Type}, \"role\": {(int)entity.Data.Type}}}";
+            createEntityRequest.Entity.Data = $"{{\"type\": {(int)entity.Data.Type}, \"role\": {(int)entity.Data.Job}}}";
 
             SendPacket(5, createEntityRequest);
         }
