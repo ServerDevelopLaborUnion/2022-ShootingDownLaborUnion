@@ -66,12 +66,12 @@ public class DungeonEnter : MonoBehaviour
         _activeObjs.ForEach(x => x.SetActive(true));
 
         //TOOD: 플레이어들 각각 위치로 스폰시켜주기
-
-        _roleEntity[(int)Storage.CurrentUser.Role].Data.Job = Storage.CurrentUser.Role;
-        _roleEntity[(int)Storage.CurrentUser.Role].Data.Name = Storage.CurrentUser.Name;
-        _roleEntity[(int)Storage.CurrentUser.Role].Data.Type = EntityType.Player;
-        _roleEntity[(int)Storage.CurrentUser.Role].Data.Position = _playerSpawnTransform[(int)Storage.CurrentUser.Role].position;
-        WebSocket.Client.CreateEntityEvent(_roleEntity[(int)Storage.CurrentUser.Role]);
+        Entity entity = _roleEntity[(int)Storage.CurrentUser.Role];
+        entity.Data.Job = Storage.CurrentUser.Role;
+        entity.Data.Name = Storage.CurrentUser.Name;
+        entity.Data.Type = EntityType.Player;
+        entity.Data.Position = _playerSpawnTransform[(int)Storage.CurrentUser.Role].position;
+        WebSocket.Client.CreateEntityEvent(entity);
 
         VCam.transform.DOMove(new Vector3(0f, 0f, -10f), 1f);
         DOTween.To(
