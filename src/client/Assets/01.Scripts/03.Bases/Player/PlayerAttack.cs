@@ -23,6 +23,7 @@ public class PlayerAttack : CharacterAttack
     protected CharacterRenderer _renderer;
     protected Entity closestEnemy = null;
     protected Vector2 _targetPos = Vector2.zero;
+    protected float _clickDelay = 0.2f;
     protected override void Start()
     {
         base.Start();
@@ -46,43 +47,50 @@ public class PlayerAttack : CharacterAttack
 
     protected override void Attack()
     {
-        List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
-        if (enemies.Count != 0)
+        if (_clickDelay >= 0)
+            _clickDelay -= Time.deltaTime;
+        if(_clickDelay < 0)
         {
-            closestEnemy = enemies.OrderBy((enemy) => GetDistance(Define.MainCam.ScreenToWorldPoint(Input.mousePosition), enemy.transform.position)).FirstOrDefault();
-        }
-        Vector2 dir = Define.MainCam.ScreenToWorldPoint(Input.mousePosition);
-        if (closestEnemy != null)
-        {
-
-            if (GetDistance(transform.parent.position, closestEnemy.transform.position) <= _range)
+            _clickDelay = 0.2f;
+            List<Entity> enemies = NetworkManager.Instance.entityList.FindAll((entity) => entity.Data.Type == EntityType.Enemy);
+            if (enemies.Count != 0)
             {
-                dir = closestEnemy.transform.position;
-
-                OnAttacked?.Invoke();
-                Debug.Log($"{closestEnemy.name}, {GetDistance(transform.parent.position, closestEnemy.transform.position)}");
-                closestEnemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol);
-
-                base.Attack();
+                closestEnemy = enemies.OrderBy((enemy) => GetDistance(Define.MainCam.ScreenToWorldPoint(Input.mousePosition), enemy.transform.position)).FirstOrDefault();
             }
+            Vector2 dir = Define.MainCam.ScreenToWorldPoint(Input.mousePosition);
+            if (closestEnemy != null)
+            {
 
+                if (GetDistance(transform.parent.position, closestEnemy.transform.position) <= _range)
+                {
+                    dir = closestEnemy.transform.position;
+
+                    OnAttacked?.Invoke();
+                    Debug.Log($"{closestEnemy.name}, {GetDistance(transform.parent.position, closestEnemy.transform.position)}");
+                    closestEnemy.GetComponent<CharacterDamage>().GetDamaged(_base.Stat.AD, _playerCol);
+
+                    base.Attack();
+                }
+
+                else
+                {
+                    _targetPos = Define.MousePos;
+                    _move.MoveAgent(Define.MousePos + Vector2.up);
+                    _renderer.FlipCharacter(dir);
+                    WebSocket.Client.ApplyEntityMove(_base);
+                }
+            }
             else
             {
                 _targetPos = Define.MousePos;
                 _move.MoveAgent(Define.MousePos + Vector2.up);
-                _renderer.FlipCharacter(dir);
+
                 WebSocket.Client.ApplyEntityMove(_base);
             }
-        }
-        else
-        {
-            _targetPos = Define.MousePos;
-            _move.MoveAgent(Define.MousePos + Vector2.up);
 
-            WebSocket.Client.ApplyEntityMove(_base);
+            _renderer.FlipCharacter(dir);
         }
-
-        _renderer.FlipCharacter(dir);
+        
     }
 
     private void Update()
@@ -100,6 +108,8 @@ public class PlayerAttack : CharacterAttack
         {
             closestEnemy = null;
         }
+        if (_clickDelay >= 0)
+            _clickDelay -= Time.deltaTime;
     }
 
     public float GetDistance(Vector2 pos1, Vector2 pos2)
