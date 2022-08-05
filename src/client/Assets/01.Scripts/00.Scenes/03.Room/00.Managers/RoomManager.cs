@@ -133,22 +133,21 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         user.Role = (RoleType)role;
 
-        if (user.IsReady)
+        bool isStart = CheckAllUserIsReady() && Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers;
+
+        if (isStart)
         {
-            _rolePanels[role].SetNameText(user.Name);
-            if (CheckAllUserIsReady() && Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers)
-            {
-                _rolePanels[(int)_masterUser.Role].ActiveStartBtn(true);
-            }
+            _rolePanels[(int)_masterUser.Role].ActiveStartBtn(true);
         }
         else
         {
-            if (!CheckAllUserIsReady() && Storage.CurrentRoom.Users.Count != RoomInfo.MaxPlayers)
-            {
-                _rolePanels[role].ActiveStartBtn(false);
-            }
-            _rolePanels[role].SetNameText(string.Empty);
+            Debug.Log($"{user.Name} : {CheckAllUserIsReady()} / {Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers}");
+            _rolePanels[(int)_masterUser.Role].ActiveStartBtn(false);
+
         }
+
+        _rolePanels[role].SetNameText(user.IsReady ? user.Name : string.Empty);
+
     }
 
     public void UpdateUser(int role, bool isReady)
@@ -179,14 +178,16 @@ public class RoomManager : MonoSingleton<RoomManager>
 
     private bool CheckAllUserIsReady()
     {
+        bool isAllUserIsReady = true;
         for (int i = 0; i < Storage.CurrentRoom.Users.Count; ++i)
         {
             if (!Storage.CurrentRoom.Users[i].IsReady)
             {
-                return false;
+                Debug.Log($"{Storage.CurrentRoom.Users[i].Name}이 레디를 누르지 않음");
+                isAllUserIsReady = false;
             }
         }
-        return true;
+        return isAllUserIsReady;
     }
 
     public void LeaveRoom()
