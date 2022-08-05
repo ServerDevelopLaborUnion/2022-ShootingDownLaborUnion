@@ -28,7 +28,7 @@ public class UIManager : MonoSingleton<UIManager>
     public void CraeteEnemy()
     {
         Entity entity = _enemyEntity;
-        entity.Data.Job = RoleType.ENEMY;
+        entity.Data.Job = RoleType.Enemy;
         entity.Data.Type = EntityType.Enemy;
         
         WebSocket.Client.CreateEntityEvent(_enemyEntity);
