@@ -108,7 +108,7 @@ public class RoomManager : MonoSingleton<RoomManager>
     public void OnUserLeave(User user)
     {
         Debug.Log($"{user.Name}´ÔÀÌ ³ª°¡¼Ì½À´Ï´Ù");
-        _rolePanels[(int)user.Role].ActiveReadyPanel(false);
+        _rolePanels[(int)user.Role - 1].ActiveReadyPanel(false);
         UpdateText();
         OnUpdateRole(user, (int)user.Role - 1, false);
         Storage.CurrentRoom.Users.Remove(Storage.CurrentRoom.Users.FirstOrDefault(x => x.UUID == user.UUID));
@@ -150,12 +150,12 @@ public class RoomManager : MonoSingleton<RoomManager>
 
         if (isStart)
         {
-            _rolePanels[(int)_masterUser.Role].ActiveStartBtn(true);
+            _rolePanels[(int)_masterUser.Role - 1].ActiveStartBtn(true);
         }
         else
         {
             Debug.Log($"{user.Name} : {CheckAllUserIsReady()} / {Storage.CurrentRoom.Users.Count == RoomInfo.MaxPlayers}");
-            _rolePanels[(int)_masterUser.Role].ActiveStartBtn(false);
+            _rolePanels[(int)_masterUser.Role - 1].ActiveStartBtn(false);
 
         }
 
