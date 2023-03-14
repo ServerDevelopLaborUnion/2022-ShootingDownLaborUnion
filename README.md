@@ -6,9 +6,9 @@
 
 이하는 개발에 사용된 기술들에 대한 설명입니다
 
-## Javascript WebSocket Server
+## Typescript WebSocket Server
 
-`Javascript Websocket` 서버에 관한 설명
+`Typescript Websocket` 서버에 관한 설명
 
 ### 사용 기술 및 라이브러리
 
